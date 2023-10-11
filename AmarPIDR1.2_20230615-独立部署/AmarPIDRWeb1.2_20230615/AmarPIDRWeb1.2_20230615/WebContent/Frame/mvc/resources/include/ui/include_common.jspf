@@ -1,0 +1,9 @@
+<%@ page pageEncoding="UTF-8" %><%@include file="/Frame/page/jspf/include/jsp_runtime_context.jspf"%><%@
+ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%@
+ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><%@
+ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%><%@
+ taglib prefix="a3ui" uri="http://www.amarsoft.com/tags/a3ui"%>
+<c:set var="sWebRootPath" value="${pageContext.request.contextPath}" />
+<c:set var="curConfig" value="${root.curConfig}" />
+<c:set var="curPage" value="${root.curPage}" />
+<c:set var="curUser" value="${root.curPage.user}" />

@@ -1,0 +1,28 @@
+<%@ page pageEncoding="UTF-8"%><%@page import="com.amarsoft.web.dw.*"%>
+<%@include file="/Frame/page/jspf/include/jsp_runtime_context.jspf"%>
+<%@include file="/Frame/page/jspf/include/jsp_sqlca_head.jspf"%>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@include file="/Frame/page/jspf/include/jsp_head_res.jspf"%>
+<link rel="stylesheet" href="<%=sWebRootPath%>/Frame/page/resources/css/Style.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%><%=sSkinPath%>/css/Style.css">
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/checkdatavalidity.js"> </script>
+<%-- <script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/as_formatdoc.js"></script> --%>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/xls.js"> </script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_webcalendar.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_treeview.js"> </script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/widget/htmltree.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/common.js"> </script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/htmlcontrol.js"> </script>
+<%-- <script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/message.js"> </script> --%>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/dw/as_dz.js"> </script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/dw/as_dz_page.js"> </script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/dw/as_dz_middle.js"> </script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_contextmenu.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/exports/as_export.js"></script>
+<script type="text/javascript" >
+var AsOne = {SetDefault:function(sURL) {document.write("<iframe name=myform999 src='"+sURL+"' frameborder=0 width=1 height=1 style='display:none'> </iframe>");},AsInit:function() {} };
+</script>
+</head>

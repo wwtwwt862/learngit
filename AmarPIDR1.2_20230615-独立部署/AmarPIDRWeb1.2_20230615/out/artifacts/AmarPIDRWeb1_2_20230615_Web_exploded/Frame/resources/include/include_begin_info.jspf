@@ -1,0 +1,31 @@
+<%@include file="/Frame/page/jspf/include/jsp_runtime_context.jspf"
+%><%@page import="com.amarsoft.awe.dw.*"%><%@include file="/Frame/page/jspf/include/jsp_sqlca_head.jspf"
+%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@include file="/Frame/page/jspf/include/jsp_head_res_dw.jspf"%>
+</head>
+<script>var G_FromFormatDoc = false;var USE_MVC=false;</script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.watermark.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.serializejson.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_contextmenu.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_webcalendar.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_address.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/ow/as_dw_common.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/ow/as_dw_info.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/date.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/ow/autocomplete.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/ow/info.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/ow/info_pradio.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%><%=sSkinPath%>/css/ow/info.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%><%=sSkinPath%>/css/ow/info_pradio.css">
+<%
+boolean isShowButton = true;
+String sButtonPosition = "north";
+String sBrowserTitle = "";
+String sASNavigatorHtml ="";
+String sASWizardHtml = "";
+%>

@@ -1,0 +1,132 @@
+* {
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+html {
+	height: 100%;
+}
+body{
+	height: 100%;
+	margin: 0;
+	
+}
+
+.bg{
+	width:100%;
+	height:100%;
+}
+
+.video-box{
+	position: fixed;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	/*设置元素堆叠顺序，数值越大，层级越高*/
+	z-index:-100;
+}
+
+.video-background{
+	position: absolute;
+	width:100%;
+	/*填充容器，cover-保证原有尺寸比例，部分内容被裁切*/
+	object-fit:cover;
+}
+#logo-title{
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 30px;
+	color: #3B94F6;
+}
+.logon_mid_center{ 
+	position: absolute;
+	width:486px; 
+    height:650px;
+    /* margin: 150px 73px 20px 1361px; */
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0px 12px 24px 0px #00000019;
+    right: 120px;
+	top: 50%;
+	margin-top: -350px;
+}
+/* .login{
+	width:100%;
+	height:100%;
+} */
+.logo{
+	margin-top: 81px;
+	margin-bottom: -4px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#account{
+	width:402px; 
+    height:62px;
+    margin: 66.9px 42px 0 ;
+	border-radius: 8px;
+	background: #F5F7FA 12px center no-repeat;
+	border: 1px solid #F5F7FA;
+	padding-left:60px;
+}
+
+#account:hover{
+	border: 1px solid #3B94F6;
+	border-radius: 8px;
+	
+}
+
+#p8w{
+	width:402px; 
+    height:62px;
+	margin: 50px 42px 0 ;
+	border-radius: 8px;
+	background: #F5F7FA 12px center no-repeat;
+	border: 1px solid #F5F7FA;
+	padding-left:60px;
+}
+
+#p8w:hover{
+	border: 1px solid #3B94F6;
+	border-radius: 8px;
+}
+
+input:focus{
+	outline: none;
+}
+
+.remember{
+	margin: 50px 42px 0 ;	
+	color: #B6B6B6;
+	font-family: Source Han Sans CN;
+	font-weight: regular;
+	font-size: 16px;
+	line-height: 22px;
+	letter-spacing: 0px;
+	text-align: left;
+}
+
+#btn_submit{
+	margin: 59px 42px 0 ;
+	width:402px; 
+    height:60px;	
+	border-radius: 12px;
+	background: linear-gradient(91.3deg, #CFDAFF 0%, #C9D4FA 100%);
+	border: 1px solid #F5F7FA;
+	color: #FFFFFF;
+	font-family: Source Han Sans CN;
+	font-weight: medium;
+	font-size: 20px;
+	line-height: 14px;
+	letter-spacing: 0px;
+	text-align: center;
+}
+button{
+	outline: none;
+}
+/*隐藏IE浏览器输入框后面的控件：<input>的type为text时的小叉叉、type为password时的小眼睛*/
+input::-ms-clear,::-ms-reveal{
+	display: none;
+}
+/* ssologin.jsp css configuration END */

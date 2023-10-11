@@ -1,0 +1,229 @@
+
+连接到: Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+已导出 ZHS16GBK 字符集和 AL16UTF16 NCHAR 字符集
+
+即将导出指定的用户...
+. 正在导出 pre-schema 过程对象和操作
+. 正在导出用户 PIDR_DEV 的外部函数库名
+. 导出 PUBLIC 类型同义词
+. 正在导出专用类型同义词
+. 正在导出用户 PIDR_DEV 的对象类型定义
+即将导出 PIDR_DEV 的对象...
+. 正在导出数据库链接
+. 正在导出序号
+. 正在导出簇定义
+. 即将导出 PIDR_DEV 的表通过常规路径...
+. . 正在导出表                      AUDIT_INFO导出了           0 行
+. . 正在导出表                AWE_BIZFILE_INFO导出了           1 行
+. . 正在导出表                 AWE_DICT_ERRMSG导出了         545 行
+. . 正在导出表                  AWE_DO_CATALOG导出了         124 行
+. . 正在导出表             AWE_DO_COL_VALIDATE导出了          20 行
+. . 正在导出表                    AWE_DO_EVENT导出了          18 行
+. . 正在导出表                 AWE_DO_FUNCTION导出了           0 行
+. . 正在导出表                    AWE_DO_GROUP导出了          81 行
+. . 正在导出表              AWE_DO_JS_FUNCTION导出了           0 行
+. . 正在导出表                AWE_DO_KEYFILTER导出了           0 行
+. . 正在导出表                  AWE_DO_LIBRARY导出了        3473 行
+. . 正在导出表                    AWE_DO_MODES导出了           6 行
+. . 正在导出表                 AWE_DO_VALIDATE导出了          30 行
+. . 正在导出表         AWE_DO_VALIDATE_CATALOG导出了          11 行
+. . 正在导出表                  AWE_DW_CONTEXT导出了           6 行
+. . 正在导出表                AWE_ERPT_CATALOG导出了           1 行
+. . 正在导出表                   AWE_ERPT_DATA导出了           0 行
+. . 正在导出表                    AWE_ERPT_DEF导出了           3 行
+. . 正在导出表                    AWE_ERPT_MAP导出了          27 行
+. . 正在导出表                AWE_ERPT_OFFLINE导出了           0 行
+. . 正在导出表                   AWE_ERPT_PARA导出了           1 行
+. . 正在导出表                 AWE_ERPT_RECORD导出了           0 行
+. . 正在导出表                   AWE_ERPT_TYPE导出了           2 行
+. . 正在导出表                AWE_ERPT_VERSION导出了           0 行
+. . 正在导出表                AWE_FUNCTION_URL导出了          33 行
+. . 正在导出表               AWE_GROUP_CATALOG导出了           2 行
+. . 正在导出表              AWE_GROUP_CLASSIFY导出了           0 行
+. . 正在导出表                  AWE_GROUP_ITEM导出了          12 行
+. . 正在导出表                   AWE_HREF_INFO导出了           2 行
+. . 正在导出表                 AWE_JSP_RUNTIME导出了        1623 行
+. . 正在导出表                   AWE_MENU_INFO导出了          55 行
+. . 正在导出表                  AWE_QUERY_INFO导出了           3 行
+. . 正在导出表                  AWE_QUERY_USER导出了           0 行
+. . 正在导出表                  AWE_QUICK_HREF导出了          10 行
+. . 正在导出表                 AWE_RECORD_INFO导出了           8 行
+. . 正在导出表                   AWE_ROLE_MENU导出了        1226 行
+. . 正在导出表                    AWE_ROLE_URL导出了         187 行
+. . 正在导出表              AWE_SSO_LOGIN_INFO导出了           2 行
+. . 正在导出表                   AWE_TASK_INFO导出了          10 行
+. . 正在导出表                AWE_TASK_PROCESS导出了           0 行
+. . 正在导出表              AWE_WIZARD_CATALOG导出了           1 行
+. . 正在导出表              AWE_WIZARD_LIBRARY导出了           3 行
+. . 正在导出表               AWE_WIZARD_RUNNER导出了          15 行
+. . 正在导出表                      BOARD_LIST导出了          11 行
+. . 正在导出表               BUSINESS_CONTRACT导出了           0 行
+. . 正在导出表                BUSINESS_DUEBILL导出了           0 行
+. . 正在导出表                   BUSINESS_TYPE导出了           0 行
+. . 正在导出表                CLASSIFY_CATALOG导出了           1 行
+. . 正在导出表                   CLASSIFY_DATA导出了        2244 行
+. . 正在导出表                  CLASSIFY_MODEL导出了         233 行
+. . 正在导出表                 CLASSIFY_RECORD导出了          96 行
+. . 正在导出表                 CLASS_ATTRIBUTE导出了           0 行
+. . 正在导出表                   CLASS_CATALOG导出了           1 行
+. . 正在导出表                    CLASS_METHOD导出了         106 行
+. . 正在导出表                    CODE_CATALOG导出了         334 行
+. . 正在导出表                    CODE_LIBRARY导出了       10733 行
+. . 正在导出表               CONTRACT_RELATIVE导出了           0 行
+. . 正在导出表                CORPORATION_INFO导出了           1 行
+. . 正在导出表                 CUSTOMER_BELONG导出了           0 行
+. . 正在导出表               CUSTOMER_FSRECORD导出了           0 行
+. . 正在导出表                   CUSTOMER_INFO导出了           0 行
+. . 正在导出表               CUSTOMER_RELATIVE导出了           0 行
+. . 正在导出表              DATAOBJECT_CATALOG导出了           2 行
+. . 正在导出表            DATAOBJECT_COL_VALID导出了           8 行
+. . 正在导出表               DATAOBJECT_FILTER导出了           0 行
+. . 正在导出表                DATAOBJECT_GROUP导出了          16 行
+. . 正在导出表              DATAOBJECT_LIBRARY导出了          31 行
+. . 正在导出表                   DEMO_EMPLOYEE导出了           0 行
+. . 正在导出表                  DOC_ATTACHMENT导出了          13 行
+. . 正在导出表                     DOC_LIBRARY导出了           2 行
+. . 正在导出表                    DOC_RELATIVE导出了           2 行
+. . 正在导出表                     EDOC_DEFINE导出了           0 行
+. . 正在导出表                      EDOC_PRINT导出了           0 行
+. . 正在导出表                   EDOC_RELATIVE导出了           0 行
+. . 正在导出表                        ENT_INFO导出了           0 行
+. . 正在导出表                EVALUATE_CATALOG导出了           1 行
+. . 正在导出表                   EVALUATE_DATA导出了        4077 行
+. . 正在导出表                  EVALUATE_MODEL导出了          43 行
+. . 正在导出表                 EVALUATE_RECORD导出了         102 行
+. . 正在导出表              EXAMPLE_DATAWINDOW导出了           0 行
+. . 正在导出表                    EXAMPLE_INFO导出了           0 行
+. . 正在导出表                  EXAMPLE_NUMBER导出了           0 行
+. . 正在导出表             EXAMPLE_WIZARD_INFO导出了           0 行
+. . 正在导出表                    FINANCE_ITEM导出了         398 行
+. . 正在导出表                    FLOW_CATALOG导出了           0 行
+. . 正在导出表                      FLOW_MODEL导出了           0 行
+. . 正在导出表                     FLOW_OBJECT导出了           0 行
+. . 正在导出表                    FLOW_OPINION导出了           0 行
+. . 正在导出表                   FLOW_SWIMLANE导出了           0 行
+. . 正在导出表                       FLOW_TASK导出了           0 行
+. . 正在导出表                FLOW_TASK_CLOSED导出了           0 行
+. . 正在导出表                  FLOW_USER_RELA导出了           0 行
+. . 正在导出表               FORMATDOC_CATALOG导出了           0 行
+. . 正在导出表                  FORMATDOC_DATA导出了           0 行
+. . 正在导出表                   FORMATDOC_DEF导出了           0 行
+. . 正在导出表                  FORMATDOC_PARA导出了           0 行
+. . 正在导出表                FORMATDOC_RECORD导出了           0 行
+. . 正在导出表               GUARANTY_CONTRACT导出了           0 行
+. . 正在导出表             HPIDR_CREASS_ALLDLT导出了           0 行
+. . 正在导出表                 HPIDR_CREASS_BS导出了           0 行
+. . 正在导出表              HPIDR_CREASS_FSINF导出了           0 行
+. . 正在导出表           HPIDR_CREASS_IDCHANGE导出了           0 行
+. . 正在导出表               HPIDR_RATE_ALLDLT导出了           0 行
+. . 正在导出表        HPIDR_RATE_BALANCESSHEET导出了           0 行
+. . 正在导出表                   HPIDR_RATE_BS导出了           0 行
+. . 正在导出表             HPIDR_RATE_CASHFLOW导出了           0 行
+. . 正在导出表                HPIDR_RATE_FSINF导出了           0 行
+. . 正在导出表             HPIDR_RATE_IDCHANGE导出了           0 行
+. . 正在导出表               HPIDR_RATE_INCOME导出了           0 行
+. . 正在导出表           HPIDR_RATE_INVABROINF导出了           0 行
+. . 正在导出表            HPIDR_RATE_LEGREPINF导出了           0 行
+. . 正在导出表             HPIDR_RATE_MDFCINFO导出了           0 行
+. . 正在导出表          HPIDR_RATE_MNSHAHODINF导出了           0 行
+. . 正在导出表               HPIDR_RATE_NEGINF导出了           0 行
+. . 正在导出表               HPIDR_RATE_REGCAP导出了           0 行
+. . 正在导出表                   LOG_AUDITINFO导出了           0 行
+. . 正在导出表             LOG_RUNTIME_HISTORY导出了           0 行
+. . 正在导出表              OBJECTTYPE_CATALOG导出了          23 行
+. . 正在导出表                 OBJECTTYPE_RELA导出了          44 行
+. . 正在导出表                OBJECT_ATTRIBUTE导出了           0 行
+. . 正在导出表                    OBJECT_MAXSN导出了          19 行
+. . 正在导出表                        ORG_INFO导出了          36 行
+. . 正在导出表              PIDR_AMOUNT_RECORD导出了           0 行
+. . 正在导出表               PIDR_CODE_CATALOG导出了           0 行
+. . 正在导出表               PIDR_CODE_LIBRARY导出了        5817 行
+. . 正在导出表                  PIDR_CREASS_BS导出了           0 行
+. . 正在导出表               PIDR_CREASS_FSINF导出了           0 行
+. . 正在导出表       PIDR_ECOINDUSCATE_LIBRARY导出了          19 行
+. . 正在导出表                PIDR_ERROR_TABLE导出了           0 行
+. . 正在导出表              PIDR_EVALUATE_DATA导出了           0 行
+. . 正在导出表            PIDR_EVALUATE_RECORD导出了           0 行
+. . 正在导出表                   PIDR_FEEDBACK导出了           0 行
+. . 正在导出表               PIDR_FEEDBACKLOGS导出了           0 行
+. . 正在导出表          PIDR_FINANCE_STATEMENT导出了           0 行
+. . 正在导出表           PIDR_INT_BALANCESHEET导出了           0 行
+. . 正在导出表               PIDR_INT_BUSIINFO导出了           0 行
+. . 正在导出表               PIDR_INT_CASHFLOW导出了           0 行
+. . 正在导出表                PIDR_INT_ENTINFO导出了           0 行
+. . 正在导出表                  PIDR_INT_ERROR导出了           0 行
+. . 正在导出表           PIDR_INT_FINSTATEMENT导出了           0 行
+. . 正在导出表                 PIDR_INT_INCOME导出了           0 行
+. . 正在导出表            PIDR_INT_INVABROINFO导出了           0 行
+. . 正在导出表           PIDR_INT_MNSHAHODINFO导出了           0 行
+. . 正在导出表                PIDR_INT_NEGINFO导出了           0 行
+. . 正在导出表         PIDR_RATE_BALANCESSHEET导出了           0 行
+. . 正在导出表                    PIDR_RATE_BS导出了           0 行
+. . 正在导出表              PIDR_RATE_CASHFLOW导出了           0 行
+. . 正在导出表                 PIDR_RATE_FSINF导出了           0 行
+. . 正在导出表                PIDR_RATE_INCOME导出了           0 行
+. . 正在导出表            PIDR_RATE_INVABROINF导出了           0 行
+. . 正在导出表             PIDR_RATE_LEGREPINF导出了           0 行
+. . 正在导出表           PIDR_RATE_MNSHAHODINF导出了           0 行
+. . 正在导出表                PIDR_RATE_NEGINF导出了           0 行
+. . 正在导出表                PIDR_RATE_REGCAP导出了           0 行
+. . 正在导出表                 PIDR_REPORTLOGS导出了           0 行
+. . 正在导出表                PIDR_REPORT_CODE导出了           7 行
+. . 正在导出表                    PIDR_SESSION导出了           0 行
+. . 正在导出表             PIDR_TRANSFERFILTER导出了           0 行
+. . 正在导出表             PIDR_VALIDATEERRORS导出了           0 行
+. . 正在导出表           PIDR_VALIDATE_LIBRARY导出了          64 行
+. . 正在导出表                  PIDR_WHITELIST导出了           0 行
+. . 正在导出表                    PROCESS_INST导出了           0 行
+. . 正在导出表                PROCESS_WORKITEM导出了           0 行
+. . 正在导出表                  REPORT_CATALOG导出了          27 行
+. . 正在导出表                     REPORT_DATA导出了       20796 行
+. . 正在导出表                    REPORT_MODEL导出了         771 行
+. . 正在导出表                   REPORT_RECORD导出了         625 行
+. . 正在导出表                 REPORT_SERIALNO导出了           7 行
+. . 正在导出表                       ROLE_INFO导出了         110 行
+. . 正在导出表                   SCENARIO_ARGS导出了          14 行
+. . 正在导出表                SCENARIO_CATALOG导出了           5 行
+. . 正在导出表                  SCENARIO_GROUP导出了          11 行
+. . 正在导出表                  SCENARIO_MODEL导出了          60 行
+. . 正在导出表               SCENARIO_RELATIVE导出了          54 行
+. . 正在导出表                  SECURITY_AUDIT导出了          12 行
+. . 正在导出表                  SELECT_CATALOG导出了          95 行
+. . 正在导出表                      SYSTEM_LOG导出了           0 行
+. . 正在导出表               TASK_JOB_DISPATCH导出了           0 行
+. . 正在导出表                  TASK_JOB_GROUP导出了           0 行
+. . 正在导出表                TASK_RUN_HISTORY导出了           0 行
+. . 正在导出表               TASK_RUN_INTERACT导出了           0 行
+. . 正在导出表                 TASK_RUN_STATUS导出了           0 行
+. . 正在导出表                   TIMEDIFF_INFO导出了           1 行
+. . 正在导出表                   USER_BOOKMARK导出了           0 行
+. . 正在导出表                 USER_FAILEDLIST导出了          37 行
+. . 正在导出表                       USER_INFO导出了          87 行
+. . 正在导出表                       USER_LIST导出了         877 行
+. . 正在导出表              USER_LOGON_SESSION导出了           0 行
+. . 正在导出表                   USER_MARKINFO导出了           8 行
+. . 正在导出表                       USER_PREF导出了           2 行
+. . 正在导出表                   USER_PREF_DEF导出了           5 行
+. . 正在导出表                       USER_ROLE导出了         216 行
+. . 正在导出表                    USER_RUNTIME导出了           0 行
+. . 正在导出表                   USER_WORKTIPS导出了           0 行
+. . 正在导出表       VALIDATE_RULE_LIBRARY_GEL导出了           0 行
+. . 正在导出表                     WORK_RECORD导出了           0 行
+. 正在导出同义词
+. 正在导出视图
+. 正在导出存储过程
+. 正在导出运算符
+. 正在导出引用完整性约束条件
+. 正在导出触发器
+. 正在导出索引类型
+. 正在导出位图, 功能性索引和可扩展索引
+. 正在导出后期表活动
+. 正在导出实体化视图
+. 正在导出快照日志
+. 正在导出作业队列
+. 正在导出刷新组和子组
+. 正在导出维
+. 正在导出 post-schema 过程对象和操作
+. 正在导出统计信息
+成功终止导出, 没有出现警告。

@@ -1,0 +1,20 @@
+<%@include file="/Frame/resources/include/include_begin.jspf"%><%@
+page import="com.amarsoft.awe.dw.*"%>
+<script>var G_FromFormatDoc = false;</script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_contextmenu.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/ow/as_dw_common.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/ow/as_dw_list_composetable.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/ow/as_dw_list_drag.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/ow/as_dw_list_page.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/ow/as_dw_composelist.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/date.css">
+<%
+	boolean isShowFilter = true;
+	boolean isShowButton = true;
+	String sBrowserTitle = "";
+	String sButtonPosition = "north";
+	String sASNavigatorHtml ="";
+	String sASWizardHtml = "";
+%>

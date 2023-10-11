@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<inf><!-- 企业信贷资产信息 -->
+    <sgmt name="EnCreAssBsSgmt" describe="基础段" type="B" ctable="PIDR_CREASS_BS" htable="HPIDR_CREASS_BS" key="DueCode" >
+            <field name="InfRecType" describe="信息记录类型" type="text" source="db" dbname="InfRecType" />
+            <field name="DueCode" describe="借据号" type="text" source="db" dbname="DueCode" isKey="true" />
+            <field name="ContractCode" describe="贷款合同编号" type="text" source="db" dbname="ContractCode" />
+            <field name="RptDate" describe="信息报告日期" type="text" source="db" dbname="RptDate" />
+            <field name="EntName" describe="借款企业名称" type="text" source="db" dbname="EntName" />
+            <field name="EntCertType" describe="企业身份标识类型" type="text" source="db" dbname="EntCertType" />
+            <field name="EntCertNum" describe="借款企业身份标识号码 " type="text" source="db" dbname="EntCertNum" />
+            <field name="MngmtOrgCode" describe="业务管理金融机构代码" type="text" source="db" dbname="MngmtOrgCode" />
+    </sgmt>
+    <sgmt name="EnBusInfSgmt" describe="基本信息段" type="S" ctable="PIDR_CREASS_FSINF" htable="HPIDR_CREASS_FSINF" key="DueCode" >
+			<field name="BusiDtlLines" describe="贷款业务种类" type="text" source="db" dbname="BusiDtlLines" />
+			<field name="AccPrinc" describe="贷款本金" type="numeric" source="db" dbname="AccPrinc" />
+			<field name="GuarMode" describe="担保方式" type="text" source="db" dbname="GuarMode" />
+			<field name="AnnualRate" describe="年利率" type="isodouble" source="db" dbname="AnnualRate" />
+			<field name="OpenDate" describe="贷款发放日" type="text" source="db" dbname="OpenDate" />
+			<field name="DueDate" describe="贷款到期日" type="text" source="db" dbname="DueDate" />
+			<field name="LatRpyDate" describe="最近一次还款日期" type="text" source="db" dbname="LatRpyDate" />
+			<field name="AcctBal" describe="贷款剩余本金" type="numeric" source="db" dbname="AcctBal" />
+			<field name="AcctStatus" describe="贷款状态" type="text" source="db" dbname="AcctStatus" />
+			<field name="IsGreen" describe="是否符合绿色信贷" type="text" source="db" dbname="IsGreen" />
+			<field name="FiveCate" describe="五级分类" type="text" source="db" dbname="FiveCate" />
+    </sgmt>
+</inf>

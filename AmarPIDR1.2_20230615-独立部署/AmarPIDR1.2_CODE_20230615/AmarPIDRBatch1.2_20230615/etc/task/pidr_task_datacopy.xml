@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	央评系统数据文件加载
+ -->
+<!-- 任务定义文件,每个任务有一个文件构成，任务构造器可以根据此文件构造一个任务出来 -->
+<task name="PIDRDataCopyTask" describe="央行内评数据文件加载" recovery="false"  saveHistory="true"  historyFolder="./his">
+	<executeUnits>
+	
+	    <!-- 检测数据文件格式 --> 
+        <executeUnit name="CheckFileData" describe="检测数据文件格式" allowManualExecute="true" executeClass="com.amarsoft.app.pbc.pidr.data.FileCheckUnit">
+              <extendProperties>
+				<!-- 检查结果输出文件，缺省为data/export/datasource_check_report.txt -->
+				<property name="unit.resultFile" value="data/export/datasource_check_report.txt"/>
+				<property name="unit.extraPath" value="{$ARE.importFile}/{$ARE.fileDate}" />
+			</extendProperties>
+    	</executeUnit>
+         
+		<!--PIDR_INT_ENTINFO:导入上游按照接口要求提供的企业基本信息数据文件-->
+		<executeUnit name="ImportPIDREntInfo" describe="加载企业基本信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_ENTINFO:etc/pidr_are.xml:"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+				<!-- 构成处理过程的数据源 -->
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+					value="datasource:ndb:pidr_data:select * from PIDR_INT_ENTINFO:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_ENTINFO_{$ARE.fileDate}.dat:\|"/>
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" /> 				
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_ENTINFO" />
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="CUSTOMERID" />
+				<!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+				<!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+ 				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+ 			</extendProperties>
+		</executeUnit>
+		
+		<!--PIDR_INT_MNSHAHODINFO:导入上游按照接口要求提供的企业注册资本及主要出资人数据文件-->
+		<executeUnit name="ImportPIDRInvestorInfo" describe="加载企业注册资本及主要出资人信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_MNSHAHODINFO:etc/pidr_are.xml:"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+				<!-- 构成处理过程的数据源 -->
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+					value="datasource:ndb:pidr_data:select * from PIDR_INT_MNSHAHODINFO:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_MNSHAHODINFO_{$ARE.fileDate}.dat:\|"/>
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" /> 				
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_MNSHAHODINFO" />
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="RelaId,CustomerID" />
+				<!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+				<!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+ 				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+ 			</extendProperties>
+		</executeUnit>
+		
+		<!--PIDR_INT_INVABROINFO:导入上游按照接口要求提供的企业对外投资数据文件-->
+		<executeUnit name="ImportPIDRInvabroInfo" describe="加载企业对外投资信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_INVABROINFO:etc/pidr_are.xml:"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+				<!-- 构成处理过程的数据源 -->
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+					value="datasource:ndb:pidr_data:select * from PIDR_INT_INVABROINFO:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_INVABROINFO_{$ARE.fileDate}.dat:\|"/>
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" /> 				
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_INVABROINFO" />
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="RelaId,CustomerID" />
+				<!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+				<!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+ 				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+ 			</extendProperties>
+		</executeUnit>
+		
+		<!--PIDR_INT_NEGINFO:导入上游按照接口要求提供的企业负面信息数据文件-->
+		<executeUnit name="ImportPIDRNegInfo" describe="加载企业负面信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_NEGINFO:etc/pidr_are.xml:"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+				<!-- 构成处理过程的数据源 -->
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+					value="datasource:ndb:pidr_data:select * from PIDR_INT_NEGINFO:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_NEGINFO_{$ARE.fileDate}.dat:\|"/>
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" /> 				
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_NEGINFO" />
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="RelaId,CustomerID" />
+				<!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+				<!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+ 				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+ 			</extendProperties>
+		</executeUnit>
+		
+		<!--PIDR_INT_BALANCESHEET:导入上游按照接口要求提供的企业资产负债信息数据文件-->
+		<executeUnit name="ImportPIDRBalAnceSheet" describe="加载企业资产负债信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_BALANCESHEET:etc/pidr_are.xml:"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+				<!-- 构成处理过程的数据源 -->
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+					value="datasource:ndb:pidr_data:select * from PIDR_INT_BALANCESHEET:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_BALANCESHEET_{$ARE.fileDate}.dat:\|"/>
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" /> 				
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_BALANCESHEET" />
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="CustomerID,Stage" />
+				<!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+				<!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+ 				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+ 			</extendProperties>
+		</executeUnit>
+		
+		<!--PIDR_INT_INCOME:导入上游按照接口要求提供的企业利润信息数据文件-->
+		<executeUnit name="ImportPIDRIncome" describe="加载企业利润信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_INCOME:etc/pidr_are.xml:"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+				<!-- 构成处理过程的数据源 -->
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+					value="datasource:ndb:pidr_data:select * from PIDR_INT_INCOME:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_INCOME_{$ARE.fileDate}.dat:\|"/>
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" /> 				
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_INCOME" />
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="CustomerID,Stage" />
+				<!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+				<!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+ 				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+ 			</extendProperties>
+		</executeUnit>
+		
+		<!--PIDR_INT_CASHFLOW:导入上游按照接口要求提供的企业现金流量信息数据文件-->
+		<executeUnit name="ImportPIDRCashFlow" describe="加载企业现金流量信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_CASHFLOW:etc/pidr_are.xml:"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+				<!-- 构成处理过程的数据源 -->
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+					value="datasource:ndb:pidr_data:select * from PIDR_INT_CASHFLOW:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_CASHFLOW_{$ARE.fileDate}.dat:\|"/>
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" /> 				
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_CASHFLOW" />
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="CustomerID,Stage" />
+				<!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+				<!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+ 				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+ 			</extendProperties>
+		</executeUnit>
+		
+		<!--PIDR_INT_BUSIINFO:导入上游按照接口要求提供的企业信贷资产信息数据文件-->
+		<executeUnit name="ImportPIDRBusiInfo" describe="加载企业信贷资产信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_BUSIINFO:etc/pidr_are.xml:"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+				<!-- 构成处理过程的数据源 -->
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+					value="datasource:ndb:pidr_data:select * from PIDR_INT_BUSIINFO:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_BUSIINFO_{$ARE.fileDate}.dat:\|"/>
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" /> 				
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_BUSIINFO" />
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="DueCode" />
+				<!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+				<!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+ 				<property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+ 			</extendProperties>
+		</executeUnit>
+		
+		<!--PIDR_INT_FINSTATEMENT:导入企业补充报表数据文件(非报文必须，旨在评级服务使用)-->
+        <executeUnit name="ImportPIDRFinstatement" describe="加载企业补充报表信息信息(非报文必须，旨在评级服务使用)" executeClass="com.amarsoft.task.units.dpx.PRHUnit" >
+            <extendProperties>
+                <property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_INT_FINSTATEMENT:etc/pidr_are.xml:"/>
+                <property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+                <property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+                <!-- 构成处理过程的数据源 -->
+                <property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+                    value="datasource:ndb:pidr_data:select * from PIDR_INT_FINSTATEMENT:{$ARE.importFile}/{$ARE.fileDate}/PIDR_INT_FINSTATEMENT_{$ARE.fileDate}.dat:\|"/>
+                <property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+                <!-- 下面的属性确定更新数据库的条件，含义如属性名字所表达的  --> 
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" />               
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_INT_FINSTATEMENT" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="CustomerID,Stage" />
+                <!-- commitNumber是指批量处理数据的时候多少条记录做一次batchUpdate。此值和事务无关，只是影响性能，缺省2000 -->
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="2000" />
+                <!-- Insert和update字段可以用*表示全部，或者逐个写出。如果没有设置，默认为* -->
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns" value="*" />
+            </extendProperties>
+        </executeUnit>
+		
+	</executeUnits>
+    <!-- 路由 -->
+    <routeMap  start="ImportPIDREntInfo">
+         <!-- <route unit="CheckFileData"          successful="ImportPIDREntInfo"/> -->
+         <route unit="ImportPIDREntInfo"       successful="ImportPIDRInvestorInfo"/>
+         <route unit="ImportPIDRInvestorInfo"       successful="ImportPIDRInvabroInfo"/>
+         <route unit="ImportPIDRInvabroInfo"       successful="ImportPIDRNegInfo"/>
+         <route unit="ImportPIDRNegInfo"       successful="ImportPIDRBalAnceSheet"/>
+         <route unit="ImportPIDRBalAnceSheet"       successful="ImportPIDRIncome"/>
+         <route unit="ImportPIDRIncome"       successful="ImportPIDRCashFlow"/>
+         <route unit="ImportPIDRCashFlow"       successful="ImportPIDRBusiInfo"/>
+         <route unit="ImportPIDRBusiInfo"       successful="ImportPIDRFinstatement"/>
+    </routeMap>	
+</task>

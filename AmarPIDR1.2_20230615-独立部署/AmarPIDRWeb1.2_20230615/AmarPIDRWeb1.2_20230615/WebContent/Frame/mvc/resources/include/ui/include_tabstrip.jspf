@@ -1,0 +1,52 @@
+<%@ page pageEncoding="UTF-8" %>
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/css/strip.css">
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/css/tabs.css">
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}${curUser.skin.path}/css/tabs.css">
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/tabstrip-1.0.js"></script>
+<body leftmargin="0" topmargin="0" style="overflow:hidden;height:100%;width:100%;">
+<c:if test="${!empty BeforeTabStripHtml}"><div id="BeforeTabStrip">${BeforeTabStripHtml }</div></c:if>
+<div id="window1" style="vertical-align:middle;padding:0;border:0px solid #F00;height:100%;width: 100%; overflow:hidden">
+</div>
+</body>
+<script type="text/javascript">
+//console.log("${tab.TabStripType}");
+var tabCompent = new TabStrip("T01", "单个TabStrip组", "${tab.TabStripType}", "#window1");
+(function(datas, first){
+	if(datas){
+		var nums = new Array();
+		for(var i = 0; i < datas.length; i++){
+			// 参数：0.是否显示, 1.标题, 2.JS事件字符串表示, 3. 是否缓存(默认否), 4. 是否有关闭按钮(默认无), 5. Strip高度(默认600px)
+			if(datas[i][0] != "true") continue;
+			nums.push(i);
+			//console.log(datas[i]);
+			tabCompent.addDataItem(self.name+i, datas[i][1], datas[i][2],datas[i][6]=="true"?true:false, datas[i][4]=="true"?true:false, datas[i][5]);
+		}
+		if(nums.indexOf(first) < 0) first = nums[0];
+		tabCompent.setSelectedItem(self.name+first);
+	}
+	tabCompent.init();
+	
+	var bts = document.getElementById("BeforeTabStrip");
+	$(window).resize(function(){
+		if(bts) $("#window1").height($("body").height() - $(bts).height());
+		if(tabCompent._view=="tab") $(".tabs_content").height($("#window1").height()-$(".tabs_button").height()-7);
+	}).resize();
+})(${tab.TabStrip}, ${(empty First)?"0":First});
+
+function selectItem(i){
+	var id = self.name+i;
+	if(tabCompent._view == "tab") $("#handle_"+id).click();
+	else $("#strip_hand_"+id).click();
+}
+
+function addTabStripItem(sTitle, sUrl, sParas, bOpen, isClose){
+	if(typeof(bOpen) == 'undefined'|| bOpen.length==0) bOpen = true;
+	if(typeof(isClose) == 'undefined'|| isClose.length==0) isClose = true;
+	var script = !sUrl ? "" : "AsControl.OpenView('"+sUrl+"', '"+sParas+"', 'TabContentFrame')";
+	tabCompent.addItem(self.name+escape(sTitle).replace(/[^A-z0-9]/g, ""), sTitle, script, true, isClose, bOpen);
+}
+
+function delTabStripItem(sTitle){
+	tabCompent.deleteItem(self.name+escape(sTitle).replace(/[^A-z0-9]/g, ""));
+}
+</script>

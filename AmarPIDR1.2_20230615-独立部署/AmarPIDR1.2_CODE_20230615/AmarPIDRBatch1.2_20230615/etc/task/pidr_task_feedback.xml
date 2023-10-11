@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 任务定义文件,每个任务有一个文件构成，任务构造器可以根据此文件构造一个任务出来 -->
+
+<task name="PIDRFeedbackReportTask" describe="央行内评反馈报文解析任务"  recovery="false"  saveHistory="false"  historyFolder="./his">
+	<executeUnits>
+		<executeUnit name="PIDRFeedbackSession" describe="反馈报文解析" executeClass="com.amarsoft.app.pbc.pidr.report.feedback.session.SessionUnit" allowManualExecute="true">
+			<extendProperties>
+				<!-- 指定运行的Session 此处要注意 开启的是批量Session-->
+				<property name="unit.sessionClass" value="com.amarsoft.app.pbc.pidr.report.feedback.session.FeedbackSession"/>
+				<!-- SessionName -->
+				<property name="com.amarsoft.app.pbc.pidr.report.feedback.session.FeedbackSession.sessionName" value="反馈报文解析"/>
+				<!-- 反馈文件目录 -->
+				<property name="com.amarsoft.app.pbc.pidr.report.feedback.session.FeedbackSession.sourceDir" value="data/feedback/report"/>
+				<!-- 反馈文件后缀 -->
+				<property name="com.amarsoft.app.pbc.pidr.report.feedback.session.FeedbackSession.suffix" value=".txt"/>
+			</extendProperties>
+		</executeUnit>
+		
+		<!-- 更新标识变更表及对应当期历史表的标识信息 -->
+		<executeUnit name="PIDRUpdateIdCagsInfo" describe="更新标识变更表及对应当期历史表信息" executeClass="com.amarsoft.app.pbc.pidr.report.feedback.UpdateIdCagsInfo" allowManualExecute="true">
+		</executeUnit>
+				
+		<!-- 更新整笔删除表及删除对应当期历史表的信息 -->
+		<executeUnit name="PIDRAllDeleteCagsInfo" describe="更新整笔删除表并删除对应信息" executeClass="com.amarsoft.app.pbc.pidr.report.feedback.AlldeleteInfo" allowManualExecute="true">
+		</executeUnit>
+		
+	</executeUnits>
+	
+	<routeMap start="PIDRFeedbackSession">
+		<!-- <route unit="PIDRFeedbackSession" successful="PIDRUpdateIdCagsInfo" />
+		<route unit="PIDRUpdateIdCagsInfo" successful="PIDRAllDeleteCagsInfo" /> -->
+	</routeMap>     
+</task>

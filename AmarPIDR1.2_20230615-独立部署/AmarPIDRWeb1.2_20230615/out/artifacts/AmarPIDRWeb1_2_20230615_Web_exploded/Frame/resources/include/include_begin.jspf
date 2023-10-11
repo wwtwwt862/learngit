@@ -1,0 +1,7 @@
+<%@include file="/Frame/page/jspf/include/jsp_runtime_context.jspf"
+%><%@include file="/Frame/page/jspf/include/jsp_sqlca_head.jspf"
+%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@include file="/Frame/page/jspf/include/jsp_head_res.jspf"%>
+</head>

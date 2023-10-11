@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task name="PIDRRatingTask" describe="执行央行内评批量评级任务"  recovery="false" saveHistory="false" historyFolder="./his">
+
+    <!--执行单元 -->
+    <executeUnits>
+        <executeUnit name="InsertRecord" describe="添加评级记录表数据-未评级" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+            <extendProperties>
+                <property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_EVALUATE_RECORD:etc/pidr_are.xml:," />
+                <property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+                <property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.rating.ImportRecordHandler"/>
+                <property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}" />
+                <property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+                    value="datasource:db:pidr:select PRB.CustomerId as CustomerId,{#客户号}
+                    PRB.EntName as EntName,{#企业名称}
+                    PRB.EntCertType as EntCertType,{#企业证件类型}
+                    PRB.EntCertNum as EntCertNum,{#企业证件号码}
+                    PRB.FinStaYear as FinStaYear,{#报表年份}
+                    PRF.EcoIndusCate as EcoIndusCate,{#行业分类}
+                    'PIDRCreditGrade' as ObjectType,{#模型}
+                    'PIDRCreditGrade' as ModelNo,{#模型}
+                    '{$ARE.bizDate}' as EvaluateDate,{#测算日期}
+                    '{$ARE.bizDate}' as CognDate {#认定日期}
+                    from PIDR_RATE_BS PRB ,PIDR_RATE_FSINF PRF 
+                    where PRB.CustomerId =PRF.CustomerId 
+                    and exists (select 1 from PIDR_RATE_BALANCESSHEET PRB2 where PRB2.CustomerId=PRB.CustomerId and PRB2.Stage='1')
+                    and exists (select 1 from PIDR_RATE_BALANCESSHEET PRB2 where PRB2.CustomerId=PRB.CustomerId and PRB2.Stage='2')
+                    and exists (select 1 from PIDR_RATE_CASHFLOW PRC  where PRC.CustomerId=PRB.CustomerId and PRC.Stage='1')
+                    and exists (select 1 from PIDR_RATE_CASHFLOW PRC2 where PRC2.CustomerId=PRB.CustomerId and PRC2.Stage='2')
+                    and exists (select 1 from PIDR_RATE_INCOME PRI where PRI.CustomerId=PRB.CustomerId and PRI.Stage='1')
+                    and exists (select 1 from PIDR_RATE_INCOME PRI2 where PRI2.CustomerId=PRB.CustomerId and PRI2.Stage='2')
+                    and exists (select 1 from PIDR_FINANCE_STATEMENT PFS  where PFS.CustomerId=PRB.CustomerId and PFS.Stage='1')
+                        " />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRecordHandler.database" value="pidr" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRecordHandler.table" value="PIDR_EVALUATE_RECORD" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRecordHandler.keyColumns" value="CustomerId,ObjectType,FinStaYear" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRecordHandler.commitNumber" value="500" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRecordHandler.insertColumns" value="*" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRecordHandler.updateColumns" value="*" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRecordHandler.compareColumns" value="*" />
+            </extendProperties>
+        </executeUnit>
+          <executeUnit name="InsertData1" describe="添加评级数据，不需要计算的" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+            <extendProperties>
+                <property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_EVALUATE_DATA:etc/pidr_are.xml:," />
+                <property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+                <property name="unit.handlers" value="com.amarsoft.task.dpx.recordset.UpdateDBHandler"/>
+                <property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}" />
+                <property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+                    value="datasource:db:pidr:select PER.CustomerId as CustomerId,
+                            EM.ModelNo as ObjectType,
+                            EM.ItemNo as ItemNo,
+                            case when length(EM.ItemNo)=5 and substr(EM.ItemNo,1,1)=1 
+                                then '100' else null end as ItemValue ,
+                            case when length(EM.ItemNo)=5 and substr(EM.ItemNo,1,1)=1 
+                                then '100' else null end as ItemValue2 ,
+                           case when length(EM.ItemNo)=5 and substr(EM.ItemNo,1,1)=1 
+                                then '100' else null end as EvaluateScore2 ,
+                            case 
+                                when EM.ItemNo ='1.1.1' then 100*1.2/100 
+                                when EM.ItemNo ='1.1.2' then 100*1.8/100 
+                                when EM.ItemNo ='1.2.1' then 100*1.8/100  
+                                when EM.ItemNo ='1.2.2' then 100*1.2/100  
+                                when EM.ItemNo ='1.3.1' then 100*3.0/100  
+                                when EM.ItemNo ='1.3.2' then 100*3.0/100 
+                                when EM.ItemNo ='1.4.1' then 100*2.4/100 
+                                when EM.ItemNo ='1.4.2' then 100*2.4/100 
+                                when EM.ItemNo ='1.4.3' then 100*1.2/100 
+                                when EM.ItemNo ='1.5.1' then 100*3.0/100 
+                                when EM.ItemNo ='1.5.2' then 100*1.5/100 
+                                when EM.ItemNo ='1.5.3' then 100*1.5/100 
+                                when EM.ItemNo ='1.6.1' then 100*3.0/100 
+                                when EM.ItemNo ='1.6.2' then 100*3.0/100 
+                            else null end as EvaluateScore  
+                            from EVALUATE_MODEL EM , PIDR_EVALUATE_RECORD PER 
+                            where EM.ModelNo = 'PIDRCreditGrade' 
+                            and EM.ModelNo = PER.ObjectType 
+                            and (length(EM.ItemNo)&lt;&gt;5 or substr(EM.ItemNo,1,1)=1)
+                            and PER.ReportStatus = 'A'
+                        " />
+                <property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.columnConvertors" value="{MngmtOrgCode,datasource:db:pidr:select CBCode,PBCode from PIDR_CODE_LIBRARY where ColName='OrgCode'}" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.database" value="pidr" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.table" value="PIDR_EVALUATE_DATA" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.keyColumns" value="CustomerId,ObjectType,ItemNo" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.commitNumber" value="500" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.insertColumns" value="*" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.updateColumns"   value="*" />
+                <property name="com.amarsoft.task.dpx.recordset.UpdateDBHandler.compareColumns" value="" />
+            </extendProperties>
+        </executeUnit>
+        <executeUnit name="BuildEcoIndusCateModel" describe="构建行业分类的模型" executeClass="com.amarsoft.app.pbc.pidr.rating.BuildRatingHandler" allowManualExecute="true" />
+        
+        <executeUnit name="InsertData2" describe="添加评级数据，需要计算的值处理" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+            <extendProperties>
+                <property name="unit.recordSet" value="datasource:ndb:pidr_data:select * from PIDR_EVALUATE_DATA:etc/pidr_are.xml:," />
+                <property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+                <property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.rating.ImportRatingHandler" />
+                <property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}" />
+                <property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource" 
+                    value="datasource:db:pidr:select PER.CustomerId as CustomerId,
+                                    EM.ModelNo as ObjectType,
+                                    EM.ItemNo as ItemNo,
+                                    ' '  as EvaluateScore,
+                                    ' '  as EvaluateScore2,
+                                    PER.EcoIndusCate as EcoIndusCate,{#行业分类}
+                                    PRI.NetProfit as NetProfit,{#利润表本期净利润}
+                                    PRI.IncomeTaxExpense as IncomeTaxExpense, {#利润表本期所得税费用}
+                                    PRI.OperatingProfits as OperatingProfits, {#利润表本期营业利润}
+                                    PRI.CostOfSales as CostOfSales,{#利润表本期营业成本}
+                                    PRI.RevenueOfSales as RevenueOfSales,{#利润表本期营业收入}
+                                    PRI.FinancialExpense as FinancialExpense,{#利润表本期财务费用}
+                                    PRC.NetCashFlowsFromOA as NetCashFlowsFromOA,{#现金流量表本期经营活动产生的现金流量金额}
+                                    PRC.TotalCashInflowsFromOA as TotalCashInflowsFromOA,{#现金流量表本期经营活动现金流入小计}
+                                    PFS.UnclearedGuarBEndOfTheTerm as UnclearedGuarBEndOfTheTerm,{#补充报表的本期期末未结清担保余额}
+                                    PFS.InterestPayable as InterestPayable,{#补充报表的本期应付利息}
+                                    PFS.DividendsReceivable as DividendsReceivable,{#补充报表的应收股利}
+                                    PRB2.FixedAssets as FixedAssets2,{#资产负债表上期固定资产}
+                                    PRB2.Inventories as Inventories2,{#资产负债表上期存货}
+                                    PRB2.AccountsReceivable as AccountsReceivable2,{#资产负债表上期应收账款}
+                                    PRB2.NotesReceivable as NotesReceivable2,{#资产负债表上期应收票据}
+                                    PRB2.TotalAssets as TotalAssets2 ,{#资产负债表上期资产总计}
+                                    PRB1.FinancialAssetsHeldForTrading as FinancialAssetsHeldForTrading1,{#资产负债表本期交易性金融资产}
+                                    PRB1.OtherReceivables as OtherReceivables1,{#资产负债表本期其他应收款}
+                                    PRB1.FixedAssets as FixedAssets1,{#资产负债表本期固定资产}
+                                    PRB1.Inventories as Inventories1,{#资产负债表本期存货}
+                                    PRB1.NotesReceivable as NotesReceivable1,{#资产负债表本期应收票据}
+                                    PRB1.AccountsReceivable as AccountsReceivable1,{#资产负债表本期应收账款}
+                                    PRB1.TotalEquity as TotalEquity1,{#资产负债表本期所有者权益合计}
+                                    PRB1.TotalCurrentLiabilities as TotalCurrentLiabilities1,{#资产负债表本期流动负债合计}
+                                    PRB1.TotalCurrentAssets as TotalCurrentAssets1,{#资产负债表本期流动资产合计}
+                                    PRB1.ShortTermBorrowings as ShortTermBorrowings1,{#资产负债表本期短期借款}
+                                    PRB1.TotalLiabilities as TotalLiabilities1,{#资产负债表本期负债合计}
+                                    PRB1.CurrencyFunds as CurrencyFunds1,{#资产负债表本期货币资金}
+                                    PRB1.TotalAssets as TotalAssets1,{#资产负债表本期资产总计}
+                                    PRB1.LongTermBorrowings as LongTermBorrowings1 {#资产负债表本期长期借款}
+                                    from PIDR_EVALUATE_RECORD PER 
+                                    left join EVALUATE_MODEL EM on EM.ModelNo = PER.ObjectType {#获取模型的}
+                                    left join PIDR_RATE_BALANCESSHEET PRB1 on PER.CustomerId = PRB1.CustomerId and PRB1.Stage = '1' {#获取资产负债表本期数据}
+                                    left join PIDR_RATE_BALANCESSHEET PRB2 on PER.CustomerId = PRB2.CustomerId and PRB2.Stage = '2' {#获取资产负债表上期数据}
+                                    left join PIDR_RATE_INCOME PRI on PER.CustomerId = PRI.CustomerId and PRI.Stage = '1' {#获取利润表本期数据}
+                                    left join PIDR_RATE_CASHFLOW PRC on PER.CustomerId = PRC.CustomerId and PRC.Stage = '1' {#获取现金流量表本期数据}
+                                    left join PIDR_FINANCE_STATEMENT PFS on PER.CustomerId = PFS.CustomerId and PFS.Stage = '1' {#获取补充报表本期数据}
+                                    where (length(EM.ItemNo) = 5 and substr(EM.ItemNo,1,1) = 2 ) and PER.ReportStatus = 'A'
+                        " />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRatingHandler.database" value="pidr" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRatingHandler.table" value="PIDR_EVALUATE_DATA" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRatingHandler.keyColumns" value="CustomerId,ObjectType,ItemNo" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRatingHandler.commitNumber" value="500" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRatingHandler.insertColumns" value="CustomerId,ObjectType,ItemNo,EvaluateScore,EvaluateScore2,ItemValue2,ItemValue" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRatingHandler.updateColumns"   value="CustomerId,ObjectType,ItemNo,EvaluateScore,EvaluateScore2,ItemValue2,ItemValue" />
+                <property name="com.amarsoft.app.pbc.pidr.rating.ImportRatingHandler.compareColumns" value="*" />
+            </extendProperties>
+        </executeUnit>
+        <executeUnit name="UpdateRatingResult" describe="最后更新评级结果值" executeClass="com.amarsoft.app.pbc.pidr.rating.UpdateRatingResultHandler" allowManualExecute="true" />
+        <!-- 更新白名单数据表的批量运行状态 -->
+		<executeUnit name="UpdateWhiteListRunStatus" describe="更新白名单数据表运行状态和评级得分" allowManualExecute="true"  executeClass="com.amarsoft.task.units.dpx.SQLProcess">
+				<extendProperties>
+				<property name="unit.onErrorAction" value="break"/>
+				<property name="unit.logLevel" value="debug"/>
+					<property name="unit.script" value="
+						connect to {$ARE.pidr_dataSource};&#xA;
+						set autocommit false;&#xA;
+						update PIDR_WHITELIST PW set RunStatus = '20' where exists (select 1 from PIDR_EVALUATE_RECORD PER where PW.CustomerId = PER.CustomerId and PER.EvaluateScore &lt;&gt; 0);&#xA;
+						commit;&#xA;
+						update PIDR_WHITELIST PW set PW.PIDREvalScore = (select PER.EvaluateScore from PIDR_EVALUATE_RECORD PER where PW.CustomerId = PER.CustomerId) where PW.RunStatus = '20';&#xA; 
+						commit;&#xA;
+						disconnect;"
+					/>
+				</extendProperties>
+		</executeUnit>
+    </executeUnits>
+    <!-- 该take的路由配置 -->
+    <routeMap start="InsertRecord">
+            <route unit="InsertRecord" successful="InsertData1" />
+            <route unit="InsertData1" successful="BuildEcoIndusCateModel" />
+            <route unit="BuildEcoIndusCateModel" successful="InsertData2" />
+            <route unit="InsertData2" successful="UpdateRatingResult" />
+            <route unit="UpdateRatingResult" successful="UpdateWhiteListRunStatus" />
+    </routeMap>
+</task>

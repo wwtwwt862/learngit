@@ -1,0 +1,30 @@
+<%@ include file="/Frame/mvc/resources/include/ui/include_common.jspf"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@include file="/Frame/page/jspf/include/jsp_head_res_dw.jspf"%>
+</head>
+<script>var G_FromFormatDoc = false;var G_SearchArea_Selection="";var sButtonPosition="north";var USE_MVC=true;</script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/jquery/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/as_contextmenu.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/as_address.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_common.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_list_table.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_list_drag.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_list_page.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_list.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_list_mvc.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/exports/as_export.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/color.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/as_webcalendar.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/daterangepicker/moment.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/daterangepicker/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/daterangepicker/daterangepicker.css"></link>
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/css/date.css"></link>
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/css/ow/color.css"></link>
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}${curUser.skin.path}/css/ow/color.css"></link>
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/css/ow/list.css"></link>
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}${curUser.skin.path}/css/ow/list.css"></link>
+<c:if test="${curConfig.getConfigure('ListQuerySelection')!=null}">
+	<script>G_SearchArea_Selection='${curConfig.getConfigure("ListQuerySelection").toString()}';</script>
+</c:if>

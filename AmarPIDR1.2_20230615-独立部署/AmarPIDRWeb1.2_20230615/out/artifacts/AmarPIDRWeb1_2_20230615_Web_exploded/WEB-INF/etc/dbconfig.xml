@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseConfig>
+	<!--  数据库链接资源文件，本文件的内容可以被com.amarsoft.are.sql.PooledConnectionFactory识别使用 
+		  jdbc资源定义需要driver类、url和用户名、密码构成，可以采用加密和不加密的形式保存信息
+		  加密需要使用本程序自带的加密、解密工具使用。
+	-->	
+	<resources>
+		<!--  Type4 JDBC sample, first line is driver,second is url,last line is comment
+			DB2:		
+				com.ibm.db2.jcc.DB2Driver
+				jdbc:db2://<host>:<port>/<database>
+				缺省端口：60000
+			Informix:
+				com.informix.jdbc.IfxDriver
+				jdbc:informix-sqli://<host>:<port>/<database>:<informixserver=server>;[NEWCODESET=GBK,8859-1,819;DB_LOCALE=zh_cn.gb;[;...]]
+				缺省端口：1526
+			Oracle 8i:
+				oracle.jdbc.driver.OracleDriver
+				jdbc:oracle:thin:@<host>:<port>:<database>
+				缺省端口：1521
+			Oracle 9i and above:
+				oracle.jdbc.OracleDriver
+				jdbc:oracle:thin:@<host>:<port>:<database>
+			SQL Server MS 2000(1.1,1.2):
+				com.microsoft.jdbc.sqlserver.SQLServerDriver
+				jdbc:microsoft:sqlserver://<host>:<port>;[databasename=database]
+				缺省端口：1433
+			SQL Server MS 2.0:
+				com.microsoft.sqlserver.jdbc.SQLServerDriver
+				jdbc:sqlserver://<host>:<port>;[databasename=database]	
+			SQLServer JDTS: 
+				net.sourceforge.jtds.jdbc.Driver
+				jdbc:jtds:sqlserver://<host>[:<port>][/<database>][;tds=8.0;SendStringParametersAsUnicode=False[;...]]
+			Sybase jconnect：
+				com.sybase.jdbc3.jdbc.SybDriver
+				jdbc:sybase:Tds:<host>:<port>/<database>
+				缺省端口：6000
+			Sybase JDTS: 
+				net.sourceforge.jtds.jdbc.Driver
+				jdbc:jtds:sybase://<host>[:<port>][/<database>][;tds=8.0[;...]]
+			MySql:
+				com.mysql.jdbc.Driver
+				jdbc:mysql://<host>[:<port>]/<database>
+				缺省端口：3306
+			Derby(Java DB) Emmbed:
+				org.apache.derby.jdbc.EmbeddedDriver
+				jdbc:derby:<database>[;create=true;locale=ll_CC[;...]]
+			Derby(Java DB) Network:
+				org.apache.derby.jdbc.ClientDriver
+				jdbc:derby://<host>[:port]/<databaseName>[;create=true;locale=ll_CC[;...]]
+				缺省端口：1527
+		 -->
+		<resource type="jdbc" name="als" jndiName="java:/comp/env/jdbc/als" encrypt="false" >
+			<!-- <driver>oracle.jdbc.OracleDriver</driver>
+			<url>jdbc:oracle:thin:@192.168.65.206:1521:oracleutf8</url>
+			<user>a3web53</user>
+			<password>a3web53</password> -->
+			<driver>com.mysql.jdbc.Driver</driver>
+			<url>jdbc:mysql://rm-cn-wwo3e60sb000skeo.rwlb.rds.aliyuncs.com:3306/pidr?useUnicode=true&amp;autoReconnect=true&amp;useSSL=false</url>
+			<user>pidr</user>
+			<password>pidr@123$123</password>
+			<logWriter>system.err</logWriter>
+			<loginTimeout>2</loginTimeout>
+			<maxActive>20</maxActive>
+			<maxIdle>2</maxIdle>
+			<maxWait>10000</maxWait>
+			<removeAbandonedTimeout>600</removeAbandonedTimeout>
+		</resource>
+<!-- 		<Resource name="jdbc/pidr" auth="Container" type="javax.sql.DataSource"  -->
+<!-- 		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"  -->
+<!-- 		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600"  -->
+<!-- 		logAbandoned="true" validationQuery="select 1" username="pidr_test" password="pidr_test"  -->
+<!-- 		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://192.168.65.214:3306/pidr_test?useUnicode=true&amp;characterEncoding=UTF8&amp;autoReconnect=true"  -->
+<!-- 		/> -->
+		
+		<!-- <resource type="jdbc" name="report" jndiName="java:/comp/env/jdbc/report" encrypt="false" >
+			<driver>oracle.jdbc.OracleDriver</driver>
+			<url>jdbc:oracle:thin:@192.168.5.9:1521:ora11g</url>
+			<user>cdp8c</user>
+			<password>cdp8c</password>
+		</resource> -->
+	</resources>
+</databaseConfig>

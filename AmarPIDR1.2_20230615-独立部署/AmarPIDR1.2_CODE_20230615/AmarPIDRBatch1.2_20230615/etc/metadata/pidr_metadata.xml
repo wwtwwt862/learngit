@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource>
+    <name>pidr_data</name>
+    <encoding>utf-8</encoding>
+    <label>安硕央评系统接口文件定义</label>
+    <describe>安硕央评系统接口文件定义</describe>
+    <product>
+        <name>XML Metadata</name>
+        <version>1.0</version>
+        <provider>Amarsoft</provider>
+    </product>
+    <extendProperties>
+        <property name="sample" value="sample" />
+    </extendProperties>
+    <tables>
+        <!-- 企业基本信息接口表-->
+        <table name="PIDR_INT_ENTINFO">
+            <column index="1"   name="CustomerID"           label="客户号"                             type="CHAR"     displaySize="60"    precision="60"      scale="0" format=""/>
+            <column index="2"   name="EntName"              label="企业名称"                        type="CHAR"     displaySize="160"   precision="160"     scale="0" format=""/>
+            <column index="3"   name="EntCertType"          label="企业身份标识类型"                type="CHAR"     displaySize="2"     precision="2"       scale="0" format=""/>
+            <column index="4"   name="EntCertNum"           label="企业身份标识号码"                type="CHAR"     displaySize="18"    precision="18"      scale="0" format=""/>
+            <column index="5"   name="FinStaYear"           label="报表年份"                        type="CHAR"     displaySize="4"     precision="4"       scale="0" format=""/>
+            <column index="6"   name="SheetType"            label="报表类型"                        type="CHAR"     displaySize="2"     precision="2"       scale="0" format=""/>
+            <column index="7"   name="SheetTypeDivide"      label="报表类型细分"                  type="CHAR"     displaySize="1"     precision="1"       scale="0" format=""/>
+            <column index="8"   name="RegAdd"               label="登记注册地址"                  type="CHAR"     displaySize="200"   precision="200"     scale="0" format=""/>
+            <column index="9"   name="AdmDivOfReg"          label="登记地行政区划代码"               type="CHAR"     displaySize="6"     precision="6"       scale="0" format=""/>
+            <column index="10"  name="EstablishDate"        label="成立日期"                        type="CHAR"     displaySize="10"    precision="10"      scale="0" format="yyyy-MM-dd"/>
+            <column index="11"  name="BizRange"             label="业务范围"                        type="CHAR"     displaySize="800"   precision="800"     scale="0" format=""/>
+            <column index="12"  name="MainBusSou"           label="主营业务收入来源"                type="CHAR"     displaySize="200"   precision="200"     scale="0" format=""/>
+            <column index="13"  name="EcoIndusCate"         label="行业分类代码"                  type="CHAR"     displaySize="4"     precision="4"       scale="0" format=""/>
+            <column index="14"  name="EcoType"              label="经济类型代码"                  type="CHAR"     displaySize="3"     precision="3"       scale="0" format=""/>
+            <column index="15"  name="InterRatingRes"       label="金融机构内部评级结果"          type="CHAR"     displaySize="3"     precision="3"       scale="0" format=""/>
+            <column index="16"  name="InterRatinDes"        label="金融机构内评体系描述"          type="CHAR"     displaySize="2000"  precision="2000"    scale="0" format=""/>
+            <column index="17"  name="MainBusChan"          label="主营业务变更情况"                type="CHAR"     displaySize="1"     precision="1"       scale="0" format=""/>
+            <column index="18"  name="CreAssSup"            label="信贷资产支持"                  type="CHAR"     displaySize="1"     precision="1"       scale="0" format=""/>
+            <column index="19"  name="PerChaSit"            label="近一年主要人员是否发生变动"       type="CHAR"     displaySize="1"     precision="1"       scale="0" format=""/>
+            <column index="20"  name="DefaTaxAmount"        label="近三年的欠税条数"                type="INT"      displaySize="2"     precision="2"       scale="0" format=""/>
+            <column index="21"  name="HousEquities"         label="经营地产权情况"                     type="CHAR"     displaySize="1"     precision="1"       scale="0" format=""/>
+            <column index="22"  name="NumOfEmployees"       label="从业人员数量"                  type="INT"      displaySize="6"     precision="6"       scale="0" format=""/>
+            <column index="23"  name="DirecortNum"          label="董事会成员(执行董事)数量"       type="INT"      displaySize="6"     precision="6"       scale="0" format=""/>
+            <column index="24"  name="SupervisorNum"        label="监事会成员(监事)数量"             type="INT"      displaySize="6"     precision="6"       scale="0" format=""/>
+            <column index="25"  name="IsInCounty"           label="是否县域企业"                  type="CHAR"     displaySize="1"     precision="1"       scale="0" format=""/>
+            <column index="26"  name="HasIncFromAgri"       label="是否涉农企业"                  type="CHAR"     displaySize="1"     precision="1"       scale="0" format=""/>
+            <column index="27"  name="LegRepName"           label="主要负责人名称"                     type="CHAR"     displaySize="60"    precision="60"      scale="0" format=""/>
+            <column index="28"  name="LegRepIDType"         label="主要负责人身份标识类型"             type="CHAR"     displaySize="2"     precision="2"       scale="0" format=""/>
+            <column index="29"  name="LegRepIDNum"          label="主要负责人证件号码"               type="CHAR"     displaySize="40"    precision="40"      scale="0" format=""/>
+            <column index="30"  name="LegRepHouseAddStat"   label="主要负责人户籍情况"               type="CHAR"     displaySize="1"     precision="1"       scale="0" format=""/>
+            <column index="31"  name="LegRepEduLevel"       label="主要负责人学历情况"               type="CHAR"     displaySize="2"     precision="2"       scale="0" format=""/>
+            <column index="32"  name="LegRepWorkingYears"   label="主要负责人在本单位从业年限"       type="INT"      displaySize="3"     precision="3"       scale="0" format=""/>
+            <column index="33"  name="RegCapCurrency"       label="注册资本币种"                  type="CHAR"     displaySize="3"     precision="3"       scale="0" format=""/>
+            <column index="34"  name="RegCap"               label="注册资本"                        type="DOUBLE"   displaySize="17"    precision="17"      scale="0" format=""/>
+            <column index="35"  name="ManagerOrgID"         label="管户机构编号"                  type="CHAR"     displaySize="32"    precision="32"      scale="0" format=""/>
+            <column index="36"  name="ManagerUserID"        label="管户用户编号"                  type="CHAR"     displaySize="32"    precision="32"      scale="0" format=""/>
+            <column index="37"  name="OperOrgID"            label="操作机构编号"                  type="CHAR"     displaySize="32"    precision="32"      scale="0" format=""/>
+            <column index="38"  name="OperUserID"           label="操作用户编号"                  type="CHAR"     displaySize="32"    precision="32"      scale="0" format=""/>
+            <column index="39"  name="OccurDate"            label="数据日期"                        type="CHAR"     displaySize="10"    precision="10"      scale="0" format="yyyy-MM-dd"/>
+            <column index="40"  name="Extend1"              label="扩展字段1"                       type="CHAR"     displaySize="30"    precision="30"      scale="0" format=""/>
+            <column index="41"  name="Extend2"              label="扩展字段2"                       type="CHAR"     displaySize="30"    precision="30"      scale="0" format=""/>
+            <column index="42"  name="Extend3"              label="扩展字段3"                       type="CHAR"     displaySize="30"    precision="30"      scale="0" format=""/>
+        </table>
+        <!-- 企业注册资本及主要出资人接口表-->
+        <table name="PIDR_INT_MNSHAHODINFO">
+            <column index="1"   name="RelaId"          label="关联编号"             type="CHAR"   displaySize="60"  precision="60"   scale="0" format=""/>
+            <column index="2"   name="CustomerID"      label="客户编号"             type="CHAR"   displaySize="60"  precision="60"   scale="0" format=""/>
+            <column index="3"   name="SharHodType"     label="出资人类型"           type="CHAR"   displaySize="2"   precision="2"    scale="0" format=""/>
+            <column index="4"   name="SharHodCertType" label="出资人身份类别"       type="CHAR"   displaySize="1"   precision="1"    scale="0" format=""/>
+            <column index="5"   name="SharHodName"     label="出资人名称"           type="CHAR"   displaySize="160" precision="160"  scale="0" format=""/>
+            <column index="6"   name="SharHodIDType"   label="出资人身份标识类型"   type="CHAR"   displaySize="2"   precision="2"    scale="0" format=""/>
+            <column index="7"   name="SharHodIDNum"    label="出资人身份号码"       type="CHAR"   displaySize="80"  precision="80"   scale="0" format=""/>
+            <column index="8"   name="InvRatio"        label="出资比例"             type="DOUBLE" displaySize="5"   precision="5"    scale="0" format=""/>
+            <column index="9"   name="EffStatus"       label="有效标志"             type="CHAR"   displaySize="1"   precision="1"    scale="0" format=""/>
+            <column index="10"  name="ManagerOrgID"    label="管户机构编号"         type="CHAR"   displaySize="32"  precision="32"   scale="0" format=""/>
+            <column index="11"  name="ManagerUserID"   label="管户用户编号"         type="CHAR"   displaySize="32"  precision="32"   scale="0" format=""/>
+            <column index="12"  name="OperOrgID"       label="操作机构编号"         type="CHAR"   displaySize="32"  precision="32"   scale="0" format=""/>
+            <column index="13"  name="OperUserID"      label="操作用户编号"         type="CHAR"   displaySize="32"  precision="32"   scale="0" format=""/>
+            <column index="14"  name="OccurDate"       label="数据日期"             type="CHAR"   displaySize="10"  precision="10"   scale="0" format="yyyy-MM-dd"/>
+            <column index="15"  name="Extend1"         label="扩展字段1"            type="CHAR"   displaySize="30"  precision="30"   scale="0" format=""/>
+            <column index="16"  name="Extend2"         label="扩展字段2"            type="CHAR"   displaySize="30"  precision="30"   scale="0" format=""/>
+            <column index="17"  name="Extend3"         label="扩展字段3"            type="CHAR"   displaySize="30"  precision="30"   scale="0" format=""/>
+        </table>
+        <!-- 企业对外投资接口表 -->
+        <table name="PIDR_INT_INVABROINFO">
+            <column index="1"   name="RelaId"                label="关联编号"                 type="CHAR"     displaySize="60"   precision="60"  scale="0" format=""/>
+            <column index="2"   name="CustomerID"            label="客户编号"                 type="CHAR"     displaySize="60"   precision="60"  scale="0" format=""/>
+            <column index="3"   name="InvEntName"            label="被投资企业名称"           type="CHAR"     displaySize="160"  precision="160" scale="0" format=""/>
+            <column index="4"   name="InvEntIDType"          label="被投资企业身份标识类型"   type="CHAR"     displaySize="2"    precision="2"   scale="0" format=""/>
+            <column index="5"   name="InvEntIDNum"           label="被投资企业身份标识号码"   type="CHAR"     displaySize="18"   precision="18"  scale="0" format=""/>
+            <column index="6"   name="InvEntRegCap"          label="被投资企业注册资本"       type="DOUBLE"   displaySize="17"   precision="17"  scale="0" format=""/>
+            <column index="7"   name="InvEntEstablishDate"   label="被投资企业成立日期"       type="CHAR"     displaySize="10"   precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="8"   name="InvCurrency"           label="投资币种"                 type="CHAR"     displaySize="30"   precision="30"  scale="0" format=""/>
+            <column index="9"   name="InvSubAmount"          label="投资认缴金额"             type="DOUBLE"   displaySize="17"   precision="17"  scale="0" format=""/>
+            <column index="10"  name="InvPaidAmount"         label="投资实缴金额"             type="DOUBLE"   displaySize="17"   precision="17"  scale="0" format=""/>
+            <column index="11"  name="ShareHoldRatio"        label="持股比例"                 type="DOUBLE"   displaySize="5"    precision="5"   scale="0" format=""/>
+            <column index="12"  name="InvDate"               label="投资日期"                 type="CHAR"     displaySize="10"   precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="13"  name="EffStatus"             label="有效标志"                 type="CHAR"     displaySize="1"    precision="1"   scale="0" format=""/>
+            <column index="14"  name="ManagerOrgID"          label="管户机构编号"             type="CHAR"     displaySize="32"   precision="32"  scale="0" format=""/>
+            <column index="15"  name="ManagerUserID"         label="管户用户编号"             type="CHAR"     displaySize="32"   precision="32"  scale="0" format=""/>
+            <column index="16"  name="OperOrgID"             label="操作机构编号"             type="CHAR"     displaySize="32"   precision="32"  scale="0" format=""/>
+            <column index="17"  name="OperUserID"            label="操作用户编号"             type="CHAR"     displaySize="32"   precision="32"  scale="0" format=""/>
+            <column index="18"  name="OccurDate"             label="数据日期"                 type="CHAR"     displaySize="10"   precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="19"  name="Extend1"               label="扩展字段1"                type="CHAR"     displaySize="30"   precision="30"  scale="0" format=""/>
+            <column index="20"  name="Extend2"               label="扩展字段2"                type="CHAR"     displaySize="30"   precision="30"  scale="0" format=""/>
+            <column index="21"  name="Extend3"               label="扩展字段3"                type="CHAR"     displaySize="30"   precision="30"  scale="0" format=""/>          
+        </table>
+        <!-- 企业负面信息接口表 -->
+        <table name="PIDR_INT_NEGINFO">
+            <column index="1"   name="RelaId"           label="关联编号"            type="CHAR"   displaySize="60"  precision="60"  scale="0" format=""/>
+            <column index="2"   name="CustomerID"       label="客户编号"            type="CHAR"   displaySize="60"  precision="60"  scale="0" format=""/>
+            <column index="3"   name="NegInfType"       label="负面信息类型"        type="CHAR"   displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="4"   name="NegInfContent"    label="信息内容"            type="CHAR"   displaySize="800" precision="800" scale="0" format=""/>
+            <column index="5"   name="InvolvedAmount"   label="涉案金额"            type="DOUBLE" displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="6"   name="NegInfDate"       label="信息发生(公示)时间"  type="CHAR"   displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="7"   name="NegInfValidity"   label="有效期"              type="CHAR"   displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="8"   name="NegInfIssOrg"     label="信息发布机构"        type="CHAR"   displaySize="80"  precision="80"  scale="0" format=""/>
+            <column index="9"   name="EffStatus"        label="有效标志"            type="CHAR"   displaySize="1"   precision="1"   scale="0" format=""/>
+            <column index="10"  name="ManagerOrgID"     label="管户机构编号"        type="CHAR"   displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="11"  name="ManagerUserID"    label="管户用户编号"        type="CHAR"   displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="12"  name="OperOrgID"        label="操作机构编号"        type="CHAR"   displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="13"  name="OperUserID"       label="操作用户编号"        type="CHAR"   displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="14"  name="OccurDate"        label="数据日期"            type="CHAR"   displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="15"  name="Extend1"          label="扩展字段1"           type="CHAR"   displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="16"  name="Extend2"          label="扩展字段2"           type="CHAR"   displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="17"  name="Extend3"          label="扩展字段3"           type="CHAR"   displaySize="30"  precision="30"  scale="0" format=""/>
+        </table>
+        <!-- 企业资产负债信息接口表 -->
+        <table name="PIDR_INT_BALANCESHEET">
+            <column index="1"   name="CustomerID"                               label="客户编号"                            type="CHAR"     displaySize="60"  precision="60"  scale="0" format=""/>
+            <column index="2"   name="Stage"                                    label="期次"                                type="CHAR"     displaySize="1"   precision="1"   scale="0" format=""/>
+            <column index="3"   name="FinStaYear"                               label="报表年份"                            type="CHAR"     displaySize="4"   precision="4"   scale="0" format=""/>
+            <column index="4"   name="SheetType"                                label="报表类型"                            type="CHAR"     displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="5"   name="SheetTypeDivide"                          label="报表类型细分"                      type="CHAR"     displaySize="1"   precision="1"   scale="0" format=""/>
+            <column index="6"   name="CurrencyFunds"                            label="货币资金"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="7"   name="FinancialAssetsHeldForTrading"            label="交易性金融资产"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="8"   name="DerivativeFinancialAssets"                label="衍生金融资产"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="9"   name="NotesReceivable"                          label="应收票据"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="10"  name="AccountsReceivable"                       label="应收账款"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="11"  name="AccountsReceivableFinancing"              label="应收款项融资"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="12"  name="Prepayments"                              label="预付款项"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="13"  name="OtherReceivables"                         label="其他应收款"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="14"  name="Inventories"                              label="存货"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="15"  name="ContractAssets"                           label="合同资产"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="16"  name="AssetsAvailableForSale"                   label="持有待售资产"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="17"  name="CurPortionOfNonCurrentAssets"         label="一年内到期的非流动资产"              type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="18"  name="OtherCurrentAssets"                       label="其他流动资产"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="19"  name="TotalCurrentAssets"                       label="流动资产合计"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="20"  name="DebtInvestment"                           label="债权投资"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="21"  name="OtherDebtInvestment"                      label="其他债权投资"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="22"  name="LongTermReceivables"                      label="长期应收款"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="23"  name="LongTermEquityInvestment"                 label="长期股权投资"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="24"  name="OthEquityInstrumentsInvestment"         label="其他权益工具投资"                    type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="25"  name="OtherNonCurrentFinancialAssets"           label="其他非流动金融资产"                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="26"  name="InvestmentProperties"                     label="投资性房地产"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="27"  name="FixedAssets"                              label="固定资产"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="28"  name="ConstructionInProgress"                   label="在建工程"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="29"  name="NonCurrentBiologicalAssets"               label="生产性生物资产"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="30"  name="OilAndGasAssets"                          label="油气资产"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="31"  name="UseRightAssets"                           label="使用权资产"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="32"  name="IntangibleAssets"                         label="无形资产"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="33"  name="DevelopmentDisbursements"                 label="开发支出"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="34"  name="Goodwill"                                 label="商誉"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="35"  name="LongTermDeferredExpenses"                 label="长期待摊费用"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="36"  name="DeferredTaxAssets"                        label="递延所得税资产"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="37"  name="OtherNonCurrentAssets"                    label="其他非流动资产"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="38"  name="TotalNonCurrentAssets"                    label="非流动资产合计"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="39"  name="TotalAssets"                              label="资产总计"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="40"  name="ShortTermBorrowings"                      label="短期借款"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="41"  name="FinLiabilitiesHeldForTrading"       label="交易性金融负债"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="42"  name="DerivativeFinancialLiabilities"           label="衍生金融负债"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="43"  name="NotesPayable"                             label="应付票据"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="44"  name="AccountsPayable"                          label="应付账款"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="45"  name="ReceiptsInAdvance"                        label="预收款项"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="46"  name="ContractualLiabilities"                   label="合同负债"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="47"  name="EmployeeBenefitsPayable"                  label="应付职工薪酬"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="48"  name="TaxesPayable"                             label="应交税费"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="49"  name="OtherPayables"                            label="其他应付款"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="50"  name="LiabilitiesHeldForSale"                   label="持有待售负债"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="51"  name="CurPorOfLongTermLiabilities"      label="一年内到期的非流动负债"              type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="52"  name="OtherCurrentLiabilities"                  label="其他流动负债"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="53"  name="TotalCurrentLiabilities"                  label="流动负债合计"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="54"  name="LongTermBorrowings"                       label="长期借款"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="55"  name="BondsPayables"                            label="应付债券"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="56"  name="PreferredStockInBondsPayables"            label="其中:优先股"                         type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="57"  name="PerpetualBondsInBondsPayables"            label="永续债"                              type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="58"  name="LeaseLiabilities"                         label="租赁负债"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="59"  name="LongTermPayables"                         label="长期应付款"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="60"  name="Provisions"                               label="预计负债"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="61"  name="DeferredIncome"                           label="递延收益"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="62"  name="DeferredTaxLiabilities"                   label="递延所得税负债"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="63"  name="OtherNonCurrentLiabilities"               label="其他非流动负债"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="64"  name="TotalNonCurrentLiabilities"               label="非流动负债合计"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="65"  name="TotalLiabilities"                         label="负债合计"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="66"  name="PaidInCapitalOrShareCapital"              label="实收资本(或股本)"                    type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="67"  name="OtherEquityInstruments"                   label="其他权益工具投资"                    type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="68"  name="PreStockInOthEquityInstruments"   label="其中:优先股"                         type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="69"  name="PerBondsInOthEquityInstruments"   label="永续债"                              type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="70"  name="CapitalrRserve"                           label="资本公积"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="71"  name="LessTreasuryStocks"                       label="减:库存股"                           type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="72"  name="OtherComprehensiveIncome"                 label="其他综合收益"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="73"  name="SpecialReserve"                           label="专项储备"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="74"  name="SurplusReserve"                           label="盈余公积"                            type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="75"  name="UnappropriatedProfit"                     label="未分配利润"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="76"  name="TotalEquity"                              label="所有者权益(或股东权益)合计"          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="77"  name="TotalEquityAndLiabilities"                label="负债和所有者权益(或股东权益)总计"    type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="78"  name="ManagerOrgID"                             label="管户机构编号"                        type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="79"  name="ManagerUserID"                            label="管户用户编号"                        type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="80"  name="OperOrgID"                                label="操作机构编号"                        type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="81"  name="OperUserID"                               label="操作用户编号"                        type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="82"  name="OccurDate"                                label="数据日期"                            type="CHAR"     displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="83"  name="Extend1"                                  label="扩展字段1"                           type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="84"  name="Extend2"                                  label="扩展字段2"                           type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="85"  name="Extend3"                                  label="扩展字段3"                           type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+        </table>
+        <!-- 企业利润信息接口表 -->
+        <table name="PIDR_INT_INCOME">
+            <column index="1"   name="CustomerID"                             label="客户编号"                                                  type="CHAR"     displaySize="60"  precision="60"  scale="0" format=""/>
+            <column index="2"   name="Stage"                                  label="期次"                                                      type="CHAR"     displaySize="1"   precision="1"   scale="0" format=""/>
+            <column index="3"   name="FinStaYear"                             label="报表年份"                                                  type="CHAR"     displaySize="4"   precision="4"   scale="0" format=""/>
+            <column index="4"   name="SheetType"                              label="报表类型"                                                  type="CHAR"     displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="5"   name="SheetTypeDivide"                        label="报表类型细分"                                                type="CHAR"     displaySize="1"   precision="1"   scale="0" format=""/>
+            <column index="6"   name="RevenueOfSales"                         label="一、营业收入"                                              type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="7"   name="CostOfSales"                            label="减:营业成本"                                               type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="8"   name="BusinessAndOtherTaxes"                  label="税金及附加"                                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="9"   name="SellingExpenses"                        label="销售费用"                                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="10"  name="GenAndAdministrativeExpenses"       label="管理费用"                                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="11"  name="RDExpenses"                             label="研发费用"                                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="12"  name="FinancialExpense"                       label="财务费用"                                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="13"  name="InterestFeeOfFinancialExpense"          label="其中:利息费用"                                             type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="14"  name="IntIncomeOfFinancialExpense"       label="利息收入"                                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="15"  name="OtherIncome"                            label="加:其他收益"                                               type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="16"  name="InvestmentIncome"                       label="投资收益(损失以“-”号填列)"                               type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="17"  name="AssociatesAndJointVenturesInc"        label="其中:对联营企业和合营企业的投资收益"                       type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="18"  name="FinancialAssetsEndIncome"               label="以摊余成本计量的金融资产终止确认收益(损失以“-”号填列)"   type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="19"  name="NetExposureHedgingIncome"               label="净敞口套期收益(损失以“-”号填列)"                         type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="20"  name="IncomeFromChangesInFairValue"           label="公允价值变动收益(损失以“-”号填列)"                       type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="21"  name="CreditImpairmentLoss"                   label="信用减值损失(损失以“-”号填列)"                           type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="22"  name="ImpairmentLossOfAssets"                 label="资产减值损失(损失以“-”号填列)"                           type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="23"  name="IncomeFromAssetDisposal"                label="资产处置收益(损失以“-”号填列)"                           type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="24"  name="OperatingProfits"                       label="二、营业利润(亏损以“-”号填列)"                           type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="25"  name="NonOperatingIncome"                     label="加:营业外收入"                                             type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="26"  name="NonOperatingExpenses"                   label="减:营业外支出"                                             type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="27"  name="ProfitBeforeTax"                        label="三、利润总额(亏损总额以“-”号填列)"                       type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="28"  name="IncomeTaxExpense"                       label="减:所得税费用"                                             type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="29"  name="NetProfit"                              label="四、净利润(净亏损以“-”号填列)"                           type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="30"  name="OthComprehensiveIncomeAfterTax"       label="五、其他综合收益的税后净额"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="31"  name="TotalComprehensiveIncome"               label="六、综合收益总额"                                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="32"  name="EarningsPerShare"                       label="七、每股收益:"                                             type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="33"  name="BasicEarningsPerShare"                  label="(一)基本每股收益"                                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="34"  name="DilutedEarningsPerShare"                label="(二)稀释每股收益"                                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="35"  name="ManagerOrgID"                           label="管户机构编号"                                              type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="36"  name="ManagerUserID"                          label="管户用户编号"                                              type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="37"  name="OperOrgID"                              label="操作机构编号"                                              type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="38"  name="OperUserID"                             label="操作用户编号"                                              type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="39"  name="OccurDate"                              label="数据日期"                                                  type="CHAR"     displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="40"  name="Extend1"                                label="扩展字段1"                                                 type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="41"  name="Extend2"                                label="扩展字段2"                                                 type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="42"  name="Extend3"                                label="扩展字段3"                                                 type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+        </table>
+        <!-- 企业现金流量信息接口表 -->
+        <table name="PIDR_INT_CASHFLOW">
+            <column index="1"   name="CustomerID"                                                    label="客户编号"                                            type="CHAR"     displaySize="60"  precision="60"  scale="0" format=""/>
+            <column index="2"   name="Stage"                                                         label="期次"                                                type="CHAR"     displaySize="1"   precision="1"   scale="0" format=""/>
+            <column index="3"   name="FinStaYear"                                                    label="报表年份"                                            type="CHAR"     displaySize="4"   precision="4"   scale="0" format=""/>
+            <column index="4"   name="SheetType"                                                     label="报表类型"                                            type="CHAR"     displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="5"   name="SheetTypeDivide"                                               label="报表类型细分"                                          type="CHAR"     displaySize="1"   precision="1"   scale="0" format=""/>
+            <column index="6"   name="CashReceivedFromSalesOGOROS"               label="销售商品、提供劳务收到的现金"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="7"   name="TaxRefunds"                                                    label="收到的税费返还"                                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="8"   name="OtherCashReceivedRTOA"                label="收到其他与经营活动有关的现金"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="9"  name="TotalCashInflowsFromOA"                       label="经营活动现金流入小计"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="10"  name="CashPaidForGoodsAndServices"                                   label="购买商品、接受劳务支付的现金"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="11"  name="CashPaidToAndOnBOE"                              label="支付给职工以及为职工支付的现金"                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="12"  name="PaymentsOfAllTypesOfTaxes"                                     label="支付的各项税费"                                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="13"  name="OtherCashPaymentsFromOA"                      label="支付其他与经营活动有关的现金"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="14"  name="TotalCashOutflowsFromOA"                      label="经营活动现金流出小计"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="15"  name="NetCashFlowsFromOA"                           label="经营活动产生的现金流量净额"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="16"  name="CashReceivedFromROI"                            label="收回投资收到的现金"                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="17"  name="CashReceivedFromOnvestments"                                   label="取得投资收益收到的现金"                              type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="18"  name="NetCashAndOtherLongTermAssets"                                 label="处置固定资产、无形资产和其他长期资产收回的现金净额"  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="19"  name="NetCashReceivedFromDSAOB"       label="处置子公司及其他营业单位收到的现金净额"              type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="20"  name="CashReceivedRelatingToOIA"                label="收到其他与投资活动有关的现金"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="21"  name="TotalCashInflowsFromIA"                       label="投资活动现金流入小计"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="22"  name="CashPaidToAcquire"                                             label="购建固定资产、无形资产和其他长期资产支付的现金"      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="23"  name="CashPaymentsForInvestments"                                    label="投资支付的现金"                                      type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="24"  name="NetCashPaidToASAOB"              label="取得子公司及其他营业单位支付的现金净额"              type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="25"  name="CashPaymentsRelatedToTA"                 label="支付其他与投资活动有关的现金"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="26"  name="SubTotalOfCashOutflows"                                        label="投资活动现金流出小计"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="27"  name="NetCashFlowsFromIA"                           label="投资活动产生的现金流量净额"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="28"  name="CashReceivedFromInvestors"                                     label="吸收投资收到的现金"                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="29"  name="CashFromBorrowings"                                            label="取得借款收到的现金"                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="30"  name="OtherCashReceivedRelatingTFA"                label="收到其他与筹资活动有关的现金"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="31"  name="TotalCashInflowsFromFA"                       label="筹资活动现金流入小计"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="32"  name="CashRepaymentsForDebts"                                        label="偿还债务支付的现金"                                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="33"  name="CashPaymentsForDist"                                           label="分配股利、利润或偿付利息支付的现金"                  type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="34"  name="CashPaymentsRelatedToOFA"                 label="支付其他与筹资活动有关的现金"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="35"  name="TotalCashOutflowsFromFA"                      label="筹资活动现金流出小计"                                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="36"  name="NetCashFlowsFromFA"                           label="筹资活动产生的现金流量净额"                          type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="37"  name="EffectOfExchangRateCOC"                              label="四、汇率变动对现金及现金等价物的影响"                type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="38"  name="NetIncreaseInCashAndCE"                           label="五、现金及现金等价物净增加额"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="39"  name="InitialCashAndCashEB"                          label="加:期初现金及现金等价物余额"                         type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="40"  name="TheFinalCashAndCashEB"                         label="六、期末现金及现金等价物余额"                        type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="41"  name="ManagerOrgID"                                                  label="管户机构编号"                                        type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="42"  name="ManagerUserID"                                                 label="管户用户编号"                                        type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="43"  name="OperOrgID"                                                     label="操作机构编号"                                        type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="44"  name="OperUserID"                                                    label="操作用户编号"                                        type="CHAR"     displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="45"  name="OccurDate"                                                     label="数据日期"                                            type="CHAR"     displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="46"  name="Extend1"                                                       label="扩展字段1"                                           type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="47"  name="Extend2"                                                       label="扩展字段2"                                           type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="48"  name="Extend3"                                                       label="扩展字段3"                                           type="CHAR"     displaySize="30"  precision="30"  scale="0" format=""/>
+        </table>
+        <!-- 企业信贷资产信息接口表 -->
+        <table name="PIDR_INT_BUSIINFO">
+            <column index="1"   name="DueCode"       label="借据号"              type="CHAR"   displaySize="80"  precision="80"  scale="0" format=""/>
+            <column index="2"   name="CustomerID"    label="客户号"              type="CHAR"   displaySize="80"  precision="80"  scale="0" format=""/>
+            <column index="3"   name="ContractCode"  label="贷款合同编号"        type="CHAR"   displaySize="80"  precision="80"  scale="0" format=""/>
+            <column index="4"   name="EntName"       label="企业名称"            type="CHAR"   displaySize="160" precision="160" scale="0" format=""/>
+            <column index="5"   name="EntCertType"   label="企业身份标识类型"    type="CHAR"   displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="6"   name="EntCertNum"    label="企业身份标识号码"    type="CHAR"   displaySize="18"  precision="18"  scale="0" format=""/>
+            <column index="7"   name="BusiDtlLines"  label="贷款业务种类细分"    type="CHAR"   displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="8"   name="AccPrinc"      label="贷款本金"            type="DOUBLE" displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="9"   name="GuarMode"      label="担保方式"            type="CHAR"   displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="10"  name="AnnualRate"    label="年利率"              type="DOUBLE" displaySize="4"   precision="4"   scale="0" format=""/>
+            <column index="11"  name="OpenDate"      label="贷款发放日"          type="CHAR"   displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="12"  name="DueDate"       label="贷款到期日"          type="CHAR"   displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="13"  name="LatRpyDate"    label="最近一次还款日期"    type="CHAR"   displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="14"  name="AcctBal"       label="贷款剩余本金"        type="DOUBLE" displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="15"  name="AcctStatus"    label="贷款状态"            type="CHAR"   displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="16"  name="IsGreen"       label="是否符合绿色信贷"    type="CHAR"   displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="17"  name="FiveCate"      label="五级分类"            type="CHAR"   displaySize="2"   precision="2"   scale="0" format=""/>
+            <column index="18"  name="ManagerOrgID"  label="管户机构编号"        type="CHAR"   displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="19"  name="ManagerUserID" label="管户用户编号"        type="CHAR"   displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="20"  name="OperOrgID"     label="操作机构编号"        type="CHAR"   displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="21"  name="OperUserID"    label="操作用户编号"        type="CHAR"   displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="22"  name="OccurDate"     label="数据日期"            type="CHAR"   displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="23"  name="Extend1"       label="扩展字段1"           type="CHAR"   displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="24"  name="Extend2"       label="扩展字段2"           type="CHAR"   displaySize="30"  precision="30"  scale="0" format=""/>
+            <column index="25"  name="Extend3"       label="扩展字段3"           type="CHAR"   displaySize="30"  precision="30"  scale="0" format=""/>
+        </table>
+        <!-- 企业补充报表接口表（非报文必须，旨在评级服务使用） -->
+        <table name="PIDR_INT_FINSTATEMENT">
+            <column index="1"   name="CustomerID"       label="客户号"              type="CHAR"   displaySize="60"  precision="60"  scale="0" format=""/>
+            <column index="2"   name="Stage"    label="期次"              type="CHAR"   displaySize="1"  precision="1"  scale="0" format=""/>
+            <column index="3"   name="FinStaYear"  label="报表年份"        type="CHAR"   displaySize="4"  precision="4"  scale="0" format=""/>
+            <column index="4"   name="SheetType"       label="报表类型"            type="CHAR"   displaySize="2" precision="2" scale="0" format=""/>
+            <column index="5"   name="SheetTypeDivide"   label="报表类型细分"    type="CHAR"   displaySize="1"   precision="1"   scale="0" format=""/>
+            <column index="6"   name="InterestPayable"    label="资产负债,补充,应付利息"    type="DOUBLE"   displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="7"   name="DividendsReceivable"  label="资产负债,补充,应收股利"    type="DOUBLE"   displaySize="17"   precision="17"   scale="0" format=""/>
+            <column index="8"   name="UnclearedGuarBEndOfTheTerm"      label="补充报表,未结清担保余额"            type="DOUBLE" displaySize="17"  precision="17"  scale="0" format=""/>
+            <column index="9"   name="ManagerOrgID"      label="管户机构编号"            type="CHAR"   displaySize="32"   precision="32"   scale="0" format=""/>
+            <column index="10"  name="ManagerUserID"    label="管户用户编号"              type="CHAR" displaySize="32"   precision="32"   scale="0" format=""/>
+            <column index="11"  name="OperOrgID"      label="操作机构编号"          type="CHAR"   displaySize="32"  precision="32"  scale="0" format="yyyy-MM-dd"/>
+            <column index="12"  name="OperUserID"       label="操作用户编号"          type="CHAR"   displaySize="32"  precision="32"  scale="0" format="yyyy-MM-dd"/>
+            <column index="13"  name="OccurDate"    label="数据日期"    type="CHAR"   displaySize="10"  precision="10"  scale="0" format="yyyy-MM-dd"/>
+            <column index="14"  name="Extend1"       label="扩展字段1"        type="CHAR" displaySize="32"  precision="32"  scale="0" format=""/>
+            <column index="15"  name="Extend2"    label="扩展字段2"            type="CHAR"   displaySize="32"   precision="32"   scale="0" format=""/>
+            <column index="16"  name="Extend3"       label="扩展字段3"    type="CHAR"   displaySize="32"   precision="32"   scale="0" format=""/>
+        </table>
+        <!-- 校验错误表 -->
+        <table name="PIDR_VALIDATEERRORS">     
+            <column index="1"		name="ERRNO"				label="错误流水号"			type="CHAR"		displaySize="128"	precision="128" scale="0" format=""/>
+			<column index="2"		name="BUSIIDSERIALNO"		label="业务标识"       	type="CHAR"		displaySize="200"	precision="200"	scale="0" format=""/>
+			<column index="3"		name="BSBUSIIDSERIALNO"		label="基本段业务标识"      	type="CHAR"		displaySize="200"  	precision="200" scale="0" format=""/>
+			<column index="4"		name="INFRECTYPE"			label="信息记录类型"        type="CHAR"		displaySize="3"  	precision="3" 	scale="0" format=""/>
+			<column index="5"		name="VALIDATELEVEL"		label="校验级别"          	type="CHAR"		displaySize="1"  	precision="1" 	scale="0" format=""/>
+			<column index="6"		name="ERRCODE"				label="错误标识"          	type="CHAR"		displaySize="40"	precision="40"	scale="0" format=""/>
+			<column index="7"		name="ERRMSG"				label="错误信息"      		type="CHAR"		displaySize="900"	precision="900"	scale="0" format=""/>
+			<column index="8"		name="ERRTABLE"				label="表名"          	type="CHAR"		displaySize="120" 	precision="120"	scale="0" format=""/>
+			<column index="9"		name="ERRTABLENAME"			label="表中文名"  			type="CHAR"		displaySize="100"	precision="100"	scale="0" format=""/>
+			<column index="10"		name="ERRFIELD"				label="错误字段"  			type="CHAR"		displaySize="500"  	precision="500" 	scale="0" format=""/>
+			<column index="11"		name="ERRFIELDNAME"			label="错误字段名"     		type="CHAR"		displaySize="120"  	precision="120" 	scale="0" format=""/>
+			<column index="12"		name="ERRFIELDVALUE"		label="错误字段值"        	type="CHAR"		displaySize="100"  	precision="100" scale="0" format=""/>
+			<column index="13"		name="RULENO"				label="规则编号"        	type="CHAR"		displaySize="20"  	precision="20" 	scale="0" format=""/>
+			<column index="14"		name="OCCURDATE"			label="数据日期"          	type="CHAR"		displaySize="10"  	precision="10" 	scale="0" format="yyyy-MM-dd"/>
+			<column index="15"		name="CHECKEDVALUE"			label="比较值"           	type="CHAR"		displaySize="10"  	precision="10" 	scale="0" format=""/>
+        </table>
+        <!-- 评级记录表 -->
+        <table name="PIDR_EVALUATE_DATA">     
+                <column index="1"       name="OBJECTTYPE"                label="对象类型"           type="CHAR"     displaySize="18"   precision="18" scale="0" format=""/>
+                <column index="2"       name="CUSTOMERID"       label="对象客户编号"        type="CHAR"     displaySize="32"   precision="32" scale="0" format=""/>
+                <column index="3"       name="ITEMNO"     label="项目编号"         type="CHAR"     displaySize="32"   precision="32" scale="0" format=""/>
+                <column index="4"       name="ITEMVALUE"           label="机器测算-项目值"        type="CHAR"       displaySize="80"     precision="80"   scale="0" format=""/>
+                <column index="5"       name="EVALUATESCORE"        label="评估得分"            type="DOUBLE"     displaySize="24"     precision="6"   scale="0" format=""/>
+                <column index="6"       name="ITEMVALUE2"              label="人工测算-项目值"            type="CHAR"     displaySize="80"    precision="80"  scale="0" format=""/>
+                <column index="7"      name="ECOINDUSCATE"         label="行业分类"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="8"      name="NETPROFIT"         label="利润表本期净利润"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="9"      name="INCOMETAXEXPENSE"         label="利润表本期所得税费用"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="10"      name="OPERATINGPROFITS"         label="利润表本期营业利润"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="11"      name="COSTOFSALES"         label="利润表本期营业成本"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="12"      name="REVENUEOFSALES"         label="利润表本期营业收入"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="13"      name="FINANCIALEXPENSE"         label="利润表本期财务费用"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="14"      name="NETCASHFLOWSFROMOA"         label="现金流量表本期经营活动产生的现金流量金额"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="15"      name="TOTALCASHINFLOWSFROMOA"         label="现金流量表本期经营活动现金流入小计"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="16"      name="UNCLEAREDGUARBENDOFTHETERM"         label="补充报表的本期期末未结清担保余额"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="17"      name="INTERESTPAYABLE"         label="补充报表的本期应付利息"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="18"      name="DIVIDENDSRECEIVABLE"         label="补充报表的应收股利"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="19"      name="FIXEDASSETS2"         label="资产负债表上期固定资产"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="20"      name="INVENTORIES2"         label="资产负债表上期存货"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="21"      name="ACCOUNTSRECEIVABLE2"         label="资产负债表上期应收账款"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="22"      name="NOTESRECEIVABLE2"         label="资产负债表上期应收票据"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="23"      name="TOTALASSETS2"         label="资产负债表上期资产总计"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="24"      name="FINANCIALASSETSHELDFORTRADING1"         label="资产负债表本期交易性金融资产"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="25"      name="OTHERRECEIVABLES1"         label="资产负债表本期其他应收款"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="26"      name="FIXEDASSETS1"         label="资产负债表本期固定资产"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="27"      name="INVENTORIES1"         label="资产负债表本期存货"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="28"      name="NOTESRECEIVABLE1"         label="资产负债表本期应收票据"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="29"      name="ACCOUNTSRECEIVABLE1"         label="资产负债表本期应收账款"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="30"      name="TOTALEQUITY1"         label="资产负债表本期所有者权益合计"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="31"      name="TOTALCURRENTLIABILITIES1"         label="资产负债表本期流动负债合计"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="32"      name="TOTALCURRENTASSETS1"         label="资产负债表本期流动资产合计"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="33"      name="SHORTTERMBORROWINGS1"         label="资产负债表本期短期借款"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="34"      name="TOTALLIABILITIES1"         label="资产负债表本期负债合计"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="35"      name="CURRENCYFUNDS1"         label="资产负债表本期货币资金"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="36"      name="TOTALASSETS1"         label="资产负债表本期资产总计"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>
+                <column index="37"      name="LONGTERMBORROWINGS1"         label="资产负债表本期长期借款"             type="CHAR"     displaySize="30"    precision="30"  scale="0" format=""/>       
+                <column index="38"       name="EVALUATESCORE2"        label="机器测算-评分值(未加权重折扣等)"            type="DOUBLE"     displaySize="24"     precision="6"   scale="0" format=""/>         
+            </table>
+    </tables>
+</dataSource>

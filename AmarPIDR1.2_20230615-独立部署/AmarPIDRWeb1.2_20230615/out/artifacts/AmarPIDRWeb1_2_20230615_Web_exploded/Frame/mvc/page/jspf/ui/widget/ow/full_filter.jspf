@@ -1,0 +1,40 @@
+<%@ page pageEncoding="UTF-8"%><div id="TableFilter" class="list_filter_div"><input type="text" name="Input_Filter" id="Input_Filter" value="" onkeypress="if(event.keyCode==13){filterValues[this.parentNode.getAttribute('tableId')][this.parentNode.colIndex]=this.value;tableSearchFromInput(document.getElementsByName('search')[0]);}" onChange="filterValues[this.parentNode.getAttribute('tableId')][this.parentNode.colIndex]=this.value"><div id="CheckBox_Filter"></div>
+	<table><tr>
+	<td>
+	<a3ui:buttonPrint text="确定" tips="确定" action="if(tableSearchFromInput())document.getElementById('TableFilter').style.display='none';"/>
+	</td>
+	<td>
+	<a3ui:buttonPrint text="高级" tips="高级" action="openFullFilter(0,event)"/>
+	</td>
+	<td>
+	<a3ui:buttonPrint text="还原" tips="还原" action="TableFactory.clearFilter(0);if(tableSearchFromInput())document.getElementById('TableFilter').style.display='none';"/>
+	</td>
+	<td>
+	<a3ui:buttonPrint text="关闭" tips="关闭" action="document.getElementById('TableFilter').style.display='none';"/>
+	</td>
+	</tr></table>
+</div>
+<div id="TableFullFilter_myiframe0" class="list_filter_div list_fulllfilter_div" style="display:none;overflow-x:hiden;overflow-y:auto;">
+	
+</div>
+<script>
+var sbDWFullFiterButtons = new StringBuffer();
+sbDWFullFiterButtons.append('<table><tr>');
+
+sbDWFullFiterButtons.append('<td><a3ui:buttonPrint text="确定" tips="确定" action="if(tableSearchFromInput()){openFilterArea('TableFilter_AREA',0,event);closeFullFilter(0,event);}" convert2js="true"/></td>');
+
+sbDWFullFiterButtons.append('<td><a3ui:buttonPrint text="清空" tips="清空" action="TableFactory.clearFilter(0);openFullFilter(0,event);openFilterArea('TableFilter_AREA',0,event);tableSearchFromInput();" convert2js="true"/></td>');
+
+sbDWFullFiterButtons.append('<td><a3ui:buttonPrint text="返回" tips="返回" action="closeFullFilter(0,event,true)" convert2js="true"/></td>');
+
+sbDWFullFiterButtons.append('<td><a3ui:buttonPrint text="关闭" tips="关闭" action="closeFullFilter(0,event)" convert2js="true"/></td>');
+sbDWFullFiterButtons.append('</tr></table>');
+DWFullFiterButtons = sbDWFullFiterButtons.toString();
+sbDWFullFiterButtons = new StringBuffer();
+sbDWFullFiterButtons.append('<table width="100%"><tr><td align=center class="list_search_buttons">');
+sbDWFullFiterButtons.append('<input type="button" onclick="s_r_c[0]=-1;s_c_p[0]=0;submitFilterArea();FilterAreaHide();" value="${filterSubmit}" />');
+sbDWFullFiterButtons.append('<input type="button" onclick="FilterAreaHide();" value="${filterCancel}" />');
+sbDWFullFiterButtons.append('<input type="button" onclick="TableFactory.clearFilter(0);submitFilterArea();" value="${filterClear}" />');
+sbDWFullFiterButtons.append('</td></tr></table>');
+DWFullFiterButtons2 = sbDWFullFiterButtons.toString();
+</script>

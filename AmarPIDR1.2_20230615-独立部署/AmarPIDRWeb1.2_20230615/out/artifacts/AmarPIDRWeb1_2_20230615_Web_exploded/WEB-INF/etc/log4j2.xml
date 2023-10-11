@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="a3web53" packages="">
+	<properties>
+	    <!-- 应用名称 -->
+	    <property name="APP_NAME">a3web53</property>  
+	    <!--日志文件的保存路径,首先查找系统属性-Dlog.dir,如果存在就使用其；否则，在当前目录下创建名为log目录做日志存放的目录 -->
+	    <property name="LOG_HOME" >${log.dir:-/tmp/logs}/${APP_NAME}</property>
+	    <property name="ENCODER_PATTERN" >[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] [%thread] [%MDC{log_opid}] [%X{log_userid}] %logger{80} - %msg%n</property>
+	    <property name="XENCODER_PATTERN" >[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%level] [%thread] [%X] [%c] %logger{80} - %msg%n</property>
+    </properties>
+	<Appenders>
+		<Console name="STDOUT"  target="SYSTEM_OUT">
+			<PatternLayout pattern="${ENCODER_PATTERN}" />
+		</Console>
+		<!-- 文件日志：输出全部日志到文件,指定日志大小 -->
+		<RollingRandomAccessFile  name="LOG_FIXSIZE"  fileName="${LOG_HOME}/${APP_NAME}.log"  filePattern="${LOG_HOME}/%d{yyyyMMdd}/${APP_NAME}_%d{yyyyMMdd}.log.%i.gz"  immediateFlush="true"  bufferSize="8192" >
+			<PatternLayout pattern="${ENCODER_PATTERN}" />
+			<Policies>
+                <TimeBasedTriggeringPolicy interval="1" />  
+                <SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="100" />
+		</RollingRandomAccessFile >
+		
+		 <!-- 错误日志：用于将警告及错误日志输出到独立文件 -->
+		<RollingFile  name="LOG_WARN"  fileName="${LOG_HOME}/${APP_NAME}_warn.log"  filePattern="${LOG_HOME}/%d{yyyyMMdd}/${APP_NAME}_%d{yyyyMMdd}_warn.log.%i.gz"  immediateFlush="true">
+			<PatternLayout pattern="${ENCODER_PATTERN}%caller{4}" />
+			<Policies>
+                <TimeBasedTriggeringPolicy interval="1" />  
+                <SizeBasedTriggeringPolicy size="100 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="100" />
+		</RollingFile >
+		
+		<!-- 按用户输出日志 -->
+		<Routing name="userRouting">
+      		<Routes pattern="$${ctx:log_userid}">
+      		    <Route key="$${ctx:log_userid}">
+					 <RollingFile name="user.log-unknown"  fileName="${LOG_HOME}/users/${APP_NAME}._unknown.log"  filePattern="${LOG_HOME}/users/${APP_NAME}._unknown-%d{MM-dd-yyyy}-%i.log.gz">
+						<PatternLayout pattern="${XENCODER_PATTERN}" />
+			        <Policies>
+			          <TimeBasedTriggeringPolicy interval="1" />
+			          <SizeBasedTriggeringPolicy size="50 MB" />
+			        </Policies>
+			      </RollingFile>
+			    </Route>
+        		<Route>
+					<RollingFile name="user.log-${ctx:log_userid}" append="true" fileName="${LOG_HOME}/users/${APP_NAME}._${ctx:log_userid}.log"  filePattern="${LOG_HOME}/users/${APP_NAME}._${ctx:log_userid}-%d{MM-dd-yyyy}-%i.log.gz">
+				        <PatternLayout pattern="${XENCODER_PATTERN}" />
+				        <Policies>
+				            <TimeBasedTriggeringPolicy/>
+				            <SizeBasedTriggeringPolicy size="50 MB"/>
+				        </Policies>
+			    	</RollingFile>
+    	        </Route>
+      		</Routes>
+    	</Routing>
+	</Appenders>
+	<Loggers>
+	    <logger name="org.apache" level="info" />
+	    <logger name="org.springframework" level="info" />
+	    <logger name="net.sf.ehcache" level="info" />
+	    <logger name="com.zaxxer.hikari" level="info" />
+		<Root level="debug">
+			<AppenderRef ref="STDOUT"/>
+			<AppenderRef ref="LOG_FIXSIZE" />
+			<AppenderRef ref="LOG_WARN"  level="warn"/>
+			<AppenderRef ref="userRouting"  />
+		</Root>
+	</Loggers>
+</Configuration>

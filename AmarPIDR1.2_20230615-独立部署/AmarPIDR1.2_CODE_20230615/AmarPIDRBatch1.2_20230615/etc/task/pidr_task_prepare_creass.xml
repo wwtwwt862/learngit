@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 央评系统数据处理-导入企业信贷资产信息 -->
+<task name="PIDRPrepareCreassTask" traceOn="false" describe="导入央行内评企业信贷资产信息任务" saveHistory="true" historyFolder="{$ARE.APP_HOME}/history" >
+	<extendProperties>
+			<property name="WhiteListCondition" value="exists (select 1 from PIDR_WHITELIST PW where PW.CustomerID = PIB.CustomerID) {#白名单客户过滤条件}"/>
+	</extendProperties>
+	<executeUnits>
+		<!-- 企业信贷资产信息基础段 -->
+		<executeUnit name="InsertPidrCreassBs" describe="导入企业信贷资产信息基础段信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_CREASS_BS:etc/pidr_are.xml:,"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler" />
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+					value="datasource:db:pidr:select 
+										PIB.DueCode as DueCode {#借据号},
+										'410' as InfRecType {#信息记录类型},
+										PIB.ContractCode as ContractCode {#贷款合同编号},
+										PIB.CustomerID as CustomerId {#客户编号},
+										PIB.EntName as EntName {#借款企业名称},
+										'20' as EntCertType {#借款企业身份标识类型:20-统一社会信用代码},
+										PIB.EntCertNum as EntCertNum {#借款企业身份标识号码},
+										PIB.ManagerOrgID as MngmtOrgCode {#业务管理金融机构代码},
+										'{$ARE.bizDate}' as RptDate {#信息报告日期},      
+										PIB.ManagerOrgID as ManagerOrgID {#管户机构编号},      
+										PIB.ManagerUserID as ManagerUserID {#管户用户编号}    
+										from PIDR_INT_BUSIINFO PIB {#信贷资产信息接口表}
+										where exists (select 1 from PIDR_RATE_BS PRB where PRB.CustomerId = PIB.CustomerId)
+										and {$TASK.WhiteListCondition}
+					"/> 
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.columnConvertors" value="
+					{MngmtOrgCode,datasource:db:pidr:select CBCode,PBCode from PIDR_CODE_LIBRARY where ColName='OrgCode'}" 
+				/>
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.database" value="pidr" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.table" value="PIDR_CREASS_BS" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.keyColumns" value="DueCode" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.commitNumber" value="500" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.updateColumns" 
+						  value="EntName,EntCertType,EntCertNum,MngmtOrgCode,RptDate,OccurDate,RecordFlag,ManagerOrgID,ManagerUserID" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.compareColumns" 
+						  value="EntName,EntCertType,EntCertNum,MngmtOrgCode,RecordFlag" />
+			</extendProperties>
+		</executeUnit>
+		
+		<!-- 企业信贷资产信息基本信息段 -->
+		<executeUnit name="InsertPidrCreassFsinf" describe="导入企业信贷资产信息基本信息段信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_CREASS_FSINF:etc/pidr_are.xml:,"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler" />
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+					value="datasource:db:pidr:select 
+										PIB.DueCode as DueCode {#借据号},
+										PIB.BusiDtlLines as BusiDtlLines {#贷款业务种类细分},
+										PIB.AccPrinc as AccPrinc {#贷款本金},
+										PIB.GuarMode as GuarMode {#担保方式},
+										PIB.AnnualRate as AnnualRate {#年利率},
+										PIB.OpenDate as OpenDate {#贷款发放日},
+										PIB.DueDate as DueDate {#贷款到期日},
+										PIB.LatRpyDate as LatRpyDate {#最近一次还款日期},
+										PIB.AcctBal as AcctBal {#贷款剩余本金},
+										PIB.AcctStatus as AcctStatus {#贷款状态},
+										PIB.IsGreen as IsGreen {#是否符合绿色信贷},
+										PIB.FiveCate as FiveCate {#五级分类},       
+										PIB.ManagerOrgID as ManagerOrgID {#管户机构编号},      
+										PIB.ManagerUserID as ManagerUserID {#管户用户编号}       
+										from PIDR_INT_BUSIINFO PIB {#信贷资产信息接口表}
+										where exists (select 1 from PIDR_CREASS_BS PCB where PIB.DueCode = PCB.DueCode)
+										
+					"/> 
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.database" value="pidr" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.table" value="PIDR_CREASS_FSINF" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.keyColumns" value="DueCode" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.commitNumber" value="500" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.updateColumns" 
+						  value="BusiDtlLines,AccPrinc,GuarMode,AnnualRate,OpenDate,DueDate,LatRpyDate,AcctBal,AcctStatus,IsGreen,FiveCate,OccurDate,RecordFlag,ManagerOrgID,ManagerUserID" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRCreassUpdateHandler.compareColumns" 
+						  value="BusiDtlLines,AccPrinc,GuarMode,AnnualRate,OpenDate,DueDate,LatRpyDate,AcctBal,AcctStatus,IsGreen,FiveCate,RecordFlag" />
+			</extendProperties>
+		</executeUnit>
+		
+		<executeUnit name="SyncOrgCreassRecordflag" describe="更新企业信贷资产信息基础段" executeClass="com.amarsoft.app.pbc.pidr.dataimport.SyncOrgCreassRecordflag" allowManualExecute="true"/>
+		
+		<!-- 更新白名单数据表的批量运行状态 -->
+		<executeUnit name="UpdateWhiteListRunStatus" describe="更新白名单数据表运行状态" allowManualExecute="true"  executeClass="com.amarsoft.task.units.dpx.SQLProcess">
+				<extendProperties>
+				<property name="unit.onErrorAction" value="break"/>
+				<property name="unit.logLevel" value="debug"/>
+					<property name="unit.script" value="
+						connect to {$ARE.pidr_dataSource};&#xA;
+						set autocommit false;&#xA;
+						update PIDR_WHITELIST PW set RunStatus = '30' where exists (select 1 from PIDR_CREASS_BS PCB where PW.CustomerId = PCB.CustomerId and PCB.RecordFlag in ('A','U'));&#xA;
+						commit;&#xA;
+						disconnect;"
+					/>
+				</extendProperties>
+		</executeUnit>
+	</executeUnits>
+	
+	<routeMap start="InsertPidrCreassBs" >
+		<route unit="InsertPidrCreassBs" successful="InsertPidrCreassFsinf" />
+		<route unit="InsertPidrCreassFsinf" successful="SyncOrgCreassRecordflag" />
+		<route unit="SyncOrgCreassRecordflag" successful="UpdateWhiteListRunStatus"/>
+    </routeMap>	
+</task>

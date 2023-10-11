@@ -1,0 +1,213 @@
+<%@page pageEncoding="UTF-8"%>
+<%@page import="com.amarsoft.app.awe.framecase.bos.BookmarkBos"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%><%@
+ taglib prefix="a3ui" uri="http://www.amarsoft.com/tags/a3ui"%>
+<c:set var="sWebRootPath" value="${pageContext.request.contextPath}" /><c:set
+ var="curConfig" value="${root.curConfig}" /><c:set
+ var="curPage" value="${root.curPage}" /><c:set
+ var="curUser" value="${root.curPage.user}" /><c:set
+ var="showMore" value="${a3ui:getOWSystemLanguage(curUser.language, '显示更多')}" /><c:set
+ var="collapse" value="${a3ui:getOWSystemLanguage(curUser.language, '收起')}" />
+ <a3ui:puiflag />
+<html>
+<head><title>A3Web</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<%@include file="/Frame/page/jspf/include/jsp_runtime_context.jspf"%><%
+	String uiTheme = CurPref.getUserPreference("theme");
+	if(StringX.isEmpty(uiTheme)){
+		uiTheme = CurConfig.getConfigure("PUIDefaultTheme");
+		if(StringX.isEmpty(uiTheme)){
+			uiTheme = "aristo";
+			CurPref.setUserPreference("theme", uiTheme);
+		}
+	}
+%>
+<link rel="shortcut icon" href="${sWebRootPath}/favicon.ico">
+<script type="text/javascript">var DZ=[];var sCompClientID="<%=sCompClientID%>";var sWebRootPath="<%=sWebRootPath%>";</script>
+<!--CSS-->
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/css/button.css">
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}${curUser.skin.path}/css/button.css">
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/css/button_types.css">
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/css/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/css/jquery-ui-slider.css" />
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/css/jquery-ui-datepicker.css" />
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/css/primeui.css" />
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/css/perfect-scrollbar.css" />
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/icons/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/themes/<%=uiTheme%>/theme.css" />
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/css/pui_style.css">
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/primeui/css/pui-info.css">
+<!--JS-->
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/jquery/plugins/jquery.serializejson.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/jquery/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/jquery-ui.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/jquery-ui-slider.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/jquery-ui-datepicker.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/jquery.form.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/jquery.json.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/perfect-scrollbar.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/primeui.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/x-tag-core.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/primeelements.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/plugins/cursorposition.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/plugins/jquery.mousewheel.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/plugins/mustache.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/plugins/rangyinput.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/plugins/touchswipe.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/as_pui_api.js"> </script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/resources/primeui/js/as_pelement.js"> </script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/as_common.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/as_control.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/as_widget.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_common.js"></script>
+</head>
+<body>
+<header class="header">
+	<nav>
+	  <div id="topbar_cover"> 
+		 	<div class="main_logo"></div>
+	     	<div id="sys_menu" class="top_menu" style="width:60%; float:left; vertical-align: middle;border:0px;background: none;">
+	     		<%
+	     			Json userJSONMenu = (Json)session.getAttribute("UserJSONMenu");
+					if(ObjectX.empty(userJSONMenu)){
+						userJSONMenu = MenuManager.getJSONMenu(CurUser);
+					}
+				%>
+	     		<c:set var="menus" value="<%=userJSONMenu%>" />
+				<c:forEach var="menu" items="${menus.elementList()}" >
+			 	<ul><li><a href="#" data-icon='${menu.value.icon}' onclick="Nav.openMenu('${menu.value.id}')">${menu.value.displayname}</a>
+			 		<c:if test="${menu.value.children.elementList().size() > 0}">
+			 			<div class="ui-grid">
+				 			<c:forEach var="submenu" items="${menu.value.children.elementList()}" varStatus="status">
+                        	<c:if test="${status.index %2 eq 0}"><div class="ui-grid-row"></c:if>
+                        		<div class="ui-grid-col-6">
+					 				<ul>
+				 					<c:choose>
+				    					<c:when test="${submenu.value.children.elementList().size() > 0}">
+				    						<li><a style="color: black;" href="#" data-icon='fa-folder-open-o'>${submenu.value.displayname}</a></li>
+	                                        <c:forEach var="submenu2" items="${submenu.value.children.elementList()}" >
+		                                        &nbsp;&nbsp;&nbsp;&nbsp;
+		                                        <li><a style="color: black;" href="#" data-icon='fa-leaf ${submenu2.value.icon}' 
+		                                        	onclick="Nav.openMenu('${submenu2.value.id}')">${submenu2.value.displayname}</a></li>
+	                                        </c:forEach>
+				    					</c:when>
+				    					<c:otherwise>
+											<li><a style="color: black;" href="#" data-icon='${submenu.value.icon}' 
+												onclick="Nav.openMenu('${submenu.value.id}')">&nbsp;&nbsp;${submenu.value.displayname}</a></li>
+										</c:otherwise>
+									</c:choose>
+                                    </ul>
+					 			</div>
+                        	<c:if test="${status.index %2 eq 1}"></div></c:if>
+				 			</c:forEach>
+                        </div>
+			 		</c:if>
+			 	</li></ul>
+		 		</c:forEach>
+			</div>
+			<div id="top_menu_mobile" class="top_menu top_menu_mobile"  style="margin-top:20px;float:left">
+				<a href="" id="mobile-menu-button" style="padding:0px;"><i class="fa fa-bars fa-lg fa-fw"></i>
+					<ul id="mobile-menu">
+					    <li><a href="#" onclick="Nav.home()"><i class="fa fa-home fa-lg fa-fw"></i>首页</a></li>
+						<li><a data-icon="fa-sign-out" onclick="Nav.logout()">退出</a></li>
+				 	</ul>
+				</a>
+			</div>
+	    
+	     	<div id="my_menu" class="top_menu" style="margin-top:15px;float:right">
+	     		 	<ul id="my-menu" style="width: 150px;">
+						<li style="margin: 10px 10px;"><i class="fa fa-bank fa-lg"></i>：&nbsp;${curUser.orgName}</li>
+						<li style="margin: 10px 10px;"><i class="fa fa-user fa-lg"></i>：&nbsp;${curUser.userName}</li>
+						<li style="margin: 10px 10px;"><i class="fa fa-envelope-o fa-lg"></i>：${curUser.email}</li>
+						<li style="margin: 10px 10px;"><i class="fa fa-mobile fa-lg"></i>：&nbsp;${curUser.mobileTel}</li>
+						<li><a data-icon="fa fa-key fa-lg" onclick="Nav.ModifyPass()">&nbsp;修改密码</a></li>
+						<li><a data-icon="fa-sign-out fa-lg" onclick="Nav.logout()">&nbsp;退出</a></li>
+				 	</ul>
+	     	</div>
+	 		<div id="top_menu" class="top_menu top_menu_pc" style="margin-top:15px;float:right">
+	    	    <a href="#" onclick="Nav.home()"><i class="fa fa-home fa-lg  fa-fw"></i>首页</a>
+				<a href="#" onclick="Nav.changehome()"><i class="fa fa-exchange fa-lg fa-fw"></i>切换</a>
+				<a href="#" id="bookmark"><i class="fa fa-th-list fa-lg fa-fw"></i>收藏
+					<ul id="bookmark-menu">
+					 	<c:forEach var="bookmark" items="${BookmarkBos.getBookmarks(curUser.userID).elementList()}" >
+						 	<li><a data-icon='fa-paperclip' onclick="OpenPage('${bookmark.value.BOOKMARKURL}', '_top');">${bookmark.value.BOOKMARKNAME}</a></li>
+					 	</c:forEach>
+						<li><hr></li>
+						<li><a data-icon="fa-bookmark" onclick="addBookmark()">收藏当前页...</a></li>
+						<li><a data-icon="fa-book" onclick="manageBookmark()">收藏菜单管理...</a></li>
+				 	</ul>
+				</a>
+				<a href="#" id="my-info" style="padding:0px;"><i class="fa fa-user fa-lg fa-fw"></i>我的</a>
+				<a href="#" onclick="Nav.navTo('mail')"><i class="fa fa-envelope fa-lg fa-fw"></i>邮件</a>
+			</div>
+	  </div>
+	</nav>
+
+</header>
+<script type="text/javascript">
+	$(function(){
+		//fix top bar
+		$('#topbar_cover').parent().parent().puisticky();
+		$('#sys_menu').puimegamenu();
+		//My menu
+		$('#my-menu').puimenu({popup: true, trigger: $('#my-info')});
+		//mobile menu
+		$('#mobile-menu').puimenu({popup: true,  trigger: $('#mobile-menu-button')});
+		//bookmark
+		$('#bookmark-menu').puimenu({popup: true, trigger: $('#bookmark')});
+	});
+	function addBookmark(){
+		var href = document.location.href;
+		var value = href.substring(href.indexOf(sWebRootPath)).replace(sWebRootPath,"").replace(/[\?\&]$/, "");
+		var name = prompt("请输入收藏菜单的名称");
+		if(!name) return;
+		if(confirm("确定收藏当前页为菜单：【"+name+"】吗？")){
+			AsControl.CallService("/bookmarks/add.serv", {"name": name, "value": value},function(sm){
+	            alert(sm.sysHead.responseMessage);
+	        });
+		}
+	}
+	function manageBookmark(){
+		AsControl.OpenView("/bookmarks/manage.view", "", "_top");
+	}
+	
+	window.Nav={
+		//通用的跳转函数
+		go: function(url){
+		 	if(url!=null){window.open(sWebRootPath+url, "_self");}
+		},
+		changehome : function(){ window.open(sWebRootPath+"/?TWIN=_top","_top");},
+		//常规导航地址
+		home : function(){ window.open(sWebRootPath+"/puidemo/mydesktop.view", "_self");},
+		//注销
+		logout : function(){AsControl.OpenComp("/AppMain/SignOut.jsp","","_top");}	,
+		ModifyPass : function(){
+			AsControl.OpenView("/AppMain/ModifyPassword.jsp","PasswordState=0","newpage");
+		},
+	 	openMenu : function(mid){
+			AsControl.OpenView("/m.view", "MID="+mid, "_top");
+		   	window.onbeforeunload = function (event){
+		  		var bx =(event.screenX+24-top.screenLeft-top.document.documentElement.scrollWidth) > 0 && (event.screenX-top.screenLeft-top.document.documentElement.scrollWidth) < 0;
+		  		var by =(event.clientY+24<0);
+		  		if((bx&&by) || event.altKey) {window.open("<%=sWebRootPath%>/Frame/page/sys/SessionOut.jsp","_top","");}
+			};
+		},
+					 
+		 //外部导航
+		navTo: function(site){
+			var u;
+			if(site=="mail")
+				u = "https://mail.amarsoft.com";
+			else if(site=="forum")
+				u = "https://home.amarsoft.com/forum";
+			
+			if(u!=null) window.open(u,'_blank');
+		}
+	};
+</script>

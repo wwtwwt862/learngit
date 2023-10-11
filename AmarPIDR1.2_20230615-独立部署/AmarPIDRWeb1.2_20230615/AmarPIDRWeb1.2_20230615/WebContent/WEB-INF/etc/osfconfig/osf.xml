@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- shortDateFormat="yyyy/MM/dd" dateTimeFormat="yyyy-MM-dd HH:mm:ss" -->
+<!-- 	shortDateFormat="dd/MM/yyyy" dateTimeFormat="dd/MM/yyyy HH:mm:ss" -->
+<osfConfig
+	shortDateFormat="dd/MM/yyyy" dateTimeFormat="dd/MM/yyyy HH:mm:ss"
+	serviceHandlerClasses="{com.amarsoft.osf.common.URLHandler}"
+	serverLocale="en_US.UTF-8"
+	okCode="0"
+	fieldTypeStrictMatch="true"
+	maxMessageLog="100000">
+	<serviceSources>
+		<source className="com.amarsoft.osf.ow.manager.OWServiceSource"/>
+		<source className="com.amarsoft.osf.ow.manager.OWFileSource"/>
+	</serviceSources>
+	
+	<!-- OSF服务器模型 -->
+	<servers>
+		<!-- JSON格式的服务 -->
+		<server name="rest">
+			<!-- 是否启用监控 -->
+			<property name="server.monitorEnabled" value="false"/>	
+			<!-- 打包器 -->
+			<property name="messagePacker.class" value="com.amarsoft.osf.packer.JSONPacker"/>
+			<property name="serviceEngine.controllers" value="{com.amarsoft.osf.ow.controller.OWServiceController}"/>
+			<!-- url权限校验+日志记录+报文校验 -->
+			<!--property name="server.listeners" value=" {com.amarsoft.app.als.osf.AlsValidator} "	/-->
+		</server>
+	</servers>
+</osfConfig>

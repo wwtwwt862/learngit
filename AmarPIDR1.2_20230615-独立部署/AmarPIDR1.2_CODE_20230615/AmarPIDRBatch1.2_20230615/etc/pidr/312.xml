@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<inf>
+       <sgmt name="BsSgmt" describe="企业评级信息按段更正请求信息段" type="B" table="HPIDR_RATE_MDFCINFO" key="CustomerID,SessionID,MdfcSgmtCode">
+                <field name="InfRecType" describe="信息记录类型" type="text" source="fix" value="312" />
+                <field name="MngmtOrgCode" describe="业务管理金融机构代码" type="text" source="db" dbname="MngmtOrgCode"  isKey="true" />
+                <field name="FinStaYear" describe="报表年份" type="text" source="db" dbname="FinStaYear" isKey="true" />
+                <field name="EntCertType" describe="企业身份标识类型" type="text" source="db" dbname="EntCertType" isKey="true" />
+                <field name="EntCertNum" describe="企业身份标识号码" type="text" source="db" dbname="EntCertNum" isKey="true" />
+                <field name="RptDate" describe="信息报告日期" type="text" source="db" dbname="RptDate" />
+                <field name="MdfcSgmtCode" describe="待更正段段标" type="text" source="db" dbname="MdfcSgmtCode" isKey="true" />
+       </sgmt>
+</inf>

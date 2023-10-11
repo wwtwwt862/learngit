@@ -1,0 +1,41 @@
+<%@ page pageEncoding="UTF-8"%><%
+	ASMenu menu = new ASMenu(CurUser, CurConfig.getConfigure("AppID"), null);
+	String showsysmenu = CurPage.getParameter("_SYSTEM_MENU_FALG");
+%><!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><%=PG_TITLE%></title>
+<%@ include file="/Frame/page/jspf/include/jsp_head_res.jspf"%>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/checkdatavalidity.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type='text/javascript' charset="UTF-8" src='<%=sWebRootPath%>/Frame/resources/js/jquery/plugins/jquery.bgiframe.js'></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/AppMain/resources/js/main.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/widget/main.css"/>
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%><%=sSkinPath%>/css/widget/main.css"/>
+</head>
+<body>
+	<div id="main_top" class="main_top" <%=(showsysmenu == null || "1".equals(showsysmenu)) ? "" : " style=\"display:none;\""%>>
+		<div class="main_logo" onclick="AsSys.home('<%=request.getContextPath()%>');return false;" title="主页"></div>
+		<div id="main_menu"><%=menu.getMenuHtml()%></div>
+		<div id="main_sys" class="main_sys">
+			<ul>
+				<li><a class="first" href="javascript:void(0);" onclick="AsSys.home('<%=request.getContextPath()%>');return false;">&nbsp; <%=LanguageManager.getSystemLanguage("主页")%>&nbsp;</a></li>
+				<li class="main_skin"><%=SkinManager.getSkinHtml()%></li>
+				<li><a class="last" href="javascript:void(0);" onclick="AsSys.sessionOut();return false;">&nbsp;<%=LanguageManager.getSystemLanguage("安全退出")%>&nbsp;</a></li>
+			</ul>
+		</div>
+	</div>
+<div id="main_board" class="main_board"><div></div></div>
+<div class="main_allmenu"><div><%=menu.getMenuHtml()%></div></div>
+<div id="main_bottom" class="main_bottom"><iframe name="mainpage" frameborder="0" width="100%" height="100%"></iframe></div>
+</body>
+<script type="text/javascript">
+	/*~[Describe=给菜单对应的a标签添加class属性，以便于后面css样式获取处理,InputParam=无,OutputParam=无]~*/
+	$("#main_menu a").each(function(index,element){
+		$(this).attr("class","icon"+$(this).attr("mid"));
+	});
+	
+	$(function($){ASMain(<%=menu.getMenuJson()%>);});
+</script>
+<%@ include file="/Frame/page/jspf/include/jsp_debug.jspf"%>

@@ -1,0 +1,27 @@
+.dw_title{
+	background: url(../images/tit-bg.png) #fff repeat-x center top;
+	color: #247BC5;
+	border:none;
+	font-weight:normal;
+	font-size: 16px; 
+	background:url(../images/tit-bg.png) #fff repeat-x center; 
+	height:25px; 
+	line-height:25px;
+	padding:8px 0px;
+}
+.info_tr_bg{
+	background-color:#f1f1f1;
+}
+.dw_conacte, .fftdhead, .FFContentTD {
+	border-color: #d9d9d9;
+	color:#333333;
+	vertical-align: middle;
+}
+
+.dw_title .icon{
+	background: url(../images/info_collapse.png) no-repeat center;
+	margin-right: 5px; 
+}
+.dw_title .icon.collapse{
+	background: url(../images/info_expand.png) no-repeat center; 
+}

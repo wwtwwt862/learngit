@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<inf>
+    <sgmt name="EnCreAssIDCagsInf" describe="企业信息资产信息标识变更请求记录" type="B" table="HPIDR_CREASS_IDCHANGE" key="OldDueCode,OldContractCode,SessionID">
+        <field name="InfRecType" describe="信息记录类型" type="text" source="fix" value="411" dbname="InfRecType" />
+        <field name="OldDueCode" describe="原借据号" type="text" source="db" dbname="OldDueCode"   isKey="true" />
+        <field name="OldContractCode" describe="原贷款合同编号" type="text" source="db" dbname="OldContractCode" />
+        <field name="NewDueCode" describe="新借据号" type="text" source="db" dbname="NewDueCode" />
+        <field name="NewContractCode" describe="新贷款合同编号" type="text" source="db" dbname="NewContractCode" />
+        <field name="MngmtOrgCode" describe="业务管理金融机构" type="text" source="db" dbname="MngmtOrgCode" />
+    </sgmt>
+</inf>

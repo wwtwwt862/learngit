@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<inf>
+       <sgmt name="EnCreAssInfAllDlt" describe="企业信息资产信息整笔删除类请求记录" type="B" table="HPIDR_CREASS_ALLDLT" key="DelDueCode,DelContractCode,SessionID">
+            <field name="InfRecType" describe="信息记录类型" type="text" source="fix" value="412" />
+            <field name="DelDueCode" describe="待删除借据号" type="text" source="db" dbname="DelDueCode" bsdbname="DueCode" isKey="true" />
+            <field name="DelContractCode" describe="待删除贷款合同编号" type="text" source="db" dbname="DelContractCode" bsdbname="ContractCode" isKey="true" />
+            <field name="DelMngmtOrgCode" describe="待删除业务管理金融机构" type="text" source="db" dbname="DelMngmtOrgCode" bsdbname="MngmtOrgCode" />
+    </sgmt>
+</inf>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CODE:ALS 151 01010 0 1-3【3位】代表系统 优先使用字母 不足以0补足 4-6【3位】代表大模块 优先使用数字 项目组首数字，从6开始 
+    7-11【5位】代表具体服务 优先使用数字 项目组首数字，从6开始 12备用 缺省为0 -->
+<osf>
+    <package name="pidr" label="pidr服务">
+       <service name="level" label="评级服务" className="com.amarsoft.app.pidr.flow.PidrFlowService">
+            <method name="getevaluatedata" label="获取评级数据" serviceMethod="getEvaluateData">
+            <describe>获取评级数据</describe>
+            <request>
+                <field name="evaluateObjectType" label="评级对象类型" type="STRING" length="18" />
+                <field name="evaluateCustomerId" label="评级对象客户编号" type="STRING" length="40" />
+                 <field name="evaluateFinStaYear" label="评级对象客户年份" type="STRING" length="40" />
+                 <field name="evaluateEcoIndusCate" label="评级对象客户年份" type="STRING" length="40" />
+            </request>
+            <response>
+                <field name="evaluateModelName" label="评级模型名称" type="STRING" />
+                <field name="evaluateModelType" label="评级模型类型" type="STRING" />
+                <field name="evaluateScore" label="评级得分" type="DOUBLE" length="24" scale="6" />
+                <field name="evaluateResult" label="评级结果" type="STRING" />
+                <field name="evaluatedatalist" label="评级数据" type="OBJECT[]">
+                    <field name="itemNo" label="项目编号" type="STRING" length="32"/>
+                    <field name="displayNo" label="显示序号" type="STRING" length="32" />
+                    <field name="itemName" label="项目名称" type="STRING" length="80" />
+                    <field name="itemValue" label="数据项目值" type="STRING" length="80"/>
+                    <field name="itemValue2" label="数据项目值" type="STRING" length="80"/>
+                    <field name="evaluateScore" label="项目评估值" type="DOUBLE" length="24" scale="6" />
+                    <field name="evaluateScore2" label="项目评估值" type="DOUBLE" length="24" scale="6" />
+                    <field name="itemAttribute" label="项目属性" type="STRING" length="80" />
+                    <field name="valueMethod" label="VALUEMETHOD" type="STRING" length="2100" />
+                    <field name="valueCode" label="取值代码" type="STRING" length="250" />
+                    <field name="valueCodeOptions" label="取值代码Options" type="STRING" />
+                    <field name="valueType" label="值类型" type="STRING" length="18" />
+                    <field name="evaluateMethod" label="评估方法" type="STRING" length="1600" />
+                    <field name="coefficient" label="系数" type="DOUBLE" length="24" scale="6" />
+                    <field name="weightedValue01" label="净资产与年末贷款比率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue01" label="净资产与年末贷款比率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue01" label="净资产与年末贷款比率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue02" label="资产负债率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue02" label="资产负债率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue02" label="资产负债率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue03" label="资本固定化比率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue03" label="资本固定化比率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue03" label="资本固定化比率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue04" label="流动比率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue04" label="流动比率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue04" label="流动比率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue05" label="速动比率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue05" label="速动比率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue05" label="速动比率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue06" label="现金流动负债比率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue06" label="现金流动负债比率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue06" label="现金流动负债比率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue07" label="利息保障倍数-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue07" label="利息保障倍数-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue07" label="利息保障倍数-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue08" label="担保比率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue08" label="担保比率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue08" label="担保比率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue09" label="营业收入现金率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue09" label="营业收入现金率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue09" label="营业收入现金率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue10" label="现金比率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue10" label="现金比率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue10" label="现金比率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue11" label="应收账款周转率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue11" label="应收账款周转率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue11" label="应收账款周转率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue12" label="存货周转率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue12" label="存货周转率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue12" label="存货周转率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue13" label="总资产周转率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue13" label="总资产周转率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue13" label="总资产周转率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue14" label="固定资产周转率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue14" label="固定资产周转率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue14" label="固定资产周转率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue15" label="毛利率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue15" label="毛利率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue15" label="毛利率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue16" label="营业利润率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue16" label="营业利润率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue16" label="营业利润率-较低值" type="STRING" length="24" scale="6" />
+                    <field name="weightedValue17" label="总资产报酬率-权重" type="STRING" length="24" scale="6" />
+                    <field name="excellentValue17" label="总资产报酬率-优秀值" type="STRING" length="24" scale="6" />
+                    <field name="lowerValue17" label="总资产报酬率-较低值" type="STRING" length="24" scale="6" />
+                </field>
+                <field name="modelTypeName" label="评级模型类型名称" type="STRING" />
+                <field name="displayFinalResult" label="是否显示评级结果" type="STRING" />
+                <field name="displayItemScore" label="是否显示评级得分" type="STRING" />
+                <field name="itemValueDisplayWidth" label="评级项目展示宽度" type="STRING" />
+            </response>
+        </method>
+     <method name="saveevaluatedata" label="保存评级数据" serviceMethod="saveEvaluateData">
+            <describe>保存评级数据</describe>
+            <request>
+                <field name="evaluateObjectType" label="评级对象类型" type="STRING" length="18" />
+                <field name="evaluateCustomerID" label="评级对象客户编号" type="STRING" length="40" />
+                <field name="evaluatedatas" label="评级数据" type="STRING" />
+            </request>
+            <response>
+            </response>
+        </method>
+        <method name="calcevaluate" label="评级测算" serviceMethod="calcEvaluate">
+            <describe>评级测算</describe>
+            <request>
+                <field name="evaluateObjectType" label="评级对象类型" type="STRING" length="18" />
+                <field name="evaluateCustomerId" label="评级对象客户编号" type="STRING" length="40" />
+                <field name="evaluatedatas" label="评级数据" type="STRING" />
+            </request>
+            <response>
+                <field name="evaluateScore" label="评级得分" type="DOUBLE" length="24" scale="6"/>
+                <field name="evaluateResult" label="评级结果" type="STRING" />
+            </response>
+        </method>
+    <method name="deleteevaluate" label="删除评级信息" serviceMethod="deleteEvaluate">
+            <describe>删除评级信息</describe>
+            <request>
+                <field name="evaluateObjectType" label="评级对象类型" type="STRING" length="18" />
+                <field name="evaluateCustomerID" label="评级对象客户编号" type="STRING" length="40" />
+            </request>
+            <response>
+            </response>
+        </method>
+   
+   
+   
+    </service>
+   </package>
+</osf>

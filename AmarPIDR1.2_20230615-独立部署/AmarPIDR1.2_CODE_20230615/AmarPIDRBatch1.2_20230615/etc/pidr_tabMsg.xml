@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+ <pidr>
+  <tabs>
+  	<!-- 企业评级信息 -->
+  	<tab tabname="PIDR_RATE_BS" bstabname="PIDR_RATE_BS" key="CustomerID" InfRecType="310"  describe="企业评级信息-基础信息表"></tab>
+   	<tab tabname="PIDR_RATE_FSINF" bstabname="PIDR_RATE_BS" key="CustomerID" InfRecType="310"  describe="企业评级信息-基本概况信息表"></tab>
+   	<tab tabname="PIDR_RATE_LEGREPINF" bstabname="PIDR_RATE_BS" key="CustomerID" InfRecType="310"  describe="企业评级信息-主要负责人信息表"></tab>
+  	<tab tabname="PIDR_RATE_REGCAP" bstabname="PIDR_RATE_BS" key="CustomerID" InfRecType="310"  describe="企业评级信息-注册资本信息表"></tab>
+  	<tab tabname="PIDR_RATE_MNSHAHODINF" bstabname="PIDR_RATE_BS" key="CustomerID,RelaId" InfRecType="310"  describe="企业评级信息-主要出资人信息表"></tab>
+   	<tab tabname="PIDR_RATE_INVABROINF" bstabname="PIDR_RATE_BS" key="CustomerID,RelaId" InfRecType="310"  describe="企业评级信息-对外投资信息表"></tab>
+  	<tab tabname="PIDR_RATE_NEGINF" bstabname="PIDR_RATE_BS" key="CustomerID,RelaId" InfRecType="310"  describe="企业评级信息-负面信息段信息表"></tab>
+   	<tab tabname="PIDR_RATE_BALANCESSHEET" bstabname="PIDR_RATE_BS" key="CustomerID,Stage" InfRecType="310"  describe="企业评级信息-资产负债表段信息表"></tab>
+   	<tab tabname="PIDR_RATE_INCOME" bstabname="PIDR_RATE_BS" key="CustomerID,Stage" InfRecType="310"  describe="企业评级信息-利润表段信息表"></tab>
+   	<tab tabname="PIDR_RATE_CASHFLOW" bstabname="PIDR_RATE_BS" key="CustomerID,Stage" InfRecType="310"  describe="企业评级信息-企业现金流量表段信息表"></tab>
+   
+  	<!-- 企业信贷资产信息 -->
+  	<tab tabname="PIDR_CREASS_BS" bstabname="PIDR_CREASS_BS" key="DueCode" InfRecType="410"  describe="企业信贷资产信息-基础段信息表"></tab>
+   	<tab tabname="PIDR_CREASS_FSINF" bstabname="PIDR_CREASS_BS" key="DueCode" InfRecType="410"  describe="企业信贷资产信息-基本信息段信息表"></tab>
+  </tabs>
+ </pidr>
+</doc>

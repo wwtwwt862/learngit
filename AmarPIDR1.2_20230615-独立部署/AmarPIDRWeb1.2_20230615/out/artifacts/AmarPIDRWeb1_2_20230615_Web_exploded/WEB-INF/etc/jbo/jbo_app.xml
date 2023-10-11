@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbo>
+	<package name="jbo.app" label="应用相关配置">
+		<class name="BUSINESS_CONTRACT" label="业务合同信息" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="流水号" type="STRING" length="32" />
+				<attribute name="RELATIVESERIALNO" label="相关批准流水号" type="STRING" length="32" />
+				<attribute name="ARTIFICIALNO" label="人工编号" type="STRING" length="32" />
+				<attribute name="OCCURDATE" label="发生日期" type="STRING" length="10" />
+				<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="32" />
+				<attribute name="CUSTOMERNAME" label="客户名称" type="STRING" length="80" />
+				<attribute name="BUSINESSTYPE" label="业务品种" type="STRING" length="18" />
+				<attribute name="OLDBUSINESSTYPE" label="老业务品种" type="STRING" length="18" />
+				<attribute name="BUSINESSSUBTYPE" label="业务子类型" type="STRING" length="18" />
+				<attribute name="OCCURTYPE" label="发生类型" type="STRING" length="18" />
+				<attribute name="CREDITDIGEST" label="额度是否融通" type="STRING" length="18" />
+				<attribute name="CREDITCYCLE" label="额度是否循环" type="STRING" length="18" />
+				<attribute name="CREDITTYPE" label="额度品种" type="STRING" length="18" />
+				<attribute name="CURRENYLIST" label="可融通币种表" type="STRING" length="18" />
+				<attribute name="CURRENCYMODE" label="汇率计算模式" type="STRING" length="18" />
+				<attribute name="BUSINESSTYPELIST" label="可混用品种表" type="STRING" length="18" />
+				<attribute name="CALCULATEMODE" label="额度金额占用计算模式" type="STRING" length="18" />
+				<attribute name="USEORGLIST" label="额度可使用机构范围" type="STRING" length="18" />
+				<attribute name="FLOWREDUCEFLAG" label="额度是否简化审批流程" type="STRING" length="18" />
+				<attribute name="CONTRACTFLAG" label="额度是否需要签署协议" type="STRING" length="18" />
+				<attribute name="SUBCONTRACTFLAG" label="额度下业务是否需要签署合同" type="STRING" length="18" />
+				<attribute name="SELFUSEFLAG" label="额度自用或他用" type="STRING" length="18" />
+				<attribute name="CREDITINDEX" label="额度占用系数" type="DOUBLE" length="10" scale="6" />
+				<attribute name="CREDITREDUCESUM" label="额度扣减金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="TOTALBALANCE" label="额度可用余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="LIMITATIONTERM" label="额度使用最迟日期" type="STRING" length="10" />
+				<attribute name="USETERM" label="额度项下业务最迟到期日期" type="STRING" length="10" />
+				<attribute name="GROUPLINEID" label="集团授信额度合同编号" type="STRING" length="40" />
+				<attribute name="CREDITAGGREEMENT" label="使用授信协议号" type="STRING" length="32" />
+				<attribute name="RELATIVEAGREEMENT" label="其他相关协议号" type="STRING" length="32" />
+				<attribute name="LOANFLAG" label="(NEW)是否可以直接申请出帐" type="STRING" length="18" />
+				<attribute name="TOTALSUM" label="银行融资总额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="OURROLE" label="我行参与角色" type="STRING" length="18" />
+				<attribute name="REVERSIBILITY" label="有无追索权" type="STRING" length="18" />
+				<attribute name="BILLNUM" label="票据数量（张）" type="INT" length="20" />
+				<attribute name="HOUSETYPE" label="房产类型" type="STRING" length="18" />
+				<attribute name="LCTERMTYPE" label="信用证期限类型" type="STRING" length="18" />
+				<attribute name="RISKATTRIBUTE" label="风险类型" type="STRING" length="18" />
+				<!-- SURETYPE用于进口信用证开立/国内信用证开立"运输单据种类"属性 -->
+				<!-- 用于托收项下出口押汇/汇款项下出口押汇"运单种类"属性 -->
+				<attribute name="SURETYPE" label="对外担保类型" type="STRING" length="18" />
+				<attribute name="SAFEGUARDTYPE" label="保函类型" type="STRING" length="18" />
+				<attribute name="CREDITBUSINESS" label="单项额度指定品种" type="STRING" length="18" />
+				<attribute name="BUSINESSCURRENCY" label="币种" type="STRING" length="18" />
+				<attribute name="BUSINESSSUM" label="金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BUSINESSPROP" label="贷款成数" type="DOUBLE" length="10" scale="6" />
+				<attribute name="TERMYEAR" label="期限年" type="INT" length="20" />
+				<attribute name="TERMMONTH" label="期限月" type="INT" length="20" />
+				<attribute name="TERMDAY" label="期限日" type="INT" length="20" />
+				<attribute name="LGTERM" label="远期信用证付款期限" type="INT" length="20" />
+				<attribute name="BASERATETYPE" label="基准利率类型" type="STRING" length="18" />
+				<attribute name="BASERATE" label="基准利率" type="DOUBLE" length="10" scale="6" />
+				<attribute name="RATEFLOATTYPE" label="浮动类型" type="STRING" length="18" />
+				<attribute name="RATEFLOAT" label="利率浮动" type="DOUBLE" length="10" scale="6" />
+				<attribute name="BUSINESSRATE" label="执行月利率" type="DOUBLE" length="10" scale="6" />
+				<!-- <attribute name="EXECUTEYEARRATE" label="执行年利率" type="DOUBLE" length="10" scale="6" /> -->
+				<attribute name="ICTYPE" label="计息方式" type="STRING" length="18" />
+				<attribute name="ICCYC" label="计息周期" type="STRING" length="18" />
+				<attribute name="PDGRATIO" label="手续费比例" type="DOUBLE" length="10" scale="6" />
+				<attribute name="PDGSUM" label="手续费金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PDGPAYMETHOD" label="手续费支付方式" type="STRING" length="18" />
+				<attribute name="PDGPAYPERIOD" label="(NEW)收费周期" type="STRING" length="18" />
+				<attribute name="PROMISESFEERATIO" label="(NEW)承诺费率" type="DOUBLE" length="10" scale="6" />
+				<attribute name="PROMISESFEESUM" label="(NEW)承诺费金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PROMISESFEEPERIOD" label="(NEW)承诺费计收期" type="INT" length="20" />
+				<attribute name="PROMISESFEEBEGIN" label="(NEW)承诺费计收起始日" type="STRING" length="10" />
+				<attribute name="MFEERATIO" label="管理费比例" type="DOUBLE" length="10" scale="6" />
+				<attribute name="MFEESUM" label="管理费金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="MFEEPAYMETHOD" label="管理费支付方式" type="STRING" length="18" />
+				<attribute name="AGENTFEE" label="(NEW)代理费" type="DOUBLE" length="24" scale="6" />
+				<attribute name="DEALFEE" label="(NEW)安排费" type="DOUBLE" length="24" scale="6" />
+				<attribute name="TOTALCAST" label="(NEW)总成本" type="DOUBLE" length="24" scale="6" />
+				<attribute name="DISCOUNTINTEREST" label="(NEW)贴现利息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PURCHASERINTEREST" label="(NEW)买方应付贴现利息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BARGAINORINTEREST" label="(NEW)卖方应付贴现利息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="DISCOUNTSUM" label="(NEW)实付贴现金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BAILRATIO" label="保证金比例" type="DOUBLE" length="10" scale="6" />
+				<attribute name="BAILCURRENCY" label="(NEW)保证金币种" type="STRING" length="18" />
+				<attribute name="BAILSUM" label="保证金金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BAILACCOUNT" label="保证金帐号" type="STRING" length="32" />
+				<attribute name="FINERATETYPE" label="罚息利率类型" type="STRING" length="18" />
+				<attribute name="FINERATE" label="罚息利率" type="DOUBLE" length="10" scale="6" />
+				<!-- DRAWINGTYPE用于汇款项下进口押汇/汇款项下进口代付/汇款项下出口押汇"汇款方式"属性 -->
+				<attribute name="DRAWINGTYPE" label="(NEW)提款方式" type="STRING" length="18" />
+				<attribute name="FIRSTDRAWINGDATE" label="(NEW)首次提款日期" type="STRING" length="10" />
+				<attribute name="DRAWINGPERIOD" label="(NEW)提款期限" type="INT" length="20" />
+				<attribute name="PAYTIMES" label="还款期次" type="INT" length="20" />
+				<attribute name="PAYCYC" label="(NEW)还款方式" type="STRING" length="18" />
+				<attribute name="GRACEPERIOD" label="还款宽限期(月)" type="INT" length="20" />
+				<attribute name="OVERDRAFTPERIOD" label="(NEW)连续透支期" type="INT" length="20" />
+				<attribute name="OLDLCNO" label="(NEW)原信用证编号" type="STRING" length="32" />
+				<attribute name="OLDLCTERMTYPE" label="(NEW)原信用证期限类型" type="STRING" length="18" />
+				<attribute name="OLDLCCURRENCY" label="(NEW)原信用证币种" type="STRING" length="18" />
+				<attribute name="OLDLCSUM" label="(NEW)原信用证金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="OLDLCLOADINGDATE" label="(NEW)原信用证装期" type="STRING" length="10" />
+				<attribute name="OLDLCVALIDDATE" label="(NEW)原信用证效期" type="STRING" length="10" />
+				<attribute name="DIRECTION" label="投向" type="STRING" length="18" />
+				<attribute name="PURPOSE" label="用途" type="STRING" length="200" />
+				<attribute name="PLANALLOCATION" label="用款计划" type="STRING" length="200" />
+				<attribute name="IMMEDIACYPAYSOURCE" label="(NEW)直接还款来源" type="STRING" length="200" />
+				<attribute name="PAYSOURCE" label="还款来源" type="STRING" length="200" />
+				<attribute name="CORPUSPAYMETHOD" label="本金还款方式" type="STRING" length="18" />
+				<attribute name="INTERESTPAYMETHOD" label="利息支付方式" type="STRING" length="18" />
+				<attribute name="PUTOUTDATE" label="约定发放日" type="STRING" length="10" />
+				<attribute name="MATURITY" label="到期日期" type="STRING" length="10" />
+				<!-- THIRDPARTY1用于信用证项下进口代付/代收项下进口代付/汇款项下进口代付"出口商名称"属性 -->
+				<!-- 用于信用证项下进口押汇/代收项下进口押汇/汇款项下进口押汇/国内信用证项下买方押汇"议付行/寄单行"属性 -->
+				<!-- 用于托收项下出口押汇/汇款项下出口押汇/出口保理融资"进口商名称"属性 --> 
+				<!-- 用于进口信用证开立/国内信用证开立"通知行名称"属性 --> 
+				<!-- 用于提货担保"船名"属性 --> 
+				<!-- 用于福费廷"包买商"属性 -->
+				<!-- 用于出口信用保险项下融资"保险公司名称"属性 -->
+				<!-- 用于国内信用证项下买方代付"卖方名称"属性 -->
+				<!-- 用于国内卖方保理融资"买方名称"属性 -->
+				<attribute name="THIRDPARTY1" label="(NEW)涉及第三方1" type="STRING" length="200" />
+				<attribute name="THIRDPARTYID1" label="(NEW)第三方法人代码1" type="STRING" length="32" />
+				<!-- THIRDPARTY2用于进口信用证/备用信用证开立/国内信用证开立"受益人名称"属性 -->
+				<!-- 用于信用证项下进口代付/代收项下进口代付/汇款项下进口代付/国内信用证项下买方代付"代付行名称"属性 -->
+				<!-- 用于出口信用保险项下融资"保险受益人名称"属性 --> 
+				<attribute name="THIRDPARTY2" label="(NEW)涉及第三方2" type="STRING" length="200" />
+				<!-- THIRDPARTYID2用于进口信用证开立/备用信用证开立/国内信用证开立"受益人所在国家或地区"属性 -->
+				<attribute name="THIRDPARTYID2" label="(NEW)第三方法人代码2" type="STRING" length="32" />
+				<!-- THIRDPARTY3用于信用证项下进口代付/代收项下进口代付/汇款项下进口代付/国内信用证项下买方代付"议付行/寄单行"属性 -->
+				<!-- 用于提货担保"发货人"属性 --> 
+				<attribute name="THIRDPARTY3" label="(NEW)涉及第三方3" type="STRING" length="200" />
+				<attribute name="THIRDPARTYID3" label="(NEW)第三方法人代码3" type="STRING" length="32" />
+				<attribute name="THIRDPARTYREGION" label="涉及第三方所在地区和国家" type="STRING" length="18" />
+				<!-- THIRDPARTYACCOUNTS用于信用证项下进口押汇/信用证项下出口押汇/代收项下进口押汇/汇款项下进口押汇/国内信用证项下买方押汇/国内信用证项下卖方押汇"单据号"属性 -->
+				<!-- 用于信用证项下进口代付/代收项下进口代付/汇款项下进口代付/国内信用证项下买方代付"到单编号"属性 -->
+				<!-- 用于福费廷"到单登记号"属性 --> 
+				<attribute name="THIRDPARTYACCOUNTS" label="(NEW)第三方帐号" type="STRING" length="32" />
+				<attribute name="CARGOINFO" label="(NEW)货物名称" type="STRING" length="80" />
+				<attribute name="PROJECTNAME" label="(NEW)贷款项目名称" type="STRING" length="80" />
+				<attribute name="OPERATIONINFO" label="(NEW)业务信息" type="STRING" length="400" />
+				<attribute name="CONTEXTINFO" label="(NEW)背景信息" type="STRING" length="100" />
+				<attribute name="SECURITIESTYPE" label="(NEW)有价证券类型" type="STRING" length="18" />
+				<attribute name="SECURITIESREGION" label="(NEW)有价证券发行地" type="STRING" length="18" />
+				<attribute name="CONSTRUCTIONAREA" label="(NEW)建筑面积" type="DOUBLE" length="24" scale="6" />
+				<attribute name="USEAREA" label="(NEW)使用面积" type="DOUBLE" length="24" scale="6" />
+				<attribute name="FLAG1" label="(NEW)是否1" type="STRING" length="18" />
+				<attribute name="FLAG2" label="(NEW)是否2" type="STRING" length="18" />
+				<attribute name="FLAG3" label="(NEW)是否3" type="STRING" length="18" />
+				<attribute name="TRADECONTRACTNO" label="(NEW)相关贸易合同号" type="STRING" length="32" />
+				<attribute name="INVOICENO" label="(NEW)增值税发票" type="STRING" length="32" />
+				<attribute name="TRADECURRENCY" label="(NEW)贸易合同币种" type="STRING" length="18" />
+				<attribute name="TRADESUM" label="(NEW)贸易合同金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="LCNO" label="(NEW)信用证编号（或承兑汇票号码）" type="STRING" length="32" />
+				<attribute name="PAYMENTDATE" label="(NEW)最迟对外付汇日期" type="STRING" length="10" />
+				<attribute name="OPERATIONMODE" label="(NEW)业务模式" type="STRING" length="18" />
+				<attribute name="BEGINDATE" label="(NEW)起始日期" type="STRING" length="10" />
+				<attribute name="ENDDATE" label="(NEW)到期日" type="STRING" length="10" />
+				<attribute name="VOUCHCLASS" label="担保形式" type="STRING" length="18" />
+				<attribute name="VOUCHTYPE" label="主要担保方式" type="STRING" length="18" />
+				<attribute name="VOUCHTYPE1" label="担保方式1" type="STRING" length="18" />
+				<attribute name="VOUCHTYPE2" label="担保方式2" type="STRING" length="18" />
+				<attribute name="VOUCHFLAG" label="(NEW)有无其他担保方式" type="STRING" length="18" />
+				<attribute name="WARRANTOR" label="主要担保人" type="STRING" length="80" />
+				<attribute name="WARRANTORID" label="主要担保人代码" type="STRING" length="32" />
+				<attribute name="OTHERCONDITION" label="(NEW)其他条件和要求" type="STRING" length="400" />
+				<attribute name="GUARANTYVALUE" label="担保总价值" type="DOUBLE" length="24" scale="6" />
+				<attribute name="GUARANTYRATE" label="担保率" type="DOUBLE" length="10" scale="6" />
+				<attribute name="BASEEVALUATERESULT" label="基期信用等级" type="STRING" length="18" />
+				<attribute name="RISKRATE" label="综合风险度" type="DOUBLE" length="24" scale="6" />
+				<attribute name="LOWRISK" label="是否低风险业务" type="STRING" length="18" />
+				<attribute name="OTHERAREALOAN" label="(NEW)是否异地贷款" type="STRING" length="18" />
+				<attribute name="LOWRISKBAILSUM" label="低风险担保金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="APPLYTYPE" label="申请方式" type="STRING" length="18" />
+				<attribute name="ORIGINALPUTOUTDATE" label="首次发放日" type="STRING" length="10" />
+				<attribute name="EXTENDTIMES" label="展期次数" type="INT" length="20" />
+				<attribute name="LNGOTIMES" label="借新还旧次数" type="INT" length="20" />
+				<attribute name="GOLNTIMES" label="还旧借新次数" type="INT" length="20" />
+				<attribute name="DRTIMES" label="债务重组次数" type="INT" length="20" />
+				<attribute name="GUARANTYNO" label="抵质押编号" type="STRING" length="32" />
+				<attribute name="PUTOUTSUM" label="已出帐金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="ACTUALPUTOUTSUM" label="已实际出帐金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BALANCE" label="当前余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="NORMALBALANCE" label="正常余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="OVERDUEBALANCE" label="逾期余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="DULLBALANCE" label="呆滞余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BADBALANCE" label="呆帐余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="INTERESTBALANCE1" label="表内欠息余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="INTERESTBALANCE2" label="表外欠息余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="FINEBALANCE1" label="本金罚息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="FINEBALANCE2" label="利息罚息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="OVERDUEDAYS" label="逾期天数" type="INT" length="20" />
+				<attribute name="OWEINTERESTDAYS" label="欠息天数" type="INT" length="20" />
+				<attribute name="TABALANCE" label="分期业务欠本金" type="DOUBLE" length="24" scale="6" />
+				<attribute name="TAINTERESTBALANCE" label="分期业务欠利息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="TATIMES" label="累计欠款期数" type="INT" length="20" />
+				<attribute name="LCATIMES" label="连续欠款期数" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PBINTERESTSUM" label="累计收回利息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PBMFEESUM" label="累计收回管理费" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PBPDGSUM" label="累计收回手续费" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PBLEGALCOSTSUM" label="累计收回诉讼费" type="DOUBLE" length="24" scale="6" />
+				<attribute name="POLEGALCOSTSUM" label="累计付出诉讼费" type="DOUBLE" length="24" scale="6" />
+				<attribute name="ORIGINALBADDATE" label="首次认定不良日期" type="STRING" length="10" />
+				<attribute name="BASECLASSIFYRESULT" label="基期风险分类结果" type="STRING" length="18" />
+				<attribute name="CLASSIFYRESULT" label="五级分类结果" type="STRING" length="80" />
+				<attribute name="CLASSIFYTYPE" label="最新风险分类方式" type="STRING" length="18" />
+				<attribute name="CLASSIFYDATE" label="最新风险分类时间" type="STRING" length="10" />
+				<attribute name="CLASSIFYORGID" label="最新分类认定机构" type="STRING" length="32" />
+				<attribute name="RESERVESUM" label="计提准备金" type="DOUBLE" length="24" scale="6" />
+				<attribute name="EXPECTLOSSSUM" label="预测损失金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BAILRATE" label="保证金比率" type="DOUBLE" length="24" scale="6" />
+				<attribute name="FINISHORG" label="终批机构级别" type="STRING" length="18" />
+				<attribute name="FINISHTYPE" label="终结类型" type="STRING" length="18" />
+				<attribute name="FINISHDATE" label="终结日期" type="STRING" length="10" />
+				<attribute name="DESCRIBE1" label="描述1" type="STRING" length="100" />
+				<attribute name="REINFORCEFLAG" label="补登标志" type="STRING" length="18" />
+				<attribute name="MANAGEORGID" label="当前管户机构" type="STRING" length="32" />
+				<attribute name="MANAGEUSERID" label="当前管户人" type="STRING" length="32" />
+				<attribute name="RECOVERYORGID" label="保全管理机构" type="STRING" length="32" />
+				<attribute name="RECOVERYUSERID" label="保全管理人" type="STRING" length="32" />
+				<attribute name="STATORGID" label="当前统计机构" type="STRING" length="32" />
+				<attribute name="STATUSERID" label="当前统计人" type="STRING" length="32" />
+				<attribute name="OPERATEORGID" label="经办机构" type="STRING" length="32" />
+				<attribute name="OPERATEUSERID" label="经办人" type="STRING" length="32" />
+				<attribute name="OPERATEDATE" label="经办日期" type="STRING" length="10" />
+				<attribute name="INPUTORGID" label="登记机构" type="STRING" length="32" />
+				<attribute name="INPUTUSERID" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+				<attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+				<attribute name="PIGEONHOLEDATE" label="归档日期" type="STRING" length="10" />
+				<attribute name="REMARK" label="备注" type="STRING" length="200" />
+				<!--FLAG4 用于代收项下进口押汇/托收项下出口押汇/汇款项下进口押汇"交单方式"属性  -->
+				<attribute name="FLAG4" label="(NEW)是否4" type="STRING" length="18" />
+				<!-- PAYCURRENCY用于信用证项下进口押汇/信用证项下出口押汇/代收项下进口押汇/汇款项下进口押汇/国内信用证项下买方押汇/国内信用证项下卖方押汇"单据币种"属性 -->
+				<!-- 用于信用证项下进口代付/代收项下进口代付/汇款项下进口代付/国内信用证项下买方代付"到单币种"属性 -->
+				<!-- 用于托收项下出口押汇"托收币种"属性 --> 
+				<attribute name="PAYCURRENCY" label="(NEW)付款币种" type="STRING" length="18" />
+				<!--PAYDATE 用于进口信用证开立/国内信用证开立"装期"属性  -->
+				<!-- 用于提货担保"装运日期"属性  -->
+				<attribute name="PAYDATE" label="(NEW)付款时间" type="STRING" length="10" />
+				<attribute name="FLAG5" label="(NEW)转建行标志" type="STRING" length="18" />
+				<attribute name="CLASSIFYSUM1" label="最新分类正常金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CLASSIFYSUM2" label="最新分类关注金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CLASSIFYSUM3" label="最新分类次级金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CLASSIFYSUM4" label="最新分类可疑金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CLASSIFYSUM5" label="最新分类损失金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="SHIFTTYPE" label="(NEW)移交类型" type="STRING" length="18" />
+				<attribute name="OPERATETYPE" label="操作方式" type="STRING" length="18" />
+				<attribute name="FUNDSOURCE" label="资金来源" type="STRING" length="18" />
+				<attribute name="CYCLEFLAG" label="循环标志" type="STRING" length="18" />
+				<attribute name="CREDITFREEZEFLAG" label="额度是否冻结" type="STRING" length="18" />
+				<attribute name="SHIFTBALANCE" label="移交保全时余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CLASSIFYFREQUENCY" label="分类频率" type="INT" length="20" />
+				<attribute name="CLASSIFYLEVEL" label="认定级别" type="STRING" length="18" />
+				<attribute name="VOUCHNEWFLAG" label="是否新增担保" type="STRING" length="18" />
+				<attribute name="ACTUALARTIFICIALNO" label="实际合同号" type="STRING" length="32" />
+				<attribute name="DELETEFLAG" label="合并标志" type="STRING" length="18" />
+				<attribute name="ACCOUNTNO" label="结算帐号" type="STRING" length="32" />
+				<attribute name="LOANACCOUNTNO" label="贷款入账账号" type="STRING" length="32" />
+				<attribute name="SECONDPAYACCOUNT" label="第二还款帐号" type="STRING" length="32" />
+				<attribute name="ADJUSTRATETYPE" label="利率调整方式" type="STRING" length="18" />
+				<attribute name="ADJUSTRATETERM" label="利率调整月数" type="STRING" length="18" />
+				<attribute name="OVERINTTYPE" label="逾期计息方式" type="STRING" length="18" />
+				<attribute name="RATEADJUSTCYC" label="利率调整周期" type="STRING" length="18" />
+				<attribute name="PDGACCOUNTNO" label="手续费支出帐号" type="STRING" length="32" />
+				<attribute name="DEDUCTDATE" label="扣款日期" type="STRING" length="10" />
+				<!--FZANBALANCE 用于信用证项下进口押汇/信用证项下进口代付/代收项下进口代付/汇款项下进口代付/国内信用证项下买方押汇/国内信用证项下买方代付"到单金额"属性  -->
+				<!-- 用于信用证项下出口押汇/代收项下进口押汇/汇款项下进口押汇/国内信用证项下卖方押汇"单据金额"属性  -->
+				<!-- 用于托收项下出口押汇"托收金额"属性  -->
+				<!-- 用于福费廷"票据总金额"属性  -->
+				<attribute name="FZANBALANCE" label="发展商入帐净额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="ACCEPTINTTYPE" label="收息类型" type="STRING" length="18" />
+				<!-- RATIO用于进口信用证开立/国内信用证开立"溢短装比例(%)"属性 -->
+				<!-- 用于信用证项下进口押汇/国内信用证项下买方押汇"押汇比例(%)"属性 -->
+				<attribute name="RATIO" label="比例" type="DOUBLE" length="24" scale="6" />
+				<!--THIRDPARTYADD1 用于备用信用证开立业务"受益人"属性  -->
+				<attribute name="THIRDPARTYADD1" label="(NEW)涉及第三方地址1" type="STRING" length="80" />
+				<attribute name="THIRDPARTYZIP1" label="(NEW)第三方法人邮编1" type="STRING" length="32" />
+				<attribute name="THIRDPARTYADD2" label="(NEW)涉及第三方地址2" type="STRING" length="80" />
+				<attribute name="THIRDPARTYZIP2" label="(NEW)第三方法人邮编2" type="STRING" length="32" />
+				<!-- THIRDPARTYADD3用于进口信用证开立/国内信用证开立"发运地"属性 -->
+				<attribute name="THIRDPARTYADD3" label="(NEW)涉及第三方地址3" type="STRING" length="80" />
+				<!-- THIRDPARTYZIP3用于进口信用证开立/信用证项下进口代付/代收项下进口代付/汇款项下进口代付/国内信用证开立"进口许可证(批文)编号"属性 -->
+				<!-- 用于出口信用保险项下融资"保险单号"属性 -->
+				<!-- 用于国内信用证项下买方代付"许可证(批文)编号"属性 -->
+				<attribute name="THIRDPARTYZIP3" label="(NEW)第三方法人邮编3" type="STRING" length="32" />
+				<!-- EFFECTAREA用于进口信用证开立/国内信用证开立"交货地"属性 -->
+				<attribute name="EFFECTAREA" label="信用证有效地" type="STRING" length="18" />
+				<attribute name="TERMDATE1" label="最晚装运期" type="STRING" length="10" />
+				<attribute name="TERMDATE2" label="交单期" type="STRING" length="10" />
+				<!-- TERMDATE3用于进口信用证/国内信用证开立业务"申请开展日期"属性 -->
+				<attribute name="TERMDATE3" label="付款期限" type="STRING" length="10" />
+				<attribute name="FIXCYC" label="固定周期" type="INT" length="20" />
+				<attribute name="DESCRIBE2" label="描述2" type="STRING" length="100" />
+				<attribute name="CANCELSUM" label="核销金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CANCELINTEREST" label="核销利息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="LOANTERM" label="期限" type="STRING" length="18" />
+				<attribute name="PUTOUTORGID" label="放款机构" type="STRING" length="32" />
+				<attribute name="TEMPSAVEFLAG" label="暂存标志" type="STRING" length="18" />
+				<attribute name="OVERDUEDATE" label="逾期日期" type="STRING" length="10" />
+				<attribute name="OWEINTERESTDATE" label="欠息日期" type="STRING" length="10" />
+				<attribute name="FREEZEFLAG" label="冻结标志" type="STRING" length="1" />
+				<attribute name="APPROVEDATE" label="申请审批通过日" type="STRING" length="10" />
+				<attribute name="SHIFTSTATUS" label="不良资产移交状态" type="STRING" length="18" />
+				<attribute name="RECOVERYCOGNORGID" label="不良资产认定机构" type="STRING" length="32" />
+				<attribute name="RECOVERYCOGNUSERID" label="不良资产认定人员" type="STRING" length="32" />
+				<attribute name="SHIFTDOCDESCRIBE" label="不良资产移交文档清单" type="STRING" length="800" />
+				<attribute name="GUARANTYFLAG" label="征信担保标志" type="STRING" length="18" />
+				<attribute name="TRANSFORMTIMES" label="变更次数" type="INT" length="20" />
+				<attribute name="PAYMENTMODE" label="支付方式" type="STRING" length="20" />
+				<attribute name="REQUITALACCOUNT" label="资金回笼账户" type="STRING" length="20" />
+				<attribute name="FUNDBACKACCOUNT" label="还款准备金账户" type="STRING" length="20" />
+				<attribute name="TRANSFORMFLAG" label="变更标志" type="STRING" length="3" />
+				<attribute name="EXPOSURESUM" label="敞口金额" type="DOUBLE" length="24" scale="6" />
+				<!-- Code: OffSheetFlag-->
+				<attribute name="OffSheetFlag" label="表内外标志" type="STRING" length="6" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="true" />
+					<property name="table" value="BUSINESS_CONTRACT" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="BUSINESS_DUEBILL" label="业务借据(账户)信息" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" label="借据号(账号)" type="STRING" length="40" />
+				<attribute name="RELATIVESERIALNO1" label="相关出帐流水号" type="STRING" length="40" />
+				<attribute name="RELATIVESERIALNO2" label="相关合同流水号" type="STRING" length="40" />
+				<attribute name="SUBJECTNO" label="会计科目" type="STRING" length="20" />
+				<attribute name="MFCUSTOMERID" label="主机客户号" type="STRING" length="40" />
+				<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="40" />
+				<attribute name="CUSTOMERNAME" label="客户名称" type="STRING" length="80" />
+				<attribute name="BUSINESSTYPE" label="业务品种" type="STRING" length="18" />
+				<attribute name="BUSINESSSUBTYPE" label="业务品种子类型" type="STRING" length="20" />
+				<attribute name="BUSINESSSTATUS" label="业务形态" type="STRING" length="20" />
+				<attribute name="BUSINESSCURRENCY" label="业务币种" type="STRING" length="20" />
+				<attribute name="BUSINESSSUM" label="金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PUTOUTDATE" label="发放日期" type="STRING" length="10" />
+				<attribute name="MATURITY" label="约定到期日" type="STRING" length="10" />
+				<attribute name="ACTUALMATURITY" label="执行到期日" type="STRING" length="10" />
+				<attribute name="BUSINESSRATE" label="执行月利率" type="DOUBLE" length="24" scale="10" />
+				<!-- <attribute name="EXECUTEYEARRATE" label="执行年利率" type="DOUBLE" length="10" scale="6" /> -->
+				<attribute name="ACTUALBUSINESSRATE" label="执行利率" type="DOUBLE" length="10" scale="6" />
+				<attribute name="ICTYPE" label="计息方式" type="STRING" length="20" />
+				<attribute name="ICCYC" label="计息周期" type="STRING" length="20" />
+				<attribute name="PAYTIMES" label="还款期次" type="INT" length="20" />
+				<attribute name="PAYCYC" label="还款周期" type="STRING" length="20" />
+				<attribute name="CORPUSPAYMETHOD" label="本金还款方式" type="STRING" length="20" />
+				<attribute name="EXTENDTIMES" label="展期次数" type="INT" length="20" />
+				<attribute name="REORGTIMES" label="债务重组次数" type="INT" length="20" />
+				<attribute name="RENEWTIMES" label="借新还旧次数" type="INT" length="20" />
+				<attribute name="GOLNTIMES" label="还旧借新次数" type="INT" length="20" />
+				<attribute name="BALANCE" label="本金余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="NORMALBALANCE" label="正常余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="OVERDUEBALANCE" label="逾期金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="DULLBALANCE" label="呆滞余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BADBALANCE" label="呆帐余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="INTERESTBALANCE1" label="表内欠息余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="INTERESTBALANCE2" label="表外欠息余额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="FINEBALANCE1" label="本金罚息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="FINEBALANCE2" label="利息罚息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="RECEIVEBALANCE" label="到单金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PAYEDBALANCE" label="付款金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="OVERDUEDAYS" label="逾期天数" type="INT" length="20" />
+				<attribute name="PAYACCOUNT" label="存款帐号" type="STRING" length="40" />
+				<attribute name="PUTOUTACCOUNT" label="放款帐号" type="STRING" length="40" />
+				<attribute name="PAYBACKACCOUNT" label="还款帐号" type="STRING" length="40" />
+				<attribute name="PAYINTERESTACCOUNT" label="还息帐号" type="STRING" length="40" />
+				<attribute name="OWEINTERESTDAYS" label="欠息天数" type="INT" length="20" />
+				<attribute name="TABALANCE" label="分期业务欠本金" type="DOUBLE" length="24" scale="6" />
+				<attribute name="TAINTERESTBALANCE" label="分期业务欠利息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="TATIMES" label="累计欠款期数" type="DOUBLE" length="24" scale="6" />
+				<attribute name="LCATIMES" label="连续欠款期数" type="DOUBLE" length="24" scale="6" />
+				<attribute name="SALEDATE" label="卖出日期" type="STRING" length="10" />
+				<attribute name="FINISHTYPE" label="终结类型" type="STRING" length="20" />
+				<attribute name="FINISHDATE" label="终结日期" type="STRING" length="10" />
+				<attribute name="MFAREAID" label="主机地区号" type="STRING" length="20" />
+				<attribute name="MFORGID" label="主机机构号" type="STRING" length="20" />
+				<attribute name="MFUSERID" label="主机柜员号" type="STRING" length="20" />
+				<attribute name="OPERATEORGID" label="经办机构" type="STRING" length="20" />
+				<attribute name="OPERATEUSERID" label="经办人" type="STRING" length="20" />
+				<attribute name="INPUTORGID" label="登记机构" type="STRING" length="20" />
+				<attribute name="INPUTUSERID" label="登记人" type="STRING" length="20" />
+				<attribute name="INPUTDATE" label="输入日期" type="STRING" length="10" />
+				<attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+				<attribute name="INOUTFLAG" label="(DEL)表内表外标志" type="STRING" length="40" />
+				<attribute name="DEALFLAG" label="(DEL)处理标志" type="STRING" length="1" />
+				<attribute name="OCCURDATE" label="(DEL)发生日期" type="STRING" length="10" />
+				<attribute name="BUSINESSPROP" label="(DEL)贷款成数" type="DOUBLE" length="10" scale="6" />
+				<attribute name="BENEFITCORP" label="(DEL)受益人" type="STRING" length="40" />
+				<attribute name="ACTUALTERMMONTH" label="(DEL)实际期限月" type="INT" length="20" />
+				<attribute name="ACTUALTERMDAY" label="(DEL)实际期限日" type="INT" length="20" />
+				<attribute name="BASERATETYPE" label="(DEL)基准利率类型" type="STRING" length="20" />
+				<attribute name="BASERATE" label="(DEL)基准利率" type="DOUBLE" length="24" scale="6" />
+				<attribute name="RATEFLOATTYPE" label="(DEL)浮动类型" type="STRING" length="20" />
+				<attribute name="RATEFLOAT" label="(DEL)浮动利率" type="DOUBLE" length="24" scale="6" />
+				<attribute name="TIMSFLAG" label="(DEL)分期业务标志" type="STRING" length="40" />
+				<attribute name="BAILRATIO" label="(DEL)担保费率" type="DOUBLE" length="10" scale="6" />
+				<attribute name="LOGOUTDATE" label="(DEL)注销日期" type="STRING" length="10" />
+				<attribute name="CANCELLOGOUTDATE" label="(DEL)解除注销日期" type="STRING" length="10" />
+				<attribute name="BAILSUM" label="(DEL)保证金金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BAILACCOUNT" label="(DEL)保证金帐号" type="STRING" length="40" />
+				<attribute name="PURPOSE" label="(DEL)用途" type="STRING" length="200" />
+				<attribute name="ADVANCEFLAG" label="垫款标志" type="STRING" length="20" />
+				<attribute name="RELATIVEDUEBILLNO" label="相关借据流水号" type="STRING" length="40" />
+				<attribute name="ACTUALARTIFICIALNO" label="实际合同号" type="STRING" length="40" />
+				<attribute name="ACCOUNTNO" label="结算帐号" type="STRING" length="40" />
+				<attribute name="LOANACCOUNTNO" label="贷款入账账号" type="STRING" length="40" />
+				<attribute name="SECONDPAYACCOUNT" label="第二还款帐号" type="STRING" length="40" />
+				<attribute name="ADJUSTRATETYPE" label="利率调整方式" type="STRING" length="20" />
+				<attribute name="ADJUSTRATETERM" label="利率调整月数" type="STRING" length="20" />
+				<attribute name="OVERINTTYPE" label="逾期计息方式" type="STRING" length="20" />
+				<attribute name="RATEADJUSTCYC" label="利率调整周期" type="STRING" length="20" />
+				<attribute name="PDGACCOUNTNO" label="手续费支出帐号" type="STRING" length="40" />
+				<attribute name="DEDUCTDATE" label="扣款日期" type="STRING" length="10" />
+				<attribute name="FZANBALANCE" label="发展商入帐净额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="ACCEPTINTTYPE" label="收息类型" type="STRING" length="20" />
+				<attribute name="RATIO" label="比例" type="DOUBLE" length="24" scale="6" />
+				<attribute name="THIRDPARTYADD1" label="(NEW)涉及第三方地址1" type="STRING" length="80" />
+				<attribute name="THIRDPARTYZIP1" label="(NEW)第三方法人邮编1" type="STRING" length="40" />
+				<attribute name="THIRDPARTYADD2" label="(NEW)涉及第三方地址2" type="STRING" length="80" />
+				<attribute name="THIRDPARTYZIP2" label="(NEW)第三方法人邮编2" type="STRING" length="40" />
+				<attribute name="TERMDATE1" label="最晚装运期" type="STRING" length="10" />
+				<attribute name="TERMDATE2" label="交单期" type="STRING" length="10" />
+				<attribute name="TERMDATE3" label="付款期限" type="STRING" length="10" />
+				<attribute name="DESCRIBE2" label="描述2" type="STRING" length="200" />
+				<attribute name="FIXCYC" label="固定周期" type="INT" length="20" />
+				<attribute name="THIRDPARTY1" label="(NEW)涉及第三方1" type="STRING" length="200" />
+				<attribute name="THIRDPARTYID1" label="(NEW)第三方法人代码1" type="STRING" length="40" />
+				<attribute name="THIRDPARTY2" label="(NEW)涉及第三方2" type="STRING" length="200" />
+				<attribute name="THIRDPARTY3" label="(NEW)涉及第三方3" type="STRING" length="200" />
+				<attribute name="TYPE1" label="通知行类别" type="STRING" length="20" />
+				<attribute name="TYPE2" label="受益行类别" type="STRING" length="20" />
+				<attribute name="TYPE3" label="议付行类别" type="STRING" length="20" />
+				<attribute name="BILLNO" label="票据号" type="STRING" length="40" />
+				<attribute name="FLAG1" label="(NEW)是否1" type="STRING" length="20" />
+				<attribute name="FLAG2" label="(NEW)是否2" type="STRING" length="20" />
+				<attribute name="FLAG3" label="(NEW)是否3" type="STRING" length="20" />
+				<attribute name="THIRDPARTYREGION" label="涉及第三方所在地区和国家" type="STRING" length="20" />
+				<attribute name="THIRDPARTYACCOUNTS" label="(NEW)第三方帐号" type="STRING" length="40" />
+				<attribute name="CARGOINFO" label="(NEW)货物名称" type="STRING" length="80" />
+				<attribute name="SECURITIESTYPE" label="(NEW)有价证券类型" type="STRING" length="20" />
+				<attribute name="SECURITIESREGION" label="(NEW)有价证券发行地" type="STRING" length="20" />
+				<attribute name="ABOUTBANKID2" label="受益行行号" type="STRING" length="40" />
+				<attribute name="ABOUTBANKNAME2" label="受益行行名" type="STRING" length="80" />
+				<attribute name="ABOUTBANKID3" label="议付行行号" type="STRING" length="40" />
+				<attribute name="ABOUTBANKNAME" label="收款行行名" type="STRING" length="80" />
+				<attribute name="ABOUTBANKID" label="收款行行号" type="STRING" length="40" />
+				<attribute name="OLDLCTERMTYPE" label="(NEW)原信用证期限类型" type="STRING" length="20" />
+				<attribute name="NEGOTIATENO" label="押汇编号" type="STRING" length="40" />
+				<attribute name="CREDITKIND" label="贷款形式" type="STRING" length="20" />
+				<attribute name="GATHERINGNAME" label="收款人户名" type="STRING" length="80" />
+				<attribute name="PREINTTYPE" label="预收息标志" type="STRING" length="20" />
+				<attribute name="RESUMEINTTYPE" label="计复息标志" type="STRING" length="20" />
+				<attribute name="GUARANTYNO" label="抵质押物编号" type="STRING" length="40" />
+				<attribute name="PZTYPE" label="凭证种类" type="STRING" length="20" />
+				<attribute name="GRACEPERIOD" label="还款宽限期(月)" type="INT" length="20" />
+				<attribute name="OLDLCVALIDDATE" label="(NEW)原信用证效期" type="STRING" length="10" />
+				<attribute name="VOUCHTYPE" label="主要担保方式" type="STRING" length="10" />
+				<attribute name="MFEEPAYMETHOD" label="管理费支付方式" type="STRING" length="20" />
+				<attribute name="DESCRIBE1" label="描述1" type="STRING" length="200" />
+				<attribute name="TRADECONTRACTNO" label="(NEW)相关贸易合同号" type="STRING" length="40" />
+				<attribute name="LOANTYPE" label="贷款类型" type="STRING" length="20" />
+				<attribute name="FIXTERM" label="周期" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CANCELSUM" label="核销金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CANCELINTEREST" label="核销利息" type="DOUBLE" length="24" scale="6" />
+				<attribute name="BAILACOUNT" label="保证金帐号" type="STRING" length="40" />
+				<attribute name="CLASSIFY4" label="四级分类" type="STRING" length="18" />
+				<attribute name="CLASSIFYRESULT" label="五级分类结果" type="STRING" length="18" />
+				<attribute name="RETURNTYPE" label="还款方式" type="STRING" length="18" />
+				<attribute name="BAILPERCENT" label="保证金比例" type="DOUBLE" length="10" scale="6" />
+				<attribute name="PAYMENTTYPE" label="信用证付款期限" type="STRING" length="18" />
+				<attribute name="TERMSFREQ" label="还款频率" type="STRING" length="18" />
+				<attribute name="OVERDUEDATE" label="逾期日期" type="STRING" length="10" />
+				<attribute name="OWEINTERESTDATE" label="欠息日期" type="STRING" length="10" />
+				<attribute name="LCSTATUS" label="信用证状态" type="STRING" length="18" />
+				<!-- Code: OffSheetFlag-->
+				<!-- <attribute name="OffSheetFlag" label="表内外标志" type="STRING" length="6" /> -->
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="false" />
+					<property name="table" value="BUSINESS_DUEBILL" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="BUSINESS_TYPE" label="资产业务品种信息" keyAttributes="TYPENO">
+			<attributes>
+				<attribute name="TYPENO" label="类型编号" type="STRING" length="32" />
+				<attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+				<attribute name="TYPENAME" label="类型名称" type="STRING" length="80" />
+				<attribute name="TYPESORTNO" label="类型排序编号" type="STRING" length="32" />
+				<attribute name="SUBTYPECODE" label="子类型代码" type="STRING" length="32" />
+				<attribute name="INFOSET" label="对应信息集" type="STRING" length="200" />
+				<attribute name="DISPLAYTEMPLET" label="对应显示模板" type="STRING" length="32" />
+				<attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE2" label="主业务品种分类" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE4" label="属性四" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE5" label="属性五" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE6" label="属性六" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE7" label="属性七" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE8" label="属性八" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE9" label="对应审批流程代码" type="STRING" length="200" />
+				<attribute name="ATTRIBUTE10" label="属性十" type="STRING" length="200" />
+				<attribute name="REMARK" label="备注" type="STRING" length="200" />
+				<attribute name="APPLYDETAILNO" label="对应申请详情代码" type="STRING" length="18" />
+				<attribute name="APPROVEDETAILNO" label="对应通知书详情代码" type="STRING" length="18" />
+				<attribute name="CONTRACTDETAILNO" label="对应合同详情代码" type="STRING" length="18" />
+				<attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+				<attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+				<attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+				<attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+				<attribute name="ATTRIBUTE11" label="ATTRIBUTE11" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE12" label="ATTRIBUTE12" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE13" label="ATTRIBUTE13" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE14" label="ATTRIBUTE14" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE15" label="ATTRIBUTE15" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE16" label="ATTRIBUTE16" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE17" label="ATTRIBUTE17" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE18" label="ATTRIBUTE18" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE19" label="ATTRIBUTE19" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE20" label="ATTRIBUTE20" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE21" label="ATTRIBUTE21" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE22" label="ATTRIBUTE22" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE23" label="ATTRIBUTE23" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE24" label="ATTRIBUTE24" type="STRING" length="80" />
+				<attribute name="ATTRIBUTE25" label="ATTRIBUTE25" type="STRING" length="80" />
+				<attribute name="ISINUSE" label="是否使用" type="STRING" length="18" />
+				<!-- Code: OffSheetFlag-->
+				<!-- <attribute name="OffSheetFlag" label="表内外标志" type="STRING" length="6" /> -->
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="false" />
+					<property name="table" value="BUSINESS_TYPE" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="CONTRACT_RELATIVE" label="合同关联信息" keyAttributes="SERIALNO,OBJECTTYPE,OBJECTNO">
+			<attributes>
+				<attribute name="SERIALNO" label="SERIALNO" type="STRING" length="32" />
+				<attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+				<attribute name="OBJECTNO" label="对象编号" type="STRING" length="32" />
+				<attribute name="RELATIVESUM" label="关联金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="RELATIONSTATUS" label="关联状态" type="STRING" length="3" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="false" />
+					<property name="table" value="CONTRACT_RELATIVE" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="CUSTOMER_INFO" label="客户基本信息" keyAttributes="CUSTOMERID">
+			<attributes>
+				<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="40" />
+				<attribute name="CI_CUSTOMERID" label="客户编号" type="STRING" length="40" />
+				<attribute name="CUSTOMERNAME" label="客户名称" type="STRING" length="80" />
+				<attribute name="CUSTOMERTYPE" label="客户类型" type="STRING" length="20" />
+				<attribute name="CERTTYPE" label="证件类型" type="STRING" length="20" />
+				<attribute name="CERTID" label="证件号" type="STRING" length="40" />
+				<attribute name="CUSTOMERPASSWORD" label="客户口令" type="STRING" length="20" />
+				<attribute name="INPUTORGID" label="登记机构" type="STRING" length="32" />
+				<attribute name="INPUTUSERID" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+				<attribute name="MFCUSTOMERID" label="核心客户号" type="STRING" length="40" />
+				<attribute name="STATUS" label="状态" type="STRING" length="20" />
+				<attribute name="BELONGGROUPID" label="所属关联集团代码" type="STRING" length="40" />
+				<attribute name="CHANNEL" label="渠道" type="STRING" length="18" />
+				<attribute name="CUSTOMERSCALE" label="客户规模(区分中小企业客户)" type="STRING" length="20" />
+				<attribute name="LOANCARDNO" label="贷款卡编号" type="STRING" length="32" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="false" />
+					<property name="table" value="CUSTOMER_INFO" />
+					<property name="attributeMap" value="{CI_CUSTOMERID,CUSTOMERID}"/>
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="CUSTOMER_BELONG" label="客户所属列表" keyAttributes="CUSTOMERID,ORGID,USERID">
+			<attributes>
+				<attribute name="CUSTOMERID" lable="客户编号" type="STRING" length="32"/>		
+				<attribute name="ORGID" lable="所属机构" type="STRING" length="40"/>
+				<attribute name="USERID" lable="用户编号" type="STRING" length="40"/>	
+				<attribute name="BELONGATTRIBUTE" lable="客户主办权" type="STRING" length="80"/>		
+				<attribute name="BELONGATTRIBUTE1" lable="信息查看权" type="STRING" length="80"/>		
+				<attribute name="BELONGATTRIBUTE2" lable="信息维护权" type="STRING" length="80"/>		
+				<attribute name="BELONGATTRIBUTE3" lable="业务申办权" type="STRING" length="80"/>		
+				<attribute name="BELONGATTRIBUTE4" lable="低风险业务办理权" type="STRING" length="80"/>		
+				<attribute name="APPLYATTRIBUTE" lable="是否申请信息主办权" type="STRING" length="80"/>		
+				<attribute name="APPLYATTRIBUTE1" lable="是否申请信息查看权" type="STRING" length="80"/>		
+				<attribute name="APPLYATTRIBUTE2" lable="是否申请信息维护权" type="STRING" length="80"/>		
+				<attribute name="APPLYATTRIBUTE3" lable="是否申请业务申办权" type="STRING" length="80"/>		
+				<attribute name="APPLYATTRIBUTE4" lable="申请属性4" type="STRING" length="80"/>		
+				<attribute name="APPLYTYPE" lable="申请类型" type="STRING" length="20"/>		
+				<attribute name="APPLYREASON" lable="申请理由" type="STRING" length="500"/>		
+				<attribute name="APPLYRIGHT" lable="申请权限" type="STRING" length="20"/>		
+				<attribute name="APPLYSTATUS" lable="权限申请状态" type="STRING" length="20"/>		
+				<attribute name="REMARK" lable="备注" type="STRING" length="250"/>		
+				<attribute name="INPUTDATE" lable="输入日期" type="STRING" length="10"/>		
+				<attribute name="INPUTORGID" lable="输入机构编号" type="STRING" length="40"/>		
+				<attribute name="INPUTUSERID" lable="输入用户编号" type="STRING" length="80"/>		
+				<attribute name="UPDATEDATE" lable="更新日期" type="STRING" length="10"/>		
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="true" />
+					<property name="table" value="CUSTOMER_BELONG" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="CUSTOMER_RELATIVE" label="客户关联信息" keyAttributes="CUSTOMERID,RELATIVEID,RELATIONSHIP">
+			<attributes>
+				<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="32" />
+				<attribute name="CUSTOMERTYPE" label="客户类型" type="STRING" length="10" />
+				<attribute name="RELATIVEID" label="关联客户编号" type="STRING" length="32" />
+				<attribute name="RELATIONSHIP" label="关联关系" type="STRING" length="18" />
+				<attribute name="CUSTOMERNAME" label="客户名称" type="STRING" length="80" />
+				<attribute name="CERTTYPE" label="证件类型" type="STRING" length="18" />
+				<attribute name="CERTID" label="证件号码" type="STRING" length="32" />
+				<attribute name="FICTITIOUSPERSON" label="法人代表" type="STRING" length="80" />
+				<attribute name="CURRENCYTYPE" label="币种" type="STRING" length="18" />
+				<attribute name="INVESTMENTSUM" label="实际金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="OUGHTSUM" label="应投资金额" type="DOUBLE" length="24" scale="6" />
+				<attribute name="INVESTMENTPROP" label="投资比例" type="DOUBLE" length="10" scale="6" />
+				<attribute name="INVESTDATE" label="投资时间" type="STRING" length="10" />
+				<!-- <attribute name="STOCKCERTNO" label="股权证号" type="STRING" length="32" /> -->
+				<attribute name="DUTY" label="担任职务" type="STRING" length="18" />
+				<attribute name="TELEPHONE" label="联系电话" type="STRING" length="32" />
+				<!-- <attribute name="EFFECT" label="当前是否有效" type="STRING" length="18" /> -->
+				<!-- <attribute name="WHETHEN1" label="关系判断1" type="STRING" length="18" />
+					<attribute name="WHETHEN2" label="关系判断2" type="STRING" length="18" />
+					<attribute name="WHETHEN3" label="关系判断3" type="STRING" length="18" />
+					<attribute name="WHETHEN4" label="关系判断4" type="STRING" length="18" />
+					<attribute name="WHETHEN5" label="关系判断5" type="STRING" length="18" /> -->
+				<attribute name="DESCRIBE" label="关系描述" type="STRING" length="200" />
+				<attribute name="INPUTORGID" label="登记单位" type="STRING" length="80" />
+				<attribute name="INPUTUSERID" label="登记人" type="STRING" length="80" />
+				<attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+				<attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+				<attribute name="REMARK" label="备注" type="STRING" length="200" />
+				<attribute name="SEX" label="性别" type="STRING" length="18" />
+				<attribute name="BIRTHDAY" label="出生日期" type="STRING" length="10" />
+				<attribute name="SINO" label="社会保险号" type="STRING" length="32" />
+				<attribute name="FAMILYADD" label="家庭住址" type="STRING" length="200" />
+				<attribute name="FAMILYZIP" label="邮政编码" type="STRING" length="32" />
+				<attribute name="EDUEXPERIENCE" label="最高学历" type="STRING" length="18" />
+				<attribute name="INVESTYIELD" label="投资收益" type="DOUBLE" length="24" scale="6" />
+				<attribute name="HOLDDATE" label="担任该职务时间" type="STRING" length="10" />
+				<attribute name="ENGAGETERM" label="相关行业从业年限" type="INT" length="20" />
+				<attribute name="HOLDSTOCK" label="持股情况" type="STRING" length="200" />
+				<attribute name="LOANCARDNO" label="贷款卡编号" type="STRING" length="32" />
+				<attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="false" />
+					<property name="table" value="CUSTOMER_RELATIVE" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="ENT_INFO" label="企业基本信息" keyAttributes="CUSTOMERID">
+			<attributes>
+				<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="32" />
+				<attribute name="CORPID" label="法人或组织机构代码" type="STRING" length="32" />
+				<attribute name="ENTERPRISENAME" label="企业名称" type="STRING" length="80" />
+				<attribute name="ENGLISHNAME" label="客户英文名称" type="STRING" length="80" />
+				<attribute name="FICTITIOUSPERSON" label="法人代表" type="STRING" length="80" />
+				<attribute name="ORGNATURE" label="机构类型" type="STRING" length="18" />
+				<attribute name="FINANCETYPE" label="金融机构类型" type="STRING" length="18" />
+				<attribute name="ENTERPRISEBELONG" label="企业隶属" type="STRING" length="18" />
+				<attribute name="INDUSTRYTYPE" label="行业类型" type="STRING" length="18" />
+				<attribute name="INDUSTRYTYPE1" label="行业类型1" type="STRING" length="18" />
+				<attribute name="INDUSTRYTYPE2" label="行业类型2" type="STRING" length="18" />
+				<attribute name="PRIVATE" label="民营标志" type="STRING" length="18" />
+				<attribute name="ECONOMYTYPE" label="经济类型" type="STRING" length="18" />
+				<attribute name="ORGTYPE" label="组织形式" type="STRING" length="18" />
+				<attribute name="MOSTBUSINESS" label="主营业务" type="STRING" length="800" />
+				<attribute name="BUDGETTYPE" label="预算管理类型" type="STRING" length="18" />
+				<attribute name="RCCURRENCY" label="注册资本币种" type="STRING" length="18" />
+				<attribute name="REGISTERCAPITAL" label="注册资本" type="DOUBLE" length="24" scale="6" />
+				<attribute name="PCCURRENCY" label="实收资本币种" type="STRING" length="18" />
+				<attribute name="PAICLUPCAPITAL" label="实收资本" type="DOUBLE" length="24" scale="6" />
+				<attribute name="FUNDSOURCE" label="经费来源" type="STRING" length="200" />
+				<attribute name="TOTALASSETS" label="总资产" type="DOUBLE" length="24" scale="6" />
+				<attribute name="NETASSETS" label="净资产" type="DOUBLE" length="24" scale="6" />
+				<attribute name="ANNUALINCOME" label="年收入" type="DOUBLE" length="24" scale="6" />
+				<attribute name="SCOPE" label="企业规模" type="STRING" length="18" />
+				<attribute name="LIMIT" label="额度" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CREDITDATE" label="首次建立信贷关系年月" type="STRING" length="10" />
+				<attribute name="LICENSENO" label="工商执照登记号" type="STRING" length="32" />
+				<attribute name="LICENSEDATE" label="营业执照到期日期" type="STRING" length="10" />
+				<attribute name="LICENSEMATURITY" label="工商执照到期日" type="STRING" length="10" />
+				<attribute name="SETUPDATE" label="公司成立日期" type="STRING" length="10" />
+				<attribute name="INSPECTIONYEAR" label="工商执照最新年检年份" type="STRING" length="10" />
+				<attribute name="LOCKSITUATION" label="工商局锁定情况" type="STRING" length="200" />
+				<attribute name="TAXNO" label="税务登记号（国税）" type="STRING" length="32" />
+				<attribute name="BANKLICENSE" label="金融机构许可证" type="STRING" length="32" />
+				<!-- <attribute name="BANKID" label="金融机构代码" type="STRING" length="32" /> -->
+				<attribute name="MANAGEAREA" label="金融机构经营区域范围" type="STRING" length="200" />
+				<attribute name="BANCHAMOUNT" label="金融机构一级分支机构数量" type="INT" length="20" />
+				<attribute name="EXCHANGEID" label="交换号" type="STRING" length="32" />
+				<attribute name="REGISTERADD" label="注册地址" type="STRING" length="80" />
+				<attribute name="CHARGEDEPARTMENT" label="上级主管部门" type="STRING" length="80" />
+				<attribute name="OFFICEADD" label="实际办公地址" type="STRING" length="80" />
+				<attribute name="OFFICEZIP" label="邮政编码" type="STRING" length="32" />
+				<attribute name="COUNTRYCODE" label="所在国家地区" type="STRING" length="18" />
+				<attribute name="REGIONCODE" label="所在行政区域" type="STRING" length="18" />
+				<attribute name="VILLAGECODE" label="所属行政村编号" type="STRING" length="18" />
+				<attribute name="VILLAGENAME" label="所属行政村名称" type="STRING" length="80" />
+				<attribute name="RELATIVETYPE" label="联系方式" type="STRING" length="200" />
+				<attribute name="OFFICETEL" label="联系电话" type="STRING" length="32" />
+				<attribute name="OFFICEFAX" label="传真号码" type="STRING" length="32" />
+				<attribute name="WEBADD" label="公司网址" type="STRING" length="80" />
+				<attribute name="EMAILADD" label="公司邮件地址" type="STRING" length="80" />
+				<attribute name="EMPLOYEENUMBER" label="员工人数" type="INT" length="20" />
+				<attribute name="MAINPRODUCTION" label="主要产品和服务情况" type="STRING" length="200" />
+				<attribute name="NEWTECHCORPORNOT" label="是否高新技术企业" type="STRING" length="18" />
+				<attribute name="LISTINGCORPORNOT" label="是否上市企业" type="STRING" length="18" />
+				<attribute name="HASIERIGHT" label="由无进出口经营权" type="STRING" length="18" />
+				<attribute name="HASDIRECTORATE" label="有无董事会" type="STRING" length="18" />
+				<attribute name="BASICBANK" label="基本帐户行" type="STRING" length="80" />
+				<attribute name="BASICACCOUNT" label="基本帐户号" type="STRING" length="32" />
+				<attribute name="MANAGEINFO" label="合法经营情况" type="STRING" length="800" />
+				<attribute name="CUSTOMERHISTORY" label="客户历史沿革、管理水平简介" type="STRING" length="800" />
+				<attribute name="PROJECTFLAG" label="企业目前是否有项目" type="STRING" length="18" />
+				<attribute name="REALTYFLAG" label="是否从事房地产开发" type="STRING" length="18" />
+				<attribute name="WORKFIELDAREA" label="经营场地面积" type="INT" length="20" />
+				<attribute name="WORKFIELDFEE" label="经营场地所有权" type="STRING" length="18" />
+				<attribute name="ACCOUNTDATE" label="开户时间" type="STRING" length="10" />
+				<attribute name="LOANCARDNO" label="贷款卡号" type="STRING" length="32" />
+				<attribute name="LOANCARDPASSWORD" label="贷款卡密码" type="STRING" length="32" />
+				<attribute name="LOANCARDINSYEAR" label="贷款卡最新年审年份" type="STRING" length="10" />
+				<attribute name="LOANCARDINSRESULT" label="贷款卡最新年审结果" type="STRING" length="200" />
+				<attribute name="LOANFLAG" label="贷款卡是否有效" type="STRING" length="18" />
+				<attribute name="FINANCEORNOT" label="是否无须提供财务报表" type="STRING" length="18" />
+				<attribute name="FINANCEBELONG" label="财务报表所属" type="STRING" length="18" />
+				<attribute name="CREDITBELONG" label="信用等级评估表类型" type="STRING" length="18" />
+				<attribute name="CREDITLEVEL" label="本行评估即期信用等级" type="STRING" length="80" />
+				<attribute name="EVALUATEDATE" label="本行评估日期" type="STRING" length="10" />
+				<attribute name="OTHERCREDITLEVEL" label="外部机构评估信用等级" type="STRING" length="80" />
+				<attribute name="OTHEREVALUATEDATE" label="外部机构评估日期" type="STRING" length="10" />
+				<attribute name="OTHERORGNAME" label="外部评级机构名称" type="STRING" length="80" />
+				<attribute name="INPUTORGID" label="登记单位" type="STRING" length="32" />
+				<attribute name="INPUTUSERID" label="登记人" type="STRING" length="32" />
+				<attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+				<attribute name="UPDATEORGID" label="更新机构" type="STRING" length="32" />
+				<attribute name="UPDATEUSERID" label="更新人" type="STRING" length="32" />
+				<attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+				<attribute name="REMARK" label="备注" type="STRING" length="200" />
+				<attribute name="TAXNO1" label="税务登记号（地税）" type="STRING" length="32" />
+				<attribute name="FICTITIOUSPERSONID" label="法人代表身份证" type="STRING" length="32" />
+				<attribute name="GROUPFLAG" label="是否关联集团" type="STRING" length="18" />
+				<attribute name="EVALUATELEVEL" label="信用等级认定级别" type="STRING" length="18" />
+				<attribute name="MYBANK" label="我行账户行" type="STRING" length="80" />
+				<attribute name="MYBANKACCOUNT" label="我行帐号" type="STRING" length="32" />
+				<attribute name="OTHERBANK" label="他行账户行" type="STRING" length="80" />
+				<attribute name="OTHERBANKACCOUNT" label="他行帐号" type="STRING" length="32" />
+				<attribute name="TEMPSAVEFLAG" label="暂存标志" type="STRING" length="18" />
+				<attribute name="FINANCEDEPTTEL" label="财务部联系方式" type="STRING" length="32" />
+				<attribute name="ECGROUPFLAG" label="是否集团客户" type="STRING" length="18" />
+				<attribute name="SUPERCORPNAME" label="上级公司名称" type="STRING" length="80" />
+				<attribute name="SUPERLOANCARDNO" label="上级公司贷款卡号" type="STRING" length="32" />
+				<attribute name="SUPERCERTTYPE" label="上级公司证件类型" type="STRING" length="18" />
+				<attribute name="SUPERCERTID" label="上级公司证件编号" type="STRING" length="32" />
+				<attribute name="SELLSUM" label="SELLSUM" type="DOUBLE" length="24" scale="6" />
+				<attribute name="SMEINDUSTRYTYPE" label="SMEINDUSTRYTYPE" type="STRING" length="10" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="false" />
+					<property name="table" value="ENT_INFO" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="IND_INFO" label="个人基本信息表" keyAttributes="CUSTOMERID">
+	      <attributes>
+	        <attribute name="BALANCESHEET" lable="待扩展字段" type="STRING" length="200"/>		
+	        <attribute name="BIRTHDAY" lable="出生日期" type="STRING" length="10"/>		
+	        <attribute name="CERTID" lable="证件号码" type="STRING" length="32"/>		
+	        <attribute name="CERTID18" lable="18位身份证" type="STRING" length="40"/>		
+	        <attribute name="CERTTYPE" lable="证件类型" type="STRING" length="18"/>		
+	        <attribute name="CHARACTER" lable="兴趣爱好" type="STRING" length="200"/>		
+	        <attribute name="COMMADD" lable="通讯地址" type="STRING" length="200"/>		
+	        <attribute name="COMMZIP" lable="通讯地址邮编" type="STRING" length="10"/>		
+	        <attribute name="COUNTRY" lable="国家" type="STRING" length="18"/>		
+	        <attribute name="CREDITFARMER" lable="是否信用农户" type="STRING" length="18"/>		
+	        <attribute name="CREDITLEVEL" lable="信用等级" type="STRING" length="18"/>		
+	        <attribute name="CUSTOMERID" lable="客户编号" type="STRING" length="40"/>		
+	        <attribute name="DATAQUALITY" lable="数据质量检查标志" type="STRING" length="1"/>		
+	        <attribute name="EDUDEGREE" lable="最高学位" type="STRING" length="18"/>		
+	        <attribute name="EDUEXPERIENCE" lable="最高学历" type="STRING" length="18"/>		
+	        <attribute name="EDURECORD" lable="毕业学校(取得最高学历)" type="STRING" length="200"/>		
+	        <attribute name="EMAILADD" lable="电子邮箱" type="STRING" length="80"/>		
+	        <attribute name="EMPLOYRECORD" lable="工作履历" type="STRING" length="200"/>		
+	        <attribute name="EVALUATEDATE" lable="评估日期" type="STRING" length="10"/>		
+	        <attribute name="FAMILYADD" lable="居住地址" type="STRING" length="200"/>		
+	        <attribute name="FAMILYMONTHINCOME" lable="家庭月收入" type="DOUBLE" length="24" scale="6"/>
+	        <attribute name="FAMILYSTATUS" lable="居住状况" type="STRING" length="18"/>		
+	        <attribute name="FAMILYTEL" lable="住宅电话" type="STRING" length="32"/>		
+	        <attribute name="FAMILYZIP" lable="居住地址邮编" type="STRING" length="32"/>		
+	        <attribute name="FARMERSORT" lable="农户分类" type="STRING" length="18"/>		
+	        <attribute name="FINANCEBELONG" lable="财务报表类型" type="STRING" length="18"/>		
+	        <attribute name="FULLNAME" lable="姓名" type="STRING" length="80"/>		
+	        <attribute name="GRADUATEYEAR" lable="毕业年份" type="STRING" length="10"/>		
+	        <attribute name="HEADSHIP" lable="职务" type="STRING" length="18"/>		
+	        <attribute name="INCOMESOURCE" lable="收入来源" type="STRING" length="200"/>		
+	        <attribute name="INPUTDATE" lable="登记日期" type="STRING" length="10"/>		
+	        <attribute name="INPUTORGID" lable="登记单位" type="STRING" length="32"/>		
+	        <attribute name="INPUTUSERID" lable="登记人" type="STRING" length="32"/>		
+	        <attribute name="INTRO" lable="个人情况简介" type="STRING" length="200"/>		
+	        <attribute name="LOANCARDINSYEAR" lable="贷款卡最新年审年份" type="STRING" length="10"/>		
+	        <attribute name="LOANCARDNO" lable="贷款卡号" type="STRING" length="32"/>		
+	        <attribute name="MARRIAGE" lable="婚姻状况" type="STRING" length="18"/>		
+	        <attribute name="MOBILETELEPHONE" lable="手机号码" type="STRING" length="32"/>		
+	        <attribute name="NATIONALITY" lable="民族" type="STRING" length="18"/>		
+	        <attribute name="NATIVEADD" lable="户籍地址" type="STRING" length="200"/>		
+	        <attribute name="NATIVEPLACE" lable="户籍地址" type="STRING" length="200"/>		
+	        <attribute name="OCCUPATION" lable="职业" type="STRING" length="18"/>		
+	        <attribute name="PAYACCOUNT" lable="工资帐号" type="STRING" length="32"/>		
+	        <attribute name="PAYACCOUNTBANK" lable="工资帐号开户银行" type="STRING" length="200"/>		
+	        <attribute name="POLITICALFACE" lable="政治面貌" type="STRING" length="18"/>		
+	        <attribute name="POPULATION" lable="家庭人口数" type="STRING" length="4"/>		
+	        <attribute name="POSITION" lable="职称" type="STRING" length="18"/>		
+	        <attribute name="REGIONALISM" lable="所属行政区域" type="STRING" length="18"/>		
+	        <attribute name="RELATIVETYPE" lable="联系方式" type="STRING" length="200"/>		
+	        <attribute name="REMARK" lable="备注" type="STRING" length="200"/>		
+	        <attribute name="RISKINCLINATION" lable="风险偏好" type="STRING" length="200"/>		
+	        <attribute name="SELFMONTHINCOME" lable="个人月收入" type="DOUBLE" length="24" scale="6"/>
+	        <attribute name="SEX" lable="性别" type="STRING" length="18"/>		
+	        <attribute name="SINO" lable="社会保险号" type="STRING" length="32"/>		
+	        <attribute name="STAFF" lable="是否本行员工" type="STRING" length="18"/>		
+	        <attribute name="TEMPSAVEFLAG" lable="暂存标志" type="STRING" length="18"/>		
+	        <attribute name="UNITKIND" lable="单位所属行业" type="STRING" length="18"/>		
+	        <attribute name="UPDATEDATE" lable="更新日期" type="STRING" length="10"/>		
+	        <attribute name="UPDATEORGID" lable="更新机构编号" type="STRING" length="32"/>		
+	        <attribute name="UPDATEUSERID" lable="更新用户编号" type="STRING" length="32"/>		
+	        <attribute name="WORKADD" lable="单位地址" type="STRING" length="200"/>		
+	        <attribute name="WORKBEGINDATE" lable="本单位工作起始日" type="STRING" length="10"/>		
+	        <attribute name="WORKCORP" lable="单位名称" type="STRING" length="80"/>		
+	        <attribute name="WORKTEL" lable="单位电话" type="STRING" length="32"/>		
+	        <attribute name="WORKZIP" lable="单位地址邮编" type="STRING" length="10"/>		
+	        <attribute name="YEARINCOME" lable="个人年收入" type="DOUBLE" length="24" scale="6"/>
+	      </attributes>
+	      <manager>
+	        <managerProperties>
+	          <property name="createKey" value="true" />
+	          <property name="table" value="IND_INFO" />
+	        </managerProperties>
+	      </manager>
+	    </class>
+		<class name="GUARANTY_INFO" label="担保物信息" keyAttributes="GUARANTYID">
+			<attributes>
+				<attribute name="GUARANTYID" label="担保物编号" type="STRING" length="40" />
+				<attribute name="GUARANTYTYPE" label="担保物类型" type="STRING" length="20" />
+				<attribute name="GUARANTYSTATUS" label="担保物状态" type="STRING" length="20" />
+				<attribute name="OWNERID" label="权属人编号" type="STRING" length="40" />
+				<attribute name="OWNERNAME" label="权属人名称" type="STRING" length="80" />
+				<attribute name="OWNERTYPE" label="权属人类型" type="STRING" length="20" />
+				<attribute name="RATE" label="权属人权益比例" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CUSTGUARANTYTYPE" label="客户担保物类型" type="STRING" length="20" />
+				<attribute name="SUBJECTNO" label="行内担保物科目号" type="STRING" length="40" />
+				<attribute name="RELATIVEACCOUNT" label="核心相关账号" type="STRING" length="40" />
+				<attribute name="GUARANTYRIGHTID" label="权证号" type="STRING" length="40" />
+				<attribute name="OTHERGUARANTYRIGHT" label="他项权证号" type="STRING" length="40" />
+				<attribute name="GUARANTYNAME" label="担保物名称" type="STRING" length="80" />
+				<attribute name="GUARANTYSUBTYPE" label="担保物子类型" type="STRING" length="20" />
+				<attribute name="GUARANTYOWNWAY" label="担保物获取方式" type="STRING" length="20" />
+				<attribute name="GUARANTYUSING" label="担保物使用状况" type="STRING" length="200" />
+				<attribute name="GUARANTYLOCATION" label="担保物地点位置" type="STRING" length="200" />
+				<attribute name="GUARANTYAMOUNT" label="担保物数量" type="DOUBLE" length="24" scale="6" />
+				<attribute name="GUARANTYAMOUNT1" label="担保物度量1" type="DOUBLE" length="24" scale="6" />
+				<attribute name="GUARANTYAMOUNT2" label="担保物度量2" type="DOUBLE" length="24" scale="6" />
+				<attribute name="GUARANTYRESOUCE" label="担保物生产源" type="STRING" length="80" />
+				<attribute name="GUARANTYDATE" label="担保物生产日期" type="STRING" length="80" />
+				<attribute name="BEGINDATE" label="开始拥有时间" type="STRING" length="10" />
+				<attribute name="OWNERTIME" label="占有时间" type="STRING" length="80" />
+				<attribute name="GUARANTYDESCRIPT" label="担保物描述" type="STRING" length="200" />
+				<attribute name="ABOUTOTHERID1" label="担保物其他相关号码1" type="STRING" length="40" />
+				<attribute name="ABOUTOTHERID2" label="担保物其他相关号码2" type="STRING" length="40" />
+				<attribute name="ABOUTOTHERID3" label="担保物其他相关号码3" type="STRING" length="40" />
+				<attribute name="ABOUTOTHERID4" label="担保物其他相关号码4" type="STRING" length="40" />
+				<attribute name="PURPOSE" label="用途" type="STRING" length="200" />
+				<attribute name="ABOUTSUM1" label="相关金额1" type="DOUBLE" length="24" scale="6" />
+				<attribute name="ABOUTSUM2" label="相关金额2" type="DOUBLE" length="24" scale="6" />
+				<attribute name="ABOUTRATE" label="相关比率" type="DOUBLE" length="24" scale="6" />
+				<attribute name="GUARANTYANA" label="担保物分析" type="STRING" length="200" />
+				<attribute name="GUARANTYPRICE" label="担保物原价值" type="DOUBLE" length="24" scale="6" />
+				<attribute name="EVALMETHOD" label="担保物价值评估方式" type="STRING" length="20" />
+				<attribute name="EVALORGID" label="评估单位代码" type="STRING" length="40" />
+				<attribute name="EVALORGNAME" label="评估单位名称" type="STRING" length="80" />
+				<attribute name="EVALDATE" label="评估日期" type="STRING" length="10" />
+				<attribute name="EVALNETVALUE" label="评估值" type="DOUBLE" length="24" scale="6" />
+				<attribute name="CONFIRMVALUE" label="认定价值" type="DOUBLE" length="24" scale="6" />
+				<attribute name="GUARANTYRATE" label="抵押率（%）" type="DOUBLE" length="24" scale="6" />
+				<attribute name="THIRDPARTY1" label="第三方1" type="STRING" length="200" />
+				<attribute name="THIRDPARTY2" label="第三方2" type="STRING" length="200" />
+				<attribute name="THIRDPARTY3" label="第三方3" type="STRING" length="200" />
+				<attribute name="GUARANTYDESCRIBE1" label="担保物描述1" type="STRING" length="200" />
+				<attribute name="GUARANTYDESCRIBE2" label="担保物描述2" type="STRING" length="200" />
+				<attribute name="GUARANTYDESCRIBE3" label="担保物描述3" type="STRING" length="200" />
+				<attribute name="GUARANTYDESCRIBE4" label="担保物描述4" type="DOUBLE" length="24" scale="6" />
+				<attribute name="FLAG1" label="是否1" type="STRING" length="20" />
+				<attribute name="FLAG2" label="是否2" type="STRING" length="20" />
+				<attribute name="FLAG3" label="是否3" type="STRING" length="20" />
+				<attribute name="FLAG4" label="是否4" type="STRING" length="20" />
+				<attribute name="GUARANTYREGNO" label="抵押登记编号" type="STRING" length="40" />
+				<attribute name="GUARANTYREGORG" label="抵押登记机关" type="STRING" length="80" />
+				<attribute name="GUARANTYREGDATE" label="抵押登记日期" type="STRING" length="10" />
+				<attribute name="GUARANTYWODATE" label="抵押登记注销日期" type="STRING" length="10" />
+				<attribute name="INSURECERTNO" label="抵押物保险单编号" type="STRING" length="40" />
+				<attribute name="OTHERASSUMPSIT" label="其它特别约定" type="STRING" length="200" />
+				<attribute name="INPUTORGID" label="登记机构" type="STRING" length="40" />
+				<attribute name="INPUTUSERID" label="登记人" type="STRING" length="40" />
+				<attribute name="INPUTDATE" label="登记日期" type="STRING" length="10" />
+				<attribute name="UPDATEUSERID" label="更新人" type="STRING" length="40" />
+				<attribute name="UPDATEDATE" label="更新日期" type="STRING" length="10" />
+				<attribute name="REMARK" label="备注" type="STRING" length="250" />
+				<attribute name="SAPVOUCHTYPE" label="SAP抵质押物类型" type="STRING" length="20" />
+				<attribute name="CERTTYPE" label="权属人证件类型" type="STRING" length="18" />
+				<attribute name="CERTID" label="权属人证件号码" type="STRING" length="32" />
+				<attribute name="LOANCARDNO" label="权属人贷款卡编号" type="STRING" length="32" />
+				<attribute name="GUARANTYCURRENCY" label="抵/质押币种" type="STRING" length="18" />
+				<attribute name="EVALCURRENCY" label="评估币种" type="STRING" length="18" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="true" />
+					<property name="table" value="GUARANTY_INFO" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="GUARANTY_RELATIVE" label="业务合同、担保合同与担保物关联" keyAttributes="OBJECTTYPE,OBJECTNO,CONTRACTNO,GUARANTYID">
+			<attributes>
+				<attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18" />
+				<attribute name="OBJECTNO" label="对象编号" type="STRING" length="40" />
+				<attribute name="CONTRACTNO" label="担保合同编号" type="STRING" length="32" />
+				<attribute name="GUARANTYID" label="担保物编号" type="STRING" length="32" />
+				<attribute name="CHANNEL" label="数据来源渠道" type="STRING" length="18" />
+				<attribute name="RELATIONSTATUS" label="关联状态" type="STRING" length="3" />
+				<attribute name="STATUS" label="他项权证状态" type="STRING" length="18" />
+				<attribute name="OTHERSRIGHTID" label="他项权证号" type="STRING" length="32" />
+				<attribute name="GUARANTYSUM" label="担保债权金额" type="STRING" length="32" />
+				<attribute name="DESCRIBE" label="他项权证内容" type="STRING" length="200" />
+				<attribute name="PAYORDER" label="受偿次序" type="STRING" length="18" />
+				<attribute name="TYPE" label="数据来源类型" type="STRING" length="18" />
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="false" />
+					<property name="table" value="GUARANTY_RELATIVE" />
+				</managerProperties>
+			</manager>
+		</class>
+		<class name="WORK_RECORD" label="工作计划及笔记" keyAttributes="SERIALNO">
+			<attributes>
+				<attribute name="SERIALNO" lable="流水号" type="STRING" length="32"/>		
+				<attribute name="OBJECTTYPE" lable="对象编号" type="STRING" length="18"/>		
+				<attribute name="OBJECTNO" lable="对象类型" type="STRING" length="40"/>		
+				<attribute name="WORKTYPE" lable="工作类型" type="STRING" length="18"/>	
+				<attribute name="WORKBRIEF" lable="内容摘要" type="STRING" length="80"/>		
+				<attribute name="IMPORTANCE" lable="重要性" type="STRING" length="18"/>		
+				<attribute name="URGENCY" lable="紧急处理" type="STRING" length="18"/>		
+				<attribute name="PROMPTBEGINDATE" lable="开始提示日期" type="STRING" length="10"/>		
+				<attribute name="PROMPTENDDATE" lable="结束提示日期" type="STRING" length="10"/>		
+				<attribute name="PLANFINISHDATE" lable="计划完成日期" type="STRING" length="10"/>		
+				<attribute name="ACTUALFINISHDATE" lable="实际完成日期" type="STRING" length="10"/>		
+				<attribute name="WORKCONTENT" lable="计划工作内容" type="STRING" length="800"/>		
+				<attribute name="WORKRESULT" lable="实际执行情况" type="STRING" length="800"/>		
+				<attribute name="WORKREASON" lable="未完成理由" type="STRING" length="800"/>		
+				<attribute name="REMARK" lable="备注" type="STRING" length="200"/>		
+				<attribute name="OPERATEORGID" lable="经办机构" type="STRING" length="32"/>		
+				<attribute name="OPERATEUSERID" lable="经办人" type="STRING" length="32"/>		
+				<attribute name="INPUTORGID" lable="登记机构" type="STRING" length="32"/>		
+				<attribute name="INPUTUSERID" lable="登记人" type="STRING" length="32"/>		
+				<attribute name="INPUTDATE" lable="登记日期" type="STRING" length="10"/>		
+				<attribute name="UPDATEDATE" lable="更新日期" type="STRING" length="10"/>		
+			</attributes>
+			<manager>
+				<managerProperties>
+					<property name="createKey" value="true" />
+					<property name="table" value="WORK_RECORD" />
+				</managerProperties>
+			</manager>
+		</class>
+	</package>
+	<package name="jbo.guaranty">
+		<class name="GUARANTY_CONTRACT" label="担保合同信息" keyAttributes="SERIALNO">
+	      <attributes>
+	        <attribute name="BAILRATIO" lable="保证金比例" type="DOUBLE" length="24" scale="6"/>
+	        <attribute name="BEGINDATE" lable="起始日期" type="STRING" length="10"/>		
+	        <attribute name="CERTID" lable="保证人证件号码" type="STRING" length="40"/>		
+	        <attribute name="CERTTYPE" lable="保证人证件类型" type="STRING" length="20"/>		
+	        <attribute name="CHECKGUARANTY" lable="核保时间" type="STRING" length="20"/>		
+	        <attribute name="CHECKGUARANTYMAN1" lable="核保人" type="STRING" length="80"/>		
+	        <attribute name="CHECKGUARANTYMAN2" lable="核保人(二)" type="STRING" length="80"/>		
+	        <attribute name="COMMONDATE" lable="通用日期" type="STRING" length="10"/>		
+	        <attribute name="CONTRACTNO" lable="担保合同号" type="STRING" length="80"/>		
+	        <attribute name="CONTRACTSTATUS" lable="合同状态" type="STRING" length="20"/>		
+	        <attribute name="CONTRACTTYPE" lable="担保类型" type="STRING" length="20"/>		
+	        <attribute name="CREDITORGID" lable="债权人机构代码" type="STRING" length="40"/>		
+	        <attribute name="CREDITORGNAME" lable="债权人机构名称" type="STRING" length="80"/>		
+	        <attribute name="CUSTOMERID" lable="客户ID" type="STRING" length="40"/>		
+	        <attribute name="ENDDATE" lable="到期日期" type="STRING" length="10"/>		
+	        <attribute name="GUARANRYOPINION" lable="担保意愿" type="STRING" length="200"/>		
+	        <attribute name="GUARANTEEFORM" lable="保证担保形式" type="STRING" length="18"/>		
+	        <attribute name="GUARANTORID" lable="担保人ID" type="STRING" length="40"/>		
+	        <attribute name="GUARANTORNAME" lable="担保人名称" type="STRING" length="80"/>		
+	        <attribute name="GUARANTYCURRENCY" lable="币种" type="STRING" length="20"/>		
+	        <attribute name="GUARANTYINFO" lable="担保物概况" type="STRING" length="200"/>		
+	        <attribute name="GUARANTYTYPE" lable="担保方式" type="STRING" length="20"/>		
+	        <attribute name="GUARANTYVALUE" lable="担保总金额" type="DOUBLE" length="24" scale="6"/>
+	        <attribute name="INPUTDATE" lable="登记时间" type="STRING" length="10"/>		
+	        <attribute name="INPUTORGID" lable="登记机构ID" type="STRING" length="40"/>		
+	        <attribute name="INPUTUSERID" lable="登记人ID" type="STRING" length="40"/>		
+	        <attribute name="LOANCARDNO" lable="保证人贷款卡编号" type="STRING" length="32"/>		
+	        <attribute name="OTHERDESCRIBE" lable="其它特别约定" type="STRING" length="500"/>		
+	        <attribute name="OTHERNAME" lable="其他名称" type="STRING" length="80"/>		
+	        <attribute name="RECEPTION" lable="接待人姓名" type="STRING" length="80"/>		
+	        <attribute name="RECEPTIONDUTY" lable="接待人职务" type="STRING" length="80"/>		
+	        <attribute name="REMARK" lable="备注" type="STRING" length="250"/>		
+	        <attribute name="SERIALNO" lable="担保信息编号" type="STRING" length="40"/>		
+	        <attribute name="SIGNDATE" lable="合同签订日" type="STRING" length="10"/>		
+	        <attribute name="UPDATEDATE" lable="更新时间" type="STRING" length="10"/>		
+	        <attribute name="UPDATEUSERID" lable="更新用户编号" type="STRING" length="40"/>		
+	      </attributes>
+	      <manager>
+	        <managerProperties>
+	          <property name="createKey" value="true" />
+	          <property name="table" value="GUARANTY_CONTRACT" />
+	        </managerProperties>
+	      </manager>
+	    </class>
+	</package>
+	 
+</jbo>

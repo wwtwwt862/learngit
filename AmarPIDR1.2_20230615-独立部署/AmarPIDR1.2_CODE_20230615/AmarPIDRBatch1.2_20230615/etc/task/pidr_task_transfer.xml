@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 央评系统数据迁移 -->
+<task name="PIDRTransferTask" traceOn="false" describe="央行内评数据迁移任务" saveHistory="true" historyFolder="{$ARE.APP_HOME}/history" >
+	<executeUnits>
+		<!-- 将需要拦截不迁移的记录插入数据过滤表(校验错误、反馈错误) -->
+		<executeUnit name="PreTransfer" describe ="迁移前准备-插入数据过滤表" executeClass="com.amarsoft.app.pbc.pidr.transfer.TransferProcessSession" allowManualExecute="true">
+		<extendProperties>
+		    <property name="com.amarsoft.app.pbc.pidr.transfer.TransferProcessSession.tabMsgDir" value="{$ARE.PIDR_HOME}/etc/pidr_tabMsg.xml" />
+			<property name="com.amarsoft.app.pbc.pidr.transfer.TransferProcessSession.filterScript" value="
+				    connect to pidr;&#xA;
+					set autocommit false;&#xA;
+					delete from PIDR_TRANSFERFILTER;&#xA;
+					insert into PIDR_TRANSFERFILTER(BusiIDSerialNo,FilterCause,OccurDate,Remark,ItcBusiType)        
+	                    select distinct BusiIDSerialNo,'E',OccurDate,'',InfRecType 
+	                    from PIDR_VALIDATEERRORS where trim(BusiIDSerialNo) is not null and trim(BusiIDSerialNo) &lt;&gt; 'N/A'
+	                    union       
+						select distinct BSBusiIDSerialNo,'E',OccurDate,'',InfRecType 
+						from PIDR_VALIDATEERRORS where trim(BSBusiIDSerialNo) is not null 
+						union 
+					   	select distinct BSBusiIDSerialNo,'F',OccurDate,'',MessageType 
+					    from PIDR_FEEDBACK where trim(BSBusiIdSerialNo) is not null;&#xA;
+					commit;&#xA;
+				insert into PIDR_TRANSFERFILTER(BusiIDSerialNo,FilterCause,OccurDate,Remark,ItcBusiType) 
+				 select distinct O.CustomerID,'T',replace(O.EvaluateDate,'/','-'),'','310' 
+					    from PIDR_EVALUATE_RECORD O where O.FinStaYear = (select max(per.FinStaYear) from PIDR_EVALUATE_RECORD PER 
+					    	where PER.ObjectType = O.ObjectType and PER.CustomerID = O.CustomerID) 
+					    and EvaluateScore &lt;= 70
+					    union
+					    select distinct O.CustomerID,'S',replace(O.EvaluateDate,'/','-'),'','310' 
+					    from PIDR_EVALUATE_RECORD O where O.FinStaYear = (select max(per.FinStaYear) from PIDR_EVALUATE_RECORD PER
+					    	where PER.ObjectType = O.ObjectType and PER.CustomerID = O.CustomerID) 
+					    and ReportStatus = '0';&#xA;
+					commit;&#xA;
+					insert into PIDR_TRANSFERFILTER(BusiIDSerialNo,FilterCause,OccurDate,Remark,ItcBusiType) 
+				 		select DueCode,'T',OccurDate,'','410' 
+					    from PIDR_CREASS_BS where CustomerID in (select O.CustomerID from PIDR_EVALUATE_RECORD O 
+					    	where O.FinStaYear = (select max(PER.FinStaYear) from PIDR_EVALUATE_RECORD PER where PER.ObjectType = O.ObjectType and PER.CustomerID = O.CustomerID) 
+					    	and O.EvaluateScore &lt;= 70)
+					    union
+					    select DueCode,'S',OccurDate,'','410' 
+					    from PIDR_CREASS_BS where CustomerID in (select O.CustomerID from PIDR_EVALUATE_RECORD O 
+					    	where O.FinStaYear = (select max(PER.FinStaYear) from PIDR_EVALUATE_RECORD PER where PER.ObjectType = O.ObjectType and PER.CustomerID = O.CustomerID) 
+					   		and O.ReportStatus = '0');&#xA;
+					commit;&#xA;
+					disconnect;" />
+			</extendProperties>
+		</executeUnit>	
+		
+		<taskContainer name="Transfer" describe="迁移"   taskRef="pool"/>
+		
+		<!-- 更新白名单数据表的批量运行状态 -->
+		<executeUnit name="UpdateWhiteListRunStatus" describe="更新白名单数据表运行状态" allowManualExecute="true"  executeClass="com.amarsoft.task.units.dpx.SQLProcess">
+				<extendProperties>
+				<property name="unit.onErrorAction" value="break"/>
+				<property name="unit.logLevel" value="debug"/>
+					<property name="unit.script" value="
+						connect to {$ARE.pidr_dataSource};&#xA;
+						set autocommit false;&#xA;
+						update PIDR_WHITELIST PW set RunStatus = '40' where RunStatus in ('10','20','30') and exists (select 1 from HPIDR_RATE_BS HRB where PW.CustomerId = HRB.CustomerId);&#xA;
+						commit;&#xA;
+						disconnect;"
+					/>
+				</extendProperties>
+		</executeUnit>
+	</executeUnits>
+	<routeMap start="PreTransfer">
+		<route unit="PreTransfer" successful="Transfer"/>
+		<route unit="Transfer" successful="UpdateWhiteListRunStatus"/>
+	</routeMap>
+		
+	<subTasks>
+		<subTask name="pool">
+			<pool taskThreadNumber="5" queueSize="20" startArgName="element" awaitThreadTermination="120" exitOnTaskFailed="true">
+       			<producer className="com.amarsoft.app.pbc.pidr.transfer.TransferArray">
+       			</producer>
+		    </pool>
+			
+			<executeUnits>
+				<executeUnit name="handler" describe="迁移处理" executeClass="com.amarsoft.app.pbc.pidr.transfer.TransferProcessUnit" allowManualExecute="true">
+					<extendProperties>
+						<!-- 指定运行的Handler 此处要注意 开启的是批量Handler-->
+					    <property name="unit.handlerClass" value="com.amarsoft.app.pbc.pidr.transfer.TransferProcessHandler" />
+						<!--数据库名称 -->
+					    <property name="com.amarsoft.app.pbc.pidr.transfer.TransferProcessHandler.database" value="pidr" />
+					</extendProperties>
+				</executeUnit>
+			</executeUnits>
+			<routeMap start="handler"/>
+		</subTask>
+	</subTasks>
+	
+</task>

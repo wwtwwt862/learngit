@@ -1,0 +1,10 @@
+<%@ page pageEncoding="UTF-8"%>
+<div class="datawindow_overdiv_top" id="DWOverLayoutDiv"></div>
+<div class="datawindow_overdiv_subdiv" id="DWOverLayoutSubDiv" style="overflow: visible">
+	<div class="datawindow_overdiv_title">
+		&nbsp;<span id="sp_datawindow_overdiv_top" style="cursor: pointer;"
+			onclick="autoCloseDWDialog()">&nbsp;[<%=LanguageManager.getSystemLanguage("确定")%>]&nbsp;
+		</span>
+	</div>
+	<div class="datawindow_overdiv_info"></div>
+</div>

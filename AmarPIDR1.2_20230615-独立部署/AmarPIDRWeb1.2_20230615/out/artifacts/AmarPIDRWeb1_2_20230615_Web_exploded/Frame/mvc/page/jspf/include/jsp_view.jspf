@@ -1,0 +1,36 @@
+<%@ include file="/Frame/page/jspf/include/jsp_frame_lrud.jspf"%>
+<style>
+	.leftright #border {
+		border-left-width: 0;
+	}
+</style>
+<script type="text/javascript">
+	Layout.initRegionName("left", self.name, Layout.getRegionName("FirstFrame"));
+	Layout.initRegionName("right", self.name, Layout.getRegionName("SecondFrame"));
+	var left = frames[Layout.getRegionName("FirstFrame")];
+
+	var myleft={};
+	var _left_width = ${pageLeftWidth?pageLeftWidth:"250"};
+	myleft.width = _left_width;
+	setLeft();
+	_Tree_Show_In_View = true;
+	$(setLeft);
+	<c:if test="${!empty pageTitle}">setTitle("${root.curPage.getLanguage(pageTitle)}", true);</c:if>
+	<c:if test="${!empty pageContentTitle}">setTitle("${root.curPage.getLanguage(pageContentTitle)}");</c:if>
+	
+	function setLeft(){
+		if(myleft.width<10){
+			$("#FirstFrame, #Border").hide();
+			changeLayout(true);
+		}else{
+			changeLayout(true,myleft.width/($(document.body).width()-myleft.width));
+		}
+	}
+
+	function BeforeTreeViewOnClick(){
+		if(!AsControl.CheckWindowModified(self))
+			return false;
+		return true;
+	}
+	var checkOpenUrlModified = false;
+</script>

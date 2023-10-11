@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<!-- 	   <Resource name="jdbc/ecr" auth="Container" type="javax.sql.DataSource"  -->
+<!-- 		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"  -->
+<!-- 		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600"  -->
+<!-- 		logAbandoned="true" validationQuery="select 1" username="ecr_pidr_dev" password="ecr_pidr_dev"  -->
+<!-- 		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://192.168.65.214:3306/ecr_pidr_dev?useUnicode=true&amp;characterEncoding=UTF8&amp;autoReconnect=true"  -->
+<!-- 		/> -->
+ 		<Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select 1" username="pidr_dev" password="pidr_dev" 
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://192.168.65.214:3306/pidr_dev?useUnicode=true&amp;characterEncoding=UTF8&amp;autoReconnect=true" 
+		/> 
+		<!-- <Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select 1" username="pidr_dev" password="pidr_dev" 
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://192.168.65.214:3306/pidr_dev?useUnicode=true&amp;characterEncoding=UTF8&amp;autoReconnect=true" 
+		/>  -->
+	 	<!-- <Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource"
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" testOnBorrow="ture"
+		testWhileIdle="true" removeAbandonedOnBorrow="true"
+		removeAbandonedTimeout="600" logAbandoned="true" validationQuery="select 1 from dual"
+		username="pidr_dev" password="pidr_dev" driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@192.168.65.214:1524/orcl" /> -->
+	<!-- <Resource name="jdbc/report" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select 1 from dual" username="cdp8c" 
+		password="cdp8c" driverClassName="oracle.jdbc.driver.OracleDriver" url="jdbc:oracle:thin:@192.168.5.9:1521:ora11g" 
+		/> -->
+	<!-- <Resource name="jdbc/report" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select 1 from dual" username="cdp7c" 
+		password="cdp7c" driverClassName="oracle.jdbc.driver.OracleDriver" url="jdbc:oracle:thin:@192.168.5.21:1521:als" 
+		/> -->
+	 <!--  <Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select 1 from sysibm.sysdummy1" username="db2iv97" 
+		password="db2iv97" driverClassName="com.ibm.db2.jcc.DB2Driver" url="jdbc:db2://192.168.65.214:50097/PIDR_DEV" 
+		/> -->
+	<!-- <Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true"removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select version()" username="a3web" password="a3web" 
+		driverClassName="org.postgresql.Driver" url="jdbc:postgresql://192.168.5.16/a3web" 
+		/> -->
+	 <!-- <Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select 1" username="cfs" password="mysql" 
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://192.168.65.214:3306/mysql_ecr52?useUnicode=true&amp;characterEncoding=GBK&amp;autoReconnect=true" 
+		/>  -->
+		<!--<Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="values 1" username="APP" password="APP" 
+		driverClassName="org.apache.derby.jdbc.EmbeddedDriver" url="jdbc:derby:A3Web;create=true" 
+		/> <Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="values 1" username="APP" password="APP" 
+		driverClassName="org.apache.derby.jdbc.ClientDriver" url="jdbc:derby://localhost:1527/A3Web" 
+		/> <Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select 1 from sysibm.sysdummy1" username="db2admin" 
+		password="*****" driverClassName="com.ibm.db2.jcc.DB2Driver" url="jdbc:db2://localhost:50000/als6" 
+		/> <Resource name="jdbc/als" auth="Container" type="javax.sql.DataSource" 
+		maxActive="20" maxIdle="2" minIdle="1" maxWait="10000" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" 
+		testOnBorrow="ture" testWhileIdle="true" removeAbandonedOnBorrow="true" removeAbandonedTimeout="600" 
+		logAbandoned="true" validationQuery="select 1 from dual" username="als6" 
+		password="*****" driverClassName="oracle.jdbc.driver.OracleDriver" url="jdbc:oracle:thin:@192.168.5.***:1521:loan" 
+		/> -->
+</Context>
+

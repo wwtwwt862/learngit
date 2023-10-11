@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doc>
+    <pidr_type>PIDR</pidr_type>
+    <head>
+        <field name="HeadFlag" describe="文件头起始标识" startPosition="0" endPosition="0" value="A"/>
+        <field name="HeadLength" describe="文件头长度" startPosition="1" endPosition="3" value="050"/>
+        <field name="InfType" describe="所含记录类型" startPosition="4" endPosition="6"/>
+        <field name="Version" describe="接口规范版本号" startPosition="7" endPosition="11" value="1.0.0"/>
+        <field name="FormType" describe="记录模板类型" startPosition="12" endPosition="13"/>
+        <field name="FinanceCode" describe="数据提供机构区段码" startPosition="14" endPosition="27"/>
+        <field name="CreatedTime" describe="文件生成时间" startPosition="28" endPosition="41"/>
+        <field name="ReserveField" describe="预留字段" startPosition="42" endPosition="42" value="0"/>
+        <field name="InfCount" describe="信息记录数" startPosition="43" endPosition="49"/>
+    </head>
+    <infs>
+        <!-- 注：type对应不同SQL模型构造器, 0-正常报文,1-标识变更,2-按段更正,3-按段删除,4-整笔删除 -->
+        <inf code="310" name="EnRatInf"             describe="企业评级信息"               type="0" config="{$ARE.PIDR_HOME}/etc/pidr/310.xml"  />
+        <inf code="311" name="EnRatInfIDCagsInf"            describe="企业评级信息标识变更"       type="1" config="{$ARE.PIDR_HOME}/etc/pidr/311.xml" />
+        <inf code="312" name="EnRatInfPartMdfc"          describe="企业评级信息按段更正"       type="2" config="{$ARE.PIDR_HOME}/etc/pidr/312.xml"  />
+        <inf code="313" name="EnRatInfAllDlt"        describe="企业评级信息整笔删除"           type="4" config="{$ARE.PIDR_HOME}/etc/pidr/313.xml" />
+        <inf code="410" name="EnCreAssInf"            describe="企业信贷资产信息"             type="0" config="{$ARE.PIDR_HOME}/etc/pidr/410.xml" />
+        <inf code="411" name="EnCreAssIDCagsInf"   describe="企业信贷资产信息标识变更"     type="1" config="{$ARE.PIDR_HOME}/etc/pidr/411.xml" />
+        <inf code="412" name="EnCreAssInfAllDlt"        describe="企业信贷资产整笔删除"       type="4" config="{$ARE.PIDR_HOME}/etc/pidr/412.xml" />
+    </infs>
+</doc>

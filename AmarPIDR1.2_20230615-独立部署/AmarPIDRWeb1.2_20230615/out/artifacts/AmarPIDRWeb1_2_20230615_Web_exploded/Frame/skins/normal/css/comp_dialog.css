@@ -1,0 +1,29 @@
+body {
+    background:#247BC5 url(../images/xz_03.png) no-repeat right bottom;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+/* .opencomp_head {
+	background-image: url(../images/pop_bg.png);
+	border-color: #a5a;
+} */
+.right_menu a {
+    background:none;
+}
+.right_menu a:hover{
+	/*��������ͼ*/
+    background: url(../images/cpd_right_hover.gif) no-repeat center;
+    color: #FFFFFF;
+}
+.right_menu{
+	/*����ͼ*/
+	/*background: url(../images/cpd_right_bg.png) no-repeat;*/
+	/* background:url(../images/xz_03.png) no-repeat right bottom; */
+	background: #3B94F6;
+}
+.ui-dialog-header {
+	background:#247BC5 url(../images/xz_03.png) no-repeat right bottom;
+}

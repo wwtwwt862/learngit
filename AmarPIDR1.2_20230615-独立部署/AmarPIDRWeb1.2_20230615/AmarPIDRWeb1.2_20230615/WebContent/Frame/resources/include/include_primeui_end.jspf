@@ -1,0 +1,30 @@
+<%@page  pageEncoding="UTF-8"%>
+<c:remove var="DZRootIndex" />
+<div id="window_notify"></div> <!-- 浮动通知 -->
+<div id="window_message"></div> <!-- inline通知 -->
+<p-dialog id="p-table-wait-data" title="加载数据..." modal closable="false">
+	<div style="text-align: center;color: blue;"><i class="fa fa-spinner fa-spin fa-2x"></i></div>
+</p-dialog>
+<script type="text/javascript">
+	$(function(){
+		$("#window_notify").puigrowl();
+		$("#window_message").puimessages();
+		
+		window.Notify = {
+			info: function(title, content){this.addNotify('info', {summary:title, detail: content});},
+			warn: function(title, content){this.addNotify('warn', {summary:title, detail: content});},
+			error: function(title, content){this.addNotify('error', {summary:title, detail: content});},
+			addNotify : function(msg){
+				$("#window_notify").puigrowl('show', msg);
+			}
+		};
+		window.Message = {
+			info: function(title, content){this.addMessage('info', {summary:title, detail: content});},
+			warn: function(title, content){this.addMessage('warn', {summary:title, detail: content});},
+			error: function(title, content){this.addMessage('error', {summary:title, detail: content});},
+			addMessage : function(severity, msg){
+				$("#window_message").puimessages('show', severity, msg);
+			}
+		};
+	});
+</script>

@@ -1,0 +1,89 @@
+<%
+com.amarsoft.awe.ui.layout.MainView view = new com.amarsoft.awe.ui.layout.MainView().setContentTitle(PG_CONTENT_TITLE).setContnetText(PG_CONTNET_TEXT).setLeftWidth(PG_LEFT_WIDTH);
+%>
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/widget/main.css"/>
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%><%=sSkinPath%>/css/widget/main.css"/>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/widget/htmltree.js"></script>
+<script type="text/javascript" src="<%=sWebRootPath%>/Frame/page/js/as_treeview.js"></script>
+<body>
+	<div  id="main_bottom" class="main_bottom">
+		<div<%=view.getLeftStyle()%> class="main_left"><%=view.getLeftTitle()%><iframe name="left" frameborder="0" width="100%" height="100%" allowtransparency></iframe></div>
+		<div<%=view.getBorderStyle()%> class="main_border"><%=view.getBorderTitle()%></div>
+		<div class="main_right"><%=view.getRightTitle()%><iframe name="right" frameborder="0" width="100%" height="100%"  allowtransparency></iframe></div>
+		<div class="main_iborder"></div>
+	</div>
+	<div class="main_board"></div>
+</body>
+<script type="text/javascript">
+_Tree_Show_In_View = true;
+if(!window.myleft) myleft = {};
+function initLayout(data){
+	var body = $("body"),
+		bottom = $("#main_bottom"),
+		left = bottom.find(">div:first"),
+		leftt = left.find(">div:first"),
+		border = left.next(),
+		right = border.next(),
+		rightt = right.find(">div:first");
+		iborder = right.next(),
+		board = bottom.next();
+	
+	border.find(">div").add(leftt).add(rightt).addClass("title");
+	if(!window.setTitle) window.setTitle = function(sText, left){
+		if(left == true) leftt.find("span:first").html(sText);
+		else rightt.find("span:first").html(sText);
+	}
+	
+	function resize(){
+		var width = body.width();
+		var height = body.height();
+
+		var bheight = height;
+		bottom.height(bheight);
+		bottom.find("iframe").each(function(){
+			var title = $(this).prev();
+			if(title.length == 0) return;
+			$(this).height(bheight-title.height());
+		});
+		if(!border.is(":hidden")){
+			var rwidth = width - border.width();
+			if(!left.is(":hidden")) rwidth -= left.width();
+			right.width(rwidth -1);
+		}
+	}
+	
+	$(window).resize(resize);
+	resize();
+	
+	if(!border.is(":hidden")) border.mousedown(function(e){
+		var x0 = e.clientX;
+		var lwidth = left.is(":hidden")?0:left.width();
+		var rwidth = right.width();
+		function move(e){
+			iborder.css("left", lwidth+e.clientX-x0);
+		}
+		function up(e){
+			var w = e.clientX-x0;
+			if(w > 0){
+				right.width(rwidth-w);
+				left.width(lwidth+w);
+			}else{
+				left.width(lwidth+w);
+				right.width(rwidth-w);
+			}
+			$(document).unbind("mousemove", move).unbind("mouseup", up);
+			body.removeClass("main_noselect");
+			bottom.removeClass("main_relative");
+			board.hide();
+			iborder.hide();
+		}
+		$(document).bind("mousemove", move).bind("mouseup", up);
+		body.addClass("main_noselect");
+		bottom.addClass("main_relative");
+		board.show();
+		iborder.show();
+		move(e);
+	});
+}
+initLayout();
+</script>

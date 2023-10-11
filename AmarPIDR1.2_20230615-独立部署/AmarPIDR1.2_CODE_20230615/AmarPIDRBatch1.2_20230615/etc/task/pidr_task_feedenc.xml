@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<task name="PIDRFeedbackEncTask" describe="央行内评反馈报文预处理任务"  recovery="false"  saveHistory="false"  historyFolder="./his">
+	<executeUnits>
+	
+		<executeUnit name ="FeedbackEnc" describe ="反馈报文预处理" executeClass = "com.amarsoft.app.pbc.pidr.report.feedback.FeedbackEncTask" allowManualExecute="true">  
+			<extendProperties>
+				<property name="unit.osClass" value="Linux"/>
+			</extendProperties>
+		</executeUnit>
+		
+	</executeUnits>
+	
+	<!-- 路由 -->
+	<routeMap start="FeedbackEnc"></routeMap>
+</task>
+			
+			

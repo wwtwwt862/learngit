@@ -1,0 +1,88 @@
+@charset "gb2312";
+.htmltree {
+	-moz-user-select: none;
+	height: 95% !important;
+}
+.htmltree ul {
+	margin: 0;
+	padding: 0;
+}
+.htmltree ul li {
+	list-style: none;
+	
+}
+.htmltree li .node {
+	display: block;
+	height: 35px;
+	line-height: 35px;
+	width: 100%;
+	color: #333;
+	cursor: pointer;
+	
+}
+.htmltree li .node {
+	white-space: nowrap;
+}
+/*
+.htmltree li .hover {
+	background: #eee;
+}
+*/
+.htmltree li .mark {
+	background: #b7dcf4;
+}
+.htmltree li .click {
+	background: #aaa;
+}
+.htmltree li .move {
+	border: 1px dotted #f00;
+}
+.htmltree li.over_down {
+	border-bottom: 1px solid #aaa;
+}
+.htmltree li.over_up {
+	border-top: 1px solid #aaa;
+}
+.htmltree .index {
+	display: inline-block;
+	width: 20px;
+	height: 100%;
+	outline: none;
+	text-decoration: none;
+}
+.htmltree .checkbox {
+	background: url(../../images/widget/htmltree/checkbox0.gif) no-repeat center;
+}
+.htmltree .halfcheck {
+	background: url(../../images/widget/htmltree/checkbox2.gif) no-repeat center;
+}
+.htmltree .check {
+	background: url(../../images/widget/htmltree/checkbox1.gif) no-repeat center;
+}
+.htmltree .folder .icon {
+	background: url(../../images/widget/htmltree/folder.gif) no-repeat center;
+}
+.htmltree .page .icon {
+	background: url(../../images/widget/htmltree/page.gif) no-repeat center;
+}
+.htmltree .arrow {
+	background: url(../../images/widget/htmltree/arrow.gif) no-repeat center;
+}
+.htmltree .expand .arrow {
+	background: url(../../images/widget/htmltree/arrow_expand.gif) no-repeat center;
+}
+
+.htmltreesearch {
+	background: #fff;
+	border: 1px solid #aaa;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	width: auto;
+	display: none;
+}
+
+.htmltreesearch input, .htmltreesearch input:focus {
+	width: 80px;
+	border: none;
+}

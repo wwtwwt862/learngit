@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.sf.net/ehcache.xsd">
+
+    <diskStore path="java.io.tmpdir" />
+    <!--
+	<cacheManagerPeerProviderFactory class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+	properties="peerDiscovery=automatic, multicastGroupAddress=230.0.0.1,multicastGroupPort=4466,timeToLive=1" />
+	-->
+
+    <cacheManagerPeerListenerFactory  class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory" properties="socketTimeoutMillis=2000" />
+        
+    <defaultCache maxElementsInMemory="10000" eternal="false" timeToIdleSeconds="120" timeToLiveSeconds="3600" overflowToDisk="false" />
+    
+    <cache name="AWE_AUTH_TOKEN" maxElementsInMemory="10000" eternal="false"  overflowToDisk="false" timeToIdleSeconds="1800" timeToLiveSeconds="43200" >
+        <!-- <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" properties="replicateAsynchronously=false" /> -->
+        <!-- 
+        <bootstrapCacheLoaderFactory class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory" properties="bootstrapAsynchronously=true" />
+        -->
+    </cache>
+
+    <cache name="CODE_LIBRARY" maxElementsInMemory="1000" eternal="false" overflowToDisk="false" timeToIdleSeconds="1800" timeToLiveSeconds="43200" >
+        <!-- 
+        <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" properties="replicateAsynchronously=false" />
+        <bootstrapCacheLoaderFactory class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory" properties="bootstrapAsynchronously=true" />
+        -->
+    </cache>
+
+    <cache name="AWE_ROLE" maxElementsInMemory="1000" eternal="false" overflowToDisk="false" timeToIdleSeconds="1800" timeToLiveSeconds="43200" >
+        <!-- 
+        <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" properties="replicateAsynchronously=false" />
+        <bootstrapCacheLoaderFactory class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory" properties="bootstrapAsynchronously=true" />
+        -->
+    </cache>
+    
+    <cache name="AWE_OW" maxElementsInMemory="2000" eternal="false" overflowToDisk="false" timeToIdleSeconds="1800" timeToLiveSeconds="43200" >
+        <!-- 
+        <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" properties="replicateAsynchronously=false" />
+        <bootstrapCacheLoaderFactory class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory" properties="bootstrapAsynchronously=true" />
+        -->
+    </cache>
+    
+    <cache name="AWE_COLLECTION" maxElementsInMemory="100" eternal="false" overflowToDisk="false" timeToIdleSeconds="1800" timeToLiveSeconds="43200" >
+        <!-- 
+        <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" properties="replicateAsynchronously=false" />
+        <bootstrapCacheLoaderFactory class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory" properties="bootstrapAsynchronously=true" />
+        -->
+    </cache>
+    
+    <cache name="KEY_NAME" maxElementsInMemory="50000" eternal="false" overflowToDisk="false" timeToIdleSeconds="120" timeToLiveSeconds="1800" >
+        <!-- 
+        <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" properties="replicateAsynchronously=false" />
+        <bootstrapCacheLoaderFactory class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory" properties="bootstrapAsynchronously=true" />
+        -->
+    </cache>
+</ehcache>

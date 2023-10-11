@@ -1,0 +1,9 @@
+<%  
+Transaction Sqlca = null;
+Transaction SqlcaRepository = null;
+
+String sDataSource = CurConfig.getDataSource();
+try{
+    Sqlca = Transaction.createTransaction(sDataSource);
+    SqlcaRepository = Sqlca;
+%>

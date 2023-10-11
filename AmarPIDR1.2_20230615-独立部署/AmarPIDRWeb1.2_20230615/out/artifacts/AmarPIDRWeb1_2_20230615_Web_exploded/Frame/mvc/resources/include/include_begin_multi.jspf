@@ -1,0 +1,13 @@
+<%@include file="/Frame/mvc/resources/include/ui/include_common.jspf"
+%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@include file="/Frame/page/jspf/include/jsp_head_res_dw.jspf"%>
+</head>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/jquery/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/resources/js/jquery/plugins/jquery.validate.extend.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/as_contextmenu.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_common.js"></script>
+<script type="text/javascript" charset="UTF-8" src="${sWebRootPath}/Frame/page/js/ow/as_dw_multi_mvc.js"></script>
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}/Frame/page/resources/css/ow/list.css">
+<link rel="stylesheet" type="text/css" href="${sWebRootPath}${curUser.skin.path}/css/ow/list.css">

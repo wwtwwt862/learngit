@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbo>
+<package name="jbo.pidr"> 
+    <class name="TASK_RUN_HISTORY" label="历史跑批" keyAttributes="SERIALNO"> 
+      <attributes> 
+        <attribute name="SERIALNO" label="序列号" type="STRING" length="30"/>  
+        <attribute name="STATUSTYPE" label="记录类型" type="STRING" length="8"/>  
+        <attribute name="TASKNAME" label="任务名称" type="STRING" length="80"/>  
+        <attribute name="TASKDESCRIBE" label="任务描述" type="STRING" length="400"/>  
+        <attribute name="UNITNAME" label="单元名称" type="STRING" length="80"/>  
+        <attribute name="UNITDESCRIBE" label="单元描述" type="STRING" length="400"/>  
+        <attribute name="STATUS" label="执行状态" type="STRING" length="2"/>  
+        <attribute name="INPUTDATE" label="跑批日" type="STRING" length="20"/>  
+        <attribute name="BEGINTIME" label="开始时间" type="STRING" length="32"/>  
+        <attribute name="ENDTIME" label="结束时间" type="STRING" length="32"/> 
+      </attributes>  
+      <manager> 
+        <managerProperties> 
+          <property name="table" value="TASK_RUN_HISTORY"/> 
+        </managerProperties> 
+      </manager> 
+    </class>  
+    <class name="TASK_RUN_INTERACT" label="跑批交互表" keyAttributes="SERIALNO"> 
+      <attributes> 
+      	<attribute name="SERIALNO" label="序列号" type="STRING" length="30"/>  
+        <attribute name="TASKNAME" label="任务名称" type="STRING" length="80"/>  
+        <attribute name="UNITNAME" label="单元名称" type="STRING" length="80"/>  
+        <attribute name="INTERACTTYPE" label="交互类型" type="STRING" length="10"/>  
+        <attribute name="ISINUSE" label="是否启用" type="STRING" length="1"/> 
+      </attributes>  
+      <manager> 
+        <managerProperties> 
+          <property name="table" value="TASK_RUN_INTERACT"/> 
+          <property name="createKey" value="true"/>
+        </managerProperties> 
+      </manager> 
+    </class>  
+    <class name="TASK_RUN_STATUS" label="当前跑批表" keyAttributes="SERIALNO"> 
+      <attributes> 
+        <attribute name="SERIALNO" label="序号" type="STRING" length="30"/>  
+        <attribute name="STATUSTYPE" label="记录类型" type="STRING" length="8"/>  
+        <attribute name="TASKNAME" label="任务名称" type="STRING" length="80"/>  
+        <attribute name="TASKDESCRIBE" label="任务描述" type="STRING" length="400"/>  
+        <attribute name="UNITNAME" label="单元名称" type="STRING" length="80"/>  
+        <attribute name="UNITDESCRIBE" label="单元描述" type="STRING" length="400"/>  
+        <attribute name="STATUS" label="执行状态" type="STRING" length="2"/>  
+        <attribute name="INPUTDATE" label="跑批日" type="STRING" length="20"/>  
+        <attribute name="BEGINTIME" label="开始时间" type="STRING" length="32"/>  
+        <attribute name="ENDTIME" label="结束时间" type="STRING" length="32"/> 
+      </attributes>  
+      <manager> 
+        <managerProperties> 
+          <property name="table" value="TASK_RUN_STATUS"/> 
+        </managerProperties> 
+      </manager> 
+    </class> 
+    
+    
+     <class name="TASKSERVER_RUN_STATUS" label="定时任务服务执行状态" keyAttributes="SERIALNO"> 
+      <attributes> 
+        <attribute name="SERIALNO" label="序号" type="STRING" length="30"/>  
+        <attribute name="SERVERJOBNAME" label="定时任务名称" type="STRING" length="80"/>  
+        <attribute name="BEGINTIME" label="开始时间" type="STRING" length="32"/>  
+        <attribute name="ENDTIME" label="结束时间" type="STRING" length="32"/> 
+      </attributes>  
+      <manager> 
+        <managerProperties> 
+          <property name="table" value="TASKSERVER_RUN_STATUS"/> 
+        </managerProperties> 
+      </manager> 
+    </class>    
+    
+     <class name="TASKSERVER_RUN_INTERACT" label="跑批交互表" keyAttributes="SERIALNO"> 
+      <attributes> 
+      	<attribute name="SERIALNO" label="序列号" type="STRING" length="30"/>  
+        <attribute name="SERVERJOBNAME" label="定时任务名称" type="STRING" length="80"/> 
+        <attribute name="INTERACTTYPE" label="交互类型" type="STRING" length="10"/>  
+        <attribute name="ISINUSE" label="是否启用" type="STRING" length="1"/> 
+      </attributes>  
+      <manager> 
+        <managerProperties> 
+          <property name="table" value="TASKSERVER_RUN_INTERACT"/> 
+          <property name="createKey" value="true"/>
+        </managerProperties> 
+      </manager> 
+    </class>  
+  </package> 
+</jbo>

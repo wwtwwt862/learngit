@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/AmarPIDRBatch1.2_20230615.iml" filepath="$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/AmarPIDRBatch1.2_20230615.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AmarPIDRWeb1.2_20230615.iml" filepath="$PROJECT_DIR$/AmarPIDRWeb1.2_20230615.iml" />
+    </modules>
+  </component>
+</project>

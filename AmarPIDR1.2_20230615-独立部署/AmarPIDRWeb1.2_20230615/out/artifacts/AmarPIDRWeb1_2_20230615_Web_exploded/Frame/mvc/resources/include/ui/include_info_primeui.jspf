@@ -1,0 +1,66 @@
+<%@ page pageEncoding="UTF-8"%>
+<c:set var="idpre" value="myiframe" />
+<c:set var="owname" value="${idpre }${DZRootIndex}" />
+<p-growl id="growlel"></p-growl>
+
+<table>
+	<tr height=1>
+		<td valign=top style="width:100%">
+			${root.navigatorHtml}
+	    </td>
+	</tr>
+	<tr height=1>
+		<td valign=top>
+			${root.wizardHtml}
+	    </td>
+	</tr>
+	<c:if test="${buttons.showButton1}">
+		<tr height=1  id="ButtonTR">
+			<td valign=top id="InfoButtonArea" class="infodw_buttonarea_td" align="left" >
+				${buttons.html}
+		    </td>
+		</tr>
+	</c:if>
+	<tr id="DWTR"  >
+	    <td valign=top class="infodw_top_area" id="DWTD" >
+<script>AmPui.info.tables[${DZRootIndex}]={};AmPui.info.tables[${DZRootIndex}].colNames = [];</script>
+<form id="${owname}" class="ui-info-main" owtype="info">
+	<c:forEach items="${owInfoColumns}" var="group">
+		<c:set var="keyarray" value="${group.key.split(',')}" />
+		<div id="${owname}_GROUP_${keyarray[0]}" class="ui-info-group">
+			<div id="${owname}_GROUP_${keyarray[0]}_TITLE" class="ui-info-group-title">
+				${(empty keyarray[1])?'':keyarray[1]}
+			</div>
+			<div id="${owname}_GROUP_${keyarray[0]}_ITEMS" class="ui-info-group-items">
+				<c:forEach items="${group.value}" var="column" varStatus="status">
+					<ul style="width:${98/owInfoColCountInRow}%" class="ui-info-column-${a3ui:isEvenLine(status.index,owInfoColCountInRow)?'even':'odd' } ${status.index>=group.value.size()-owInfoColCountInRow?'borderBottom':'' } ${a3ui:needBorderLeft(status.index,owInfoColCountInRow)?'borderLeft':'' }" id="${owname}_${column.COLNAME }_ROW">
+						<li  class="ui-info-column-title"  id="${owname}_${column.COLNAME }_TITLE">
+							${column.COLHEADER }
+							<span class="ui-info-column-required"  id="${owname}_${column.COLNAME }_REQUIRED">
+								${(column.COLREQUIRED eq '1')?'*':'' }
+							</span>
+						</li>
+						<li class="ui-info-column-input  borderLeft"  id="${owname}_${column.COLNAME }_INPUT">
+							<a3ui:puiInput dwTemp="${dwTemp }" columnMeta="${column }" owId="${owname}" value="${owInfoData.getString(column.COLNAME) }"/>
+							<span id="${owname}_${column.COLNAME }_ERROR" class="error"></span>
+						</li>
+					</ul>
+					<script>AmPui.info.tables[${DZRootIndex}].colNames.push("${column.COLNAME}");</script>
+				</c:forEach>
+			</ul>
+		</div>
+	</c:forEach>
+</form>
+<div style="clear:both;margin-bottom:20px;"></div>			<c:if test="${buttons.showButton2}">
+				<div align="center" style="margin-top:-20px;">
+					 <br>
+					${buttons.html}
+				</div>
+			</c:if>
+	    </td>
+	</tr>
+</table>
+<script type="text/javascript">
+	//生成校验规则
+	AmPui.info.tables[${DZRootIndex}].validRules = ${owInfoValidRules};
+</script>

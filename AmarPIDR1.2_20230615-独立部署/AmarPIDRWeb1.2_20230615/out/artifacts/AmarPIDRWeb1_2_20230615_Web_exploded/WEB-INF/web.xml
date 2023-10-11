@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0" metadata-complete="false">
+	<display-name>AmarPIDR</display-name>
+	
+	<!-- 
+	 <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>base</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+            <http-method>HEAD</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+        </web-resource-collection>
+	  <auth-constraint>      
+         </auth-constraint> 
+        <user-data-constraint>  
+            <transport-guarantee>INTEGRAL</transport-guarantee>  
+        </user-data-constraint>  
+ 	</security-constraint>
+    -->
+    
+	<listener>
+		<listener-class>com.amarsoft.awe.control.AWEContextListener</listener-class>
+	</listener>
+	<!-- <context-param>
+		<param-name>logbackConfigLocation</param-name>
+		<param-value>/WEB-INF/etc/logback.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>AREConfigFile</param-name>
+		<param-value>/WEB-INF/etc/are.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>AppHome</param-name>
+		<param-value>/WEB-INF</param-value>
+	</context-param>
+	<context-param>
+		<param-name>ConfigFile</param-name>
+		<param-value>/WEB-INF/etc/a3web.xml</param-value>
+	</context-param> -->
+
+	<filter>
+		<filter-name>RunFilter</filter-name>
+		<filter-class>com.amarsoft.awe.control.RunFilter</filter-class>
+		<init-param>
+			<param-name>RunTimeDebug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ShowFramePage</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>DbLog</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ExcludedURLs</param-name>
+			<param-value>^/.*Logon.jsp,^/.*sso.*.jsp</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>RunFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>RunFilter</filter-name>
+		<url-pattern>*.view</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>RunFilter</filter-name>
+		<url-pattern>*.jv</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>RunFilter</filter-name>
+		<url-pattern>*.serv</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>RunFilter</filter-name>
+		<url-pattern>*.osrv</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>RunFilter</filter-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</filter-mapping>
+
+	<!-- SSOService -->
+	<servlet>
+		<servlet-name>sso_service</servlet-name>
+		<servlet-class>com.amarsoft.awe.sso.SSOService</servlet-class>
+		<init-param>
+			<param-name>authClass</param-name>
+			<param-value>com.amarsoft.awe.web.sso.DefaultAuth</param-value>
+		</init-param>
+		<init-param>
+			<param-name>authLoginClass</param-name>
+			<param-value>com.amarsoft.awe.sso.ALSLogin</param-value>
+		</init-param>
+		<init-param>
+			<param-name>trustAddress</param-name>
+			<param-value>{192.168.*.*}{10.0.5.*}</param-value> <!-- IP根据实际情况调整 -->
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sso_service</servlet-name>
+		<url-pattern>/ssoservice</url-pattern>
+	</servlet-mapping>
+
+	<!-- SSOClient -->
+	<filter>
+		<filter-name>sso_filter</filter-name>
+		<filter-class>com.amarsoft.awe.web.sso.AWESSOFilter</filter-class>
+		<init-param>
+			<param-name>ssoServicePath</param-name>
+			<param-value>/ssoservice</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ssoExcludePages</param-name>
+			<param-value>{.*/sso.*.jsp}</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cacheExpireTime</param-name>
+			<param-value>30</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>sso_filter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+		<url-pattern>*.view</url-pattern>
+		<url-pattern>*.jv</url-pattern>
+		<url-pattern>*.serv</url-pattern>
+		<url-pattern>*.osrv</url-pattern>
+	</filter-mapping>
+
+	<resource-ref id="ResourceRef_1">
+		<res-ref-name>jdbc/als</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Application</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	<resource-ref id="ResourceRef_2">
+		<res-ref-name>jdbc/report</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Application</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+
+	<!-- A3Web采用Servlet3.0+的装配原则来加载web.xml、web-fragment.xml。
+	若想统一在web.xml中设置，则将web.xml中的metadata-complete属性设置为true，表示配置完整；然后将下面原来在web-fragment.xml中的配置项全部打开即可。 -->
+	
+	<servlet>
+	    <description>上传Excel文件</description>
+	    <display-name>PidrImpExcelDataServlet</display-name>
+	    <servlet-name>PidrImpExcelDataServlet</servlet-name>
+	    <servlet-class>com.amarsoft.app.pidr.codemanage.servlet.batchImp.UploadHandleServlet</servlet-class>
+  	</servlet>
+	<servlet-mapping>
+	    <servlet-name>PidrImpExcelDataServlet</servlet-name>
+	    <url-pattern>/PidrImpExcelDataServlet</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+	    <description>Ecxel文件导入数据</description>
+	    <display-name>PidrExcelDatacopyServlet</display-name>
+	    <servlet-name>PidrExcelDatacopyServlet</servlet-name>
+	    <servlet-class>com.amarsoft.app.pidr.codemanage.servlet.batchImp.DatacopyHandleServlet</servlet-class>
+  	</servlet>
+	<servlet-mapping>
+	    <servlet-name>PidrExcelDatacopyServlet</servlet-name>
+	    <url-pattern>/PidrExcelDatacopyServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+	    <description>报文下载</description>
+	    <display-name>PidrDownloadServlet</display-name>
+	    <servlet-name>PidrDownloadServlet</servlet-name>
+	    <servlet-class>com.amarsoft.app.pidr.servlet.download.report.DownLoadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>PidrDownloadServlet</servlet-name>
+	    <url-pattern>/PidrDownloadServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	    <description>报文批量下载</description>
+	    <display-name>PidrDownLoadBatchServlet</display-name>
+	    <servlet-name>PidrDownLoadBatchServlet</servlet-name>
+	    <servlet-class>com.amarsoft.app.pidr.servlet.download.report.DownLoadBatchServlet</servlet-class>
+	 </servlet>
+	 <servlet-mapping>
+	    <servlet-name>PidrDownLoadBatchServlet</servlet-name>
+	    <url-pattern>/PidrDownLoadBatchServlet</url-pattern>
+	 </servlet-mapping>
+	<!--- ================================== -->
+    <!--       调用后台批量任务 配置信息       -->
+    <!--- ================================== -->
+	<servlet>
+	    <description>调用后台批量任务</description>
+	    <display-name>PidrTaskScheduleServlet</display-name>
+	    <servlet-name>PidrTaskScheduleServlet</servlet-name>
+	    <servlet-class>com.amarsoft.app.pidr.servlet.page.task.schedule.PidrTaskScheduleServlet</servlet-class>
+  	</servlet>
+	<servlet-mapping>
+	    <servlet-name>PidrTaskScheduleServlet</servlet-name>
+	    <url-pattern>/PidrTaskScheduleServlet</url-pattern>
+	</servlet-mapping>
+	<!--- ================================== -->
+    <!--       反馈报文上传                   -->
+    <!--- ================================== -->
+	<servlet>
+	    <description>反馈报文上传</description>
+	    <display-name>PidrFeedbackFileUploadServlet</display-name>
+	    <servlet-name>PidrFeedbackFileUploadServlet</servlet-name>
+	    <servlet-class>com.amarsoft.app.pidr.feedback.servlet.upload.PidrFeedbackFileUploadServlet</servlet-class>
+  	</servlet>
+	<servlet-mapping>
+	    <servlet-name>PidrFeedbackFileUploadServlet</servlet-name>
+	    <url-pattern>/PidrFeedbackFileUploadServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!--- ================================== -->
+    <!--       主页查询失败任务记录                   -->
+    <!--- ================================== -->
+    <servlet>
+        <description></description>
+        <display-name>PidrFailedRecordServlet</display-name>
+        <servlet-name>PidrFailedRecordServlet</servlet-name>
+        <servlet-class>com.amarsoft.app.pidr.servlet.taskrun.PidrFailedRecordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PidrFailedRecordServlet</servlet-name>
+        <url-pattern>/PidrFailedRecordServlet</url-pattern>
+    </servlet-mapping>
+    <!--- ================================== -->
+    <!--       主页查询任务执行                   -->
+    <!--- ================================== -->
+	<servlet>
+        <description></description>
+        <display-name>PidrTaskRunServlet</display-name>
+        <servlet-name>PidrTaskRunServlet</servlet-name>
+        <servlet-class>com.amarsoft.app.pidr.servlet.taskrun.PidrTaskRunServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PidrTaskRunServlet</servlet-name>
+        <url-pattern>/PidrTaskRunServlet</url-pattern>
+    </servlet-mapping>
+    <!--- ================================== -->
+    <!--       主页查询某月任务执行情况                   -->
+    <!--- ================================== -->
+    <servlet>
+        <description></description>
+        <display-name>PidrMonthTaskRunServlet</display-name>
+        <servlet-name>PidrMonthTaskRunServlet</servlet-name>
+        <servlet-class>com.amarsoft.app.pidr.servlet.taskrun.PidrMonthTaskRunServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PidrMonthTaskRunServlet</servlet-name>
+        <url-pattern>/PidrMonthTaskRunServlet</url-pattern>
+    </servlet-mapping>
+	
+	<!-- web框架的基础配置，下面的配置项在awe-web_core的web-fragment.xml中已配置，如需调整，可放开调整项 -->
+	<servlet>
+		<servlet-name>Kaptcha</servlet-name>
+		<servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+		<init-param>
+			<param-name>kaptcha.border</param-name>
+			<param-value>no</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.textproducer.font.color</param-name>
+			<param-value>black</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.textproducer.char.space</param-name>
+			<param-value>5</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Kaptcha</servlet-name>
+		<url-pattern>/Kaptcha</url-pattern>
+	</servlet-mapping>
+	<!-- <welcome-file-list id="WelcomeFileList_1">
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/Frame/page/sys/NoPageInfo.jsp</location>
+	</error-page>
+
+	<listener>
+		<listener-class>com.amarsoft.awe.web.util.AddCustomELResolver</listener-class>
+	</listener>
+	<listener>
+        <listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
+    </listener>
+	
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/etc/springmvc-servlet.xml</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.view</url-pattern>
+		<url-pattern>*.serv</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AttachmentViewServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.common.attachment.AttachmentViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AttachmentViewServlet</servlet-name>
+		<url-pattern>/servlet/view/attachment</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>FileViewServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.common.FileViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileViewServlet</servlet-name>
+		<url-pattern>/servlet/view/file</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DisplayChart</servlet-name>
+		<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayChart</servlet-name>
+		<url-pattern>/chartview</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>WorkDocFileServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.common.WorkDocFileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WorkDocFileServlet</servlet-name>
+		<url-pattern>/servlet/workdocfile/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Kaptcha</servlet-name>
+		<servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+		<init-param>
+			<param-name>kaptcha.border</param-name>
+			<param-value>no</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.textproducer.font.color</param-name>
+			<param-value>black</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.textproducer.char.space</param-name>
+			<param-value>5</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Kaptcha</servlet-name>
+		<url-pattern>/Kaptcha</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MonitorSOAPServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.web.monitor.MonitorSOAPServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MonitorSOAPServlet</servlet-name>
+		<url-pattern>/core/monitor</url-pattern>
+	</servlet-mapping>
+	 -->
+
+	<!-- 流式导出的相关配置，下面的配置项在awe-export的web-fragment.xml中已配置，如需调整，可放开调整项 -->
+	<!-- <listener>
+		<listener-class>com.amarsoft.awe.export.ow.servlet.AWEExportContextListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>InfoPageExportServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.export.ow.servlet.InfoExportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InfoPageExportServlet</servlet-name>
+		<url-pattern>/EAS/PageExport/info</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ListPageExportServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.export.ow.servlet.ListExportByStreamServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListPageExportServlet</servlet-name>
+		<url-pattern>/EAS/PageExport/list</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>TaskFileDownloadServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.export.ow.servlet.TaskFileDownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TaskFileDownloadServlet</servlet-name>
+		<url-pattern>/EAS/PageExport/download</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ExportProcessServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.export.ow.servlet.ExportProcessServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExportProcessServlet</servlet-name>
+		<url-pattern>/EAS/PageExport/process</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DWListPageExportServlet</servlet-name>
+		<servlet-class>com.amarsoft.awe.export.dw.servlet.DWListExportByStreamServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DWListPageExportServlet</servlet-name>
+		<url-pattern>/DW/PageExport/list</url-pattern>
+	</servlet-mapping> -->
+	
+	
+	<!-- 文件查看的相关配置，下面的配置在awe-fileviewer的web-fragment.xml中已配置，如需调整，可放开调整项 -->
+	<!-- <servlet>
+		<servlet-name>tool-fileviewer</servlet-name>
+		<servlet-class>com.amarsoft.awe.common.attachment.AttachmentViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>tool-fileviewer</servlet-name>
+		<url-pattern>/servlet/pdf/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>tool-fileviewer</servlet-name>
+		<url-pattern>/servlet/image/*</url-pattern>
+	</servlet-mapping> -->
+	
+	
+	<!-- 异步结果查询，下面的配置项在awe-asquery的web-fragment.xml中已配置，如需调整，可放开调整项 -->
+	<!-- <servlet>
+		<servlet-name>AsyncQueryServlet</servlet-name>
+		<servlet-class>com.amarsoft.asquery.AsyncQueryServlet</servlet-class>
+		<init-param>
+			<param-name>threadCount</param-name>
+			<param-value>5</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AsyncQueryServlet</servlet-name>
+		<url-pattern>/AsyncQuery</url-pattern>
+	</servlet-mapping> -->
+	
+	<error-page>
+	   <exception-type>java.lang.Throwable</exception-type>
+		<location>/Frame/page/control/ErrorPage.jsp</location>
+	</error-page>
+  	<error-page>
+		<error-code>404</error-code>
+		<location>/Frame/page/sys/NoPageInfo.jsp</location>
+	</error-page>
+	<error-page>
+	   	<error-code>500</error-code>
+		<location>/Frame/page/sys/NoPageInfo.jsp</location>
+	</error-page>
+
+	<!-- filter、listener、servlet、servlet-mapping等元素要在session-config之前 -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+</web-app>

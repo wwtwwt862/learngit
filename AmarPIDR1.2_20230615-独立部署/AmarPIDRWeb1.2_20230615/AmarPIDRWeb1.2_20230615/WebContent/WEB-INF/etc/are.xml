@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--Amarsoft Runtime Environmen Config File-->
+<ARE>
+	<!--系统属性可以做为多种用途的扩展之用,可以放置任意多的属性在此-->
+	<SystemProperties>
+		<!-- 定义统一的APP_HOME，引用其他文件非常方便 -->
+		<!-- 
+		<Property name="APP_HOME" value="." /> 
+		-->
+		<!-- Date型日期的格式：yyyy/MM/dd、dd/MM/yyyy 、MM/dd/yyyy 等 -->
+		<!-- 批量程序路径 -->
+		<!-- <Property name="PIDR_HOME" value="/home/amarsoft/work/workspace/AmarPIDR"/> -->
+		<Property name="PIDR_HOME" value="D:\桂林银行\AmarPIDR1.2_20230615-独立部署\AmarPIDR1.2_CODE_20230615\AmarPIDRBatch1.2_20230615"/>
+		<Property name="PIDR_BAT" value="/shell/pidr_bat"/>
+		<Property name="PIDR_SH" value="/shell/pidr_sh"/>
+		<Property name="dateFormat" value="yyyy/MM/dd"/>
+		<!-- 批量程序日志地址 -->
+		<Property name="PIDR_LOG" value="{$ARE.PIDR_HOME}/logs"/>
+		<!-- 前台日志地址 -->
+		<Property name="WEB_LOG" value="/tmp/logs/AmarPIDRWeb"/>
+		<Property name="com.amarsoft.are.security.audit.config.file" value="{$ARE.APP_HOME}/etc/audit.properties"/>
+		<Property name="com.amarsoft.are.jbo.impl.StateBizObjectQuery.defaultForUpdate" value="false"/>
+		<!-- <Property name="are.service.CACHE.configFile" value="etc/ehcache.xml" /> -->
+		<Property name="mvc.export.rootFolder" value="/tmp"/>
+		<!-- 如果OSF报文长度最大打多少，打多了可能导致很卡 -->
+		<Property name="MaxOSFMessageLength" value="100000"/>
+		<!-- 上传配置 name属性值须为PIDRuploadFeedbackFilePath-->
+		<Property name="PIDRUploadFeedbackFilePath"  value="{$ARE.PIDR_HOME}/data/feedback/report" />
+		<!-- OSF服务端配置 -->
+		<!-- <Property name="com.amarsoft.osf.manager.OSFManager.osfConfigFile" value="/WEB-INF/etc/osfconfig/osf.xml"/> -->
+		<!-- mvc大数据量导出excel共享文件根目录 -->
+		<Property name="export.large.rootPath" value="/tmp/DownLoad"/>
+		<Property name="PIDRBatchImpFile" value="WEB-INF/etc/batchImp/TemplateFile"/>
+		<!-- DBKeyUtil的缺省属性 -->
+		<Property name="DBKey.CacheSize" value="100" />
+		<Property name="DBKey.AppendSuffix" value="true" />
+		<!-- 日期选择框使用 -->
+		<Property name="dateFormat" value="yyyy-MM-dd"/>
+		
+		<!-- 数据库连接服务使用Hikari连接池 -->
+<!-- 		<Property name="are.service.DBCONNECTION.serviceClass" value="com.amarsoft.are.sql.impl.HikariConnectionFactory" /> -->
+	</SystemProperties>
+	
+	<!-- ARE 服务将在初始化时，被装载-->
+	<AREServices>
+		<!-- 数据库连接服务。提供全局统一的数据库连接获取方法。
+			 应用程序可以一致的访问数据库连接，而不需要考虑具体的数据库参数。
+			 ARE缺省提供了一个简单数据库连接池的实现。
+		-->
+		 <Service id="DBCONNECTION"  enabled="true" initOnStart="false">
+			<Provider>Amarsoft</Provider>
+			<Version>1.0</Version>
+			<Describe>数据库连接服务</Describe>
+<!--			<ServiceClass>com.amarsoft.are.sql.impl.JNDIConnectionFactory</ServiceClass>-->
+<!--			<Properties>-->
+<!--				<Property name="com.amarsoft.are.sql.impl.JNDIConnectionFactory.dataSources"  value="{als=java:comp/env/jdbc/als}{als_rpt=java:comp/env/jdbc/report}" />-->
+<!--			</Properties>-->
+			
+<!-- 			<ServiceClass>com.amarsoft.are.sql.PooledConnectionFactory</ServiceClass> -->
+<!-- 			<Properties> -->
+<!-- 				<Property name="com.amarsoft.are.sql.PooledConnectionFactory.resourceFile"  -->
+<!-- 						  value="{$ARE.APP_HOME}/etc/dbconfig.xml"/> -->
+<!-- 			</Properties> -->
+			 <ServiceClass>com.amarsoft.are.sql.impl.HikariConnectionFactory</ServiceClass>
+			 <Properties>
+				 <Property name="com.amarsoft.are.sql.impl.HikariConnectionFactory.configurationSource"
+						   value="{$ARE.APP_HOME}/etc/dbconfig.xml"/>
+			 </Properties>
+		</Service> 
+
+       <!-- Cache对象管理服务 -->
+        <Service id="CACHE"  enabled="true" initOnStart="false">
+            <Provider>Amarsoft</Provider>
+            <Version>1.0</Version>
+            <Describe>缓存服务</Describe>
+            <ServiceClass>com.amarsoft.are.cache.impl.EhCacheFactory</ServiceClass>
+            <Properties>
+                <Property name="com.amarsoft.are.cache.impl.EhCacheFactory.configFile" value="{$ARE.APP_HOME}/etc/ehcache.xml" />
+            </Properties>
+        </Service>
+        
+		<!-- Java业务对象管理服务。提供Java业务对象管理方法。
+			 应用程序可以通过JBO访问业务对象而不需要对数据库做操作。
+		-->
+		<Service id="JBO"  enabled="true" initOnStart="false">
+			<Provider>Amarsoft</Provider>
+			<Version>1.0</Version>
+			<Describe>业务对象管理服务</Describe>
+			<ServiceClass>com.amarsoft.are.jbo.impl.DefaultXMLJBOFactory</ServiceClass>
+			<Properties>
+				<Property name="com.amarsoft.are.jbo.impl.DefaultXMLJBOFactory.configFile" 
+					value="${CONFDIR}/jbo/jbomanagers.xml,
+							${CONFDIR}/jbo/jbo_*.xml"/>
+				<Property name="com.amarsoft.are.jbo.impl.DefaultXMLJBOFactory.defaultPackage" value="jbo.sample"/>
+			</Properties>
+		</Service>
+        
+	</AREServices>
+</ARE>

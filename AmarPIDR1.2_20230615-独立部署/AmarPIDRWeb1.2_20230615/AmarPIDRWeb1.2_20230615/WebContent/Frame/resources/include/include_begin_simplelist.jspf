@@ -1,0 +1,2 @@
+<%//不再使用简单表格，多维护了一份表格js，这里直接点用回原来的list%>
+<%@include file="include_begin_list.jspf"%>

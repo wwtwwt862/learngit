@@ -1,0 +1,229 @@
+
+Connected to: Oracle Database 12c Enterprise Edition Release 12.1.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+Export done in AL32UTF8 character set and AL16UTF16 NCHAR character set
+
+About to export specified users ...
+. exporting pre-schema procedural objects and actions
+. exporting foreign function library names for user PIDR_DEV 
+. exporting PUBLIC type synonyms
+. exporting private type synonyms
+. exporting object type definitions for user PIDR_DEV 
+About to export PIDR_DEV's objects ...
+. exporting database links
+. exporting sequence numbers
+. exporting cluster definitions
+. about to export PIDR_DEV's tables via Conventional Path ...
+. . exporting table                     AUDIT_INFO          0 rows exported
+. . exporting table               AWE_BIZFILE_INFO          1 rows exported
+. . exporting table                AWE_DICT_ERRMSG        545 rows exported
+. . exporting table                 AWE_DO_CATALOG        126 rows exported
+. . exporting table            AWE_DO_COL_VALIDATE         20 rows exported
+. . exporting table                   AWE_DO_EVENT         18 rows exported
+. . exporting table                AWE_DO_FUNCTION          0 rows exported
+. . exporting table                   AWE_DO_GROUP         81 rows exported
+. . exporting table             AWE_DO_JS_FUNCTION          0 rows exported
+. . exporting table               AWE_DO_KEYFILTER          0 rows exported
+. . exporting table                 AWE_DO_LIBRARY       3525 rows exported
+. . exporting table                   AWE_DO_MODES          6 rows exported
+. . exporting table                AWE_DO_VALIDATE         30 rows exported
+. . exporting table        AWE_DO_VALIDATE_CATALOG         11 rows exported
+. . exporting table                 AWE_DW_CONTEXT          6 rows exported
+. . exporting table               AWE_ERPT_CATALOG          1 rows exported
+. . exporting table                  AWE_ERPT_DATA          0 rows exported
+. . exporting table                   AWE_ERPT_DEF          3 rows exported
+. . exporting table                   AWE_ERPT_MAP         27 rows exported
+. . exporting table               AWE_ERPT_OFFLINE          0 rows exported
+. . exporting table                  AWE_ERPT_PARA          1 rows exported
+. . exporting table                AWE_ERPT_RECORD          0 rows exported
+. . exporting table                  AWE_ERPT_TYPE          2 rows exported
+. . exporting table               AWE_ERPT_VERSION          0 rows exported
+. . exporting table               AWE_FUNCTION_URL         33 rows exported
+. . exporting table              AWE_GROUP_CATALOG          2 rows exported
+. . exporting table             AWE_GROUP_CLASSIFY          0 rows exported
+. . exporting table                 AWE_GROUP_ITEM         12 rows exported
+. . exporting table                  AWE_HREF_INFO          2 rows exported
+. . exporting table                AWE_JSP_RUNTIME          2 rows exported
+. . exporting table                  AWE_MENU_INFO         81 rows exported
+. . exporting table                 AWE_QUERY_INFO          3 rows exported
+. . exporting table                 AWE_QUERY_USER          0 rows exported
+. . exporting table                 AWE_QUICK_HREF         10 rows exported
+. . exporting table                AWE_RECORD_INFO          7 rows exported
+. . exporting table                  AWE_ROLE_MENU       1227 rows exported
+. . exporting table                   AWE_ROLE_URL        187 rows exported
+. . exporting table             AWE_SSO_LOGIN_INFO          2 rows exported
+. . exporting table                  AWE_TASK_INFO          9 rows exported
+. . exporting table               AWE_TASK_PROCESS          0 rows exported
+. . exporting table             AWE_WIZARD_CATALOG          1 rows exported
+. . exporting table             AWE_WIZARD_LIBRARY          3 rows exported
+. . exporting table              AWE_WIZARD_RUNNER         15 rows exported
+. . exporting table                     BOARD_LIST         11 rows exported
+. . exporting table              BUSINESS_CONTRACT          0 rows exported
+. . exporting table               BUSINESS_DUEBILL          0 rows exported
+. . exporting table                  BUSINESS_TYPE          0 rows exported
+. . exporting table               CLASSIFY_CATALOG          1 rows exported
+. . exporting table                  CLASSIFY_DATA       2244 rows exported
+. . exporting table                 CLASSIFY_MODEL        233 rows exported
+. . exporting table                CLASSIFY_RECORD         96 rows exported
+. . exporting table                CLASS_ATTRIBUTE          0 rows exported
+. . exporting table                  CLASS_CATALOG          1 rows exported
+. . exporting table                   CLASS_METHOD        106 rows exported
+. . exporting table                   CODE_CATALOG        334 rows exported
+. . exporting table                   CODE_LIBRARY      10733 rows exported
+. . exporting table              CONTRACT_RELATIVE          0 rows exported
+. . exporting table               CORPORATION_INFO          1 rows exported
+. . exporting table                CUSTOMER_BELONG          0 rows exported
+. . exporting table              CUSTOMER_FSRECORD          0 rows exported
+. . exporting table                  CUSTOMER_INFO          0 rows exported
+. . exporting table              CUSTOMER_RELATIVE          0 rows exported
+. . exporting table             DATAOBJECT_CATALOG          2 rows exported
+. . exporting table           DATAOBJECT_COL_VALID          8 rows exported
+. . exporting table              DATAOBJECT_FILTER          0 rows exported
+. . exporting table               DATAOBJECT_GROUP         16 rows exported
+. . exporting table             DATAOBJECT_LIBRARY         31 rows exported
+. . exporting table                  DEMO_EMPLOYEE          0 rows exported
+. . exporting table                 DOC_ATTACHMENT          7 rows exported
+. . exporting table                    DOC_LIBRARY          2 rows exported
+. . exporting table                   DOC_RELATIVE          2 rows exported
+. . exporting table                    EDOC_DEFINE          0 rows exported
+. . exporting table                     EDOC_PRINT          0 rows exported
+. . exporting table                  EDOC_RELATIVE          0 rows exported
+. . exporting table                       ENT_INFO          0 rows exported
+. . exporting table               EVALUATE_CATALOG          1 rows exported
+. . exporting table                  EVALUATE_DATA       4077 rows exported
+. . exporting table                 EVALUATE_MODEL         43 rows exported
+. . exporting table                EVALUATE_RECORD        102 rows exported
+. . exporting table             EXAMPLE_DATAWINDOW          0 rows exported
+. . exporting table                   EXAMPLE_INFO          0 rows exported
+. . exporting table                 EXAMPLE_NUMBER          0 rows exported
+. . exporting table            EXAMPLE_WIZARD_INFO          0 rows exported
+. . exporting table                   FINANCE_ITEM        398 rows exported
+. . exporting table                   FLOW_CATALOG          0 rows exported
+. . exporting table                     FLOW_MODEL          0 rows exported
+. . exporting table                    FLOW_OBJECT          0 rows exported
+. . exporting table                   FLOW_OPINION          0 rows exported
+. . exporting table                  FLOW_SWIMLANE          0 rows exported
+. . exporting table                      FLOW_TASK          0 rows exported
+. . exporting table               FLOW_TASK_CLOSED          0 rows exported
+. . exporting table                 FLOW_USER_RELA          0 rows exported
+. . exporting table              FORMATDOC_CATALOG          0 rows exported
+. . exporting table                 FORMATDOC_DATA          0 rows exported
+. . exporting table                  FORMATDOC_DEF          0 rows exported
+. . exporting table                 FORMATDOC_PARA          0 rows exported
+. . exporting table               FORMATDOC_RECORD          0 rows exported
+. . exporting table              GUARANTY_CONTRACT          0 rows exported
+. . exporting table            HPIDR_CREASS_ALLDLT          0 rows exported
+. . exporting table                HPIDR_CREASS_BS          0 rows exported
+. . exporting table             HPIDR_CREASS_FSINF          0 rows exported
+. . exporting table          HPIDR_CREASS_IDCHANGE          0 rows exported
+. . exporting table              HPIDR_RATE_ALLDLT          0 rows exported
+. . exporting table       HPIDR_RATE_BALANCESSHEET          0 rows exported
+. . exporting table                  HPIDR_RATE_BS          0 rows exported
+. . exporting table            HPIDR_RATE_CASHFLOW          0 rows exported
+. . exporting table               HPIDR_RATE_FSINF          0 rows exported
+. . exporting table            HPIDR_RATE_IDCHANGE          0 rows exported
+. . exporting table              HPIDR_RATE_INCOME          0 rows exported
+. . exporting table          HPIDR_RATE_INVABROINF          0 rows exported
+. . exporting table           HPIDR_RATE_LEGREPINF          0 rows exported
+. . exporting table            HPIDR_RATE_MDFCINFO          0 rows exported
+. . exporting table         HPIDR_RATE_MNSHAHODINF          0 rows exported
+. . exporting table              HPIDR_RATE_NEGINF          0 rows exported
+. . exporting table              HPIDR_RATE_REGCAP          0 rows exported
+. . exporting table                  LOG_AUDITINFO          0 rows exported
+. . exporting table            LOG_RUNTIME_HISTORY          0 rows exported
+. . exporting table             OBJECTTYPE_CATALOG         23 rows exported
+. . exporting table                OBJECTTYPE_RELA         44 rows exported
+. . exporting table               OBJECT_ATTRIBUTE          0 rows exported
+. . exporting table                   OBJECT_MAXSN         18 rows exported
+. . exporting table                       ORG_INFO         36 rows exported
+. . exporting table             PIDR_AMOUNT_RECORD          0 rows exported
+. . exporting table              PIDR_CODE_CATALOG          0 rows exported
+. . exporting table              PIDR_CODE_LIBRARY       5817 rows exported
+. . exporting table                 PIDR_CREASS_BS          0 rows exported
+. . exporting table              PIDR_CREASS_FSINF          0 rows exported
+. . exporting table      PIDR_ECOINDUSCATE_LIBRARY         19 rows exported
+. . exporting table               PIDR_ERROR_TABLE          3 rows exported
+. . exporting table             PIDR_EVALUATE_DATA          0 rows exported
+. . exporting table           PIDR_EVALUATE_RECORD          0 rows exported
+. . exporting table                  PIDR_FEEDBACK          0 rows exported
+. . exporting table              PIDR_FEEDBACKLOGS          0 rows exported
+. . exporting table         PIDR_FINANCE_STATEMENT          0 rows exported
+. . exporting table          PIDR_INT_BALANCESHEET          0 rows exported
+. . exporting table              PIDR_INT_BUSIINFO          0 rows exported
+. . exporting table              PIDR_INT_CASHFLOW          0 rows exported
+. . exporting table               PIDR_INT_ENTINFO          0 rows exported
+. . exporting table                 PIDR_INT_ERROR          0 rows exported
+. . exporting table          PIDR_INT_FINSTATEMENT          0 rows exported
+. . exporting table                PIDR_INT_INCOME          0 rows exported
+. . exporting table           PIDR_INT_INVABROINFO          0 rows exported
+. . exporting table          PIDR_INT_MNSHAHODINFO          0 rows exported
+. . exporting table               PIDR_INT_NEGINFO          0 rows exported
+. . exporting table        PIDR_RATE_BALANCESSHEET          0 rows exported
+. . exporting table                   PIDR_RATE_BS          0 rows exported
+. . exporting table             PIDR_RATE_CASHFLOW          0 rows exported
+. . exporting table                PIDR_RATE_FSINF          0 rows exported
+. . exporting table               PIDR_RATE_INCOME          0 rows exported
+. . exporting table           PIDR_RATE_INVABROINF          0 rows exported
+. . exporting table            PIDR_RATE_LEGREPINF          0 rows exported
+. . exporting table          PIDR_RATE_MNSHAHODINF          0 rows exported
+. . exporting table               PIDR_RATE_NEGINF          0 rows exported
+. . exporting table               PIDR_RATE_REGCAP          0 rows exported
+. . exporting table                PIDR_REPORTLOGS          0 rows exported
+. . exporting table               PIDR_REPORT_CODE          7 rows exported
+. . exporting table                   PIDR_SESSION          0 rows exported
+. . exporting table            PIDR_TRANSFERFILTER          0 rows exported
+. . exporting table            PIDR_VALIDATEERRORS          0 rows exported
+. . exporting table          PIDR_VALIDATE_LIBRARY         64 rows exported
+. . exporting table                 PIDR_WHITELIST          0 rows exported
+. . exporting table                   PROCESS_INST          0 rows exported
+. . exporting table               PROCESS_WORKITEM          0 rows exported
+. . exporting table                 REPORT_CATALOG         27 rows exported
+. . exporting table                    REPORT_DATA      20796 rows exported
+. . exporting table                   REPORT_MODEL        771 rows exported
+. . exporting table                  REPORT_RECORD        625 rows exported
+. . exporting table                REPORT_SERIALNO          7 rows exported
+. . exporting table                      ROLE_INFO        110 rows exported
+. . exporting table                  SCENARIO_ARGS         14 rows exported
+. . exporting table               SCENARIO_CATALOG          5 rows exported
+. . exporting table                 SCENARIO_GROUP         11 rows exported
+. . exporting table                 SCENARIO_MODEL         60 rows exported
+. . exporting table              SCENARIO_RELATIVE         54 rows exported
+. . exporting table                 SECURITY_AUDIT         12 rows exported
+. . exporting table                 SELECT_CATALOG         95 rows exported
+. . exporting table                     SYSTEM_LOG          0 rows exported
+. . exporting table              TASK_JOB_DISPATCH          0 rows exported
+. . exporting table                 TASK_JOB_GROUP          0 rows exported
+. . exporting table               TASK_RUN_HISTORY          0 rows exported
+. . exporting table              TASK_RUN_INTERACT          0 rows exported
+. . exporting table                TASK_RUN_STATUS          0 rows exported
+. . exporting table                  TIMEDIFF_INFO          1 rows exported
+. . exporting table                  USER_BOOKMARK          0 rows exported
+. . exporting table                USER_FAILEDLIST         36 rows exported
+. . exporting table                      USER_INFO         87 rows exported
+. . exporting table                      USER_LIST        843 rows exported
+. . exporting table             USER_LOGON_SESSION          0 rows exported
+. . exporting table                  USER_MARKINFO          8 rows exported
+. . exporting table                      USER_PREF          2 rows exported
+. . exporting table                  USER_PREF_DEF          5 rows exported
+. . exporting table                      USER_ROLE        216 rows exported
+. . exporting table                   USER_RUNTIME          0 rows exported
+. . exporting table                  USER_WORKTIPS          0 rows exported
+. . exporting table      VALIDATE_RULE_LIBRARY_GEL          0 rows exported
+. . exporting table                    WORK_RECORD          1 rows exported
+. exporting synonyms
+. exporting views
+. exporting stored procedures
+. exporting operators
+. exporting referential integrity constraints
+. exporting triggers
+. exporting indextypes
+. exporting bitmap, functional and extensible indexes
+. exporting posttables actions
+. exporting materialized views
+. exporting snapshot logs
+. exporting job queues
+. exporting refresh groups and children
+. exporting dimensions
+. exporting post-schema procedural objects and actions
+. exporting statistics
+Export terminated successfully without warnings.

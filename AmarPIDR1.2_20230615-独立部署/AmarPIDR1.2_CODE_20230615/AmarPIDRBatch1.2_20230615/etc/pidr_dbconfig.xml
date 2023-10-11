@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseConfig>
+	<!--  数据库链接资源文件，本文件的内容可以被com.amarsoft.are.sql.PooledConnectionFactory识别使用 
+		  jdbc资源定义需要driver类、url和用户名、密码构成，可以采用加密和不加密的形式保存信息
+		  加密需要使用本程序自带的加密、解密工具使用。  
+		  本模版配置了常见的数据库的连接方法，可以根据情况使用                                   
+	-->
+	<resources>
+		<!-- Oracle -->
+		<!-- <resource type="jdbc" name="pidr" jndiName="java:/comp/env/jdbc/sample_db" encrypt="false">
+			<driver>oracle.jdbc.OracleDriver</driver>
+			<url>jdbc:oracle:thin:@192.168.65.214:1524:orcl</url>
+			<user>pidr_test</user>
+			<password>pidr_test</password>
+			<maxActive>20</maxActive>
+			<maxWait>50000</maxWait>
+			<minimumIdle>1</minimumIdle>
+		</resource> -->
+		
+		<!-- mysql-->
+		<resource type="jdbc" name="pidr" jndiName="java:/comp/env/jdbc/sample_db2" encrypt="false">
+			<driver>com.mysql.jdbc.Driver</driver>
+			<url>jdbc:mysql://192.168.65.214:3306/pidr_test?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useOldAliasMetadataBehavior=true</url>
+			<user>pidr_test</user>
+			<password>pidr_test</password>
+			<logWriter>system.err</logWriter>
+			<loginTimeout>0</loginTimeout>
+			<maxActive>20</maxActive>
+			<maxIdle>20</maxIdle>
+			<maxWait>3000</maxWait>
+		</resource> 
+		
+		<!-- DB2 -->
+		<!-- <resource type="jdbc" name="pidr" jndiName="java:/comp/env/jdbc/sample_db2" encrypt="false">
+			<driver>com.ibm.db2.jcc.DB2Driver</driver>
+			<url>jdbc:db2://192.168.65.214:50097/PIDR_DEV</url>
+			<user>db2iv97</user>
+			<password>db2iv97</password>
+			<maxActive>40</maxActive>
+			<maxWait>5000</maxWait>
+			<maxIdle>20</maxIdle>
+		</resource>-->
+
+	</resources>
+</databaseConfig>

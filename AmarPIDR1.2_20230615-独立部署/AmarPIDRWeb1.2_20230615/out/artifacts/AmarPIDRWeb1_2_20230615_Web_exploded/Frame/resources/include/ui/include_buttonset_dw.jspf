@@ -1,0 +1,20 @@
+<div id="moreButton">
+	<style>.button-online{height: 30px;overflow: hidden;}</style>
+	<%@ include file="/Frame/page/jspf/ui/widget/buttonset_dw.jspf"%>
+	<script type="text/javascript">
+		var moreBtn, moreDiv = $('#moreButton');
+		moreDiv.find('>a').each(function(){
+			var sEvent = $(this).attr('onclick');
+			if(sEvent.indexOf('moreButton') >= 0){
+				moreDiv.addClass('button-online');
+				moreBtn = $(this).after('<br>');
+				return false;
+			}
+		});
+		function moreButton(){
+			moreDiv.toggleClass('button-online');
+			$('.btn_icon', moreBtn).toggleClass('btn_icon_right btn_icon_down');
+			change_height();
+		}
+	</script>
+</div>

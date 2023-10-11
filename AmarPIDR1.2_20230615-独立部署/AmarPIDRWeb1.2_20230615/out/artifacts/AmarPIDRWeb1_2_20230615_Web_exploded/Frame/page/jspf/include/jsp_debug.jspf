@@ -1,0 +1,7 @@
+<%
+if(sCurRunMode!=null && sCurRunMode.equals("Development")){
+%><script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_debug.js"></script>
+<script type="text/javascript">AsDebug.URL="<%=request.getServletPath()%>";</script>
+<%}else{%>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_cache.js"></script>
+<%}%>

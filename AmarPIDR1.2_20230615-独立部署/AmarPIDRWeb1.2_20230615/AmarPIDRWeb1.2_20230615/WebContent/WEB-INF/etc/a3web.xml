@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Domain ConfigurationVersion="1.0.0.0" Name="am@rBank">
+	<ImagePath>/Frame/page/resources/images</ImagePath>
+
+	<DataSource>als</DataSource>
+	<DataSource_Report>als_rpt</DataSource_Report>
+	<CharacterEncoding>UTF-8</CharacterEncoding>
+	<!--UserSessionMode Remark Single:执行但用户登陆控制,Any:不控制 -->
+	<UserSessionMode>Any</UserSessionMode>
+	<CompParameter>false</CompParameter>
+	<!-- 是否检查URL签名 -->
+	<CheckURLSign>false</CheckURLSign>
+	<!-- 签名公钥 -->
+	<PublicKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjv+Vwdle651X+CR5cUNraQYisZPGycmc4LIVJsfuOj+sEcMgjr+0+I/hzrSsNPxyhWdMAOaRwO2dtRQGKIZkcWVUx/LttGrzDulxIPsBgliV3WDcWhDzbFuaqa35R2HRgygLVJnwwokWe7lyK++wFpeoxdHhQPGuQn8w0+cQogwIDAQAB</PublicKey>
+
+	<RegisterFunctions>getItemName,getOrgName,getUserName,getCustomerName,getBusinessName,getObjectTypeName,getFlowName,getPhaseName,getRoleName,getModelName,getBusinessName,concat,nvl,substr</RegisterFunctions>
+	
+	<!--TranDebugMode Remark 0:不输出Sql运行信息,1:输出Sql运行信息 -->
+	<TranDebugMode>1</TranDebugMode>
+	<!--StatementMode Remark 查询SQL游标模式 0:Statement,1: prepareStatement -->
+	<StatementMode>1</StatementMode>
+	<!--DBChange Remark 1:GBK->ISO8859_1,2:NoChange,3:ISO8859_1->GBK -->
+	<DBChange>2</DBChange>
+	
+	<!--DBKeyCacheSize 获取流水号性能参数,配置大于1的数可能导致流水号不连续 -->
+	<DBKeyCacheSize>1</DBKeyCacheSize>
+
+	<AmarDWChange>1</AmarDWChange>
+	<AmarDWMaxRows>1000000</AmarDWMaxRows>
+	<AmarDWDefPageSize>20</AmarDWDefPageSize>
+	<AmarDWTransMode>1</AmarDWTransMode>
+	<!--AmarDWDebugMode Remark 0:不输出DataWindow保存信息,1:输出DataWindow保存信息 -->
+	<AmarDWDebugMode>1</AmarDWDebugMode>
+	<!--AmarDWDBOptimize Remark true: oracle库做查询优化,  false:不做查询优化 -->
+	<AmarDWDBOptimize>true</AmarDWDBOptimize>
+
+	<!--Development Remark Development：开发模式；Production：产品模式;Demonstration:演示模式 -->
+	<RunMode>Development</RunMode>
+	<!--FileSaveMode Remark Table：存放在数据库；Disk：存放在文件服务器 -->
+	<FileSaveMode>Disk</FileSaveMode>
+	<!--为满足程序和文档分开的需要，下面指定的文档保存、下载路径一般都为绝对路径-->
+	<!--FileSavePath Remark 文件保存路径 在FileSaveMode为Disk指定，如果指定目录不存在则保存在WEB-INF的Upload下 -->
+	<FileSavePath>/home/amarsoft/Upload</FileSavePath>
+	
+	<!--WorkDocSavePath Remark 格式化文档保存路径，如果指定目录不存在则保存在WEB-INF的WorkDoc下 -->
+	<WorkDocSavePath>/home/amarsoft/als/WorkDoc</WorkDocSavePath>
+	<!--WorkDocSaveMode Remark Table：存放在数据库；Disk：存放在文件服务器 -->
+	<WorkDocSaveMode>Disk</WorkDocSaveMode>
+	<!--WorkDocOfflineSavePath Remark 离线格式化报告存储位置 -->
+	<WorkDocOfflineSavePath>/home/amarsoft/als/offlineworkdoc</WorkDocOfflineSavePath>
+
+	<!--DWDownloadFilePath 表示DataWindow下载的文件存放的服务器位置，必须以/表示目录分割符 -->
+	<DWDownloadFilePath>/tmp/DownLoad</DWDownloadFilePath>
+	<!--DWDownloadRecord 表示DataWindow下载时是否保留记录 -->
+	<DWDownloadRecord>true</DWDownloadRecord>
+	<!--DWTmpPath 表示DataWindow临时的文件存放的服务器位置，必须以/表示目录分割符 -->
+	<DWTmpPath>/tmp/DW</DWTmpPath>
+	<!--FileNameType Remark SRC:上传原始名称 MD5:生成MD5加密文件名 -->
+	<FileNameType>SRC</FileNameType>
+	<!-- OW列表模糊查询 -->
+	<ListFuzzyQuery>true</ListFuzzyQuery>
+	
+	<!-- 异步查询导出文件路径 -->
+	<SynchQueryFilePath>/home/amarsoft/als/Download</SynchQueryFilePath>
+	
+	<!-- 固定报表数据文件的路径 -->
+	<FixStatDataPath>/home/amarsoft/als/FixStat/Data</FixStatDataPath>
+	
+	<!-- 是否使用国际化，是则从文件读取语言翻译 -->
+	<File4Language>true</File4Language>
+	<!-- 是否自动生成语言文件，开发环境设为true，生产或演示模式设为false -->
+	<AutoProduceFile4Language>false</AutoProduceFile4Language>
+	
+	<!-- 是否在按钮组后添加帮助按钮 -->
+	<ShowHelpButton>false</ShowHelpButton>
+	<!-- 是否在按钮组后添加编辑帮助按钮 Production模式下强制不添加 -->
+	<ShowEditHelpButton>false</ShowEditHelpButton>
+	
+	<!-- 流程模型文件夹 -->
+	<FlowModelPath>/home/amarsoft/flow</FlowModelPath>
+
+	<ProductID>AmarPIDR</ProductID>
+	<ProductName>安硕央行内评数据报送软件</ProductName>
+	<ProductVersion>1.2</ProductVersion>
+	<ImplementationID>AmarPIDR</ImplementationID>
+	<ImplementationName>安硕央行内评数据报送软件V1.2</ImplementationName>
+	<ImplementationVersion>1.2</ImplementationVersion>
+	<BankName>XX商业银行</BankName>
+	
+	<!-- =========================================业务配置 - begin======================================= -->
+	<!--根据ApporveNeed的配置判断是否登记最终审批意见：true-登记最终审批意见，false-不登记最终审批 意见 -->
+	<ApproveNeed>true</ApproveNeed>
+	
+	<!--ClassifyObjectType Remark BusinessDueBill:五级分类按借据,BusinessContract:五级分类按合同 -->
+	<ClassifyObjectType>BusinessDueBill</ClassifyObjectType>
+	<!-- =========================================业务配置 - end ========================================= -->
+</Domain>

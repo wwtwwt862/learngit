@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<inf>
+       <sgmt name="EnRatInfIDCagsInf" describe="企业评级信息标识变更请求记录" type="B" table="HPIDR_RATE_IDCHANGE" key="OldEntCertType,OldEntCertNum,SessionID">
+            <field name="InfRecType" describe="信息记录类型" type="text" source="fix" value="311" dbname="InfRecType" />
+            <field name="MngmtOrgCode" describe="业务管理金融机构代码" type="text" source="db" dbname="MngmtOrgCode" />
+            <field name="FinStaYear" describe="报表年份" type="text" source="db" dbname="FinStaYear" />
+            <field name="OldEntCertType" describe="原企业身份标识类型" type="text" source="db" dbname="OldEntCertType"   isKey="true" />
+            <field name="OldEntCertNum" describe="原企业身份标识号码" type="text" source="db" dbname="OldEntCertNum"   isKey="true" />
+            <field name="NewEntCertType" describe="新企业身份标识类型" type="text" source="db" dbname="NewEntCertType" />
+            <field name="NewEntCertNum" describe="新企业身份标识号码" type="text" source="db" dbname="NewEntCertNum" />
+    </sgmt>
+</inf>

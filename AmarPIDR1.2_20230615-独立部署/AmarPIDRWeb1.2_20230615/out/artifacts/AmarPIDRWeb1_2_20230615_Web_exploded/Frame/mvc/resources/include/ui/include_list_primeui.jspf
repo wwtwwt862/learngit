@@ -1,0 +1,105 @@
+<%@ page pageEncoding="UTF-8"%><%@page import="com.amarsoft.awe.res.LanguageManager"%>
+<body class="list_page" >
+<c:set var="idpre" value="myiframe" />
+<c:set var="owname" value="${idpre }${DZRootIndex}" />
+
+<p-growl id="growlel"></p-growl>
+
+<c:forEach items="${root.curPage.getObjectWindowOutput()}" var="item">
+${item}
+</c:forEach>
+<div id="messageBox" class="info_error_edoc" style="display:none;">
+    <div class="ow_righttop_close" onclick="$(this).parent().hide();" ></div>
+    <div class="info_error_rt" onmousedown="AsLink.moveBoxOnDown(event, this.parentNode)"></div>
+    <div class="info_error_eline"></div>
+    <div class="info_error_txt">
+       	<ul class="info_error_ulstyle" id="ul_error_0">
+		</ul>
+	</div>
+	<div class="info_error_txt" id="showpart">
+		<ul class="info_error_ulstyle" id="ul_error_1">
+		</ul>
+	</div>
+	<button class="info_error_mobtn" id="mobtn" name="btn">${showMore }</button>
+    <button class="info_error_mobtn" id="hidbtn" name="btn">${collapse }</button>
+</div>
+<table class="list_data_tablecommon" id="ListTable">
+<c:if test="${!empty root.navigatorHtml}">
+<tr height=1>
+	<td valign=top>
+		${root.navigatorHtml}
+    </td>
+</tr>
+</c:if>
+<c:if test="${!empty root.wizardHtml}">
+<tr height=1>
+	<td valign=top>
+		${root.wizardHtml}
+    </td>
+</tr>
+</c:if>
+<c:if test="${buttons.showButton1}">
+<tr height=1 id="ButtonTR">
+	<td id="ListButtonArea" class="listdw_out_buttonarea" valign=top>
+		${buttons.html}
+    </td>
+</tr>
+</c:if>
+
+<c:if test="${!empty searchHtml}">
+<tr height=1 id="ButtonTR">
+	<td id="ListButtonArea" class="listdw_out_buttonarea" valign=top>
+		<span>查询区</span>
+		<span style="cursor:pointer;font-weight:bold;font-size:16px" onclick="$('#ListSearchArea_${DZRootIndex}').toggle();this.innerHTML=(this.innerHTML=='+'?'-':'+');">+</span>
+    </td>
+</tr>
+<tr height=1 id="ButtonTR">
+	<td class="ListSearchArea" id="ListSearchArea_${DZRootIndex}" valign=top>
+		${searchHtml}
+		<table style="clear:both">
+			<tr>
+			<td><a3ui:buttonPrint text="确定" tips="确定" 
+			action="if(window.${onFilterOkFunction})window.${onFilterOkFunction}(${DZRootIndex});" iconCls="" /></td>
+			<td><a3ui:buttonPrint text="清空" tips="确定" 
+			action="if(window.${onFilterClearFunction})window.${onFilterClearFunction}(${DZRootIndex});else{AmPui.list.clearFilterValues(${DZRootIndex});}" iconCls="" /></td>
+			</tr>
+		</table>
+		
+    </td>
+</tr>
+</c:if>
+
+<tr id="DWTR">
+	    <td class="listdw_out_data" id="DWTD" style="position:relative;">
+	    		<div id="${owname}" <c:if test="${tableHeight>0}">style="height:${tableHeight}px"</c:if> ></div>
+		</td>
+	</tr>
+	
+	<c:if test="${buttons.showButton2}">
+	<script>sButtonPosition="south";</script>
+<tr height=1 id="ButtonTR">
+	<td id="ListButtonArea" class="listdw_out_buttonarea" valign=top>
+		${buttons.html}
+    </td>
+</tr>
+</c:if>
+</table>
+</body>
+
+<script type="text/javascript">
+
+<c:if test="${requestScope.ASDataObject!=null}">
+	${asoFRequest.getScriptFunctions()}
+	<c:remove var="ASDataObject" scope="request" />
+</c:if>
+
+$(function() {
+	AmPui.list.createTable(${DZRootIndex},"${owname}",${multiSelect});
+});
+
+
+function as_defaultExport(reson){
+	//exportPage('${sWebRootPath}',0,'excel','${root.dwTemp.getArgsValue()}',"Reason="+reson);
+	TableFactoryMVC.exportRecords('${root.doTemp.dono}');
+}
+</script>

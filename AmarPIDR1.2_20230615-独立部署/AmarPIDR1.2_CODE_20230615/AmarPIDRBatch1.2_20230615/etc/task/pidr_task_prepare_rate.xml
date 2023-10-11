@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 任务定义文件,每个任务有一个文件构成，任务构造器可以根据此文件构造一个任务出来 -->
+
+<task name="PIDRPrepareRateTask" describe="导入央行内评客户评级信息任务" recovery="false"  saveHistory="true"  historyFolder="./his" >
+		<extendProperties>
+			<property name="WhiteListCondition" value="exists (select 1 from PIDR_WHITELIST PW where PW.CustomerID = PIE.CustomerID) {#白名单客户过滤条件}"/>
+		</extendProperties>
+		<executeUnits>
+			<!-- 企业评级信息基础段 -->
+			<executeUnit name="InsertPidrRateBs" describe="导入企业评级信息基础段" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_BS:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select 
+						PIE.CustomerId as CustomerId{#客户编号},
+						'310' as InfRecType{#记录类型 },
+						PIE.EntName as EntName{#企业名称},
+						'20' as EntCertType{#企业身份标识类型},
+						PIE.EntCertNum as EntCertNum{#企业身份标识号码},
+						PIE.FinStaYear as FinStaYear{#报表年份},
+						PIE.SheetType as SheetType{#报表类型},
+						PIE.SheetTypeDivide as SheetTypeDivide{#报表类型细分},
+						PIE.ManagerOrgId as MngmtOrgCode{#业务管理金融机构代码},
+						'{$ARE.bizDate}' as RptDate{#信息报告日期},
+						PIE.ManagerOrgID as ManagerOrgID{#管户机构编号},
+						PIE.ManagerUserID as ManagerUserID{#管户用户编号}
+						from PIDR_INT_ENTINFO PIE{#客户基本信息接口表}
+						where {$TASK.WhiteListCondition}
+						"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.columnConvertors" value="
+					 	{MngmtOrgCode,datasource:db:pidr:select CBCode,PBCode from PIDR_CODE_LIBRARY where ColName='OrgCode'}" 
+					/>
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_BS" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="CustomerId" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.compareColumns" 
+					    value="FinStaYear,SheetType,SheetTypeDivide,EntName,RecordFlag" />	
+				</extendProperties>
+			</executeUnit>
+			
+			<!-- 企业评级信息基本概况段 -->
+			<executeUnit name="InsertPidrRateFsInf" describe="导入企业评级信息基本概况信息段" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_FSINF:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select 
+						PIE.CustomerId as CustomerId{#客户编号},
+						PIE.RegAdd as RegAdd{#登记注册地址},
+						PIE.AdmDivOfReg as AdmDivOfReg{#登记地行政区划代码},
+						PIE.EstablishDate as EstablishDate{#成立日期},
+						PIE.BizRange as BizRange{#业务范围},
+						PIE.MainBusSou as MainBusSou{#主营业务收入来源},
+						PIE.EcoIndusCate as EcoIndusCate{#行业分类代码},
+						PIE.EcoType  as EcoType{#经济类型代码},
+						PIE.InterRatingRes  as InterRatingRes{#金融机构内部评级结果},
+						PIE.InterRatinDes  as InterRatinDes{#金融机构内评体系描述},
+						PIE.MainBusChan  as MainBusChan{#主营业务变更情况},
+						PIE.CreAssSup as CreAssSup{#信贷资产支持},
+						PIE.PerChaSit as PerChaSit{#近一年主要人员是否发生变动},
+						PIE.DefaTaxAmount as DefaTaxAmount{#近三年的欠税条数},
+						PIE.HousEquities as HousEquities{#经营地产权情况},
+						PIE.NumOfEmployees as NumOfEmployees{#从业人员数量},
+						PIE.DirecortNum as DirecortNum{#董事会成员(执行董事)数量},
+						PIE.SupervisorNum as SupervisorNum{#监事会成员(监事)数量},
+						PIE.IsInCounty as IsInCounty{#是否县域企业},
+						PIE.HasIncFromAgri as HasIncFromAgri{#是否涉农企业},
+						PIE.ManagerOrgID as ManagerOrgID{#管户机构编号},
+						PIE.ManagerUserID as ManagerUserID{#管户用户编号}
+						from PIDR_INT_ENTINFO PIE{#客户基本信息接口表}
+						where exists(select 1 from PIDR_RATE_BS BS where BS.CustomerId = PIE.CustomerId) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_FSINF" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="CustomerId" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.compareColumns" 
+					    value="RegAdd,AdmDivOfReg,EstablishDate,BizRange,MainBusSou,EcoType,EcoIndusCate,InterRatingRes,InterRatinDes,MainBusChan,CreAssSup,PerChaSit,DefaTaxAmount,HousEquities,NumOfEmployees,DirecortNum,SupervisorNum,IsInCounty,HasIncFromAgri" />	
+				</extendProperties>
+			</executeUnit>
+	        
+	        
+	        <!-- 企业评级信息主要负责人段 -->
+			<executeUnit name="InsertPidrRateLegrepInf" describe="导入企业评级信息主要负责人段" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_LEGREPINF:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select 
+						PIE.CustomerId as CustomerId{#客户编号},
+						PIE.LegRepName as LegRepName{#主要负责人名称},
+						PIE.LegRepIDType as LegRepIDType{#主要负责人身份标识类型},
+						PIE.LegRepIDNum as LegRepIDNum{#主要负责人证件号码},
+						PIE.LegRepHouseAddStat as LegRepHouseAddStat{#主要负责人户籍情况},
+						PIE.LegRepEduLevel as LegRepEduLevel{#主要负责人学历情况},
+						PIE.LegRepWorkingYears as LegRepWorkingYears{#主要负责人在本单位从业年限},
+						PIE.ManagerOrgID as ManagerOrgID{#管户机构编号},
+						PIE.ManagerUserID as ManagerUserID{#管户用户编号}
+						from PIDR_INT_ENTINFO PIE{#客户基本信息接口表}
+						where exists(select 1 from PIDR_RATE_BS BS where BS.CustomerId = PIE.CustomerId) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_LEGREPINF" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="CustomerId" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.compareColumns" 
+					    value="LegRepName,LegRepIDType,LegRepIDNum,LegRepHouseAddStat, LegRepEduLevel,LegRepWorkingYears" />	
+				</extendProperties>
+			</executeUnit>
+			
+			<!-- 企业评级信息注册资本信息 -->
+			<executeUnit name="InsertPidrRateRegcap" describe="导入企业评级信息注册资本信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_REGCAP:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select 
+						PIE.CustomerId as CustomerId{#客户编号},
+						PIE.RegCapCurrency as RegCapCurrency{#注册资本币种},
+						PIE.RegCap as RegCap{#注册资本},
+						PIE.ManagerOrgID as ManagerOrgID{#管户机构编号},
+						PIE.ManagerUserID as ManagerUserID{#管户用户编号}
+						from PIDR_INT_ENTINFO PIE
+						where exists(select 1 from PIDR_RATE_BS BS where BS.CustomerId = PIE.CustomerId) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_REGCAP" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="CustomerId" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.compareColumns" 
+					    value="RegCapCurrency,RegCap" />	
+				</extendProperties>
+			</executeUnit>
+			
+			 <!-- 企业评级信息主要出资人段 -->
+			<executeUnit name="InsertPidrRateMnshAhodInf" describe="导入企业评级信息主要出资人段" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_MNSHAHODINF:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select 
+						PIM.RelaId as RelaId{#关联编号},
+						PIM.CustomerId as CustomerId{#客户编号},
+						PIM.SharHodType as SharHodType{#出资人类型},
+						PIM.SharHodCertType as SharHodCertType{#出资人身份类别},
+						PIM.SharHodName as SharHodName{#出资人名称},
+						PIM.SharHodIDType as SharHodIDType{#出资人身份标识类型},
+						PIM.SharHodIDNum as SharHodIDNum{#出资人身份号码},
+						PIM.InvRatio as InvRatio{#出资比例},
+						PIM.EffStatus as EffStatus {#有效标识},
+						PIM.ManagerOrgID as ManagerOrgID{#管户机构编号},
+						PIM.ManagerUserID as ManagerUserID{#管户用户编号}
+						from PIDR_INT_MNSHAHODINFO PIM
+						where exists(select 1 from PIDR_RATE_BS BS where BS.CustomerId = PIM.CustomerId) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_MNSHAHODINF" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="RelaId,CustomerId" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.compareColumns" 
+					    value="SharHodType,SharHodCertType, SharHodName,SharHodIDType,SharHodIDNum,InvRatio,EffStatus" />	
+				</extendProperties>
+			</executeUnit>
+			
+			 <!-- 企业评级信息对外投资段 -->
+			<executeUnit name="InsertPidrRateInvAbroInf" describe="导入企业评级信息对外投资段" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_INVABROINF:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select 
+						PII.RelaId as RelaId{#关联编号},
+						PII.CustomerId as CustomerId{#客户编号},
+						PII.InvEntName as InvEntName{#被投资企业名称},
+						PII.InvEntIDType as InvEntIDType{#被投资企业身份标识类型},
+						PII.InvEntIDNum as InvEntIDNum{#被投资企业身份标识号码},
+						PII.InvEntRegCap as InvEntRegCap{#被投资企业注册资本},
+						PII.InvEntEstablishDate as InvEntEstablishDate{#被投资企业成立日期},
+						PII.InvCurrency as InvCurrency{#投资币种},
+						PII.InvSubAmount as InvSubAmount{#投资认缴金额},
+						PII.InvPaidAmount as InvPaidAmount{#投资实缴金额},
+						PII.ShareHoldRatio as ShareHoldRatio{#持股比例},
+						PII.InvDate as InvDate{#投资日期},
+						PII.EffStatus as EffStatus{#有效标志},
+						PII.ManagerOrgID as ManagerOrgID{#管户机构编号},
+						PII.ManagerUserID as ManagerUserID{#管户用户编号}
+						from PIDR_INT_INVABROINFO PII{#客户对外投资信息接口表}
+						where exists(select 1 from PIDR_RATE_BS BS where BS.CustomerId = PII.CustomerId) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_INVABROINF" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="RelaId,CustomerId" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.compareColumns" 
+					    value="InvEntName,InvEntIDType,InvEntIDType,InvEntIDNum,  InvEntRegCap,InvEntEstablishDate,InvCurrency,InvSubAmount,InvPaidAmount,ShareHoldRatio,InvDate,EffStatus" />	
+				</extendProperties>
+			</executeUnit>
+			
+			<!-- 企业评级信息负面信息段 -->
+			<executeUnit name="InsertPidrRateNegInf" describe="导入企业评级信息负面信息段" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_NEGINF:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select 
+						PIN.RelaId as RelaId{#关联编号},
+						PIN.CustomerId as CustomerId{#客户编号},
+						PIN.NegInfType as NegInfType{#负面信息类型},
+						PIN.NegInfContent as NegInfContent{#信息内容},
+						PIN.InvolvedAmount as InvolvedAmount{#涉案金额},
+						PIN.NegInfDate as NegInfDate{#信息发生(公示)时间},
+						PIN.NegInfValidity as NegInfValidity{#有效期},
+						PIN.NegInfIssOrg as NegInfIssOrg{#信息发布机构},
+						PIN.EffStatus as  EffStatus{#有效标志},
+						PIN.ManagerOrgID as ManagerOrgID{#管户机构编号},
+						PIN.ManagerUserID as ManagerUserID{#管户用户编号}
+						from PIDR_INT_NEGINFO PIN{#客户负面信息接口表}
+						where exists(select 1 from PIDR_RATE_BS BS where BS.CustomerId = PIN.CustomerId) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_NEGINF" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="RelaId,CustomerId" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.compareColumns" 
+					    value="NegInfType,NegInfContent,InvolvedAmount,NegInfDate,NegInfValidity,NegInfIssOrg,EffStatus" />	
+				</extendProperties>
+			</executeUnit>
+			
+			
+			<!-- 企业评级信息负债表信息段 -->
+			<executeUnit name="InsertPidrRateBalanceSheet" describe="导入企业评级信息负债表信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_BALANCESSHEET:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select * from PIDR_INT_BALANCESHEET PIB{#客户负债信息接口表}
+						where exists(select 1 from PIDR_RATE_BS BS 
+						                    where BS.CustomerId = PIB.CustomerId 
+						                    and BS.FinStaYear = PIB.FinStaYear
+						                    and BS.SheetType = PIB.SheetType 
+						                    and BS.SheetTypeDivide = PIB.SheetTypeDivide) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_BALANCESSHEET" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="CustomerId,Stage" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+				</extendProperties>
+			</executeUnit>
+			
+			<!-- 企业评级信息利润表信息段 -->
+			<executeUnit name="InsertPidrRateIncome" describe="导入企业评级信息利润表信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_INCOME:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select * from PIDR_INT_INCOME PII{#客户利润信息接口表}
+						where exists(select 1 from PIDR_RATE_BS BS 
+						                    where BS.CustomerId = PII.CustomerId  
+						                    and BS.FinStaYear = PII.FinStaYear 
+						                    and BS.SheetType = PII.SheetType 
+						                    and BS.SheetTypeDivide = PII.SheetTypeDivide) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_INCOME" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="CustomerId,Stage" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+				</extendProperties>
+			</executeUnit>
+
+			<!-- 企业评级信息现金流量表信息段 -->
+			<executeUnit name="InsertPidrRateCashFlow" describe="导入企业评级信息现金流量表信息" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+				<extendProperties>
+					<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_RATE_CASHFLOW:etc/pidr_are.xml:,"/>
+					<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+					<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+					<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+					<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+						value="datasource:db:pidr:select * from PIDR_INT_CASHFLOW PIC{#客户利润信息接口表}
+						where exists(select 1 from PIDR_RATE_BS BS 
+						                    where BS.CustomerId = PIC.CustomerId 
+						                    and BS.FinStaYear = PIC.FinStaYear 
+						                    and BS.SheetType = PIC.SheetType 
+						                    and BS.SheetTypeDivide = PIC.SheetTypeDivide) 
+						"/> 
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_RATE_CASHFLOW" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="CustomerId,Stage" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+					<property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+				</extendProperties>
+			</executeUnit>			
+			<!-- 企业评级补充报表表信息段 -->
+            <executeUnit name="InsertPidrFinStatement" describe="导入企业评级补充报表信息(非报文体现,为评级服务)" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+                <extendProperties>
+                    <property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_FINANCE_STATEMENT:etc/pidr_are.xml:,"/>
+                    <property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+                    <property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler" />
+                    <property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+                    <property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+                        value="datasource:db:pidr:select * from PIDR_INT_FINSTATEMENT PIF{#企业补充报表信息接口表}
+                        where exists(select 1 from PIDR_RATE_BS BS 
+                                            where BS.CustomerId = PIF.CustomerId 
+                                            and BS.FinStaYear = PIF.FinStaYear 
+                                            and BS.SheetType = PIF.SheetType 
+                                            and BS.SheetTypeDivide = PIF.SheetTypeDivide) 
+                        "/> 
+                    <property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.database" value="pidr" />
+                    <property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.table" value="PIDR_FINANCE_STATEMENT" />
+                    <property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.keyColumns" value="CustomerId,Stage" />
+                    <property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.checkDBRecord" value="true" />
+                    <property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.commitNumber" value="500" />
+                    <property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.insertColumns" value="*" />
+                    <property name="com.amarsoft.app.pbc.pidr.dataimport.ImportRateHandler.updateColumns"  value="*" />
+                </extendProperties>
+            </executeUnit>      
+			
+			<!-- 当评级其他段发生更新而基础段未更新，则反向更新基础段 -->
+			<executeUnit name="ReverseUpdateRateBsRecordflag" describe="反向更新评级信息基础段记录标志" executeClass="com.amarsoft.app.pbc.pidr.dataimport.ReverseUpdateRateBs" allowManualExecute="true"/>
+			
+			<!-- 对外投资信息、负面信息数量由有效变为全失效时，需要报送数量0 -->
+			<executeUnit name="InsertRateInvAbroAndNegAmount" describe="导入企业评级信息对外投资信息段和负面信息段特殊处理表" executeClass="com.amarsoft.task.units.dpx.PRHUnit" allowManualExecute="true">
+			<extendProperties>
+				<property name="unit.recordSet" value="datasource:db:pidr:select * from PIDR_AMOUNT_RECORD:etc/pidr_are.xml:,"/>
+				<property name="unit.provider" value="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider" />
+				<property name="unit.handlers" value="com.amarsoft.app.pbc.pidr.dataimport.PIDRRateAmountUpdateHandler" />
+				<property name="unit.handlersThreadNumber" value="{$ARE.threadNumber}"/> 
+				<property name="com.amarsoft.task.dpx.recordset.DefaultDataSourceProvider.dataSource"
+					value="datasource:db:pidr:select PRB.CustomerId as BSCode {#基础段主键值},
+						 'InvAbroInfSgmt' as SgmtName {#报送信息段名},
+						 count(PRI.RelaId) as Amount {#信息记录数量} 
+						 from PIDR_RATE_BS PRB left join (select * from PIDR_RATE_INVABROINF where EffStatus ='1') PRI
+						 on PRB.CustomerId =PRI.CustomerId where (PRB.RecordFlag ='A' OR PRB.RecordFlag ='U') 
+						 group by PRB.CustomerId {#企业评级信息对外投资信息段}
+						 union all 
+						 select PRB.CustomerId as BSCode {#基础段主键值},
+						 'NegInfSgmt' as SgmtName {#报送信息段名},
+						 count(PRN.RelaId) as Amount {#信息记录数量} 
+						 from PIDR_RATE_BS PRB left join (select * from PIDR_RATE_NEGINF where EffStatus='1') PRN 
+						 on PRB.CustomerId =PRN.CustomerId where (PRB.RecordFlag ='A' OR PRB.RecordFlag ='U') 
+						 group by PRB.CustomerId {#企业评级信息负面信息段}
+					"/> 
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRRateAmountUpdateHandler.database" value="pidr" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRRateAmountUpdateHandler.table" value="PIDR_AMOUNT_RECORD" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRRateAmountUpdateHandler.keyColumns" value="BSCode,SgmtName" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRRateAmountUpdateHandler.commitNumber" value="500" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRRateAmountUpdateHandler.compareColumns" 
+						  value="Amount" />
+				<property name="com.amarsoft.app.pbc.pidr.dataimport.PIDRRateAmountUpdateHandler.updateColumns" 
+						  value="Amount,RecordFlag" />	
+			</extendProperties>
+		</executeUnit>
+		
+		<!-- 临时处理单元 -->
+		<!-- 当记录更新时，全量更新所有段的信息记录标志 -->
+		<!-- 加压加密工具目前无法识别更系报文，因此要求报文必须含有全部信息段，待人行更新后将此单元注掉 -->
+		<executeUnit name="UpdateRateAllRecordflag" describe="反向更新所有评级信息记录标志" executeClass="com.amarsoft.app.pbc.pidr.dataimport.UpdateRateAll" allowManualExecute="true"/>
+		
+		<!-- 更新白名单数据表的批量运行状态 -->
+		<executeUnit name="UpdateWhiteListRunStatus" describe="更新白名单数据表运行状态" allowManualExecute="true"  executeClass="com.amarsoft.task.units.dpx.SQLProcess">
+				<extendProperties>
+				<property name="unit.onErrorAction" value="break"/>
+				<property name="unit.logLevel" value="debug"/>
+					<property name="unit.script" value="
+						connect to {$ARE.pidr_dataSource};&#xA;
+						set autocommit false;&#xA;
+						update PIDR_WHITELIST PW set RunStatus = '10' where RunStatus = '00' and exists (select 1 from PIDR_RATE_BS PRB where PW.CustomerId = PRB.CustomerId and PRB.RecordFlag in ('A','U'));&#xA;
+						commit;&#xA;
+						disconnect;"
+					/>
+				</extendProperties>
+		</executeUnit>
+		</executeUnits>
+		
+		<!-- 路由 -->
+		<routeMap start="InsertPidrRateBs" >
+		 	<route unit="InsertPidrRateBs" successful="InsertPidrRateFsInf" />
+		 	<route unit="InsertPidrRateFsInf" successful="InsertPidrRateLegrepInf" />
+		 	<route unit="InsertPidrRateLegrepInf" successful="InsertPidrRateRegcap" />
+		 	<route unit="InsertPidrRateRegcap" successful="InsertPidrRateMnshAhodInf" />
+		 	<route unit="InsertPidrRateMnshAhodInf" successful="InsertPidrRateInvAbroInf" />
+		 	<route unit="InsertPidrRateInvAbroInf" successful="InsertPidrRateNegInf" />		 	
+		 	<route unit="InsertPidrRateNegInf" successful="InsertPidrRateBalanceSheet" />		 	
+		 	<route unit="InsertPidrRateBalanceSheet" successful="InsertPidrRateIncome" />		 	
+		 	<route unit="InsertPidrRateIncome" successful="InsertPidrRateCashFlow" />		 
+		 	<route unit="InsertPidrRateCashFlow" successful="InsertPidrFinStatement" />		 
+		 	<route unit="InsertPidrFinStatement" successful="ReverseUpdateRateBsRecordflag" />
+		 	<route unit="ReverseUpdateRateBsRecordflag" successful="InsertRateInvAbroAndNegAmount" />		
+		 	<!-- 临时处理单元 -->
+		 	<route unit="InsertRateInvAbroAndNegAmount" successful="UpdateRateAllRecordflag" />	
+		 	<!-- 白名单状态更新单元 -->
+		 	<route unit="UpdateRateAllRecordflag" successful="UpdateWhiteListRunStatus"/>
+	    </routeMap>	
+		
+</task>

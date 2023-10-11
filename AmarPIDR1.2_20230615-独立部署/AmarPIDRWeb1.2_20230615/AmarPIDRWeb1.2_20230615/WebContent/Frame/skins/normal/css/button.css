@@ -1,0 +1,93 @@
+/*norm*/
+a.inline_button {
+	height: 26px;
+	line-height: 26px;
+	margin-top:10px;
+}
+a.inline_button, a:link.inline_button, a:visited.inline_button {
+	color:#fff;border:1px solid #5CB2FF; background:#5CB2FF;border-radius:3px;
+}
+a:hover.inline_button{
+	color: #000;
+}
+a.inline_button.unable {
+	color: #fff;
+	_color: #333;
+}
+a.inline_button .left,
+a:active.inline_button .left,
+a:link.inline_button .left,
+a:visited.inline_button .left {
+	/*background: url(../images/button_bg.png) no-repeat 0 0;*/ background:none;
+}
+a.inline_button .center,
+a:active.inline_button .center,
+a:link.inline_button .center,
+a:visited.inline_button .center {
+	/*background: url(../images/button_bg.png) no-repeat -14px 0;*/ background:none;
+}
+a.inline_button .right,
+a:active.inline_button .right,
+a:link.inline_button .right,
+a:visited.inline_button .right {
+	/*background: url(../images/button_bg.png) no-repeat -7px 0;*/ background:none;
+}
+a:hover.inline_button .left {
+	background: url(../images/button_bg.png) no-repeat 0 -27px;
+}
+a:hover.inline_button .center {
+	background: url(../images/button_bg.png) no-repeat -14px -27px;
+}
+a:hover.inline_button .right {
+	background: url(../images/button_bg.png) no-repeat -7px -27px;
+}
+a.inline_button.unable .left,
+a:link.inline_button.unable .left,
+a:active.inline_button.unable .left,
+a:hover.inline_button.unable .left,
+a:visited.inline_button.unable .left {
+	background: url(../images/button_bg.png) no-repeat 0 -54px;
+}
+a.inline_button.unable .center,
+a:link.inline_button.unable .center,
+a:active.inline_button.unable .center,
+a:hover.inline_button.unable .center,
+a:visited.inline_button.unable .center {
+	background: url(../images/button_bg.png) no-repeat -14px -54px;
+}
+a.inline_button.unable .right,
+a:link.inline_button.unable .right,
+a:active.inline_button.unable .right,
+a:hover.inline_button.unable .right,
+a:visited.inline_button.unable .right {
+	background: url(../images/button_bg.png) no-repeat -7px -54px;
+}
+.infodw_buttonarea_td{
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:5px;
+	width:100%;
+	float: left;
+	display: inline;
+	background:url(../images/btnzone_bg.png) repeat-x;
+}
+.btn_icon_add{background:url(../images/icon/add.png) no-repeat center;}
+.btn_icon_save{background:url(../images/icon/save.png) no-repeat center}
+.btn_icon_delete{background: url(../images/icon/delete.png) no-repeat center;}
+.btn_icon_detail{background: url(../images/icon/detail.png) no-repeat center;}
+.btn_icon_close{ background: url(../images/icon/close.png) no-repeat center;}
+.btn_icon_submit{background: url(../images/icon/submit.png) no-repeat center;}
+.btn_icon_edit{background:url(../images/icon/edit.png) no-repeat center;}
+.btn_icon_refresh{background:url(../images/icon/refresh.png) no-repeat center;}
+.btn_icon_information{background:url(../images/icon/information.png) no-repeat center;}
+.btn_icon_help{background:url(../images/icon/help.png) no-repeat center;}
+.btn_icon_up{background:url(../images/icon/arrow_up.png) no-repeat center;}
+.btn_icon_down{background:url(../images/icon/arrow_down.png) no-repeat center;}
+.btn_icon_left{background:url(../images/icon/arrow_left.png) no-repeat center;}
+.btn_icon_right{background:url(../images/icon/arrow_right.png) no-repeat center;}
+.btn_icon_exit{background:url(../images/icon/exit.png) no-repeat center;}
+.btn_icon_check{background:url(../images/icon/check.png) no-repeat center;}
+
+#TableFilter_WhereClause td{ height:24px; line-height:24px; padding-bottom: 5px; }
+#TableFilter_WhereClause td input{ height:24px; line-height:24px; margin-right:10px;}
+#TableFilter_WhereClause td select{ height:24px; line-height:24px; }

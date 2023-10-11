@@ -1,0 +1,22 @@
+<link rel="shortcut icon" href="<%=sWebRootPath%>/favicon.ico">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/widget.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%><%=sSkinPath%>/css/widget.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/button.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%><%=sSkinPath%>/css/button.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/button_types.css">
+<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/fontawesome/css/font-awesome.min.css">
+<script type="text/javascript">var sCompClientID="<%=sCompClientID%>";var sWebRootPath="<%=sWebRootPath%>";var sSkinPath="<%=sSkinPath%>";</script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/resources/js/json2.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_common.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_control.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/as_widget.js"></script>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/Frame/page/js/sys/sys_common.js"></script>
+<script type="text/javascript" >
+if(window == AsDialog._getTop()){
+	document.write('<script type="text/javascript" src="<%=sWebRootPath%>/Frame/resources/js/dialog/dialog-min.js"><'+'/script>');
+	document.write('<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%>/Frame/page/resources/css/comp_dialog.css">');
+	document.write('<link rel="stylesheet" type="text/css" href="<%=sWebRootPath%><%=sSkinPath%>/css/comp_dialog.css">');
+}
+</script>
+<%@ include file="/AppMain/resources/include/app_head.jspf" %>

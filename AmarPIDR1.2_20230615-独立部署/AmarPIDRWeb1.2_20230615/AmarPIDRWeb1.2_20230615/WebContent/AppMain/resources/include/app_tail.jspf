@@ -1,0 +1,2 @@
+<%@ page pageEncoding="UTF-8"%><%/* 项目应用扩展内容 */%>
+<script type="text/javascript" charset="UTF-8" src="<%=sWebRootPath%>/AppMain/resources/js/app_cust.js"> </script>

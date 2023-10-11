@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/are-jbo-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/task-2.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/caffeine-2.9.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/logback-core-1.2.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/amarpidr-rating-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/amarpidr-transfer-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/slf4j-api-1.7.36.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/amarpidr-prepare-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/fastjson-1.2.83.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/amarpidr-report-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/ojdbc8-12.2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/amarpidr-validate-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/logback-classic-1.2.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/mysql-connector-java-5.1.31-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/are-utils-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/db2jcc4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/HikariCP-3.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/are-core-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../AmarPIDR1.2_CODE_20230615/AmarPIDRBatch1.2_20230615/lib/a3-task-service-2.1.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

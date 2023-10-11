@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<inf>
+       <sgmt name="EnRatInfAllDlt" describe="企业评级信息整笔删除请求信息段" type="B" table="HPIDR_RATE_ALLDLT" key="EntCertType,EntCertNum,SessionID">
+                <field name="InfRecType" describe="信息记录类型" type="text" source="fix"  value="313"/>
+                <field name="MngmtOrgCode" describe="业务管理金融机构代码" type="text" source="db" dbname="MngmtOrgCode" bsdbname="MngmtOrgCode"      />
+                <field name="EntCertType" describe="企业身份标识类型" type="text" source="db" dbname="EntCertType" bsdbname="EntCertType" isKey="true" />
+                <field name="EntCertNum" describe="企业身份标识号码" type="text" source="db" dbname="EntCertNum" bsdbname="EntCertNum" isKey="true" />
+                <field name="FinStaYear" describe="报表年份" type="text" source="db" dbname="FinStaYear"  />
+                <field name="RptDate" describe="信息报告日期" type="text" source="db" dbname="RptDate"/>
+    </sgmt>
+</inf>

@@ -1,0 +1,2088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbo>
+    <package name="jbo.pidr" label="评级信息配置">
+        <!-- 当期表 -->
+        <!-- 企业评级信息 -->
+        <class name="PIDR_RATE_BS" label="企业评级基础信息" keyAttributes="CUSTOMERID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="ENTNAME" label="企业名称" type="STRING" length="160"/>
+                <attribute name="ENTCERTTYPE" label="企业身份标识类型;20-统一社会信用代码" type="STRING" length="2"/>
+                <attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="18"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+                <attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+                <attribute name="MNGMTORGCODE" label="业务管理金融机构代码" type="STRING" length="14"/>
+                <attribute name="RPTDATE" label="信息报告日期" type="STRING" length="10"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_BS" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_FSINF" label="企业评级基本概况信息表" keyAttributes="CUSTOMERID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="REGADD" label="登记注册地址" type="STRING" length="200"/>
+                <attribute name="ADMDIVOFREG" label="登记地行政区划代码" type="STRING" length="6"/>
+                <attribute name="ESTABLISHDATE" label="成立日期" type="STRING" length="10"/>
+                <attribute name="BIZRANGE" label="业务范围" type="STRING" length="800"/>
+                <attribute name="MAINBUSSOU" label="主营业务收入来源" type="STRING" length="200"/>
+                <attribute name="ECOINDUSCATE" label="行业分类代码" type="STRING" length="4"/>
+                <attribute name="ECOTYPE" label="经济类型代码" type="STRING" length="3"/>
+                <attribute name="INTERRATINGRES" label="金融机构内部评级结果" type="STRING" length="3"/>
+                <attribute name="INTERRATINDES" label="金融机构内评体系描述" type="STRING" length="2000"/>
+                <attribute name="MAINBUSCHAN" label="主营业务变更情况" type="STRING" length="1"/>
+                <attribute name="CREASSSUP" label="信贷资产支持" type="STRING" length="1"/>
+                <attribute name="PERCHASIT" label="近一年主要人员是否发生变动" type="STRING" length="1"/>
+                <attribute name="DEFATAXAMOUNT" label="近三年的欠税条数" type="INT" length="10"/>
+                <attribute name="HOUSEQUITIES" label="经营地产权情况" type="STRING" length="1"/>
+                <attribute name="NUMOFEMPLOYEES" label="从业人员数量" type="INT" length="10"/>
+                <attribute name="DIRECORTNUM" label="董事会成员(执行董事)数量" type="INT" length="10"/>
+                <attribute name="SUPERVISORNUM" label="监事会成员(监事)数量" type="INT" length="10"/>
+                <attribute name="ISINCOUNTY" label="是否县域企业" type="STRING" length="1"/>
+                <attribute name="HASINCFROMAGRI" label="是否涉农企业" type="STRING" length="1"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_FSINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_LEGREPINF" label="企业评级主要负责人信息表" keyAttributes="CUSTOMERID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="LEGREPNAME" label="主要负责人名称" type="STRING" length="60"/>
+                <attribute name="LEGREPIDTYPE" label="主要负责人身份标识类型" type="STRING" length="2"/>
+                <attribute name="LEGREPIDNUM" label="主要负责人证件号码" type="STRING" length="40"/>
+                <attribute name="LEGREPHOUSEADDSTAT" label="主要负责人户籍情况" type="STRING" length="1"/>
+                <attribute name="LEGREPEDULEVEL" label="主要负责人学历" type="STRING" length="2"/>
+                <attribute name="LEGREPWORKINGYEARS" label="主要负责人在本单位从业年限" type="INT" length="10"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_LEGREPINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_REGCAP" label="企业评级注册资本信息表" keyAttributes="CUSTOMERID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="REGCAPCURRENCY" label="注册资本币种" type="STRING" length="3"/>
+                <attribute name="REGCAP" label="注册资本" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_REGCAP" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_MNSHAHODINF" label="企业评级主要出资人信息表" keyAttributes="CUSTOMERID,RELAID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="SHARHODTYPE" label="出资人类型" type="STRING" length="2"/>
+                <attribute name="SHARHODCERTTYPE" label="出资人身份类别" type="STRING" length="1"/>
+                <attribute name="SHARHODNAME" label="出资人名称" type="STRING" length="160"/>
+                <attribute name="SHARHODIDTYPE" label="出资人身份标识类型" type="STRING" length="2"/>
+                <attribute name="SHARHODIDNUM" label="出资人身份号码" type="STRING" length="80"/>
+                <attribute name="INVRATIO" label="出资比例" type="DOUBLE" length="5" scale="2"/>
+                <attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+               		<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_MNSHAHODINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_INVABROINF" label="企业评级对外投资信息表" keyAttributes="CUSTOMERID,RELAID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="INVENTNAME" label="被投资企业名称" type="STRING" length="160"/>
+                <attribute name="INVENTIDTYPE" label="被投资企业身份标识类型" type="STRING" length="2"/>
+                <attribute name="INVENTIDNUM" label="被投资企业身份标识号码" type="STRING" length="18"/>
+                <attribute name="INVENTREGCAP" label="被投资企业注册资本" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVENTESTABLISHDATE" label="被投资企业成立日期" type="STRING" length="10"/>
+                <attribute name="INVCURRENCY" label="投资币种" type="STRING" length="3"/>
+                <attribute name="INVSUBAMOUNT" label="投资认缴金额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVPAIDAMOUNT" label="投资实缴金额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SHAREHOLDRATIO" label="持股比例" type="DOUBLE" length="5" scale="2"/>
+                <attribute name="INVDATE" label="投资日期" type="STRING" length="10"/>
+                <attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_INVABROINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_NEGINF" label="企业评级负面信息表" keyAttributes="CUSTOMERID,RELAID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="NEGINFTYPE" label="负面信息类型" type="STRING" length="2"/>
+                <attribute name="NEGINFCONTENT" label="信息内容" type="STRING" length="800"/>
+                <attribute name="INVOLVEDAMOUNT" label="涉案金额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NEGINFDATE" label="信息发生(公示)时间" type="STRING" length="10"/>
+                <attribute name="NEGINFVALIDITY" label="有效期" type="STRING" length="10"/>
+                <attribute name="NEGINFISSORG" label="信息发布机构" type="STRING" length="80"/>
+                <attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_NEGINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_BALANCESSHEET" label="企业评级资产负债表段信息表" keyAttributes="CUSTOMERID,STAGE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="STAGE" label="期次" type="STRING" length="1"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+                <attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+                <attribute name="CURRENCYFUNDS" label="货币资金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FINANCIALASSETSHELDFORTRADING" label="交易性金融资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DERIVATIVEFINANCIALASSETS" label="衍生金融资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NOTESRECEIVABLE" label="应收票据" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ACCOUNTSRECEIVABLE" label="应收账款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ACCOUNTSRECEIVABLEFINANCING" label="应收款项融资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PREPAYMENTS" label="预付款项" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERRECEIVABLES" label="其他应收款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVENTORIES" label="存货" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CONTRACTASSETS" label="合同资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ASSETSAVAILABLEFORSALE" label="持有待售资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CURPORTIONOFNONCURRENTASSETS" label="一年内到期的非流动资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCURRENTASSETS" label="其他流动资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCURRENTASSETS" label="流动资产合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEBTINVESTMENT" label="债权投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERDEBTINVESTMENT" label="其他债权投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMRECEIVABLES" label="长期应收款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMEQUITYINVESTMENT" label="长期股权投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHEQUITYINSTRUMENTSINVESTMENT" label="其他权益工具投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERNONCURRENTFINANCIALASSETS" label="其他非流动金融资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVESTMENTPROPERTIES" label="投资性房地产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FIXEDASSETS" label="固定资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CONSTRUCTIONINPROGRESS" label="在建工程" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NONCURRENTBIOLOGICALASSETS" label="生产性生物资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OILANDGASASSETS" label="油气资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="USERIGHTASSETS" label="使用权资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INTANGIBLEASSETS" label="无形资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEVELOPMENTDISBURSEMENTS" label="开发支出" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="GOODWILL" label="商誉" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMDEFERREDEXPENSES" label="长期待摊费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEFERREDTAXASSETS" label="递延所得税资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERNONCURRENTASSETS" label="其他非流动资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALNONCURRENTASSETS" label="非流动资产合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALASSETS" label="资产总计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SHORTTERMBORROWINGS" label="短期借款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FINLIABILITIESHELDFORTRADING" label="交易性金融负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DERIVATIVEFINANCIALLIABILITIES" label="衍生金融负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NOTESPAYABLE" label="应付票据" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ACCOUNTSPAYABLE" label="应付账款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="RECEIPTSINADVANCE" label="预收款项" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CONTRACTUALLIABILITIES" label="合同负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="EMPLOYEEBENEFITSPAYABLE" label="应付职工薪酬" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TAXESPAYABLE" label="应交税费" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERPAYABLES" label="其他应付款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LIABILITIESHELDFORSALE" label="持有待售负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CURPOROFLONGTERMLIABILITIES" label="一年内到期的非流动负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCURRENTLIABILITIES" label="其他流动负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCURRENTLIABILITIES" label="流动负债合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMBORROWINGS" label="长期借款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="BONDSPAYABLES" label="应付债券" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PREFERREDSTOCKINBONDSPAYABLES" label="其中:优先股" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PERPETUALBONDSINBONDSPAYABLES" label="永续债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LEASELIABILITIES" label="租赁负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMPAYABLES" label="长期应付款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PROVISIONS" label="预计负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEFERREDINCOME" label="递延收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEFERREDTAXLIABILITIES" label="递延所得税负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERNONCURRENTLIABILITIES" label="其他非流动负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALNONCURRENTLIABILITIES" label="非流动负债合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALLIABILITIES" label="负债合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PAIDINCAPITALORSHARECAPITAL" label="实收资本(或股本)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHEREQUITYINSTRUMENTS" label="其他权益工具投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PRESTOCKINOTHEQUITYINSTRUMENTS" label="其中:优先股" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PERBONDSINOTHEQUITYINSTRUMENTS" label="永续债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CAPITALRRSERVE" label="资本公积" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LESSTREASURYSTOCKS" label="减:库存股" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCOMPREHENSIVEINCOME" label="其他综合收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SPECIALRESERVE" label="专项储备" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SURPLUSRESERVE" label="盈余公积" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="UNAPPROPRIATEDPROFIT" label="未分配利润" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALEQUITY" label="所有者权益(或股东权益)合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALEQUITYANDLIABILITIES" label="负债和所有者权益(或股东权益)总计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+               		<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_BALANCESSHEET" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_INCOME" label="企业评级利润表段信息表" keyAttributes="CUSTOMERID,STAGE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="STAGE" label="期次" type="STRING" length="1"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+                <attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+                <attribute name="REVENUEOFSALES" label="一、营业收入" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="COSTOFSALES" label="减:营业成本" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="BUSINESSANDOTHERTAXES" label="税金及附加" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SELLINGEXPENSES" label="销售费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="GENANDADMINISTRATIVEEXPENSES" label="管理费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="RDEXPENSES" label="研发费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FINANCIALEXPENSE" label="财务费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INTERESTFEEOFFINANCIALEXPENSE" label="其中:利息费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INTINCOMEOFFINANCIALEXPENSE" label="利息收入" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERINCOME" label="加:其他收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVESTMENTINCOME" label="投资收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ASSOCIATESANDJOINTVENTURESINC" label="其中:对联营企业和合营企业的投资收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FINANCIALASSETSENDINCOME" label="以摊余成本计量的金融资产终止确认收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETEXPOSUREHEDGINGINCOME" label="净敞口套期收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INCOMEFROMCHANGESINFAIRVALUE" label="公允价值变动收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CREDITIMPAIRMENTLOSS" label="信用减值损失(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="IMPAIRMENTLOSSOFASSETS" label="资产减值损失(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INCOMEFROMASSETDISPOSAL" label="资产处置收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OPERATINGPROFITS" label="二、营业利润(亏损以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NONOPERATINGINCOME" label="加:营业外收入" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NONOPERATINGEXPENSES" label="减:营业外支出   " type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PROFITBEFORETAX" label="三、利润总额(亏损总额以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INCOMETAXEXPENSE" label="减:所得税费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETPROFIT" label="四、净利润(净亏损以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHCOMPREHENSIVEINCOMEAFTERTAX" label="五、其他综合收益的税后净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCOMPREHENSIVEINCOME" label="六、综合收益总额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="EARNINGSPERSHARE" label="七、每股收益:" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="BASICEARNINGSPERSHARE" label="(一)基本每股收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DILUTEDEARNINGSPERSHARE" label="(二)稀释每股收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_INCOME" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_RATE_CASHFLOW" label="企业评级企业现金流量表段信息表" keyAttributes="CUSTOMERID,STAGE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="STAGE" label="期次" type="STRING" length="1"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+                <attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+                <attribute name="CASHRECEIVEDFROMSALESOGOROS" label="销售商品、提供劳务收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TAXREFUNDS" label="收到的税费返还" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCASHRECEIVEDRTOA" label="收到其他与经营活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHINFLOWSFROMOA" label="经营活动现金流入小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAIDFORGOODSANDSERVICES" label="购买商品、接受劳务支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAIDTOANDONBOE" label="支付给职工以及为职工支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PAYMENTSOFALLTYPESOFTAXES" label="支付的各项税费" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCASHPAYMENTSFROMOA" label="支付其他与经营活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHOUTFLOWSFROMOA" label="经营活动现金流出小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHFLOWSFROMOA" label="经营活动产生的现金流量净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHRECEIVEDFROMROI" label="收回投资收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHRECEIVEDFROMONVESTMENTS" label="取得投资收益收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHANDOTHERLONGTERMASSETS" label="处置固定资产、无形资产和其他长期资产收回的现金净额;NetCashReceivedFromDisposalOfFixedAssetsIntangibleAssetsAndOtherLongTermAssets" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHRECEIVEDFROMDSAOB" label="处置子公司及其他营业单位收到的现金净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHRECEIVEDRELATINGTOOIA" label="收到其他与投资活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHINFLOWSFROMIA" label="投资活动现金流入小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAIDTOACQUIRE" label="购建固定资产、无形资产和其他长期资产支付的现金;CashPaidToAcquireFixedAssetsIntangibleAssetsAndOtherLongTermAssents" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAYMENTSFORINVESTMENTS" label="投资支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHPAIDTOASAOB" label="取得子公司及其他营业单位支付的现金净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAYMENTSRELATEDTOTA" label="支付其他与投资活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SUBTOTALOFCASHOUTFLOWS" label="投资活动现金流出小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHFLOWSFROMIA" label="投资活动产生的现金流量净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHRECEIVEDFROMINVESTORS" label="吸收投资收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHFROMBORROWINGS" label="取得借款收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCASHRECEIVEDRELATINGTFA" label="收到其他与筹资活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHINFLOWSFROMFA" label="筹资活动现金流入小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHREPAYMENTSFORDEBTS" label="偿还债务支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAYMENTSFORDIST" label="分配股利、利润或偿付利息支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAYMENTSRELATEDTOOFA" label="支付其他与筹资活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHOUTFLOWSFROMFA" label="筹资活动现金流出小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHFLOWSFROMFA" label="筹资活动产生的现金流量净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="EFFECTOFEXCHANGRATECOC" label="四、汇率变动对现金及现金等价物的影响" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETINCREASEINCASHANDCE" label="五、现金及现金等价物净增加额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INITIALCASHANDCASHEB" label="加:期初现金及现金等价物余额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="THEFINALCASHANDCASHEB" label="六、期末现金及现金等价物余额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_RATE_CASHFLOW" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <!-- 企业信贷资产信息 -->
+        <class name="PIDR_CREASS_BS" label="企业信贷资产基础段信息表" keyAttributes="DUECODE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="DUECODE" label="借据号" type="STRING" length="80"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="CONTRACTCODE" label="贷款合同编号" type="STRING" length="80"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="ENTNAME" label="企业名称" type="STRING" length="160"/>
+                <attribute name="ENTCERTTYPE" label="企业身份标识类型;20-统一社会信用代码" type="STRING" length="2"/>
+                <attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="18"/>
+                <attribute name="MNGMTORGCODE" label="业务管理金融机构代码" type="STRING" length="14"/>
+                <attribute name="RPTDATE" label="信息报告日期" type="STRING" length="10"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_CREASS_BS" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_CREASS_FSINF" label="企业信贷资产基本信息段信息表" keyAttributes="DUECODE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="DUECODE" label="借据号" type="STRING" length="80"/>
+                <attribute name="BUSIDTLLINES" label="贷款业务种类细分" type="STRING" length="2"/>
+                <attribute name="ACCPRINC" label="贷款本金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="GUARMODE" label="担保方式" type="STRING" length="2"/>
+                <attribute name="ANNUALRATE" label="年利率" type="DOUBLE" length="4" scale="2"/>
+                <attribute name="OPENDATE" label="贷款发放日" type="STRING" length="10"/>
+                <attribute name="DUEDATE" label="贷款到期日" type="STRING" length="10"/>
+                <attribute name="LATRPYDATE" label="最近一次还款日期" type="STRING" length="10"/>
+                <attribute name="ACCTBAL" label="贷款剩余本金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ACCTSTATUS" label="贷款状态" type="STRING" length="2"/>
+                <attribute name="ISGREEN" label="是否符合绿色信贷" type="STRING" length="2"/>
+                <attribute name="FIVECATE" label="五级分类" type="STRING" length="2"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_CREASS_FSINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <!-- 历史表 -->
+        <!-- 企业评级信息 -->
+        <class name="HPIDR_RATE_BS" label="企业评级基础信息" keyAttributes="SESSIONID,CUSTOMERID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="ENTNAME" label="企业名称" type="STRING" length="160"/>
+                <attribute name="ENTCERTTYPE" label="企业身份标识类型;20-统一社会信用代码" type="STRING" length="2"/>
+                <attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="18"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+                <attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+                <attribute name="MNGMTORGCODE" label="业务管理金融机构代码" type="STRING" length="14"/>
+                <attribute name="RPTDATE" label="信息报告日期" type="STRING" length="10"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_BS" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_FSINF" label="企业评级基本概况信息表" keyAttributes="SESSIONID,CUSTOMERID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="REGADD" label="登记注册地址" type="STRING" length="200"/>
+                <attribute name="ADMDIVOFREG" label="登记地行政区划代码" type="STRING" length="6"/>
+                <attribute name="ESTABLISHDATE" label="成立日期" type="STRING" length="10"/>
+                <attribute name="BIZRANGE" label="业务范围" type="STRING" length="800"/>
+                <attribute name="MAINBUSSOU" label="主营业务收入来源" type="STRING" length="200"/>
+                <attribute name="ECOINDUSCATE" label="行业分类代码" type="STRING" length="4"/>
+                <attribute name="ECOTYPE" label="经济类型代码" type="STRING" length="3"/>
+                <attribute name="INTERRATINGRES" label="金融机构内部评级结果" type="STRING" length="3"/>
+                <attribute name="INTERRATINDES" label="金融机构内评体系描述" type="STRING" length="2000"/>
+                <attribute name="MAINBUSCHAN" label="主营业务变更情况" type="STRING" length="1"/>
+                <attribute name="CREASSSUP" label="信贷资产支持" type="STRING" length="1"/>
+                <attribute name="PERCHASIT" label="近一年主要人员是否发生变动" type="STRING" length="1"/>
+                <attribute name="DEFATAXAMOUNT" label="近三年的欠税条数" type="INT" length="10"/>
+                <attribute name="HOUSEQUITIES" label="经营地产权情况" type="STRING" length="1"/>
+                <attribute name="NUMOFEMPLOYEES" label="从业人员数量" type="INT" length="10"/>
+                <attribute name="DIRECORTNUM" label="董事会成员(执行董事)数量" type="INT" length="10"/>
+                <attribute name="SUPERVISORNUM" label="监事会成员(监事)数量" type="INT" length="10"/>
+                <attribute name="ISINCOUNTY" label="是否县域企业" type="STRING" length="1"/>
+                <attribute name="HASINCFROMAGRI" label="是否涉农企业" type="STRING" length="1"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_FSINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_LEGREPINF" label="企业评级主要负责人信息表" keyAttributes="SESSIONID,CUSTOMERID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="LEGREPNAME" label="主要负责人名称" type="STRING" length="60"/>
+                <attribute name="LEGREPIDTYPE" label="主要负责人身份标识类型" type="STRING" length="2"/>
+                <attribute name="LEGREPIDNUM" label="主要负责人证件号码" type="STRING" length="40"/>
+                <attribute name="LEGREPHOUSEADDSTAT" label="主要负责人户籍情况" type="STRING" length="1"/>
+                <attribute name="LEGREPEDULEVEL" label="主要负责人学历" type="STRING" length="2"/>
+                <attribute name="LEGREPWORKINGYEARS" label="主要负责人在本单位从业年限" type="INT" length="10"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_LEGREPINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_REGCAP" label="企业评级注册资本信息表" keyAttributes="SESSIONID,CUSTOMERID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="REGCAPCURRENCY" label="注册资本币种" type="STRING" length="3"/>
+                <attribute name="REGCAP" label="注册资本" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_REGCAP" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_MNSHAHODINF" label="企业评级主要出资人信息表" keyAttributes="SESSIONID,CUSTOMERID,RELAID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="SHARHODTYPE" label="出资人类型" type="STRING" length="2"/>
+                <attribute name="SHARHODCERTTYPE" label="出资人身份类别" type="STRING" length="1"/>
+                <attribute name="SHARHODNAME" label="出资人名称" type="STRING" length="160"/>
+                <attribute name="SHARHODIDTYPE" label="出资人身份标识类型" type="STRING" length="2"/>
+                <attribute name="SHARHODIDNUM" label="出资人身份号码" type="STRING" length="80"/>
+                <attribute name="INVRATIO" label="出资比例" type="DOUBLE" length="5" scale="2"/>
+                <attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_MNSHAHODINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_INVABROINF" label="企业评级对外投资信息表" keyAttributes="SESSIONID,CUSTOMERID,RELAID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="INVENTNAME" label="被投资企业名称" type="STRING" length="160"/>
+                <attribute name="INVENTIDTYPE" label="被投资企业身份标识类型" type="STRING" length="2"/>
+                <attribute name="INVENTIDNUM" label="被投资企业身份标识号码" type="STRING" length="18"/>
+                <attribute name="INVENTREGCAP" label="被投资企业注册资本" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVENTESTABLISHDATE" label="被投资企业成立日期" type="STRING" length="10"/>
+                <attribute name="INVCURRENCY" label="投资币种" type="STRING" length="3"/>
+                <attribute name="INVSUBAMOUNT" label="投资认缴金额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVPAIDAMOUNT" label="投资实缴金额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SHAREHOLDRATIO" label="持股比例" type="DOUBLE" length="5" scale="2"/>
+                <attribute name="INVDATE" label="投资日期" type="STRING" length="10"/>
+                <attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_INVABROINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_NEGINF" label="企业评级负面信息表" keyAttributes="SESSIONID,CUSTOMERID,RELAID">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="NEGINFTYPE" label="负面信息类型" type="STRING" length="2"/>
+                <attribute name="NEGINFCONTENT" label="信息内容" type="STRING" length="800"/>
+                <attribute name="INVOLVEDAMOUNT" label="涉案金额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NEGINFDATE" label="信息发生(公示)时间" type="STRING" length="10"/>
+                <attribute name="NEGINFVALIDITY" label="有效期" type="STRING" length="10"/>
+                <attribute name="NEGINFISSORG" label="信息发布机构" type="STRING" length="80"/>
+                <attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_NEGINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_BALANCESSHEET" label="企业评级资产负债表段信息表" keyAttributes="SESSIONID,CUSTOMERID,STAGE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="STAGE" label="期次" type="STRING" length="1"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+                <attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+                <attribute name="CURRENCYFUNDS" label="货币资金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FINANCIALASSETSHELDFORTRADING" label="交易性金融资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DERIVATIVEFINANCIALASSETS" label="衍生金融资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NOTESRECEIVABLE" label="应收票据" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ACCOUNTSRECEIVABLE" label="应收账款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ACCOUNTSRECEIVABLEFINANCING" label="应收款项融资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PREPAYMENTS" label="预付款项" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERRECEIVABLES" label="其他应收款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVENTORIES" label="存货" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CONTRACTASSETS" label="合同资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ASSETSAVAILABLEFORSALE" label="持有待售资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CURPORTIONOFNONCURRENTASSETS" label="一年内到期的非流动资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCURRENTASSETS" label="其他流动资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCURRENTASSETS" label="流动资产合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEBTINVESTMENT" label="债权投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERDEBTINVESTMENT" label="其他债权投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMRECEIVABLES" label="长期应收款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMEQUITYINVESTMENT" label="长期股权投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHEQUITYINSTRUMENTSINVESTMENT" label="其他权益工具投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERNONCURRENTFINANCIALASSETS" label="其他非流动金融资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVESTMENTPROPERTIES" label="投资性房地产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FIXEDASSETS" label="固定资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CONSTRUCTIONINPROGRESS" label="在建工程" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NONCURRENTBIOLOGICALASSETS" label="生产性生物资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OILANDGASASSETS" label="油气资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="USERIGHTASSETS" label="使用权资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INTANGIBLEASSETS" label="无形资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEVELOPMENTDISBURSEMENTS" label="开发支出" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="GOODWILL" label="商誉" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMDEFERREDEXPENSES" label="长期待摊费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEFERREDTAXASSETS" label="递延所得税资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERNONCURRENTASSETS" label="其他非流动资产" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALNONCURRENTASSETS" label="非流动资产合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALASSETS" label="资产总计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SHORTTERMBORROWINGS" label="短期借款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FINLIABILITIESHELDFORTRADING" label="交易性金融负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DERIVATIVEFINANCIALLIABILITIES" label="衍生金融负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NOTESPAYABLE" label="应付票据" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ACCOUNTSPAYABLE" label="应付账款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="RECEIPTSINADVANCE" label="预收款项" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CONTRACTUALLIABILITIES" label="合同负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="EMPLOYEEBENEFITSPAYABLE" label="应付职工薪酬" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TAXESPAYABLE" label="应交税费" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERPAYABLES" label="其他应付款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LIABILITIESHELDFORSALE" label="持有待售负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CURPOROFLONGTERMLIABILITIES" label="一年内到期的非流动负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCURRENTLIABILITIES" label="其他流动负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCURRENTLIABILITIES" label="流动负债合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMBORROWINGS" label="长期借款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="BONDSPAYABLES" label="应付债券" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PREFERREDSTOCKINBONDSPAYABLES" label="其中:优先股" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PERPETUALBONDSINBONDSPAYABLES" label="永续债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LEASELIABILITIES" label="租赁负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LONGTERMPAYABLES" label="长期应付款" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PROVISIONS" label="预计负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEFERREDINCOME" label="递延收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DEFERREDTAXLIABILITIES" label="递延所得税负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERNONCURRENTLIABILITIES" label="其他非流动负债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALNONCURRENTLIABILITIES" label="非流动负债合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALLIABILITIES" label="负债合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PAIDINCAPITALORSHARECAPITAL" label="实收资本(或股本)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHEREQUITYINSTRUMENTS" label="其他权益工具投资" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PRESTOCKINOTHEQUITYINSTRUMENTS" label="其中:优先股" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PERBONDSINOTHEQUITYINSTRUMENTS" label="永续债" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CAPITALRRSERVE" label="资本公积" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="LESSTREASURYSTOCKS" label="减:库存股" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCOMPREHENSIVEINCOME" label="其他综合收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SPECIALRESERVE" label="专项储备" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SURPLUSRESERVE" label="盈余公积" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="UNAPPROPRIATEDPROFIT" label="未分配利润" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALEQUITY" label="所有者权益(或股东权益)合计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALEQUITYANDLIABILITIES" label="负债和所有者权益(或股东权益)总计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_BALANCESSHEET" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_INCOME" label="企业评级利润表段信息表" keyAttributes="SESSIONID,CUSTOMERID,STAGE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="STAGE" label="期次" type="STRING" length="1"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+                <attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+                <attribute name="REVENUEOFSALES" label="一、营业收入" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="COSTOFSALES" label="减:营业成本" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="BUSINESSANDOTHERTAXES" label="税金及附加" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SELLINGEXPENSES" label="销售费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="GENANDADMINISTRATIVEEXPENSES" label="管理费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="RDEXPENSES" label="研发费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FINANCIALEXPENSE" label="财务费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INTERESTFEEOFFINANCIALEXPENSE" label="其中:利息费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INTINCOMEOFFINANCIALEXPENSE" label="利息收入" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERINCOME" label="加:其他收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INVESTMENTINCOME" label="投资收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ASSOCIATESANDJOINTVENTURESINC" label="其中:对联营企业和合营企业的投资收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="FINANCIALASSETSENDINCOME" label="以摊余成本计量的金融资产终止确认收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETEXPOSUREHEDGINGINCOME" label="净敞口套期收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INCOMEFROMCHANGESINFAIRVALUE" label="公允价值变动收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CREDITIMPAIRMENTLOSS" label="信用减值损失(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="IMPAIRMENTLOSSOFASSETS" label="资产减值损失(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INCOMEFROMASSETDISPOSAL" label="资产处置收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OPERATINGPROFITS" label="二、营业利润(亏损以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NONOPERATINGINCOME" label="加:营业外收入" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NONOPERATINGEXPENSES" label="减:营业外支出   " type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PROFITBEFORETAX" label="三、利润总额(亏损总额以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INCOMETAXEXPENSE" label="减:所得税费用" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETPROFIT" label="四、净利润(净亏损以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHCOMPREHENSIVEINCOMEAFTERTAX" label="五、其他综合收益的税后净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCOMPREHENSIVEINCOME" label="六、综合收益总额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="EARNINGSPERSHARE" label="七、每股收益:" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="BASICEARNINGSPERSHARE" label="(一)基本每股收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="DILUTEDEARNINGSPERSHARE" label="(二)稀释每股收益" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_INCOME" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_RATE_CASHFLOW" label="企业评级企业现金流量表段信息表" keyAttributes="SESSIONID,CUSTOMERID,STAGE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="STAGE" label="期次" type="STRING" length="1"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+                <attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+                <attribute name="CASHRECEIVEDFROMSALESOGOROS" label="销售商品、提供劳务收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TAXREFUNDS" label="收到的税费返还" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCASHRECEIVEDRTOA" label="收到其他与经营活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHINFLOWSFROMOA" label="经营活动现金流入小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAIDFORGOODSANDSERVICES" label="购买商品、接受劳务支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAIDTOANDONBOE" label="支付给职工以及为职工支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="PAYMENTSOFALLTYPESOFTAXES" label="支付的各项税费" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCASHPAYMENTSFROMOA" label="支付其他与经营活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHOUTFLOWSFROMOA" label="经营活动现金流出小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHFLOWSFROMOA" label="经营活动产生的现金流量净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHRECEIVEDFROMROI" label="收回投资收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHRECEIVEDFROMONVESTMENTS" label="取得投资收益收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHANDOTHERLONGTERMASSETS" label="处置固定资产、无形资产和其他长期资产收回的现金净额;NetCashReceivedFromDisposalOfFixedAssetsIntangibleAssetsAndOtherLongTermAssets" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHRECEIVEDFROMDSAOB" label="处置子公司及其他营业单位收到的现金净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHRECEIVEDRELATINGTOOIA" label="收到其他与投资活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHINFLOWSFROMIA" label="投资活动现金流入小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAIDTOACQUIRE" label="购建固定资产、无形资产和其他长期资产支付的现金;CashPaidToAcquireFixedAssetsIntangibleAssetsAndOtherLongTermAssents" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAYMENTSFORINVESTMENTS" label="投资支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHPAIDTOASAOB" label="取得子公司及其他营业单位支付的现金净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAYMENTSRELATEDTOTA" label="支付其他与投资活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="SUBTOTALOFCASHOUTFLOWS" label="投资活动现金流出小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHFLOWSFROMIA" label="投资活动产生的现金流量净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHRECEIVEDFROMINVESTORS" label="吸收投资收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHFROMBORROWINGS" label="取得借款收到的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="OTHERCASHRECEIVEDRELATINGTFA" label="收到其他与筹资活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHINFLOWSFROMFA" label="筹资活动现金流入小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHREPAYMENTSFORDEBTS" label="偿还债务支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAYMENTSFORDIST" label="分配股利、利润或偿付利息支付的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="CASHPAYMENTSRELATEDTOOFA" label="支付其他与筹资活动有关的现金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="TOTALCASHOUTFLOWSFROMFA" label="筹资活动现金流出小计" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETCASHFLOWSFROMFA" label="筹资活动产生的现金流量净额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="EFFECTOFEXCHANGRATECOC" label="四、汇率变动对现金及现金等价物的影响" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="NETINCREASEINCASHANDCE" label="五、现金及现金等价物净增加额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="INITIALCASHANDCASHEB" label="加:期初现金及现金等价物余额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="THEFINALCASHANDCASHEB" label="六、期末现金及现金等价物余额" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+               		<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_RATE_CASHFLOW" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <!-- 企业信贷资产 -->
+        <class name="HPIDR_CREASS_BS" label="企业信贷资产基础段信息表" keyAttributes="SESSIONID,DUECODE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="DUECODE" label="借据号" type="STRING" length="80"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="CONTRACTCODE" label="贷款合同编号" type="STRING" length="80"/>
+                <attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+                <attribute name="ENTNAME" label="企业名称" type="STRING" length="160"/>
+                <attribute name="ENTCERTTYPE" label="企业身份标识类型;20-统一社会信用代码" type="STRING" length="2"/>
+                <attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="18"/>
+                <attribute name="MNGMTORGCODE" label="业务管理金融机构代码" type="STRING" length="14"/>
+                <attribute name="RPTDATE" label="信息报告日期" type="STRING" length="10"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_CREASS_BS" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="HPIDR_CREASS_FSINF" label="企业信贷资产基本信息段信息表" keyAttributes="SESSIONID,DUECODE">
+            <attributes>
+                <attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+                <attribute name="DUECODE" label="借据号" type="STRING" length="80"/>
+                <attribute name="BUSIDTLLINES" label="贷款业务种类细分" type="STRING" length="2"/>
+                <attribute name="ACCPRINC" label="贷款本金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="GUARMODE" label="担保方式" type="STRING" length="2"/>
+                <attribute name="ANNUALRATE" label="年利率" type="DOUBLE" length="4" scale="2"/>
+                <attribute name="OPENDATE" label="贷款发放日" type="STRING" length="10"/>
+                <attribute name="DUEDATE" label="贷款到期日" type="STRING" length="10"/>
+                <attribute name="LATRPYDATE" label="最近一次还款日期" type="STRING" length="10"/>
+                <attribute name="ACCTBAL" label="贷款剩余本金" type="DOUBLE" length="17" scale="2"/>
+                <attribute name="ACCTSTATUS" label="贷款状态" type="STRING" length="2"/>
+                <attribute name="ISGREEN" label="是否符合绿色信贷" type="STRING" length="2"/>
+                <attribute name="FIVECATE" label="五级分类" type="STRING" length="2"/>
+                <attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+                <attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+                <attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+                <attribute name="OPERTIME" label="操作时间" type="STRING" length="19"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="HPIDR_CREASS_FSINF" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_CODE_LIBRARY" label="央评系统码值表" keyAttributes="CODENO,SUBCODENO,PBCODE,CBCODE">
+            <attributes>
+                <attribute name="COLNAME" label="标识名称" type="STRING" length="80"/>
+                <attribute name="CODENO" label="标识符" type="STRING" length="64"/>
+                <attribute name="SUBCODENO" label="子级标识符" type="STRING" length="64"/>
+                <attribute name="CBCODE" label="商行代码" type="STRING" length="64"/>
+                <attribute name="PBCODE" label="人行代码" type="STRING" length="64"/>
+                <attribute name="APPLICATIONCODE" label="应用类别" type="STRING" length="2"/>
+                <attribute name="CBITEMNAME" label="商行代码项中文名" type="STRING" length="500"/>
+                <attribute name="PBITEMNAME" label="人行代码项中文名" type="STRING" length="500"/>
+                <attribute name="SORTNO" label="排序号" type="STRING" length="64"/>
+                <attribute name="ISINUSE" label="启用状态" type="STRING" length="36"/>
+                <attribute name="ITEMDESCRIBE" label="代码项描述" type="STRING" length="1600"/>
+                <attribute name="ITEMATTRIBUTE" label="代码属性" type="STRING" length="1600"/>
+                <attribute name="RELATIVECODE" label="关联代码" type="STRING" length="3200"/>
+                <attribute name="INPUTUSER" label="录入用户" type="STRING" length="64"/>
+                <attribute name="INPUTORG" label="录入机构" type="STRING" length="64"/>
+                <attribute name="INPUTTIME" label="录入时间" type="STRING" length="40"/>
+                <attribute name="UPDATEUSER" label="更新用户" type="STRING" length="64"/>
+                <attribute name="UPDATETIME" label="更新时间" type="STRING" length="40"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_CODE_LIBRARY" />
+                </managerProperties>
+            </manager>
+        </class>
+    
+        <class name="PIDR_VALIDATEERRORS" label="校验错误表" keyAttributes="ERRNO">
+            <attributes>
+                <attribute name="ERRNO" label="错误编号" type="STRING" length="128"/>
+                <attribute name="BUSIIDSERIALNO" label="业务标识号" type="STRING" length="200"/>
+                <attribute name="BSBUSIIDSERIALNO" label="基础段业务标识号" type="STRING" length="200"/>
+                <attribute name="INFRECTYPE" label="信息记录类型/报文类型" type="STRING" length="3"/>
+                <attribute name="VALIDATELEVEL" label="校验级别" type="STRING" length="1"/>
+                <attribute name="ERRCODE" label="错误代码" type="STRING" length="40"/>
+                <attribute name="ERRMSG" label="错误信息" type="STRING" length="900"/>
+                <attribute name="ERRTABLE" label="错误表名" type="STRING" length="120"/>
+                <attribute name="ERRTABLENAME" label="错误表中文名" type="STRING" length="100"/>
+                <attribute name="ERRFIELD" label="错误字段" type="STRING" length="500"/>
+                <attribute name="ERRFIELDNAME" label="错误字段中文名" type="STRING" length="120"/>
+                <attribute name="ERRFIELDVALUE" label="错误字段值" type="STRING" length="100"/>
+                <attribute name="RULENO" label="规则编号" type="STRING" length="20"/>
+                <attribute name="OPERATOR" label="操作用户" type="STRING" length="20"/>
+                <attribute name="OPERORGID" label="操作机构" type="STRING" length="20"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>    
+        </attributes>           
+        <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_VALIDATEERRORS" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_FEEDBACK" label="反馈错误表" keyAttributes="FNO">
+            <attributes>
+                <attribute name="FNO" label="反馈处理编号" type="STRING" length="128"/>
+                <attribute name="BUSIIDSERIALNO" label="业务标识号" type="STRING" length="200"/>
+                <attribute name="BSBUSIIDSERIALNO" label="基础段业务标识号" type="STRING" length="200"/>
+                <attribute name="SESSIONID" label="报文期次" type="STRING" length="16"/>
+                <attribute name="MESSAGETYPE" label="报文类型" type="STRING" length="6"/>
+                <attribute name="ERRPOSTION" label="错误位置" type="STRING" length="12"/>
+                <attribute name="ERRCODE" label="错误代码" type="STRING" length="20"/>
+                <attribute name="MNGMTORGCODE" label="业务管理金融机构代码" type="STRING" length="14"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="MODIFYFLAG" label="是否修改" type="STRING" length="2"/>
+                <attribute name="ERRMSG" label="错误消息" type="STRING" length="800"/>
+                <attribute name="FILENAME" label="反馈文件名" type="STRING" length="60"/>
+                <attribute name="ERRLEVEL" label="错误级别" type="STRING" length="1"/>
+                <attribute name="DIGEST" label="信息摘要" type="STRING" length="256"/>
+        </attributes>           
+        <manager>
+                <managerProperties>
+               		 <property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_FEEDBACK" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+        <class name="PIDR_SESSION" label="会话表" keyAttributes="SESSIONID">
+            <attributes>
+                <attribute name="SESSIONID" label="会话编号" type="STRING" length="16"/>
+                <attribute name="STATUS" label="报文状态" type="STRING" length="5"/>
+                <attribute name="MESSAGEFILECLASS" label="报文文件种类" type="STRING" length="3"/>
+                <attribute name="CREATETIME" label="创建时间" type="STRING" length="20"/>
+                <attribute name="MNGMTORGCODE" label="业务管理金融机构代码" type="STRING" length="14"/>
+                <attribute name="REPORTFILENAME" label="报文文件名称" type="STRING" length="350"/>
+                <attribute name="FILEPATH" label="报文文件路径" type="STRING" length="800"/>
+                <attribute name="FEEDBACKFILENAME" label="反馈报文文件名称" type="STRING" length="35"/>
+                <attribute name="FEEDBACKSTATUS" label="反馈状态" type="STRING" length="2"/>
+                <attribute name="OPERATOR" label="操作用户" type="STRING" length="20"/>
+                <attribute name="OPERORGID" label="操作机构" type="STRING" length="20"/>
+                <attribute name="ENDTIME" label="结束日期" type="STRING" length="20"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+        </attributes>           
+        <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="createKey" value="true" />
+                    <property name="table" value="PIDR_SESSION" />
+                </managerProperties>
+            </manager>
+        </class>
+        
+                <class name="HPIDR_RATE_ALLDLT" label="评级信息整笔删除请求记录信息表" keyAttributes="SESSIONID,EntCertType,EntCertNum">
+            <attributes>
+                <attribute name="SESSIONID" label="上报期次" type="STRING" length="16"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="ENTCERTTYPE" label="企业身份标识类型" type="STRING" length="2"/>
+                <attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="20"/>
+                <attribute name="FinStaYear" label="报表年份" type="STRING" length="4"/>
+                <attribute name="RptDate" label="信息报告日期" type="STRING" length="10"/>
+                <attribute name="MNGMTORGCODE" label="金融管理机构代码" type="STRING" length="32"/>
+                <attribute name="FBCODE" label="反馈错误码[数据级]" type="STRING" length="300"/>
+                <attribute name="INPUTORGID" label="录入机构" type="STRING" length="32"/>
+                <attribute name="MANAGERORGID" label="管护机构" type="STRING" length="32"/>
+                <attribute name="INPUTUSERID" label="录入用户" type="STRING" length="32"/>
+                <attribute name="INPUTTIME" label="录入时间" type="STRING" length="19"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+               		<property name="database" value="als"/> 
+                    <property name="table" value="HPIDR_RATE_ALLDLT" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>
+        <class name="HPIDR_CREASS_ALLDLT" label="信贷资产信息整笔删除请求记录信息表" keyAttributes="SESSIONID,DelDueCode,DelContractCode">
+            <attributes>
+                <attribute name="SESSIONID" label="上报期次" type="STRING" length="16"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="DELDUECODE" label="待删除借据号" type="STRING" length="80"/>
+                <attribute name="DELCONTRACTCODE" label="待删除贷款合同编号" type="STRING" length="80"/>
+                <attribute name="DELMNGMTORGCODE" label="金融管理机构代码" type="STRING" length="32"/>
+                <attribute name="FBCODE" label="反馈错误码[数据级]" type="STRING" length="300"/>
+                <attribute name="INPUTORGID" label="录入机构" type="STRING" length="32"/>
+                <attribute name="MANAGERORGID" label="管护机构" type="STRING" length="32"/>
+                <attribute name="INPUTUSERID" label="录入用户" type="STRING" length="32"/>
+                <attribute name="INPUTTIME" label="录入时间" type="STRING" length="19"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+               		<property name="database" value="als"/> 
+                    <property name="table" value="HPIDR_CREASS_ALLDLT" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>    
+        <class name="PIDR_TRANSFERFILTER" label="数据过滤表" keyAttributes="BUSIIDSERIALNO,FILTERCAUSE,ITCBUSITYPE">
+            <attributes>
+                <attribute name="BUSIIDSERIALNO" label="业务标识号" type="STRING" length="60"/>
+                <attribute name="RECORDSCOPE" label="过滤范围" type="STRING" length="22"/>
+                <attribute name="FILTERCAUSE" label="过滤原因" type="STRING" length="200"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="ITCBUSITYPE" label="拦截类型" type="STRING" length="10"/>
+                <attribute name="REMARK" label="备注" type="STRING" length="250"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="table" value="PIDR_TRANSFERFILTER" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>
+        <class name="HPIDR_RATE_IDCHANGE" label="评级标识变更请求记录信息表" keyAttributes="SESSIONID,OldEntCertType,OldEntCertNum">
+            <attributes>
+                <attribute name="SESSIONID" label="上报期次" type="STRING" length="16"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="OldEntCertType" label="原企业身份标识类型" type="STRING" length="2"/>
+                <attribute name="OldEntCertNum" label="原企业身份标识号码" type="STRING" length="20"/>
+                <attribute name="FinStaYear" label="报表年份" type="STRING" length="4"/>
+                <attribute name="MngmtOrgCode" label="业务管理金融机构代码" type="STRING" length="14"/>
+                <attribute name="NewEntCertType" label="新企业身份标识类型" type="STRING" length="2"/>
+                <attribute name="NewEntCertNum" label="新企业身份标识号码" type="STRING" length="20"/>
+                <attribute name="MANAGERORGID" label="管护机构" type="STRING" length="32"/>
+                <attribute name="INPUTORGID" label="录入机构" type="STRING" length="32"/>
+                <attribute name="INPUTUSERID" label="录入用户" type="STRING" length="32"/>
+                <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="table" value="HPIDR_RATE_IDCHANGE" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>    
+        <class name="HPIDR_CREASS_IDCHANGE" label="信贷资产标识变更请求记录信息表" keyAttributes="SESSIONID,OldDueCode">
+            <attributes>
+                <attribute name="SESSIONID" label="上报期次" type="STRING" length="16"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="OldDueCode" label="旧借据号" type="STRING" length="80"/>
+                <attribute name="OldContractCode" label="旧贷款合同编号" type="STRING" length="80"/>
+                <attribute name="MngmtOrgCode" label="业务管理金融机构代码" type="STRING" length="14"/>
+                <attribute name="NewDueCode" label="新借据号" type="STRING" length="80"/>
+                <attribute name="NewContractCode" label="新贷款合同编号" type="STRING" length="80"/>
+                <attribute name="MANAGERORGID" label="管护机构" type="STRING" length="32"/>
+                <attribute name="INPUTORGID" label="录入机构" type="STRING" length="32"/>
+                <attribute name="INPUTUSERID" label="录入用户" type="STRING" length="32"/>
+                <attribute name="INPUTTIME" label="录入时间" type="STRING" length="19"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="table" value="HPIDR_CREASS_IDCHANGE" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>    
+        
+        <class name="HPIDR_RATE_MDFCINFO" label="评级按段更正请求记录信息表" keyAttributes="SESSIONID,CUSTOMERID,MDFCSGMTCODE">
+            <attributes>
+                <attribute name="SESSIONID" label="上报期次" type="STRING" length="16"/>
+                <attribute name="INFRECTYPE" label="信息记录类型" type="STRING" length="3"/>
+                <attribute name="CUSTOMERID" label="待更正客户编号" type="STRING" length="60"/>
+                <attribute name="ENTCERTTYPE" label="企业身份标识类型" type="STRING" length="2"/>
+                <attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="20"/>
+                <attribute name="RPTDATE" label="信息报告日期" type="STRING" length="10"/>
+                <attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+                <attribute name="MDFCSGMTCODE" label="待更正段段标" type="STRING" length="1"/>
+                <attribute name="MNGMTORGCODE" label="业务管理机构代码" type="STRING" length="14"/>
+                <attribute name="FBCODE" label="反馈错误码[数据级]" type="STRING" length="300"/>
+                <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+                <attribute name="INPUTORGID" label="录入机构" type="STRING" length="32"/>
+                <attribute name="INPUTUSERID" label="录入用户" type="STRING" length="32"/>
+                <attribute name="INPUTTIME" label="录入时间" type="STRING" length="19"/>
+                <attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+                <attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+                <attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+                <attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="table" value="HPIDR_RATE_MDFCINFO" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>    
+          <class name="PIDR_ECOINDUSCATE_LIBRARY" label="行业评分模型信息表" keyAttributes="MODELNO,ECOINDUSCATE">
+            <attributes>
+						<attribute name="MODELNO" label="模型编号" type="STRING" length="32"/>
+						<attribute name="ECOINDUSCATE" label="行业分类代码" type="STRING" length="60"/>
+						<attribute name="WEIGHTEDVALUE01" label="净资产与年末贷款比率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE01" label="净资产与年末贷款比率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE01" label="净资产与年末贷款比率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE02" label="资产负债率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE02" label="资产负债率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE02" label="资产负债率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE03" label="资本固定化比率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE03" label="资本固定化比率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE03" label="资本固定化比率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE04" label="流动比率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE04" label="流动比率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE04" label="流动比率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE05" label="速动比率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE05" label="速动比率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE05" label="速动比率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE06" label="现金流动负债比率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE06" label="现金流动负债比率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE06" label="现金流动负债比率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE07" label="利息保障倍数-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE07" label="利息保障倍数-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE07" label="利息保障倍数-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE08" label="担保比率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE08" label="担保比率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE08" label="担保比率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE09" label="营业收入现金率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE09" label="营业收入现金率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE09" label="营业收入现金率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE10" label="现金比率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE10" label="现金比率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE10" label="现金比率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE11" label="应收账款周转率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE11" label="应收账款周转率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE11" label="应收账款周转率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE12" label="存货周转率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE12" label="存货周转率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE12" label="存货周转率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE13" label="总资产周转率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE13" label="总资产周转率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE13" label="总资产周转率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE14" label="固定资产周转率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE14" label="固定资产周转率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE14" label="固定资产周转率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE15" label="毛利率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE15" label="毛利率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE15" label="毛利率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE16" label="营业利润率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE16" label="营业利润率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE16" label="营业利润率-较低值" type="STRING" length="10"/>
+						<attribute name="WEIGHTEDVALUE17" label="总资产报酬率-权重" type="STRING" length="10"/>
+						<attribute name="EXCELLENTVALUE17" label="总资产报酬率-优秀值" type="STRING" length="10"/>
+						<attribute name="LOWERVALUE17" label="总资产报酬率-较低值" type="STRING" length="10"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="table" value="PIDR_ECOINDUSCATE_LIBRARY" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>  
+        <class name="PIDR_EVALUATE_CATALOG" label="PIDR评估模型目录" keyAttributes="MODELNO">
+	      <attributes>
+	        <attribute name="MODELNO" label="评估表编号" type="STRING" length="32" />
+	        <attribute name="MODELNAME" label="评估表名称" type="STRING" length="80" />
+	        <attribute name="MODELTYPE" label="评估表类别" type="STRING" length="18" />
+	        <attribute name="MODELDESCRIBE" label="评估表描述" type="STRING" length="250" />
+	        <attribute name="TRANSFORMMETHOD" label="转换方法" type="STRING" length="1600" />
+	        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+	        <attribute name="CATEGORY" label="种类" type="STRING" length="80" />
+	        <attribute name="EVALUATECONTEXT" label="评估上下文" type="STRING" length="2000" />
+	      </attributes>
+	      <manager>
+	        <managerProperties>
+	       	  <property name="database" value="als"/>
+	          <property name="createKey" value="false" />
+	          <property name="table" value="PIDR_EVALUATE_CATALOG" />
+	        </managerProperties>
+	      </manager>
+   		</class>
+         <class name="PIDR_EVALUATE_RECORD" label="央行评估记录表" keyAttributes="OBJECTTYPE,CUSTOMERID,FinStaYear">
+            <attributes>
+                      <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="18"/>
+					<attribute name="CUSTOMERID" label="对象客户号" type="STRING" length="32"/>
+					<attribute name="EntName" label="企业名称" type="STRING" length="160"/>
+					<attribute name="EntCertType" label="企业身份标识类型;20-统一社会信用代码" type="STRING" length="2"/>
+					<attribute name="EntCertNum" label="企业身份标识号码" type="STRING" length="18"/>
+					<attribute name="EcoIndusCate" label="行业分类代码" type="STRING" length="4"/>
+					<attribute name="FinStaYear" label="报表年份" type="STRING" length="10"/>
+					<attribute name="MODELNO" label="模型编号" type="STRING" length="32"/>
+					<attribute name="REPORTSCOPE" label="报表口径" type="STRING" length="8"/>
+					<attribute name="EVALUATEDATE" label="评估日期" type="STRING" length="20"/>
+					<attribute name="EVALUATESCORE" label="评估得分" type="STRING" length="decimal(246"/>
+					<attribute name="EVALUATERESULT" label="评估结果" type="STRING" length="80"/>
+					<attribute name="ORGID" label="评估单位" type="STRING" length="32"/>
+					<attribute name="USERID" label="评估人" type="STRING" length="32"/>
+					<attribute name="COGNDATE" label="认定日期" type="STRING" length="20"/>
+					<attribute name="COGNSCORE" label="认定得分" type="STRING" length="decimal(246"/>
+					<attribute name="COGNRESULT" label="认定结果" type="STRING" length="80"/>
+					<attribute name="COGNORGID" label="认定单位" type="STRING" length="32"/>
+					<attribute name="COGNUSERID" label="认定人" type="STRING" length="32"/>
+					<attribute name="REMARK" label="备注" type="STRING" length="250"/>
+					<attribute name="COGNREASON" label="认定理由" type="STRING" length="250"/>
+					<attribute name="COGNRESULT2" label="分行认定结果" type="STRING" length="80"/>
+					<attribute name="COGNUSERNAME2" label="分行认定人" type="STRING" length="80"/>
+					<attribute name="COGNREASON2" label="分行认定理由" type="STRING" length="250"/>
+					<attribute name="COGNRESULT3" label="总行认定结果" type="STRING" length="80"/>
+					<attribute name="COGNUSERNAME3" label="总行认定人" type="STRING" length="80"/>
+					<attribute name="COGNREASON3" label="总行认定理由" type="STRING" length="250"/>
+					<attribute name="COGNUSERID3" label="总行认定人代码" type="STRING" length="32"/>
+					<attribute name="COGNUSERID2" label="分行认定人代码" type="STRING" length="32"/>
+					<attribute name="EVALUATELEVEL" label="认定级别" type="STRING" length="18"/>
+					<attribute name="FINISHDATE2" label="分行认定时间" type="STRING" length="20"/>
+					<attribute name="FINISHDATE3" label="总行认定时间" type="STRING" length="20"/>
+					<attribute name="FINISHDATE" label="认定时间" type="STRING" length="20"/>
+					<attribute name="COGNRESULT4" label="支行认定结果" type="STRING" length="80"/>
+					<attribute name="COGNUSERNAME4" label="支行认定人" type="STRING" length="80"/>
+					<attribute name="COGNREASON4" label="支行认定理由" type="STRING" length="250"/>
+					<attribute name="FINISHDATE4" label="支行认定时间" type="STRING" length="20"/>
+					<attribute name="COGNUSERID4" label="支行认定人代码" type="STRING" length="32"/>
+					<attribute name="REPORTSTATUS" label="报送状态" type="STRING" length="2"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="table" value="PIDR_EVALUATE_RECORD" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>  
+         <class name="PIDR_EVALUATE_DATA" label="央行评估记录表" keyAttributes="OBJECTTYPE,CUSTOMERID,ITEMNO">
+            <attributes>
+                      <attribute name="OBJECTTYPE" label="对象类型" type="STRING" length="32"/>
+                    <attribute name="CUSTOMERID" label="对象客户号编号" type="STRING" length="80"/>
+                    <attribute name="ITEMNO" label="项目编号" type="STRING" length="18"/>
+                    <attribute name="ITEMVALUE" label="项目值" type="STRING" length="250"/>
+                     <attribute name="ITEMVALUE2" label="项目值" type="STRING" length="250"/>
+                    <attribute name="EVALUATESCORE" label="评估值" type="STRING" length="1600"/>
+                    <attribute name="EVALUATESCORE2" label="评估值" type="STRING" length="1600"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="table" value="PIDR_EVALUATE_DATA" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class>  
+        <class name="PIDR_FINANCE_STATEMENT" label="央行评估记录表" keyAttributes="CUSTOMERID,STAGE">
+            <attributes>
+					<attribute name="SESSIONID" label="期次号" type="STRING" length="16"/>
+					<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+					<attribute name="STAGE" label="期次" type="STRING" length="1"/>
+					<attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+					<attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+					<attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+					<attribute name="INTERESTPAYABLE" label="资产负债,补充,应付利息" type="DOUBLE" length="17" scale="2"/>
+					<attribute name="DIVIDENDSRECEIVABLE" label="资产负债,补充,应收股利" type="DOUBLE" length="17" scale="2"/>
+					<attribute name="UNCLEAREDGUARBENDOFTHETERM" label="补充报表,未清担保余额" type="DOUBLE" length="17" scale="2"/>
+					 <attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+					<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+					<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+					<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+					<attribute name="RECORDFLAG" label="记录标志" type="STRING" length="1"/>
+					<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+					<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+					<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+					<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+            </attributes>
+            <manager>
+                <managerProperties>
+                	<property name="database" value="als"/> 
+                    <property name="table" value="PIDR_FINANCE_STATEMENT" />
+                    <property name="createKey" value="true" />
+                </managerProperties>
+            </manager>
+        </class> 
+      <class name="EVALUATE_CATALOG" label="评估模型目录" keyAttributes="MODELNO">
+      <attributes>
+        <attribute name="MODELNO" label="评估表编号" type="STRING" length="32" />
+        <attribute name="MODELNAME" label="评估表名称" type="STRING" length="80" />
+        <attribute name="MODELTYPE" label="评估表类别" type="STRING" length="18" />
+        <attribute name="MODELDESCRIBE" label="评估表描述" type="STRING" length="250" />
+        <attribute name="TRANSFORMMETHOD" label="转换方法" type="STRING" length="1600" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="EVALUATECONTEXT" label="评估上下文" type="STRING" length="1500" />
+      </attributes>
+      <manager>
+        <managerProperties>
+       	  <property name="database" value="als"/>
+          <property name="createKey" value="false" />
+          <property name="table" value="EVALUATE_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+     <class name="EVALUATE_MODEL" label="评估模型" keyAttributes="MODELNO,ITEMNO">
+      <attributes>
+        <attribute name="MODELNO" label="评估表编号" type="STRING" length="32" />
+        <attribute name="ITEMNO" label="项目编号" type="STRING" length="32" />
+        <attribute name="DISPLAYNO" label="显示序号" type="STRING" length="32" />
+        <attribute name="ITEMNAME" label="项目名称" type="STRING" length="80" />
+        <attribute name="ITEMATTRIBUTE" label="项目属性" type="STRING" length="80" />
+        <attribute name="VALUEMETHOD" label="VALUEMETHOD" type="STRING" length="2100" />
+        <attribute name="VALUECODE" label="取值代码" type="STRING" length="250" />
+        <attribute name="VALUETYPE" label="值类型" type="STRING" length="18" />
+        <attribute name="EVALUATEMETHOD" label="评估方法" type="STRING" length="1600" />
+        <attribute name="COEFFICIENT" label="系数" type="DOUBLE" length="24" scale="6" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als"/>
+          <property name="createKey" value="false" />
+          <property name="table" value="EVALUATE_MODEL" />
+        </managerProperties>
+      </manager>
+    </class>
+      <class name="CODE_LIBRARY" label="代码库" keyAttributes="CODENO,ITEMNO">
+      <attributes>
+        <attribute name="CODENO" label="代码编号" type="STRING" length="32" />
+        <attribute name="ITEMNO" label="代码项编号" type="STRING" length="32" />
+        <attribute name="ITEMNAME" label="代码项名称" type="STRING" length="250" />
+        <attribute name="BANKNO" label="征信代码" type="STRING" length="32" />
+        <attribute name="SORTNO" label="排序号" type="STRING" length="32" />
+        <attribute name="ISINUSE" label="是否使用" type="STRING" length="18" />
+        <attribute name="ITEMDESCRIBE" label="代码项描述" type="STRING" length="800" />
+        <attribute name="ITEMATTRIBUTE" label="代码项属性" type="STRING" length="800" />
+        <attribute name="RELATIVECODE" label="相关代码" type="STRING" length="1600" />
+        <attribute name="ATTRIBUTE1" label="属性一" type="STRING" length="800" />
+        <attribute name="ATTRIBUTE2" label="属性二" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE3" label="属性三" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE4" label="属性四" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE5" label="属性五" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE6" label="属性六" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE7" label="属性七" type="STRING" length="250" />
+        <attribute name="ATTRIBUTE8" label="属性八" type="STRING" length="250" />
+        <attribute name="INPUTUSER" label="录入人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="录入机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="录入时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+        <attribute name="HELPTEXT" label="HELPTEXT" type="STRING" length="250" />
+      </attributes>
+		<manager>
+			<managerProperties>
+				<property name="database" value="als" />
+				<property name="createKey" value="false" />
+				<property name="table" value="CODE_LIBRARY" />
+				<property name="query.largeResultWarn" value="5000" />
+				<property name="query.largeResultLimit" value="15000" />
+			</managerProperties>
+		</manager>
+    </class> 
+     <class name="CLASS_ATTRIBUTE" label="属性库" keyAttributes="CLASSNAME,ATTRIBUTENAME">
+      <attributes>
+        <attribute name="CLASSNAME" label="类名称" type="STRING" length="80" />
+        <attribute name="ATTRIBUTENAME" label="ATTRIBUTENAME" type="STRING" length="80" />
+        <attribute name="ATTRIBUTETYPE" label="属性类型" type="STRING" length="18" />
+        <attribute name="ATTRIBUTEDESCRIBE" label="ATTRIBUTEDESCRIBE" type="STRING" length="80" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+        	<property name="database" value="als" />
+          <property name="createKey" value="false" />
+          <property name="table" value="CLASS_ATTRIBUTE" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CLASS_CATALOG" label="方法库目录" keyAttributes="CLASSNAME">
+      <attributes>
+        <attribute name="CLASSNAME" label="类名称" type="STRING" length="80" />
+        <attribute name="CLASSTYPE" label="类分类" type="STRING" length="18" />
+        <attribute name="CLASSDESCRIBE" label="类描述" type="STRING" length="250" />
+        <attribute name="PARENTCLASS" label="父类名称" type="STRING" length="80" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+        	<property name="database" value="als" />
+          <property name="createKey" value="false" />
+          <property name="table" value="CLASS_CATALOG" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="CLASS_METHOD" label="方法库明细" keyAttributes="CLASSNAME,METHODNAME">
+      <attributes>
+        <attribute name="CLASSNAME" label="类名称" type="STRING" length="80" />
+        <attribute name="METHODNAME" label="方法名称" type="STRING" length="80" />
+        <attribute name="METHODTYPE" label="方法类型" type="STRING" length="18" />
+        <attribute name="METHODDESCRIBE" label="方法描述" type="STRING" length="250" />
+        <attribute name="RETURNTYPE" label="返回值类型" type="STRING" length="18" />
+        <attribute name="METHODARGS" label="方法参数" type="STRING" length="250" />
+        <attribute name="METHODCODE" label="方法实现代码" type="STRING" length="1600" />
+        <attribute name="INPUTUSER" label="登记人" type="STRING" length="32" />
+        <attribute name="INPUTORG" label="登记机构" type="STRING" length="32" />
+        <attribute name="INPUTTIME" label="登记时间" type="STRING" length="20" />
+        <attribute name="UPDATEUSER" label="更新人" type="STRING" length="32" />
+        <attribute name="UPDATETIME" label="更新时间" type="STRING" length="20" />
+        <attribute name="REMARK" label="备注" type="STRING" length="250" />
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="CLASS_METHOD" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="PIDR_INT_ENTINFO" label="企业基本信息接口表" keyAttributes="CUSTOMERID">
+      <attributes>
+		<attribute name="CUSTOMERID" label="客户号" type="STRING" length="60"/>
+		<attribute name="ENTNAME" label="企业名称" type="STRING" length="160"/>
+		<attribute name="ENTCERTTYPE" label="企业身份标识类型" type="STRING" length="2"/>
+		<attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="18"/>
+		<attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+		<attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+		<attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+		<attribute name="REGADD" label="登记注册地址" type="STRING" length="200"/>
+		<attribute name="ADMDIVOFREG" label="登记地行政区划代码" type="STRING" length="6"/>
+		<attribute name="ESTABLISHDATE" label="成立日期" type="STRING" length="10"/>
+		<attribute name="BIZRANGE" label="业务范围" type="STRING" length="800"/>
+		<attribute name="MAINBUSSOU" label="主营业务收入来源" type="STRING" length="200"/>
+		<attribute name="ECOINDUSCATE" label="行业分类代码" type="STRING" length="4"/>
+		<attribute name="ECOTYPE" label="经济类型代码" type="STRING" length="3"/>
+		<attribute name="INTERRATINGRES" label="金融机构内部评级结果" type="STRING" length="3"/>
+		<attribute name="INTERRATINDES" label="金融机构内评体系描述" type="STRING" length="2000"/>
+		<attribute name="MAINBUSCHAN" label="主营业务变更情况" type="STRING" length="1"/>
+		<attribute name="CREASSSUP" label="信贷资产支持" type="STRING" length="1"/>
+		<attribute name="PERCHASIT" label="近一年主要人员是否发生变动" type="STRING" length="1"/>
+		<attribute name="DEFATAXAMOUNT" label="近三年的欠税条数" type="INT" length="10"/>
+		<attribute name="HOUSEQUITIES" label="经营地产权情况" type="STRING" length="1"/>
+		<attribute name="NUMOFEMPLOYEES" label="从业人员数量" type="INT" length="10"/>
+		<attribute name="DIRECORTNUM" label="董事会成员(执行董事)数量" type="INT" length="10"/>
+		<attribute name="SUPERVISORNUM" label="监事会成员(监事)数量" type="INT" length="10"/>
+		<attribute name="ISINCOUNTY" label="是否县域企业" type="STRING" length="1"/>
+		<attribute name="HASINCFROMAGRI" label="是否涉农企业" type="STRING" length="1"/>
+		<attribute name="LEGREPNAME" label="主要负责人名称" type="STRING" length="60"/>
+		<attribute name="LEGREPIDTYPE" label="主要负责人身份标识类型" type="STRING" length="2"/>
+		<attribute name="LEGREPIDNUM" label="主要负责人证件号码" type="STRING" length="40"/>
+		<attribute name="LEGREPHOUSEADDSTAT" label="主要负责人户籍情况" type="STRING" length="1"/>
+		<attribute name="LEGREPEDULEVEL" label="主要负责人学历情况" type="STRING" length="2"/>
+		<attribute name="LEGREPWORKINGYEARS" label="主要负责人在本单位从业年限" type="INT" length="10"/>
+		<attribute name="REGCAPCURRENCY" label="注册资本币种" type="STRING" length="3"/>
+		<attribute name="REGCAP" label="注册资本" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_ENTINFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="PIDR_INT_MNSHAHODINFO" label="企业注册资本及主要出资人接口表" keyAttributes="RELAID,CUSTOMERID">
+      <attributes>
+		<attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+		<attribute name="SHARHODTYPE" label="出资人类型" type="STRING" length="2"/>
+		<attribute name="SHARHODCERTTYPE" label="出资人身份类别" type="STRING" length="1"/>
+		<attribute name="SHARHODNAME" label="出资人名称" type="STRING" length="160"/>
+		<attribute name="SHARHODIDTYPE" label="出资人身份标识类型" type="STRING" length="2"/>
+		<attribute name="SHARHODIDNUM" label="出资人身份号码" type="STRING" length="80"/>
+		<attribute name="INVRATIO" label="出资比例" type="DOUBLE" length="5" scale="2"/>
+		<attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_MNSHAHODINFO" />
+        </managerProperties>
+      </manager>
+    </class>
+    <class name="PIDR_INT_INVABROINFO" label="企业对外投资接口表" keyAttributes="RELAID,CUSTOMERID">
+      <attributes>
+		<attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+		<attribute name="INVENTNAME" label="被投资企业名称" type="STRING" length="160"/>
+		<attribute name="INVENTIDTYPE" label="被投资企业身份标识类型" type="STRING" length="2"/>
+		<attribute name="INVENTIDNUM" label="被投资企业身份标识号码" type="STRING" length="18"/>
+		<attribute name="INVENTREGCAP" label="被投资企业注册资本" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INVENTESTABLISHDATE" label="被投资企业成立日期" type="STRING" length="10"/>
+		<attribute name="INVCURRENCY" label="投资币种" type="STRING" length="3"/>
+		<attribute name="INVSUBAMOUNT" label="投资认缴金额" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INVPAIDAMOUNT" label="投资实缴金额" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="SHAREHOLDRATIO" label="持股比例" type="DOUBLE" length="5" scale="2"/>
+		<attribute name="INVDATE" label="投资日期" type="STRING" length="10"/>
+		<attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_INVABROINFO" />
+        </managerProperties>
+      </manager>
+    </class>    
+    <class name="PIDR_INT_NEGINFO" label="企业负面信息接口表" keyAttributes="RELAID,CUSTOMERID">
+      <attributes>
+		<attribute name="RELAID" label="关联编号" type="STRING" length="60"/>
+		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+		<attribute name="NEGINFTYPE" label="负面信息类型" type="STRING" length="2"/>
+		<attribute name="NEGINFCONTENT" label="信息内容" type="STRING" length="800"/>
+		<attribute name="INVOLVEDAMOUNT" label="涉案金额" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NEGINFDATE" label="信息发生(公示)时间" type="STRING" length="10"/>
+		<attribute name="NEGINFVALIDITY" label="有效期" type="STRING" length="10"/>
+		<attribute name="NEGINFISSORG" label="信息发布机构" type="STRING" length="80"/>
+		<attribute name="EFFSTATUS" label="有效标志" type="STRING" length="1"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_NEGINFO" />
+        </managerProperties>
+      </manager>
+    </class>     
+    <class name="PIDR_INT_BUSIINFO" label="企业信贷资产信息接口表" keyAttributes="DUECODE">
+      <attributes>
+		<attribute name="DUECODE" label="借据号" type="STRING" length="80"/>
+		<attribute name="CUSTOMERID" label="客户号" type="STRING" length="80"/>
+		<attribute name="CONTRACTCODE" label="贷款合同编号" type="STRING" length="80"/>
+		<attribute name="ENTNAME" label="企业名称" type="STRING" length="160"/>
+		<attribute name="ENTCERTTYPE" label="企业身份标识类型" type="STRING" length="2"/>
+		<attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="18"/>
+		<attribute name="BUSIDTLLINES" label="贷款业务种类细分" type="STRING" length="2"/>
+		<attribute name="ACCPRINC" label="贷款本金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="GUARMODE" label="担保方式" type="STRING" length="2"/>
+		<attribute name="ANNUALRATE" label="年利率" type="DOUBLE" length="4" scale="2"/>
+		<attribute name="OPENDATE" label="贷款发放日" type="STRING" length="10"/>
+		<attribute name="DUEDATE" label="贷款到期日" type="STRING" length="10"/>
+		<attribute name="LATRPYDATE" label="最近一次还款日期" type="STRING" length="10"/>
+		<attribute name="ACCTBAL" label="贷款剩余本金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="ACCTSTATUS" label="贷款状态" type="STRING" length="2"/>
+		<attribute name="ISGREEN" label="是否符合绿色信贷" type="STRING" length="2"/>
+		<attribute name="FIVECATE" label="五级分类" type="STRING" length="2"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_BUSIINFO" />
+        </managerProperties>
+      </manager>
+    </class>   
+    <class name="PIDR_INT_BALANCESHEET" label="企业资产负债信息接口表" keyAttributes="CUSTOMERID,STAGE">
+      <attributes>
+		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+		<attribute name="STAGE" label="期次" type="STRING" length="1"/>
+		<attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+		<attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+		<attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+		<attribute name="CURRENCYFUNDS" label="货币资金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="FINANCIALASSETSHELDFORTRADING" label="交易性金融资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DERIVATIVEFINANCIALASSETS" label="衍生金融资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NOTESRECEIVABLE" label="应收票据" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="ACCOUNTSRECEIVABLE" label="应收账款" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="ACCOUNTSRECEIVABLEFINANCING" label="应收款项融资" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PREPAYMENTS" label="预付款项" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERRECEIVABLES" label="其他应收款" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INVENTORIES" label="存货" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CONTRACTASSETS" label="合同资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="ASSETSAVAILABLEFORSALE" label="持有待售资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CURPORTIONOFNONCURRENTASSETS" label="一年内到期的非流动资产;CurrentPortionOfNonCurrentAssets" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERCURRENTASSETS" label="其他流动资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALCURRENTASSETS" label="流动资产合计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DEBTINVESTMENT" label="债权投资" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERDEBTINVESTMENT" label="其他债权投资" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="LONGTERMRECEIVABLES" label="长期应收款" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="LONGTERMEQUITYINVESTMENT" label="长期股权投资" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHEQUITYINSTRUMENTSINVESTMENT" label="其他权益工具投资;OtherEquityInstrumentsInvestment" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERNONCURRENTFINANCIALASSETS" label="其他非流动金融资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INVESTMENTPROPERTIES" label="投资性房地产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="FIXEDASSETS" label="固定资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CONSTRUCTIONINPROGRESS" label="在建工程" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NONCURRENTBIOLOGICALASSETS" label="生产性生物资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OILANDGASASSETS" label="油气资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="USERIGHTASSETS" label="使用权资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INTANGIBLEASSETS" label="无形资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DEVELOPMENTDISBURSEMENTS" label="开发支出" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="GOODWILL" label="商誉" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="LONGTERMDEFERREDEXPENSES" label="长期待摊费用" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DEFERREDTAXASSETS" label="递延所得税资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERNONCURRENTASSETS" label="其他非流动资产" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALNONCURRENTASSETS" label="非流动资产合计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALASSETS" label="资产总计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="SHORTTERMBORROWINGS" label="短期借款" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="FINLIABILITIESHELDFORTRADING" label="交易性金融负债;FinancialLiabilitiesHeldForTrading" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DERIVATIVEFINANCIALLIABILITIES" label="衍生金融负债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NOTESPAYABLE" label="应付票据" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="ACCOUNTSPAYABLE" label="应付账款" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="RECEIPTSINADVANCE" label="预收款项" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CONTRACTUALLIABILITIES" label="合同负债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="EMPLOYEEBENEFITSPAYABLE" label="应付职工薪酬" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TAXESPAYABLE" label="应交税费" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERPAYABLES" label="其他应付款" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="LIABILITIESHELDFORSALE" label="持有待售负债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CURPOROFLONGTERMLIABILITIES" label="一年内到期的非流动负债CurrentPortionOfLongTermLiabilities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERCURRENTLIABILITIES" label="其他流动负债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALCURRENTLIABILITIES" label="流动负债合计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="LONGTERMBORROWINGS" label="长期借款" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="BONDSPAYABLES" label="应付债券" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PREFERREDSTOCKINBONDSPAYABLES" label="其中:优先股" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PERPETUALBONDSINBONDSPAYABLES" label="永续债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="LEASELIABILITIES" label="租赁负债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="LONGTERMPAYABLES" label="长期应付款" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PROVISIONS" label="预计负债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DEFERREDINCOME" label="递延收益" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DEFERREDTAXLIABILITIES" label="递延所得税负债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERNONCURRENTLIABILITIES" label="其他非流动负债" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALNONCURRENTLIABILITIES" label="非流动负债合计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALLIABILITIES" label="负债合计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PAIDINCAPITALORSHARECAPITAL" label="实收资本(或股本)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHEREQUITYINSTRUMENTS" label="其他权益工具投资" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PRESTOCKINOTHEQUITYINSTRUMENTS" label="其中:优先股;PreferredStockInOtherEquityInstruments" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PERBONDSINOTHEQUITYINSTRUMENTS" label="永续债;PerpetualBondsInOtherEquityInstruments" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CAPITALRRSERVE" label="资本公积" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="LESSTREASURYSTOCKS" label="减:库存股" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERCOMPREHENSIVEINCOME" label="其他综合收益" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="SPECIALRESERVE" label="专项储备" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="SURPLUSRESERVE" label="盈余公积" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="UNAPPROPRIATEDPROFIT" label="未分配利润" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALEQUITY" label="所有者权益(或股东权益)合计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALEQUITYANDLIABILITIES" label="负债和所有者权益(或股东权益)总计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_BALANCESHEET" />
+        </managerProperties>
+      </manager>
+    </class>    
+	<class name="PIDR_INT_INCOME" label="企业利润信息接口表" keyAttributes="CUSTOMERID,STAGE">
+      <attributes>
+		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+		<attribute name="STAGE" label="期次" type="STRING" length="1"/>
+		<attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+		<attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+		<attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+		<attribute name="REVENUEOFSALES" label="一、营业收入" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="COSTOFSALES" label="减:营业成本" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="BUSINESSANDOTHERTAXES" label="税金及附加" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="SELLINGEXPENSES" label="销售费用" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="GENANDADMINISTRATIVEEXPENSES" label="管理费用;GeneralAndAdministrativeExpenses" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="RDEXPENSES" label="研发费用" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="FINANCIALEXPENSE" label="财务费用" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INTERESTFEEOFFINANCIALEXPENSE" label="其中:利息费用" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INTINCOMEOFFINANCIALEXPENSE" label="利息收入;InterestIncomeOfFinancialExpense" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERINCOME" label="加:其他收益" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INVESTMENTINCOME" label="投资收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="ASSOCIATESANDJOINTVENTURESINC" label="其中:对联营企业和合营企业的投资收益;AssociatesAndJointVenturesIncom" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="FINANCIALASSETSENDINCOME" label="以摊余成本计量的金融资产终止确认收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETEXPOSUREHEDGINGINCOME" label="净敞口套期收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INCOMEFROMCHANGESINFAIRVALUE" label="公允价值变动收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CREDITIMPAIRMENTLOSS" label="信用减值损失(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="IMPAIRMENTLOSSOFASSETS" label="资产减值损失(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INCOMEFROMASSETDISPOSAL" label="资产处置收益(损失以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OPERATINGPROFITS" label="二、营业利润(亏损以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NONOPERATINGINCOME" label="加:营业外收入" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NONOPERATINGEXPENSES" label="减:营业外支出	" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PROFITBEFORETAX" label="三、利润总额(亏损总额以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INCOMETAXEXPENSE" label="减:所得税费用" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETPROFIT" label="四、净利润(净亏损以“-”号填列)" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHCOMPREHENSIVEINCOMEAFTERTAX" label="五、其他综合收益的税后净额;OtherComprehensiveIncomeAfterTax" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALCOMPREHENSIVEINCOME" label="六、综合收益总额" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="EARNINGSPERSHARE" label="七、每股收益:" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="BASICEARNINGSPERSHARE" label="(一)基本每股收益" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DILUTEDEARNINGSPERSHARE" label="(二)稀释每股收益" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_INCOME" />
+        </managerProperties>
+      </manager>
+    </class>
+	<class name="PIDR_INT_CASHFLOW" label="企业现金流量信息接口表" keyAttributes="CUSTOMERID,STAGE">
+      <attributes>
+		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+		<attribute name="STAGE" label="期次" type="STRING" length="1"/>
+		<attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+		<attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+		<attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+		<attribute name="CASHRECEIVEDFROMSALESOGOROS" label="销售商品、提供劳务收到的现金;CashReceivedFromSalesOfGoodsOrRendingOfServices" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TAXREFUNDS" label="收到的税费返还" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERCASHRECEIVEDRTOA" label="收到其他与经营活动有关的现金;OtherCashReceivedRelatingToOperatingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALCASHINFLOWSFROMOA" label="经营活动现金流入小计;TotalCashInflowsFromOperatingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHPAIDFORGOODSANDSERVICES" label="购买商品、接受劳务支付的现金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHPAIDTOANDONBOE" label="支付给职工以及为职工支付的现金;CashPaidToAndOnBehalfOfEmployees" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="PAYMENTSOFALLTYPESOFTAXES" label="支付的各项税费" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERCASHPAYMENTSFROMOA" label="支付其他与经营活动有关的现金;OtherCashPaymentsFromOperatingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALCASHOUTFLOWSFROMOA" label="经营活动现金流出小计;TotalCashOutflowsFromOperatingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETCASHFLOWSFROMOA" label="经营活动产生的现金流量净额;NetCashFlowsFromOperatingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHRECEIVEDFROMROI" label="收回投资收到的现金;CashReceivedFromReturnOfInvestment" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHRECEIVEDFROMONVESTMENTS" label="取得投资收益收到的现金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETCASHANDOTHERLONGTERMASSETS" label="处置固定资产、无形资产和其他长期资产收回的现金净额" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETCASHRECEIVEDFROMDSAOB" label="处置子公司及其他营业单位收到的现金净额;NetCashReceivedFromDisposalSubsidiariesAndOtherBusiness" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHRECEIVEDRELATINGTOOIA" label="收到其他与投资活动有关的现金;CashReceivedRelatingToOtherInvestingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALCASHINFLOWSFROMIA" label="投资活动现金流入小计;TotalCashInflowsFromInvestingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHPAIDTOACQUIRE" label="购建固定资产、无形资产和其他长期资产支付的现金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHPAYMENTSFORINVESTMENTS" label="投资支付的现金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETCASHPAIDTOASAOB" label="取得子公司及其他营业单位支付的现金净额;NetCashPaidToAcquireSubsidiariesAndOtherBusiness" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHPAYMENTSRELATEDTOTA" label="支付其他与投资活动有关的现金;CashPaymentsRelatedToOtherInvestingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="SUBTOTALOFCASHOUTFLOWS" label="投资活动现金流出小计" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETCASHFLOWSFROMIA" label="投资活动产生的现金流量净额;NetCashFlowsFromInvestingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHRECEIVEDFROMINVESTORS" label="吸收投资收到的现金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHFROMBORROWINGS" label="取得借款收到的现金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="OTHERCASHRECEIVEDRELATINGTFA" label="收到其他与筹资活动有关的现金;OtherCashReceivedRelatingToFinancingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALCASHINFLOWSFROMFA" label="筹资活动现金流入小计TotalCashInflowsFromFinancingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHREPAYMENTSFORDEBTS" label="偿还债务支付的现金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHPAYMENTSFORDIST" label="分配股利、利润或偿付利息支付的现金" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="CASHPAYMENTSRELATEDTOOFA" label="支付其他与筹资活动有关的现金;CashPaymentsRelatedToOtherFinancingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="TOTALCASHOUTFLOWSFROMFA" label="筹资活动现金流出小计;TotalCashOutflowsFromFinancingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETCASHFLOWSFROMFA" label="筹资活动产生的现金流量净额;NetCashFlowsFromFinancingActivities" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="EFFECTOFEXCHANGRATECOC" label="四、汇率变动对现金及现金等价物的影响;EffectOfExchangRateChangesOnCash" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="NETINCREASEINCASHANDCE" label="五、现金及现金等价物净增加额;NetIncreaseInCashAndCashEquivalents" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="INITIALCASHANDCASHEB" label="加:期初现金及现金等价物余额;InitialCashAndCashEquivalentsBalance" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="THEFINALCASHANDCASHEB" label="六、期末现金及现金等价物余额;TheFinalCashAndCashEquivalentsBalance" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_CASHFLOW" />
+        </managerProperties>
+      </manager>
+    </class>    
+    <class name="PIDR_INT_FINSTATEMENT" label="补充报表接口表" keyAttributes="CUSTOMERID,STAGE">
+      <attributes>
+		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+		<attribute name="STAGE" label="期次" type="STRING" length="1"/>
+		<attribute name="FINSTAYEAR" label="报表年份" type="STRING" length="4"/>
+		<attribute name="SHEETTYPE" label="报表类型" type="STRING" length="2"/>
+		<attribute name="SHEETTYPEDIVIDE" label="报表类型细分" type="STRING" length="1"/>
+		<attribute name="INTERESTPAYABLE" label="资产负债,补充,应付利息" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="DIVIDENDSRECEIVABLE" label="资产负债,补充,应收股利" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="UNCLEAREDGUARBENDOFTHETERM" label="补充报表,未清担保余额" type="DOUBLE" length="17" scale="2"/>
+		<attribute name="MANAGERORGID" label="管户机构编号" type="STRING" length="32"/>
+		<attribute name="MANAGERUSERID" label="管户用户编号" type="STRING" length="32"/>
+		<attribute name="OPERORGID" label="操作机构编号" type="STRING" length="32"/>
+		<attribute name="OPERUSERID" label="操作用户编号" type="STRING" length="32"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+		<attribute name="IMPORTTYPE" label="区分数据来源,分web和批量" type="STRING" length="10"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_FINSTATEMENT" />
+        </managerProperties>
+      </manager>
+    </class>   
+    <class name="PIDR_INT_ERROR" label="接口导入数据重复表" keyAttributes="SERIALNO">
+      <attributes>
+		<attribute name="SERIALNO" label="错误流水号" type="STRING" length="32"/>
+		<attribute name="TABLENAME" label="错误表名" type="STRING" length="32"/>
+		<attribute name="ERRORKEY" label="重复主键" type="STRING" length="32"/>
+		<attribute name="ERRORKEYVALUE" label="重复主键值" type="STRING" length="250"/>
+		<attribute name="OCCURDATE" label="数据日期" type="STRING" length="10"/>
+		<attribute name="EXTEND1" label="扩展字段1" type="STRING" length="30"/>
+		<attribute name="EXTEND2" label="扩展字段2" type="STRING" length="30"/>
+		<attribute name="EXTEND3" label="扩展字段3" type="STRING" length="30"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_INT_ERROR" />
+        </managerProperties>
+      </manager>
+    </class>   
+     <class name="PIDR_WHITELIST" label="央评白名单数据表" keyAttributes="CustomerID">
+      <attributes>
+		<attribute name="CUSTOMERID" label="客户编号" type="STRING" length="60"/>
+		<attribute name="ENTNAME" label="企业名称" type="STRING" length="160"/>
+		<attribute name="ENTCERTTYPE" label="企业身份标识类型" type="STRING" length="2"/>
+		<attribute name="ENTCERTNUM" label="企业身份标识号码" type="STRING" length="18"/>
+		<attribute name="PIDREVALSCORE" label="系统评估得分" type="DOUBLE" length="6" scale="2"/>
+		<attribute name="PBCEVALSCORE" label="人行评估得分" type="STRING" length="6"/>
+		<attribute name="RUNSTATUS" label="执行状态" type="STRING" length="2"/>
+		<attribute name="RUNTIME" label="执行时间" type="STRING" length="20"/>
+      </attributes>
+      <manager>
+        <managerProperties>
+          <property name="database" value="als" />	
+          <property name="createKey" value="false" />
+          <property name="table" value="PIDR_WHITELIST" />
+        </managerProperties>
+      </manager>
+    </class>   
+    </package>
+</jbo>
